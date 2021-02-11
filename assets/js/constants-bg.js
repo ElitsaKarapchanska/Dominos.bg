@@ -33,8 +33,8 @@ const DESSERTS = "ДЕСЕРТИ";
 const ICE_CREAMS = "СЛАДОЛЕДИ";
 
 // buttons
-const CHOOSE = 'ИЗБЕРЕТЕ';
-const ORDER_NOW = 'ПОРЪЧАЙ СЕГА';
+const CHOOSE = "ИЗБЕРЕТЕ";
+const ORDER_NOW = "ПОРЪЧАЙ СЕГА";
 
 // pizzas
 const CUSTOM_PIZZA = "НАПРАВИ ПИЦА ПО ТВОЙ ВКУС";
@@ -68,14 +68,31 @@ const PIZZA_OSLO_CREAM = "ПИЦА ОСЛО СЪС СМЕТАНА";
 const PIZZA_GAUCHO = "ПИЦА ГАУЧО";
 
 // starters
-const MOZZARELLA_BREAD = 'МОЦАРЕЛЕНО ХЛЕБЧЕ';
-const MOZZARELLA_BREADSTICKS = 'МОЦАРЕЛЕНИ ПРЪЧИЦИ';
+const MOZZARELLA_BREAD = "МОЦАРЕЛЕНО ХЛЕБЧЕ";
+const MOZZARELLA_BREADSTICKS = "МОЦАРЕЛЕНИ ПРЪЧИЦИ";
 
 // chicken
-const CHICKEN_KICKERS = 'ПИЛЕ КИКЕРС';
-const CHICKEN_STRIPPERS = 'ПИЛЕ СТРИПЕРС';
-const BUFFALO_WINGS = 'КРИЛЦА BUFFALO';
-const HOT_BUFFALO_WINGS = 'КРИЛЦА BUFFALO ЛЮТИ';
+const CHICKEN_KICKERS = "ПИЛЕ КИКЕРС";
+const CHICKEN_STRIPPERS = "ПИЛЕ СТРИПЕРС";
+const BUFFALO_WINGS = "КРИЛЦА BUFFALO";
+const HOT_BUFFALO_WINGS = "КРИЛЦА BUFFALO ЛЮТИ";
+
+// pasta
+const CARBONARA_PASTA = "ПАСТА КАРБОНАРА + ПРИБОРИ";
+const NAPOLITEN = "НАПОЛИТАНА + ПРИБОРИ";
+const PASTA_PEPPERONI = "ПАСТА ПЕПЕРОНИ + ПРИБОРИ";
+const MAC_AND_CHEESE = "МАК ЕНД ЧИЙЗ + ПРИБОРИ";
+
+// salads
+const ROCKET_SALAD = "САЛАТА РОКА + СОС + ПРИБОРИ";
+const CAESARS_BACON = "САЛАТА ЦЕЗАР БЕКОН + СОС + ПРИБОРИ";
+const CAESARS_CHICKEN = "САЛАТА ЦЕЗАР С ПИЛЕ + СОС + ПРИБОРИ";
+const TUNA_SALAD = "САЛАТА РИБА ТОН + ПРИБОРИ";
+
+// sandwiches
+const PEPPERONI_SANDWICH = "САНДВИЧ ПЕПЕРОНИ";
+const BBQ_CHICKEN_SANDWICH = "САНДВИЧ БАРБЕКЮ ПИЛЕ";
+const MEDITERRANEO_SANDWICH = "САНДВИЧ МЕДИТЕРАНЕО";
 
 // ingredients
 const SAUCES = "Сосове";
