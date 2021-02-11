@@ -35,6 +35,8 @@ const ICE_CREAMS = "СЛАДОЛЕДИ";
 // buttons
 const CHOOSE = "ИЗБЕРЕТЕ";
 const ORDER_NOW = "ПОРЪЧАЙ СЕГА";
+const SOLD_OUT = "ИЗЧЕРПАНО";
+const ADD = "ДОБАВИ";
 
 // pizzas
 const CUSTOM_PIZZA = "НАПРАВИ ПИЦА ПО ТВОЙ ВКУС";
@@ -93,6 +95,18 @@ const TUNA_SALAD = "САЛАТА РИБА ТОН + ПРИБОРИ";
 const PEPPERONI_SANDWICH = "САНДВИЧ ПЕПЕРОНИ";
 const BBQ_CHICKEN_SANDWICH = "САНДВИЧ БАРБЕКЮ ПИЛЕ";
 const MEDITERRANEO_SANDWICH = "САНДВИЧ МЕДИТЕРАНЕО";
+
+// dips
+const FRANKS_HOT_SAUCE = "FRANK'S ЛЮТ СОС";
+const HONEY_MUSTARD_DIP  = "МЕДЕНА ГОРЧИЦА";
+const GARLIC_HERBS_DIP = "ЧЕСНОВ COC";
+const BARBECUE_DIP = "БАРБЕКЮ СОС";
+const SWEET_CHILLI_DIP = "ЧИЛИ СОС";
+const TOMATO_DIP = "ДОМАТЕН СОС";
+const MILK_BASED_SAUCE = "МЛЕЧЕН СОС";
+const RANCH_DIP = "РАНЧ СОС";
+const CAESAR_DIP = "ЦЕЗАР СОС";
+const ITALIAN_DIP = "ИТАЛИАНСКИ СОС";
 
 // ingredients
 const SAUCES = "Сосове";
