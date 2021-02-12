@@ -1,7 +1,7 @@
+// super class for all products(pizzas,chicken,desserts,drinks,pasta,salads,sandwiches,sauces,starters);
 class Product{
-    constructor(title,description,image){
+    constructor(title,image){
         this.title=title;
-        this.description=description;
         this.image=image;
     }
 }
