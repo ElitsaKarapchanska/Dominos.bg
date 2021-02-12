@@ -1,12 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dominos</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domino's Pizza</title>
+    <link rel="icon" href="./assets/images/dominos.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="./assets/styles/index.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div id="registrationPage" class="main-wrapper rounded">
+        <form action="">
+          <h2>РЕГИСТРАЦИЯ</h2>
+          <div class="flex space-between">
+            <div class="text-col">
+              <label for="name" class="inline-block">ИМЕ *</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="rounded"
+                required
+              />
+            </div>
+            <div class="text-col">
+              <label for="lName" class="inline-block">ФАМИЛНО ИМЕ *</label>
+              <input
+                type="text"
+                name="lName"
+                id="lName"
+                class="rounded"
+                required
+              />
+            </div>
+          </div>
+          <label for="email" class="inline-block">E-MAIL *</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="rounded"
+            required
+          />
+          <label for="pass" class="inline-block">ПАРОЛА *</label>
+          <input
+            type="password"
+            name="pass"
+            id="pass"
+            class="rounded"
+            required
+          />
+          <label for="confirm" class="inline-block">ПОТВЪРДИ ПАРОЛАТА *</label>
+          <input
+            type="password"
+            name="confirm"
+            id="confirm"
+            class="rounded"
+            required
+          />
+          <label for="pData" class="flex">
+            <input
+              type="checkbox"
+              name="pData"
+              id="pData"
+              required
+              class="hidden"
+            />
+            <span class="checkbox rounded"></span>
+            <span class="consent">
+              Доставка без име и адрес?... Правим чудеса, но това е невъзможно!
+              Затова за нас е необходимо да въвеждаме и обработваме вашите лични
+              данни в нашата база данни, според Общите правила за защита на
+              данните.
+            </span>
+          </label>
+          <label for="confidentiality" class="flex">
+            <input
+              type="checkbox"
+              name="confidentiality"
+              id="confidentiality"
+              required
+              class="hidden"
+            />
+            <span class="checkbox rounded"></span>
+            <span class="consent">
+              Потвърждавам, че съм прочел и съм съгласен с
+              <a
+                href="https://www.dominos.bg/pdfs/Confidentiality_Statement_Regarding_Order_and_Delivery.pdf"
+                target="_blank"
+                >Декларация за поверителност във връзка с регистрация за поръчка
+                и доставка</a
+              >.
+            </span>
+          </label>
+          <label for="offers" class="flex">
+            <input type="checkbox" name="offers" id="offers" class="hidden" />
+            <span class="checkbox rounded"></span>
+            <span class="consent">
+              Да Ви държим в течение с нашите най-нови горещи оферти и страхотни
+              нови продукти, като използваме предоставените от Вас данни за
+              връзка.
+            </span>
+          </label>
+          <label for="news" class="flex ">
+            <input type="checkbox" name="news" id="news" class="hidden" />
+            <span class="checkbox rounded"></span>
+            <span class="consent">
+              Да Ви държим в течение с нашите корпоративни новини, като
+              използваме предоставените от Вас данни за връзка.
+            </span>
+          </label>
+          <div class="flex end">
+            <input type="submit" value="РЕГИСТРАЦИЯ" class="green-button">
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
 </html>
