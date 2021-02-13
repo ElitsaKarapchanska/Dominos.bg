@@ -1,6 +1,6 @@
 class Dessert extends Product {
-    constructor(title, image, price, quantity, description) {
+    constructor(title, image, price, weight, description) {
         this.description=description;
-        super(title, image, price, quantity);
+        super(title, image, price, weight);
     }
 }
