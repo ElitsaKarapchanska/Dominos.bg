@@ -63,6 +63,15 @@ h2 {
   display: inline-block;
 }
 
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+a:active {
+  color: inherit;
+}
+
 #registrationPage form input:not([type="submit"]) {
   width: 100%;
   margin-bottom: 20px;
