@@ -13,9 +13,15 @@ function showLoadingScreen(loadingScreen) {
   body.style.height = "100%";
   setTimeout(() => hideLoadingScreen(loadingScreen), 1000);
 }
+function openResponsiveNavBar(){
+  let container=document.getElementById('navbar-rightt');
+  container.classList.toggle('navbar-right-right');
+  console.log(container);
+  
+}
 
+document.getElementById('faIcon').addEventListener('click', openResponsiveNavBar);
 window.addEventListener("DOMContentLoaded", () =>
   showLoadingScreen(loadingScreen)
 );
-
 window.addEventListener("hashchange", () => showLoadingScreen(loadingScreen));

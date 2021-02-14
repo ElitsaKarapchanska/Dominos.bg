@@ -8,6 +8,7 @@
         <link rel="icon" href="./assets/images/dominos.ico" type="image/x-icon"/>
         <link rel="stylesheet" href="./assets/styles/reset.css"/>
         <link rel="stylesheet" href="./assets/styles/index.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div id="loadingScreen" class="flex center">
@@ -16,40 +17,63 @@
         <header>
             <nav class='navbar navbar-default'>
                 <div class='container'>
-                    <ul class='navbar-right'>
-                        <li id='logo'>
-                            <a href='#'><img src='./assets/images/logo-white.png' alt='dominoslogo' style=' margin: 7px 0px 19px;
+                    <div class='headIcons'>
+                    <!-- icon-responsive -->
+                    <div class='icon-responsive'>
+                        <a href="javascript:void(0);" class="icon">
+                            <i class="fa fa-bars"id='faIcon' style='color: #fff;'></i>
+                        </a> 
+                    </div>
+                    <!-- //logo -->
+                    <div id='logo-wrapper' class='col-xs-6 col-md-12 padding-0'>
+                            <a href='#' class='navbar-logo'><img src='./assets/images/logo-white.png' alt='dominoslogo' style=' margin: 7px 0px 19px;
                               height: 51px;
                               width: 228px;'></a>
-                        </li>
-                        <li class='callcenter text-center'>
-                            <ul>
-                                <li id='callcenter'>
-                                    <a style='width:10px;height:10px;' href='#'>
-                                        <div style="width: 30px;height: 30px;" data-toggle='tooltip' data-original-title='ОБАДЕТЕ НИ СЕ'>
-                                            <img src='./assets/images/tel.svg' alt='svg tel image'>
-                                        </div>
-                                    </a>
+                    </div>
+                    <!-- to card responsive-->
+                    <div class='cart-icon'>
+                            <img class='pull-right cursor-pointer' src='./assets/images/basket.svg' alt='Basket Icon'>
+                            <span class='cart-num '>
+                                <span id='orderNumber'>0</span>
+                            </span>
+                    </div>
+                    </div>
+                    <!-- first icons -->
+                        <div class='navbar-collapse' id='navigation'>
+                            <ul class='navbar-right' id='navbar-rightt'>
+                                  <!-- telefon -->
+                                 <li class='text-center'>
+                                     <ul class='callcenter'>
+                                         <li>  
+                                            <a class='font-bold text-center' style='width:10px;height:10px;' href='#'>
+                                                <div style="width: 30px;height: 30px;" class='tooltip'>
+                                                    <img src='./assets/images/tel.svg' alt='svg tel image' id='svgtel'>
+                                                    <span class="tooltiptext">ОБАДЕТЕ НИ СЕ</span>
+                                                </div>
+                                            </a>
+                                         </li>
+                                         <li class="show-phone">
+                                             <a class='font-bold text-center' href='#'>070012525</a>
+                                         </li>
+                                     </ul>
                                 </li>
+                                <!-- language -->
+                                <li class='language-select text-center'>
+                                    <a href='#' class='font-bold lang_select text-center' data-lang='BG'>BG</a>
+                                    <div class='language-sep font-bold'>|</div>
+                                      <a href='#' class='font-bold lang_select text-center' data-lang='en'>EN</a>
+                                </li>
+                                <!-- menu -->
+                                <li id='menu'>
+                                    <a href='#' data-rel='select-store' class='font-bold open-modal text-center'>МЕНЮ</a>
+                                </li>
+                                <!-- order now -->
                                 <li>
-                                  <a class='font-bold' href='#'>070012525</a>
+                                    <a href='#' class='button font-bold cart-btn text-center' data-type='order'>ПОРЪЧАЙ СЕГА</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class='language-select language-select-desktop text-center'>
-                          <a href='#' class='font-bold lang_select' data-lang='BG'>BG</a>
-                          <div class='language-sep'>|</div>
-                          <a href='#' class='font-bold lang_select' data-lang='en'>EN</a>
-                        </li>
-                        <li>
-                          <a href='#' data-rel='select-store' class='font-bold open-modal'>МЕНЮ</a>
-                        </li>
-                        <li>
-                          <a href='#' class='button font-bold mrouter cart-btn' data-type='order'>ПОРЪЧАЙ СЕГА</a>
-                        </li>
-
-                    </ul>
-                </div>
+                        </div>
+                </div> 
             </nav>
         </header>
         <main>
