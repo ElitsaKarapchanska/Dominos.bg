@@ -282,9 +282,7 @@ li.language-select :hover{
   color:#898989;
 }
 @media (max-width: 899px){
-  ul.callcenter,  li.language-select ,.open-modal{
-    display: none;
-  }
+  
   .icon-responsive{
     display: block;
     font-size:2em;
@@ -314,9 +312,6 @@ li.language-select :hover{
     display: flex;
     justify-content: space-between;
   }
-  .cart-btn{
-    display:none;
-  }
   .container{
     display: block;
     justify-content:space-between;
@@ -325,21 +320,34 @@ li.language-select :hover{
     align-items: baseline;
     align-content: center;
   }
+  ul.navbar-right-right.navbar-right  {
+    margin: 5px 0;
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #0d6490;
+    line-height: 47px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid  #0d6490;
+  }
+  .font-bold{
+    font-weight: 700;
+    color: #0d6490;
+    font:17px 'Open Sans',sans-serif;
+  }
+
+  ul.navbar-right{
+     display: none;
+  }
+  li.language-select, li{
+    text-align: center;
+    margin:0 auto;
+  }
     
 }
-.navbar-right-right  {
-  width: 50%;
-  background-color: white;
-  margin: 5px 0;
-  padding: 10px 20px;
-  font-size: 15px;
-  color: #0d6490;
-  line-height: 47px;
-}
-.navbar-right-right > ul.callcenter{
-  display: block;
-  color: #0d6490;
-}
+
+
   
 
 
