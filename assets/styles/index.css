@@ -3,6 +3,7 @@ body {
   font-family: "Open Sans", sans-serif;
   background: rgb(216, 175, 117) url(../images/background.jpg);
   color: rgb(90, 90, 90);
+  font-weight: normal;
 }
 
 .main-wrapper {
@@ -239,6 +240,7 @@ div#appLink {
 
 #registrationPage label.flex {
   margin-bottom: 20px;
+  line-height: 20px;
 }
 
 #registrationPage input[type="checkbox"]:checked + span.checkbox:after {
