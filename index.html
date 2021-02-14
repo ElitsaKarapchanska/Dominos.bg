@@ -76,7 +76,7 @@
         </div>
       </div>
       <div id="menuPage">
-        <nav></nav>
+        <nav id="menuNav"></nav>
         <div id="allDealsPage"></div>
         <div id="allPizzasPage"></div>
         <div id="allStartersPage"></div>
@@ -91,7 +91,7 @@
       <div id="registrationPage" class="main-wrapper rounded">
         <form action="">
           <h2>РЕГИСТРАЦИЯ</h2>
-          <div class="flex space-between">
+          <div class="flex space-between responsive-block">
             <div class="text-col">
               <label for="name" class="inline-block">ИМЕ *</label>
               <input
@@ -137,7 +137,7 @@
             class="rounded"
             required
           />
-          <label for="pData" class="flex">
+          <label for="pData" class="flex check">
             <input
               type="checkbox"
               name="pData"
@@ -153,7 +153,7 @@
               данните.
             </span>
           </label>
-          <label for="confidentiality" class="flex">
+          <label for="confidentiality" class="flex check">
             <input
               type="checkbox"
               name="confidentiality"
@@ -172,7 +172,7 @@
               >.
             </span>
           </label>
-          <label for="offers" class="flex">
+          <label for="offers" class="check hidden hiddenCheckbox">
             <input type="checkbox" name="offers" id="offers" class="hidden" />
             <span class="checkbox rounded"></span>
             <span class="consent">
@@ -181,7 +181,7 @@
               връзка.
             </span>
           </label>
-          <label for="news" class="flex">
+          <label for="news" class="check hidden hiddenCheckbox">
             <input type="checkbox" name="news" id="news" class="hidden" />
             <span class="checkbox rounded"></span>
             <span class="consent">

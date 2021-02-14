@@ -8,7 +8,6 @@ body {
 
 .main-wrapper {
   max-width: 1200px;
-  /* next step 950px; */
   margin: 30px auto;
   padding: 10px 0;
 }
@@ -238,7 +237,7 @@ div#appLink {
   font-size: 22px;
 }
 
-#registrationPage label.flex {
+#registrationPage label.check {
   margin-bottom: 20px;
   line-height: 20px;
 }
@@ -278,4 +277,34 @@ div#appLink {
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
+}
+
+@media screen and (max-width: 1250px) {
+  .main-wrapper {
+    max-width: 950px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .main-wrapper {
+    max-width: 96%;
+  }
+
+  #registrationPage form {
+    max-width: 93%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .text-col {
+    width: 100%;
+  }
+
+  .responsive-block {
+    display: block;
+  }
+
+  #registrationPage .green-button {
+    width: 100%;
+  }
 }
