@@ -281,7 +281,14 @@ li.language-select :hover{
 #menu :hover{
   color:#898989;
 }
-@media (max-width: 899px){
+#telText{
+  display: none;
+}
+.visible-resposnsive{
+  display: none;
+}
+
+@media (max-width: 1020px){
   
   .icon-responsive{
     display: block;
@@ -344,7 +351,15 @@ li.language-select :hover{
     text-align: center;
     margin:0 auto;
   }
-    
+  .visible#telText{
+    display: block;
+  }
+  #telNumber{
+    display:none;
+  }
+  .visible-resposnsive{
+    display: block;
+  }
 }
 
 

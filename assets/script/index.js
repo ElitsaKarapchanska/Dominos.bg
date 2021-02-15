@@ -17,6 +17,8 @@ function openResponsiveNavBar(){
   let container=document.getElementById('navbar-rightt');
   container.classList.toggle('navbar-right-right');
   console.log(container);
+  let telefonNumber=document.getElementById('telText');
+  telefonNumber.classList.toggle('visible');
   
 }
 
