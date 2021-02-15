@@ -14,6 +14,7 @@ let allPages = [
   document.getElementById("allDrinksPage"),
   document.getElementById("registrationPage"),
 ];
+let errorPage = document.getElementById("errorPage");
 let menuPage = document.getElementById("menuPage");
 let controllerCeckbox = document.getElementById("pData");
 let hiddentCheckboxes = Array.from(
@@ -28,12 +29,13 @@ function showPage() {
     if (page.id === currentPage + "Page") {
       anyPageWasShown = true;
       page.style.display = "block";
+      errorPage.style.display = "none";
       //   if (page.id.includes("all"))   meaning that the page a menu page -> show the menu navigation and the filters for the category
     } else {
       page.style.display = "none";
     }
   });
-  //   if (!anyPageWasShown) show error page
+    if (!anyPageWasShown) errorPage.style.display = "flex";
 }
 
 function hideLoadingScreen(loadingScreen) {
