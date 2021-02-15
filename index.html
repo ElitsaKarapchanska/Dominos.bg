@@ -14,147 +14,144 @@
         <div id="loadingScreen" class="flex center">
             <img src="./assets/images/preloader.gif" alt="loading screen"/>
         </div>
-        <header>
-            <nav class='navbar navbar-default'>
-                <div class='container'>
-                    <div class='headIcons'>
+        <header'><nav class='nav' id='navbar-default1'>
+            <div class='container'>
+                <div  class='headIcons'>
                     <!-- icon-responsive -->
                     <div class='icon-responsive'>
                         <a href="javascript:void(0);" class="icon">
-                            <i class="fa fa-bars"id='faIcon' style='color: #fff;'></i>
-                        </a> 
+                            <i class="fa fa-bars" id='faIcon'></i>
+                        </a>
                     </div>
                     <!-- logo -->
                     <div id='logo-wrapper' class='col-xs-6 col-md-12 padding-0'>
-                            <a href='#' class='navbar-logo'><img src='./assets/images/logo-white.png' alt='dominoslogo' style=' margin: 7px 0px 19px;
-                              height: 51px;
-                              width: 228px;'></a>
+                        <a href='#' class='navbar-logo'>
+                            <img id='whiteLogo' src='./assets/images/logo-white.png' alt='dominoslogo' style=' margin: 7px 0px 19px;height: 51px;
+                            width: 228px;'>                                                                                                              
+                            <img id='blueLogo' src='./assets/images/logo-blue.png' alt='dominoslogo' style='height: 101px; width: 228px; display: none; '></a>
+
                     </div>
                     <!-- to card responsive-->
                     <div class='cart-icon'>
-                            <img class='pull-right cursor-pointer' src='./assets/images/basket.svg' alt='Basket Icon'>
-                            <span class='cart-num '>
-                                <span id='orderNumber'>0</span>
-                            </span>
+                        <img class='pull-right cursor-pointer' src='./assets/images/basket.svg' alt='Basket Icon'>
+                        <span class='cart-num '>
+                            <span id='orderNumber'>0</span>
+                        </span>
                     </div>
-                    </div>
-                    <!-- first icons -->
-                        <div class='navbar-collapse' id='navigation'>
-                            <ul class='navbar-right' id='navbar-rightt'>
-                                  <!-- telefon -->
-                                 <li class='text-center'>
-                                     <ul class='callcenter'>
-                                         <li>  
-                                            <a class='font-bold text-center' style='width:10px;height:10px;' href='#'>
-                                                <div style="width: 30px;height: 30px;" class='tooltip'>
-                                                    <img src='./assets/images/tel.svg' alt='svg tel image' id='svgtel'>
-                                                    <span class="tooltiptext">ОБАДЕТЕ НИ СЕ</span>
-                                                </div>
-                                            </a>
-                                         </li>
-                                         <li class="show-phone">
-                                             <a class='font-bold text-center' href='#'id='telNumber'>070012525</a>
-                                             <a class='font-bold text-center' href='#'id='telText'>ОБАДЕТЕ НИ СЕ</a>
-                                         </li>
-                                     </ul>
-                                </li>
-                                <!-- language -->
-                                <li class='language-select text-center'>
-                                    <a href='#' class='font-bold lang_select text-center' data-lang='BG'>BG</a>
-                                    <div class='language-sep font-bold'>|</div>
-                                      <a href='#' class='font-bold lang_select text-center' data-lang='en'>EN</a>
-                                </li>
-                                <!-- menu -->
-                                <li id='menu'>
-                                    <a href='#' data-rel='select-store' class='font-bold open-modal text-center'>МЕНЮ</a>
-                                </li>
-                                <!-- order now -->
+                </div>
+                <!-- first icons -->
+                <div class='navbar-collapse' id='navigation'>
+                    <ul
+                        class='navbar-right' id='navbar-rightt'>
+                        <!-- telefon -->
+                        <li class='text-center'>
+                            <ul class='callcenter'>
                                 <li>
-                                    <a href='#' class='button font-bold cart-btn text-center' data-type='order'>ПОРЪЧАЙ СЕГА</a>
+                                    <a class='font-bold text-center' style='width:10px;height:10px;' href='#'>
+                                        <div style="width: 30px;height: 30px;" class='tooltip'>
+                                            <img src='./assets/images/tel.svg' alt='svg tel image' id='svgtel'>
+                                            <span class="tooltiptext">ОБАДЕТЕ НИ СЕ</span>
+                                        </div>
+                                    </a>
                                 </li>
-                                <li class='visible-resposnsive'>
-                                    <a href='#' class='font-bold'>СВЪРЖЕТЕ СЕ С НАС</a>
-                                </li>
-                                <li class='visible-resposnsive'>
-                                    <a href='#' class='font-bold'>УСЛОВИЯ ЗА ПОЛЗВАНЕ</a>
-                                </li>
-                                <li class='visible-resposnsive'>
-                                    <a href='#' class='font-bold'>РЕСТОРАНТИ</a>
-                                </li>
-                                <li class='visible-resposnsive'>
-                                    <a href='#' class='font-bold'>АЛЕРГЕНИ</a>
-                                </li>
-                                <li class='visible-resposnsive'>
-                                    <a href='#' class='font-bold'>ЗАЩИТА НА ЛИЧНИТЕ ДАННИ</a>
+                                <li class="show-phone">
+                                    <a class='font-bold text-center' href='#' id='telNumber'>070012525</a>
+                                    <a class='font-bold text-center' href='#' id='telText'>ОБАДЕТЕ НИ СЕ</a>
                                 </li>
                             </ul>
-                        </div>
-                </div> 
-            </nav>
-        </header>
-        <main>
-            <div id="registrationPage" class="main-wrapper rounded">
-                <form action="">
-                    <h2>РЕГИСТРАЦИЯ</h2>
-                    <div class="flex space-between">
-                        <div class="text-col">
-                            <label for="name" class="inline-block">ИМЕ *</label>
-                            <input type="text" name="name" id="name" class="rounded" required/>
-                        </div>
-                        <div class="text-col">
-                            <label for="lName" class="inline-block">ФАМИЛНО ИМЕ *</label>
-                            <input type="text" name="lName" id="lName" class="rounded" required/>
-                        </div>
-                    </div>
-                    <label for="email" class="inline-block">E-MAIL *</label>
-                    <input type="email" name="email" id="email" class="rounded" required/>
-                    <label for="pass" class="inline-block">ПАРОЛА *</label>
-                    <input type="password" name="pass" id="pass" class="rounded" required/>
-                    <label for="confirm" class="inline-block">ПОТВЪРДИ ПАРОЛАТА *</label>
-                    <input type="password" name="confirm" id="confirm" class="rounded" required/>
-                    <label for="pData" class="flex">
-                        <input type="checkbox" name="pData" id="pData" required class="hidden"/>
-                        <span class="checkbox rounded"></span>
-                        <span class="consent">
-                            Доставка без име и адрес?... Правим чудеса, но това е невъзможно!
-                                          Затова за нас е необходимо да въвеждаме и обработваме вашите лични
-                                          данни в нашата база данни, според Общите правила за защита на
-                                          данните.
-                        </span>
-                    </label>
-                    <label for="confidentiality" class="flex">
-                        <input type="checkbox" name="confidentiality" id="confidentiality" required class="hidden"/>
-                        <span class="checkbox rounded"></span>
-                        <span class="consent">
-                            Потвърждавам, че съм прочел и съм съгласен с
-                            <a href="https://www.dominos.bg/pdfs/Confidentiality_Statement_Regarding_Order_and_Delivery.pdf" target="_blank">Декларация за поверителност във връзка с регистрация за поръчка
-                                                и доставка</a>.
-                        </span>
-                    </label>
-                    <label for="offers" class="flex">
-                        <input type="checkbox" name="offers" id="offers" class="hidden"/>
-                        <span class="checkbox rounded"></span>
-                        <span class="consent">
-                            Да Ви държим в течение с нашите най-нови горещи оферти и страхотни
-                                          нови продукти, като използваме предоставените от Вас данни за
-                                          връзка.
-                        </span>
-                    </label>
-                    <label for="news" class="flex">
-                        <input type="checkbox" name="news" id="news" class="hidden"/>
-                        <span class="checkbox rounded"></span>
-                        <span class="consent">
-                            Да Ви държим в течение с нашите корпоративни новини, като
-                                          използваме предоставените от Вас данни за връзка.
-                        </span>
-                    </label>
-                    <div class="flex end">
-                        <input type="submit" value="РЕГИСТРАЦИЯ" class="green-button"/>
-                    </div>
-                </form>
+                        </li>
+                        <!-- language -->
+                        <li class='language-select text-center'>
+                            <a href='#' class='font-bold lang_select text-center' data-lang='BG'>BG</a>
+                            <div class='language-sep font-bold'>|</div>
+                            <a href='#' class='font-bold lang_select text-center' data-lang='en'>EN</a>
+                        </li>
+                        <!-- menu -->
+                        <li id='menu'>
+                            <a href='#' data-rel='select-store' class='font-bold open-modal text-center'>МЕНЮ</a>
+                        </li>
+                        <!-- order now -->
+                        <li>
+                            <a href='#' class='button font-bold cart-btn text-center' data-type='order'>ПОРЪЧАЙ СЕГА</a>
+                        </li>
+                        <li class='visible-resposnsive'>
+                            <a href='#' class='font-bold'>СВЪРЖЕТЕ СЕ С НАС</a>
+                        </li>
+                        <li class='visible-resposnsive'>
+                            <a href='#' class='font-bold'>УСЛОВИЯ ЗА ПОЛЗВАНЕ</a>
+                        </li>
+                        <li class='visible-resposnsive'>
+                            <a href='#' class='font-bold'>РЕСТОРАНТИ</a>
+                        </li>
+                        <li class='visible-resposnsive'>
+                            <a href='#' class='font-bold'>АЛЕРГЕНИ</a>
+                        </li>
+                        <li class='visible-resposnsive'>
+                            <a href='#' class='font-bold'>ЗАЩИТА НА ЛИЧНИТЕ ДАННИ</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </main>
-        <footer></footer>
-        <script src="./assets/script/index.js"></script>
+        </nav>
     </body>
-</html>
+</html></header><main>
+<div id="registrationPage" class="main-wrapper rounded">
+    <form action="">
+        <h2>РЕГИСТРАЦИЯ</h2>
+        <div class="flex space-between">
+            <div class="text-col">
+                <label for="name" class="inline-block">ИМЕ *</label>
+                <input type="text" name="name" id="name" class="rounded" required/>
+            </div>
+            <div class="text-col">
+                <label for="lName" class="inline-block">ФАМИЛНО ИМЕ *</label>
+                <input type="text" name="lName" id="lName" class="rounded" required/>
+            </div>
+        </div>
+        <label for="email" class="inline-block">E-MAIL *</label>
+        <input type="email" name="email" id="email" class="rounded" required/>
+        <label for="pass" class="inline-block">ПАРОЛА *</label>
+        <input type="password" name="pass" id="pass" class="rounded" required/>
+        <label for="confirm" class="inline-block">ПОТВЪРДИ ПАРОЛАТА *</label>
+        <input type="password" name="confirm" id="confirm" class="rounded" required/>
+        <label for="pData" class="flex">
+            <input type="checkbox" name="pData" id="pData" required class="hidden"/>
+            <span class="checkbox rounded"></span>
+            <span class="consent">
+                Доставка без име и адрес?... Правим чудеса, но това е невъзможно!
+                                                                                                                      Затова за нас е необходимо да въвеждаме и обработваме вашите лични
+                                                                                                                      данни в нашата база данни, според Общите правила за защита на
+                                                                                                                      данните.
+            </span>
+        </label>
+        <label for="confidentiality" class="flex">
+            <input type="checkbox" name="confidentiality" id="confidentiality" required class="hidden"/>
+            <span class="checkbox rounded"></span>
+            <span class="consent">
+                Потвърждавам, че съм прочел и съм съгласен с
+                <a href="https://www.dominos.bg/pdfs/Confidentiality_Statement_Regarding_Order_and_Delivery.pdf" target="_blank">Декларация за поверителност във връзка с регистрация за поръчка
+                                                                                                                                            и доставка</a>.
+            </span>
+        </label>
+        <label for="offers" class="flex">
+            <input type="checkbox" name="offers" id="offers" class="hidden"/>
+            <span class="checkbox rounded"></span>
+            <span class="consent">
+                Да Ви държим в течение с нашите най-нови горещи оферти и страхотни
+                                                                                                                      нови продукти, като използваме предоставените от Вас данни за
+                                                                                                                      връзка.
+            </span>
+        </label>
+        <label for="news" class="flex">
+            <input type="checkbox" name="news" id="news" class="hidden"/>
+            <span class="checkbox rounded"></span>
+            <span class="consent">
+                Да Ви държим в течение с нашите корпоративни новини, като
+                                                                                                                      използваме предоставените от Вас данни за връзка.
+            </span>
+        </label>
+        <div class="flex end">
+            <input type="submit" value="РЕГИСТРАЦИЯ" class="green-button"/>
+        </div>
+    </form>
+</div></main><footer></footer><script src="./assets/script/index.js"></script></body></html>

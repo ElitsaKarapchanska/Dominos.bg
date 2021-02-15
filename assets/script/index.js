@@ -16,12 +16,28 @@ function showLoadingScreen(loadingScreen) {
 function openResponsiveNavBar(){
   let container=document.getElementById('navbar-rightt');
   container.classList.toggle('navbar-right-right');
-  console.log(container);
   let telefonNumber=document.getElementById('telText');
   telefonNumber.classList.toggle('visible');
+}
+function createFixedNavbar(){
+  let headerNavbar=document.getElementById('navbar-default1');
+  let fixed=headerNavbar.offsetTop;
+  let logoImage=document.getElementById('whiteLogo');
+  let logoImageBlue=document.getElementById('blueLogo');
+  if(window.pageYOffset > fixed)
+  {
+  headerNavbar.classList.add('navbar-default');
+  logoImage.style.display='none';
+  logoImageBlue.style.display='inline';
+  }
+  else{
+    headerNavbar.classList.remove('navbar-default');
+    logoImage.style.display='inline';
+    logoImageBlue.style.display='none';
+  }
   
 }
-
+window.addEventListener('scroll', createFixedNavbar);
 document.getElementById('faIcon').addEventListener('click', openResponsiveNavBar);
 window.addEventListener("DOMContentLoaded", () =>
   showLoadingScreen(loadingScreen)
