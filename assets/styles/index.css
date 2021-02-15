@@ -188,11 +188,11 @@ nav#navbar-default1.navbar-default {
   border: none;
 }
 .nav {
-  position: relative;
+  position: absolute;
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
-  display: block;
+  width: 100%;
 }
 .container {
   display: flex;
@@ -305,6 +305,70 @@ li.language-select :hover {
 .visible-resposnsive {
   display: none;
 }
+.images {
+  display: none;
+}
+.images > img{
+  width: 100%;
+  height: 704px;
+  
+}
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color:transparent;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  border:3px solid black;
+}
+.active,
+.dot:hover {
+  background-color: white;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.dots {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  text-align: center;
+}
+.scroll{
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  z-index:2;
+}
 
 @media (max-width: 1020px) {
   .icon-responsive {
@@ -313,6 +377,9 @@ li.language-select :hover {
     width: 20px;
     height: 20px;
     margin: 10px;
+  }
+  .scroll{
+    font-size: 1em;
   }
   .cart-icon {
     display: block;

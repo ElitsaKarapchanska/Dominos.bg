@@ -29,7 +29,7 @@
                         <a href='#' class='navbar-logo'>
                             <img id='whiteLogo' src='./assets/images/logo-white.png' alt='dominoslogo' style=' margin: 7px 0px 19px;height: 51px;
                             width: 228px;'>                                                                                                              
-                            <img id='blueLogo' src='./assets/images/logo-blue.png' alt='dominoslogo' style='height: 101px; width: 228px; display: none; '></a>
+                            <img id='blueLogo' src='./assets/images/blue-logo2.jpg' alt='dominoslogo' style=' width: 228px; display: none; '></a>
 
                     </div>
                     <!-- to card responsive-->
@@ -50,7 +50,8 @@
                                 <li>
                                     <a class='font-bold text-center' style='width:10px;height:10px;' href='#'>
                                         <div style="width: 30px;height: 30px;" class='tooltip'>
-                                            <img src='./assets/images/tel.svg' alt='svg tel image' id='svgtel'>
+                                            <img src='./assets/images/tel-white.svg' id='whitetel' alt='svg tel image'>
+                                            <img src='./assets/images/tel.svg'  id='greytel' alt='svg tel image' style='display: none;'>
                                             <span class="tooltiptext">ОБАДЕТЕ НИ СЕ</span>
                                         </div>
                                     </a>
@@ -96,6 +97,40 @@
         </nav>
        </header>
 <main>
+    <div id="carousel">
+        <div class='image-container'>
+            <div class='images fade'>
+                <img src='./assets/images/carousel/527_bg_banner.jpg' alt='527-pizza'>
+                 <div class='caption'>CARD1</div>
+            </div>
+            <div class='images fade'>
+                <img src='./assets/images/carousel/526_bg_banner.jpg' alt='526-pizza'>
+                 <div class='caption'>CARD2</div>
+            </div>
+            <div class='images fade'>
+                <img src='./assets/images/carousel/486_bg_banner.jpg' alt='486-pizza'>
+                 <div class='caption'>CARD3</div>
+            </div>
+            <div class='images fade'>
+                <img src='./assets/images/carousel/416_bg_banner.jpg' alt='416-pizza'>
+                 <div class='caption'>CARD4</div>
+            </div>
+            <div class='images fade'>
+                <img src='./assets/images/carousel/406_bg_banner.jpg' alt='406-pizza'>
+                 <div class='caption'>CARD5</div>
+            </div>
+            <div class='dots' style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+            </div>
+            <div class='scroll'>
+                <img src='./assets/images/scroll-down-arrow.png' alt='scroll down'>
+            </div>
+        </div>
+    </div>
    <div id="registrationPage" class="main-wrapper rounded">
     <form action="">
         <h2>РЕГИСТРАЦИЯ</h2>
