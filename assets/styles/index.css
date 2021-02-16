@@ -325,7 +325,7 @@ nav#navbar-default1.navbar-default {
   position: absolute;
   min-height: 50px;
   margin-bottom: 20px;
-  border: 1px solid transparent;
+  border: 0px solid transparent;
   width: 100%;
 }
 .container {
@@ -472,20 +472,16 @@ li.language-select :hover {
 .dots {
   color: #f2f2f2;
   font-size: 15px;
-  padding: 8px 12px;
   position: absolute;
   bottom: 60px;
   width: 100%;
   text-align: center;
 }
 .scroll{
-  font-size: 15px;
-  padding: 8px 12px;
   position: absolute;
   bottom: 20px;
   width: 100%;
   text-align: center;
-  z-index:2;
 }
 
 @media screen and (max-width: 1250px) {
@@ -494,7 +490,7 @@ li.language-select :hover {
   }
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 1150px) {
   .icon-responsive {
     display: block;
     font-size: 2em;
@@ -583,6 +579,17 @@ li.language-select :hover {
   .visible-resposnsive {
     display: block;
   }
+  .images > img {
+    width: 100%;
+  }
+}
+#whitetel{
+    display: inline;
+    margin-right: 10px;
+}
+#greytel{
+    display: inline;
+    margin-right: 10px;
 }
 
 @media screen and (max-width: 990px) {
