@@ -24,15 +24,13 @@ let hiddentCheckboxes = Array.from(
 
 function showPage() {
   let currentPage = location.hash.slice(1);
-  if (currentPage === "" || currentPage === "home") {
-    allPages[0].style.display = "block";
-    placeholderDiv.style.display = "none";
-    return;
-  }
-  let anyPageWasShown = false;
+  if (currentPage === "") currentPage = "home";
+  // placholder for behind the menu so that the space for it is not taken by the main, has display none on home page
+  currentPage === "home" ? placeholderDiv.style.display = "none" : placeholderDiv.style.display = "block";
+  let noPageWasShown = true;
   allPages.forEach((page) => {
     if (page.id === currentPage + "Page") {
-      anyPageWasShown = true;
+      noPageWasShown = false;
       page.style.display = "block";
       errorPage.style.display = "none";
       //   if (page.id.includes("all"))   meaning that the page a menu page -> show the menu navigation and the filters for the category
@@ -40,9 +38,7 @@ function showPage() {
       page.style.display = "none";
     }
   });
-  // placholder for behind the menu so that the space for it is not taken by the main, has display none on home page
-  placeholderDiv.style.display = "block";
-  if (!anyPageWasShown) errorPage.style.display = "flex";
+  if (noPageWasShown) errorPage.style.display = "flex";
 }
 
 function hideLoadingScreen(loadingScreen) {
