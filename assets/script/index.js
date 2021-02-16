@@ -113,14 +113,6 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
-function fadeElement(element, startOpacity = 1, endOpacity = 0) {
-  if (startOpacity === endOpacity) return;
-  if (startOpacity > endOpacity) startOpacity -= 0.05;
-  if (startOpacity < endOpacity) startOpacity += 0.05;
-  element.style.opacity = startOpacity;
-  requestAnimationFrame(() => fadeElement(element, startOpacity, endOpacity));
-}
-
 // fade checkboxes on registration page
 controllerCeckbox.addEventListener("change", (event) => {
   console.log(event.target.checked);
@@ -128,7 +120,6 @@ controllerCeckbox.addEventListener("change", (event) => {
     hiddentCheckboxes.forEach((checkbox) => {
       checkbox.style.display = "flex";
       checkbox.classList.add("flex");
-      fadeElement(checkbox, 0, 1);
     });
   } else {
     hiddentCheckboxes.forEach((checkbox) => {

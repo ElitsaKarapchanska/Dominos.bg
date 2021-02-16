@@ -161,7 +161,7 @@ const INGREDIENT_NAMES_CONSTANTS = {
   SMOKED_CHEESE: "Топено сирене",
   PARMESAN: "Пармезан",
   VEGAN_MOZZARELLA: "Веган Моцарела",
-  CHEDDAR: "Чедар сирене",
+  CHEDDAR: "Чедър сирене",
   MEATS: "Меса",
   PULLED_BEEF: "Дърпано телешко",
   SPICY_BEEF: "Пикантно телешко",
