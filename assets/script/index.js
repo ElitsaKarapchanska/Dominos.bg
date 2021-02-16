@@ -16,6 +16,7 @@ let allPages = [
 ];
 let errorPage = document.getElementById("errorPage");
 let menuPage = document.getElementById("menuPage");
+let placeholderDiv = document.getElementById("placeholder");
 let controllerCeckbox = document.getElementById("pData");
 let hiddentCheckboxes = Array.from(
   document.querySelectorAll(".hiddenCheckbox")
@@ -23,7 +24,11 @@ let hiddentCheckboxes = Array.from(
 
 function showPage() {
   let currentPage = location.hash.slice(1);
-  if (currentPage === "") currentPage = "home";
+  if (currentPage === "" || currentPage === "home") {
+    allPages[0].style.display = "block";
+    placeholderDiv.style.display = "none";
+    return;
+  }
   let anyPageWasShown = false;
   allPages.forEach((page) => {
     if (page.id === currentPage + "Page") {
@@ -35,6 +40,8 @@ function showPage() {
       page.style.display = "none";
     }
   });
+  // placholder for behind the menu so that the space for it is not taken by the main, has display none on home page
+  placeholderDiv.style.display = "block";
   if (!anyPageWasShown) errorPage.style.display = "flex";
 }
 

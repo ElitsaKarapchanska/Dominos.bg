@@ -17,8 +17,12 @@ body {
 
 .main-wrapper {
   max-width: 1200px;
-  margin: 30px auto;
+  margin: 0px auto;
   padding: 10px 0;
+}
+
+#placeholder {
+  height: 100px;
 }
 
 .rounded {
