@@ -43,7 +43,7 @@ function showPage() {
 
 function hideLoadingScreen(loadingScreen) {
   loadingScreen.style.display = "none";
-  body.style.overflow = "auto";
+  body.style.overflowY = "auto";
   body.style.height = "auto";
 }
 
