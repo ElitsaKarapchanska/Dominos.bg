@@ -77,14 +77,24 @@ const PIZZA_NAMES_CONSTANTS = {
 
 const STARTER_NAMES_CONSTANTS = {
   MOZZARELLA_BREAD: "МОЦАРЕЛЕНО ХЛЕБЧЕ",
+  MOZZARELLA_BREAD_DESC:
+    "Прясно изпечено пухкаво хлебче с моцарела и специалната подправка на Доминос, придружено с доматен сос",
   MOZZARELLA_BREADSTICKS: "МОЦАРЕЛЕНИ ПРЪЧИЦИ",
+  MOZZARELLA_BREADSTICKS_DESC:
+    "5 броя хрупкави моцарелени пръчици със сос барбекю",
 };
 
 const CHICKEN_NAMES_CONSTANTS = {
   CHICKEN_KICKERS: "ПИЛЕ КИКЕРС",
+  CHICKEN_KICKERS_DESC:
+    "Късчета от сочни пикантни пилешки гърди, с хрупкава обвивка, изпечени на фурна придружени със сос Барбекю",
   CHICKEN_STRIPPERS: "ПИЛЕ СТРИПЕРС",
+  CHICKEN_STRIPPERS_DESC:
+    "Сочни филенца от пилешки гърди, не пикантни, с хрупкава обвивка, изпечени на фурна, придружени със сладко лютив сос",
   BUFFALO_WINGS: "КРИЛЦА BUFFALO",
+  BUFFALO_WINGS_DESC: "8 прясно изпечени пилешки крилца със сос Барбекю",
   HOT_BUFFALO_WINGS: "КРИЛЦА BUFFALO ЛЮТИ",
+  HOT_BUFFALO_WINGS_DESC: "8 прясно изпечени пилешки крилца в лют сос Franks ",
 };
 
 const PASTA_NAMES_CONSTANTS = {
@@ -122,14 +132,28 @@ const DIP_NAMES_CONSTANTS = {
 
 const DESSERT_NAMES_CONSTANTS = {
   CHOCO_PIE: "ЧОКО ПАЙ",
+  CHOCO_PIE_DESC:
+    "Пухкав десерт с пълнеж NUTELLA, прясно изпечен на фурна и поръсен с пудра захар",
   CHOCOLATE_SOUFFLE: "ШОКОЛАДОВО СУФЛЕ",
+  CHOCOLATE_SOUFFLE_DESC:
+    "Топло шоколадово кексче с пълнеж от разтопен шоколад",
   NIRVANA_PRALINES: "NIRVANA PRALINES & CREAM",
+  NIRVANA_PRALINES_DESC: "Сладолед с карамелов сироп и карамелизирани ядки ",
   NIRVANA_COOKIES: "NIRVANA COOKIES & CREAM",
+  NIRVANA_COOKIES_DESC:
+    "Сладолед с аромат на ванилия и парченца какаови бисквитки ",
   BROWNIE_BITES: "БРAУНИ ХАПКИ",
+  BROWNIE_BITES_DESC: "Шоколадово брауни с парченца бял шоколад",
   NIRVANA_CHOCOLATE: "NIRVANA CHOCOLATE & CHOCO CHIPS",
+  NIRVANA_CHOCOLATE_DESC: "Шоколадов сладолед с шоколадови парченца",
   CHOCO_PIZZA: "ЧОКО ПИЦА",
+  CHOCO_PIZZA_DESC:
+    "Пухкав десерт с NUTELLA и рикота, прясно изпечен на фурна и поръсен с пудра захар",
   NIRVANA_CHOCO_FUDGE: "NIRVANA CHOCO FUDGE",
+  NIRVANA_CHOCO_FUDGE_DESC: "",
   NIRVANA_CARAMEL_FUDGE: "NIRVANA CARAMEL FUDGE",
+  NIRVANA_CARAMEL_FUDGE_DESC:
+    "Сладолед лешник с парченца бял шоколад и карамелен фъдж",
 };
 
 const DRINK_NAMES_CONSTANTS = {
@@ -161,7 +185,7 @@ const INGREDIENT_NAMES_CONSTANTS = {
   SMOKED_CHEESE: "Топено сирене",
   PARMESAN: "Пармезан",
   VEGAN_MOZZARELLA: "Веган Моцарела",
-  CHEDDAR: "Чедар сирене",
+  CHEDDAR: "Чедър сирене",
   MEATS: "Меса",
   PULLED_BEEF: "Дърпано телешко",
   SPICY_BEEF: "Пикантно телешко",

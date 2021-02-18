@@ -7,12 +7,30 @@
   }
 }
 
+@keyframes full-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   font-size: 17px;
   font-family: "Open Sans", sans-serif;
   background: rgb(216, 175, 117) url(../images/background.jpg);
   color: rgb(90, 90, 90);
   font-weight: normal;
+}
+
+.logo {
+  width: 228px;
+}
+
+#blueLogo {
+  display: none;
+  position: relative;
 }
 
 .main-wrapper {
@@ -266,6 +284,11 @@ div#appLink {
   left: 0.2em;
 }
 
+label.fade-in {
+  animation-name: full-fade-in;
+  animation-duration: 800ms;
+}
+
 .green-button {
   width: 25%;
   height: 44px;
@@ -300,10 +323,6 @@ div#appLink {
   max-width: 100%;
 }
 
-#registrationPage .green-button {
-  width: 100%;
-}
-
 .icon-responsive,
 .cart-icon {
   display: none;
@@ -316,6 +335,7 @@ nav#navbar-default1.navbar-default {
   position: fixed;
   top: 0px;
   width: 100%;
+  height: 80px;
   margin-bottom: 0;
   z-index: 999;
   border-radius: 0;
@@ -329,41 +349,42 @@ nav#navbar-default1.navbar-default {
   width: 100%;
 }
 .container {
+  width: 1220px;
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
-  margin: 0px 149.6px;
-  align-items: baseline;
+  margin: 0px auto;
+  align-items: center;
   align-content: center;
 }
 ul.navbar-right {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 480px;
+  position: relative;
+  top: 5px;
 }
 ul.callcenter {
   display: flex;
-  margin: 0px 5px;
-  padding: 0 12px 8px 0;
+  align-items: center;
 }
 
 li.language-select {
-  margin: 0px 5px;
-  padding: 0 12px 8px 0;
   display: flex;
+  align-items: center;
 }
-.open-modal {
-  margin: 0px 5px;
-  padding: 8px 12px;
-}
+
 .nav .font-bold {
   font-weight: 700;
   color: white;
-  font: 17px "Open Sans", sans-serif;
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
 }
 .nav.navbar-default .font-bold {
   font-weight: 700;
   color: #898989;
-  font: 17px "Open Sans", sans-serif;
+  font-size: 17px;
 }
 .nav.navbar-default .font-bold.cart-btn {
   color: white;
@@ -372,7 +393,7 @@ li.language-select {
 nav.nav.navbar-default {
   font-weight: 700;
   color: #898989;
-  font: 17px "Open Sans", sans-serif;
+  font-size: 17px;
 }
 .cart-btn {
   background-color: #609e29;
@@ -397,7 +418,6 @@ nav.nav.navbar-default {
   font-weight: lighter;
 }
 .tooltip > img {
-  margin-bottom: 15px;
   width: 30px;
   height: 30px;
 }
@@ -444,7 +464,8 @@ li.language-select :hover {
 }
 .images > img {
   width: 100%;
-  height: 730px;
+  height: 100vh;
+  object-fit: cover;
 }
 .dot {
   cursor: pointer;
@@ -482,7 +503,7 @@ li.language-select :hover {
   width: 100%;
   text-align: center;
   animation: moveUpDown 2s linear infinite;
-  cursor:pointer;
+  cursor: pointer;
 }
 @keyframes moveUpDown {
   0%,
@@ -493,88 +514,91 @@ li.language-select :hover {
     bottom: 50px;
   }
 }
-.slider-offer-box-wrapper{
+.slider-offer-box-wrapper {
   max-width: 550px;
   margin-top: 14vh;
-  margin-left:40px;
-  cursor:pointer;
+  margin-left: 55px;
+  cursor: pointer;
   padding: 22px 0px;
 }
-.center-block{
+.center-block {
   display: block;
 }
-.slider-offer-box{
+.slider-offer-box {
   background: url(../images/box-middle.png) repeat top left;
   background-size: contain;
   padding: 10px 40px;
 }
-.slider-offer-box .title{
+.slider-offer-box .title {
   font-size: 38px;
   line-height: 49px;
   margin-bottom: 15px;
-  color:#f30530;
+  color: #f30530;
   text-shadow: 1px 1px 0 #fff, 2px 2px 0 rgb(50 50 50 / 99%);
 }
-.dots-seperator{
+.dots-seperator {
   width: 100%;
   height: 5px;
-  background:0 0 url(../images/border.png) repeat-x;
+  background: 0 0 url(../images/border.png) repeat-x;
 }
-.slider-offer-box .subtitle{
+.slider-offer-box .subtitle {
   font-size: 19px;
   line-height: 28px;
   padding: 10px 15px;
 }
-.red-decoration-title{
-  background-image: url(../images/decor_elem_left_red.svg), url(../images/decor_elem_right_red.svg);
+.red-decoration-title {
+  background-image: url(../images/decor_elem_left_red.svg),
+    url(../images/decor_elem_right_red.svg);
 }
-.decoration-title{
+.decoration-title {
   letter-spacing: 0.5px;
   text-align: center;
-  background-position: -0.5% center,100% center;
+  background-position: -0.5% center, 100% center;
   background-size: 30px;
   background-repeat: no-repeat;
 }
-.font-bold{
+.font-bold {
   font-weight: 700;
 }
-.black-txt{
-  color:#323232;
+.black-txt {
+  color: #323232;
 }
-.slider-offer-box .text{
+.slider-offer-box .text {
   font-size: 15px;
   line-height: 22px;
   font-weight: 400;
 }
-.margin-top-25{
-  margin-top:25px;
+.margin-top-25 {
+  margin-top: 25px;
 }
-.popup::before{
-  content: '';
+.popup::before {
+  content: "";
   background: url(../images/box-top.png) no-repeat bottom left;
   width: 100%;
   background-size: contain;
   display: block;
-  height: 100px;
+  height: 35px;
 }
-.popup::after{
-  content: '';
+.popup::after {
+  content: "";
   background: url(../images/box-bottom.png) no-repeat top left;
   width: 100%;
   background-size: contain;
   display: block;
-  height: 100px;
+  height: 35px;
 }
-.popup{
+.popup {
   position: absolute;
-  bottom: 90px;
-  margin: 90px;
-  top:30px;
+  top: 0px;
 }
 
 @media screen and (max-width: 1250px) {
   .main-wrapper {
     max-width: 950px;
+  }
+
+  .container {
+    width: 970px;
   }
 }
 
@@ -619,8 +643,10 @@ li.language-select :hover {
   }
   .container {
     display: block;
+    width: 100%;
     justify-content: space-between;
     padding: 0px;
+    padding-top: 10px;
     margin: 0px;
     align-items: baseline;
     align-content: center;
@@ -641,12 +667,12 @@ li.language-select :hover {
   .nav.navbar-default li > .font-bold {
     font-weight: 700;
     color: #898989;
-    font: 17px "Open Sans", sans-serif;
+    font-size: 17px;
   }
   .nav li > .font-bold {
     font-weight: 700;
     color: #898989;
-    font: 17px "Open Sans", sans-serif;
+    font-size: 17px;
   }
   .nav li > .font-bold.cart-btn {
     color: white;
@@ -699,20 +725,17 @@ li.language-select :hover {
   #registrationPage form {
     max-width: 93%;
   }
-  .popup{
+  .popup {
     max-width: 65%;
   }
-  .images >img{
+  .images > img {
     max-width: 100%;
   }
-  .slider-offer-box .title{
+  .slider-offer-box .title {
     font-size: 18px;
     line-height: 29px;
     margin-bottom: 5px;
-    color:#f30530;
-    text-shadow: 1px 1px 0 #fff, 2px 2px 0 rgb(50 50 50 / 99%);
   }
-  
 }
 
 @media screen and (max-width: 768px) {
@@ -742,5 +765,9 @@ li.language-select :hover {
 
   .black-card > img {
     display: none;
+  }
+
+  #registrationPage .green-button {
+    width: 100%;
   }
 }
