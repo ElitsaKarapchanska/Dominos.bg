@@ -444,7 +444,7 @@ li.language-select :hover {
 }
 .images > img {
   width: 100%;
-  height: 704px;
+  height: 730px;
 }
 .dot {
   cursor: pointer;
@@ -635,6 +635,8 @@ li.language-select :hover {
     display: flex;
     flex-direction: column;
     border: 1px solid #0d6490;
+    position: absolute;
+    z-index: 1000;
   }
   .nav.navbar-default li > .font-bold {
     font-weight: 700;
@@ -697,6 +699,20 @@ li.language-select :hover {
   #registrationPage form {
     max-width: 93%;
   }
+  .popup{
+    max-width: 65%;
+  }
+  .images >img{
+    max-width: 100%;
+  }
+  .slider-offer-box .title{
+    font-size: 18px;
+    line-height: 29px;
+    margin-bottom: 5px;
+    color:#f30530;
+    text-shadow: 1px 1px 0 #fff, 2px 2px 0 rgb(50 50 50 / 99%);
+  }
+  
 }
 
 @media screen and (max-width: 768px) {
