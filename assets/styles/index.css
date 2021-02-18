@@ -345,7 +345,7 @@ nav#navbar-default1.navbar-default {
   position: absolute;
   min-height: 50px;
   margin-bottom: 20px;
-  border: 1px solid transparent;
+  border: 0px solid transparent;
   width: 100%;
 }
 .container {
@@ -368,11 +368,6 @@ ul.navbar-right {
 ul.callcenter {
   display: flex;
   align-items: center;
-}
-
-ul.callcenter li {
-  display: inline-block;
-  padding: 3px;
 }
 
 li.language-select {
@@ -406,12 +401,12 @@ nav.nav.navbar-default {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  padding: 10px;
+  padding: 8px;
   letter-spacing: 1px;
   outline: 0;
   outline-offset: 0px;
   margin-top: 8px;
-  box-shadow: 1px #4e8122;
+  box-shadow: 1px 1px 1px 1px #3b611b;
 }
 .text-center {
   text-align: center;
@@ -474,14 +469,14 @@ li.language-select :hover {
 }
 .dot {
   cursor: pointer;
-  height: 13px;
-  width: 13px;
+  height: 8px;
+  width: 8px;
   margin: 0 2px;
   background-color: transparent;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
-  border: 3px solid white;
+  border: 2px solid white;
 }
 .active,
 .dot:hover {
@@ -496,21 +491,105 @@ li.language-select :hover {
 
 .dots {
   color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
+  font-size: 10px;
   position: absolute;
-  bottom: 60px;
+  bottom: 80px;
   width: 100%;
   text-align: center;
 }
 .scroll {
-  font-size: 15px;
-  padding: 8px 12px;
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   width: 100%;
   text-align: center;
-  z-index: 2;
+  animation: moveUpDown 2s linear infinite;
+  cursor: pointer;
+}
+@keyframes moveUpDown {
+  0%,
+  100% {
+    bottom: 30px;
+  }
+  50% {
+    bottom: 50px;
+  }
+}
+.slider-offer-box-wrapper {
+  max-width: 550px;
+  margin-top: 14vh;
+  margin-left: 55px;
+  cursor: pointer;
+  padding: 22px 0px;
+}
+.center-block {
+  display: block;
+}
+.slider-offer-box {
+  background: url(../images/box-middle.png) repeat top left;
+  background-size: contain;
+  padding: 10px 40px;
+}
+.slider-offer-box .title {
+  font-size: 38px;
+  line-height: 49px;
+  margin-bottom: 15px;
+  color: #f30530;
+  text-shadow: 1px 1px 0 #fff, 2px 2px 0 rgb(50 50 50 / 99%);
+}
+.dots-seperator {
+  width: 100%;
+  height: 5px;
+  background: 0 0 url(../images/border.png) repeat-x;
+}
+.slider-offer-box .subtitle {
+  font-size: 19px;
+  line-height: 28px;
+  padding: 10px 15px;
+}
+.red-decoration-title {
+  background-image: url(../images/decor_elem_left_red.svg),
+    url(../images/decor_elem_right_red.svg);
+}
+.decoration-title {
+  letter-spacing: 0.5px;
+  text-align: center;
+  background-position: -0.5% center, 100% center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+}
+.font-bold {
+  font-weight: 700;
+}
+.black-txt {
+  color: #323232;
+}
+.slider-offer-box .text {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+}
+.margin-top-25 {
+  margin-top: 25px;
+}
+.popup::before {
+  content: "";
+  background: url(../images/box-top.png) no-repeat bottom left;
+  width: 100%;
+  background-size: contain;
+  display: block;
+  height: 35px;
+}
+.popup::after {
+  content: "";
+  background: url(../images/box-bottom.png) no-repeat top left;
+  width: 100%;
+  background-size: contain;
+  display: block;
+  height: 35px;
+}
+.popup {
+  position: absolute;
+  top: 0px;
 }
 
 @media screen and (max-width: 1250px) {
@@ -523,7 +602,7 @@ li.language-select :hover {
   }
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 1150px) {
   .icon-responsive {
     display: block;
     font-size: 2em;
@@ -567,6 +646,7 @@ li.language-select :hover {
     width: 100%;
     justify-content: space-between;
     padding: 0px;
+    padding-top: 10px;
     margin: 0px;
     align-items: baseline;
     align-content: center;
@@ -581,6 +661,8 @@ li.language-select :hover {
     display: flex;
     flex-direction: column;
     border: 1px solid #0d6490;
+    position: absolute;
+    z-index: 1000;
   }
   .nav.navbar-default li > .font-bold {
     font-weight: 700;
@@ -613,6 +695,17 @@ li.language-select :hover {
   .visible-resposnsive {
     display: block;
   }
+  .images > img {
+    width: 100%;
+  }
+}
+#whitetel {
+  display: inline;
+  margin-right: 10px;
+}
+#greytel {
+  display: inline;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 990px) {
@@ -631,6 +724,17 @@ li.language-select :hover {
 
   #registrationPage form {
     max-width: 93%;
+  }
+  .popup {
+    max-width: 65%;
+  }
+  .images > img {
+    max-width: 100%;
+  }
+  .slider-offer-box .title {
+    font-size: 18px;
+    line-height: 29px;
+    margin-bottom: 5px;
   }
 }
 
