@@ -7,12 +7,30 @@
   }
 }
 
+@keyframes full-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   font-size: 17px;
   font-family: "Open Sans", sans-serif;
   background: rgb(216, 175, 117) url(../images/background.jpg);
   color: rgb(90, 90, 90);
   font-weight: normal;
+}
+
+.logo {
+  width: 228px;
+}
+
+#blueLogo {
+  display: none;
+  position: relative;
 }
 
 .main-wrapper {
@@ -266,6 +284,11 @@ div#appLink {
   left: 0.2em;
 }
 
+label.fade-in {
+  animation-name: full-fade-in;
+  animation-duration: 800ms;
+}
+
 .green-button {
   width: 25%;
   height: 44px;
@@ -300,10 +323,6 @@ div#appLink {
   max-width: 100%;
 }
 
-#registrationPage .green-button {
-  width: 100%;
-}
-
 .icon-responsive,
 .cart-icon {
   display: none;
@@ -316,6 +335,7 @@ nav#navbar-default1.navbar-default {
   position: fixed;
   top: 0px;
   width: 100%;
+  height: 80px;
   margin-bottom: 0;
   z-index: 999;
   border-radius: 0;
@@ -329,41 +349,47 @@ nav#navbar-default1.navbar-default {
   width: 100%;
 }
 .container {
+  width: 1220px;
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
-  margin: 0px 149.6px;
-  align-items: baseline;
+  margin: 0px auto;
+  align-items: center;
   align-content: center;
 }
 ul.navbar-right {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 480px;
+  position: relative;
+  top: 5px;
 }
 ul.callcenter {
   display: flex;
-  margin: 0px 5px;
-  padding: 0 12px 8px 0;
+  align-items: center;
+}
+
+ul.callcenter li {
+  display: inline-block;
+  padding: 3px;
 }
 
 li.language-select {
-  margin: 0px 5px;
-  padding: 0 12px 8px 0;
   display: flex;
+  align-items: center;
 }
-.open-modal {
-  margin: 0px 5px;
-  padding: 8px 12px;
-}
+
 .nav .font-bold {
   font-weight: 700;
   color: white;
-  font: 17px "Open Sans", sans-serif;
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
 }
 .nav.navbar-default .font-bold {
   font-weight: 700;
   color: #898989;
-  font: 17px "Open Sans", sans-serif;
+  font-size: 17px;
 }
 .nav.navbar-default .font-bold.cart-btn {
   color: white;
@@ -372,7 +398,7 @@ li.language-select {
 nav.nav.navbar-default {
   font-weight: 700;
   color: #898989;
-  font: 17px "Open Sans", sans-serif;
+  font-size: 17px;
 }
 .cart-btn {
   background-color: #609e29;
@@ -397,7 +423,6 @@ nav.nav.navbar-default {
   font-weight: lighter;
 }
 .tooltip > img {
-  margin-bottom: 15px;
   width: 30px;
   height: 30px;
 }
@@ -442,21 +467,21 @@ li.language-select :hover {
 .images {
   display: none;
 }
-.images > img{
+.images > img {
   width: 100%;
-  height: 704px;
-  
+  height: 100vh;
+  object-fit: cover;
 }
 .dot {
   cursor: pointer;
   height: 13px;
   width: 13px;
   margin: 0 2px;
-  background-color:transparent;
+  background-color: transparent;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
-  border:3px solid white;
+  border: 3px solid white;
 }
 .active,
 .dot:hover {
@@ -478,19 +503,23 @@ li.language-select :hover {
   width: 100%;
   text-align: center;
 }
-.scroll{
+.scroll {
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
   bottom: 20px;
   width: 100%;
   text-align: center;
-  z-index:2;
+  z-index: 2;
 }
 
 @media screen and (max-width: 1250px) {
   .main-wrapper {
     max-width: 950px;
+  }
+
+  .container {
+    width: 970px;
   }
 }
 
@@ -502,7 +531,7 @@ li.language-select :hover {
     height: 20px;
     margin: 10px;
   }
-  .scroll{
+  .scroll {
     font-size: 1em;
   }
   .cart-icon {
@@ -535,6 +564,7 @@ li.language-select :hover {
   }
   .container {
     display: block;
+    width: 100%;
     justify-content: space-between;
     padding: 0px;
     margin: 0px;
@@ -555,12 +585,12 @@ li.language-select :hover {
   .nav.navbar-default li > .font-bold {
     font-weight: 700;
     color: #898989;
-    font: 17px "Open Sans", sans-serif;
+    font-size: 17px;
   }
   .nav li > .font-bold {
     font-weight: 700;
     color: #898989;
-    font: 17px "Open Sans", sans-serif;
+    font-size: 17px;
   }
   .nav li > .font-bold.cart-btn {
     color: white;
@@ -594,7 +624,8 @@ li.language-select :hover {
     grid-column: 1/4;
   }
 
-  .white-button, .black-button {
+  .white-button,
+  .black-button {
     width: 65%;
   }
 
@@ -630,5 +661,9 @@ li.language-select :hover {
 
   .black-card > img {
     display: none;
+  }
+
+  #registrationPage .green-button {
+    width: 100%;
   }
 }
