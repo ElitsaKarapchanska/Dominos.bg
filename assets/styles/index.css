@@ -455,7 +455,7 @@ nav.nav.navbar-default {
   height: 45px;
   margin: auto;
 }
-.social-container img.telFooter {
+.social-container img#tel070012525 {
   position: relative;
   left: -40px;
   width: 120px;
@@ -466,9 +466,14 @@ nav.nav.navbar-default {
 }
 .social-container {
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 .social-container div.tooltip {
   margin: 15px;
+}
+.telFooter {
+  display: flex;
 }
 .col-xs-4 {
   width: 33.33333333%;
@@ -683,6 +688,14 @@ footer ul li {
   font-size: 13px;
   font-family: "Open Sans Condensed", sans-serif;
 }
+#whitetel {
+  display: inline;
+  margin-right: 10px;
+}
+#greytel {
+  display: inline;
+  margin-right: 10px;
+}
 
 @media screen and (max-width: 1250px) {
   .main-wrapper {
@@ -800,14 +813,6 @@ footer ul li {
     display: none;
   }
 }
-#whitetel {
-  display: inline;
-  margin-right: 10px;
-}
-#greytel {
-  display: inline;
-  margin-right: 10px;
-}
 
 @media screen and (max-width: 990px) {
   .main-wrapper {
@@ -844,8 +849,14 @@ footer ul li {
   .col-md-7 {
     width: 58.33333333%;
   }
-  .footer-container {
-    width: 970px;
+  .social-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+  }
+  #copyright {
+    text-align: center;
   }
 }
 
@@ -879,9 +890,6 @@ footer ul li {
   }
 
   #registrationPage .green-button {
-    width: 100%;
-  }
-  .footer-container {
     width: 100%;
   }
 }
