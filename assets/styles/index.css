@@ -475,9 +475,6 @@ nav.nav.navbar-default {
 .telFooter {
   display: flex;
 }
-.col-xs-4 {
-  width: 33.33333333%;
-}
 footer img {
   vertical-align: top;
 }
@@ -649,10 +646,6 @@ li.language-select :hover {
 }
 .padding-top-bottom-10 {
   padding: 10px 0;
-}
-.col-md-7 {
-  position: relative;
-  min-height: 1px;
 }
 .footer-container {
   margin-right: auto;
@@ -841,13 +834,6 @@ footer ul li {
     font-size: 18px;
     line-height: 29px;
     margin-bottom: 5px;
-  }
-  .col-md-5 {
-    width: 41.66666667%;
-    float: left;
-  }
-  .col-md-7 {
-    width: 58.33333333%;
   }
   .social-container {
     display: grid;
