@@ -653,7 +653,6 @@ li.language-select :hover {
   }
   .navbar-right-right.navbar-right {
     margin: 65px 0;
-    padding: 10px 20px;
     font-size: 15px;
     color: #898989;
     line-height: 47px;
@@ -663,6 +662,7 @@ li.language-select :hover {
     border: 1px solid #0d6490;
     position: absolute;
     z-index: 1000;
+    width: 100%;
   }
   .nav.navbar-default li > .font-bold {
     font-weight: 700;
