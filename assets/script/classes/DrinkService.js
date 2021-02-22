@@ -14,4 +14,4 @@ const drinkManager = (function () {
         }
     }
     return new DrinkManager();
-})
+})();

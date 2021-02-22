@@ -12,4 +12,4 @@ const sandwichManager = (function () {
         }
     }
     return new SandwichManager();
-})
+})();

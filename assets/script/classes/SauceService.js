@@ -14,4 +14,4 @@ const sauceManager = (function () {
         }
     }
     return new SauceManager();
-})
+})();

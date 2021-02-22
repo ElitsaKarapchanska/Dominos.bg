@@ -12,4 +12,4 @@ const saladManager = (function () {
         }
     }
     return new SaladManager();
-})
+})();

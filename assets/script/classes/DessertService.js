@@ -14,4 +14,4 @@ const dessertManager = (function () {
         }
     }
     return new DessertManager();
-})
+})();

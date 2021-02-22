@@ -16,4 +16,4 @@ const pizzaManager = (function () {
         }
     }
     return new PizzaManager();
-})
+})();

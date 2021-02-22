@@ -14,4 +14,4 @@ const starterManager = (function () {
         }
     }
     return new StarterManager();
-})
+})();

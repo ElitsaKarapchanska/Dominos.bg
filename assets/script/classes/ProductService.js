@@ -9,4 +9,4 @@ const product = (function () {
         }
     }
     return new Product();
-})
+})();

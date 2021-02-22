@@ -12,4 +12,4 @@ const dealManager = (function () {
         }
     }
     return new DealManager();
-})
+})();

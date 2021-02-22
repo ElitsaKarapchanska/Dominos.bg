@@ -14,4 +14,4 @@ const pastaManager = (function () {
         }
     }
     return new PastaManager();
-})
+})();

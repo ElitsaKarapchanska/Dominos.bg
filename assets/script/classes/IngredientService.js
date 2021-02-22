@@ -7,4 +7,4 @@ const ingredient = (function () {
         }
     }
     return new Ingredient();
-})
+})();

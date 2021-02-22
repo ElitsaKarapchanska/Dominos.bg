@@ -12,4 +12,4 @@ const chickenManager = (function () {
         }
     }
     return new ChickenManager();
-})
+})();
