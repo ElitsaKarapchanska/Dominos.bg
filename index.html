@@ -11,6 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/styles/reset.css" />
     <link rel="stylesheet" href="./assets/styles/index.css" />
     <link
@@ -520,6 +524,141 @@
         </div>
       </div>
     </footer>
+
+    <script id="simpleProduct" type="text/x-handlebars-template">
+      {{#if this}}
+        {{#each this}}
+          <article class="card rounded simple-card">
+            {{#ifCond this.tags.length '>' 0}}
+              <div class="card-tags-wrapper">
+                {{#each this.tags}}
+                  {{#ifCond this '===' 'ПИКАНТНО'}}
+                    <div class="tooltip">
+                      <img class="card-tag" src="./assets/images/tags/hot.svg" alt="spicy">
+                      <span class="tooltiptext">{{this}}</span>
+                    </div>
+                  {{/ifCond}}
+                  {{#ifCond this '===' 'ЗА ВЕГЕТАРИАНЦИ'}}
+                    <div class="tooltip">
+                      <img class="card-tag" src="./assets/images/tags/vegeterian.svg" alt="vegeterian">
+                      <span class="tooltiptext">{{this}}</span>
+                    </div>
+                  {{/ifCond}}
+                  {{#ifCond this '===' 'ПОСТНИ'}}
+                    <div class="tooltip">
+                      <img class="card-tag" src="./assets/images/tags/fasting.svg" alt="vegan">
+                      <span class="tooltiptext">{{this}}</span>
+                    </div>
+                  {{/ifCond}}
+                  {{#ifCond this '===' 'НОВО'}}
+                    <div class="tooltip">
+                      <img class="card-tag" src="./assets/images/tags/new_bg.svg" alt="new">
+                      <span class="tooltiptext">{{this}}</span>
+                    </div>
+                  {{/ifCond}}
+                {{/each}}
+              </div>
+            {{/ifCond}}
+            <div class="title-wrapper">
+              {{#ifCond this.title.length '>' 24}}
+                <h2 class="ellipsis">{{this.title}}</h2>
+                <h2 class="name-scroll">{{this.title}}</h2>
+              {{else}}
+                <h2>{{this.title}}</h2>
+              {{/ifCond}}
+            </div>
+            <p class="product-description">
+              {{this.description}}
+            </p>
+            <img class="product-picture" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
+            <div class="btn-wrapper">
+              <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
+            </div>
+            <section class="slide-up">
+              <div class="weight-container">
+                <span class="border"></span>
+                <img src="./assets/images/weight.svg" alt="weight">
+                <span class="border"></span>
+                <span>{{this.weight}}g</span>
+              </div>
+            </section>
+          </article>
+        {{/each}}
+      {{/if}}
+    </script>
+
+
+    <script id="customizableProduct" type="text/x-handlebars-template">
+      {{#if this}}
+        {{#each this}}
+          <a href="product-{{this.title}}">
+            <article class="card rounded complex-card">
+              <div class="top-wrapper">
+                {{#ifCond this.tags.length '>' 0}}
+                <div class="card-tags-wrapper">
+                  {{#each this.tags}}
+                    {{#ifCond this '===' 'ПИКАНТНО'}}
+                      <div class="tooltip">
+                        <img class="card-tag" src="./assets/images/tags/hot.svg" alt="spicy">
+                        <span class="tooltiptext">{{this}}</span>
+                      </div>
+                    {{/ifCond}}
+                    {{#ifCond this '===' 'ЗА ВЕГЕТАРИАНЦИ'}}
+                      <div class="tooltip">
+                        <img class="card-tag" src="./assets/images/tags/vegeterian.svg" alt="vegeterian">
+                        <span class="tooltiptext">{{this}}</span>
+                      </div>
+                    {{/ifCond}}
+                    {{#ifCond this '===' 'ПОСТНИ'}}
+                      <div class="tooltip">
+                        <img class="card-tag" src="./assets/images/tags/fasting.svg" alt="vegan">
+                        <span class="tooltiptext">{{this}}</span>
+                      </div>
+                    {{/ifCond}}
+                    {{#ifCond this '===' 'НОВО'}}
+                      <div class="tooltip">
+                        <img class="card-tag" src="./assets/images/tags/new_bg.svg" alt="new">
+                        <span class="tooltiptext">{{this}}</span>
+                      </div>
+                    {{/ifCond}}
+                  {{/each}}
+                </div>
+                {{/ifCond}}
+                <img class="product-picture" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
+                <div class="title-wrapper">
+                  {{#ifCond this.title.length '>' 24}}
+                    <h2 class="ellipsis">{{this.title}}</h2>
+                    <h2 class="name-scroll">{{this.title}}</h2>
+                  {{else}}
+                    <h2>{{this.title}}</h2>
+                  {{/ifCond}}
+              </div>
+              </div>
+              <p class="product-description">
+                {{#if this.description}}
+                  {{this.description}}
+                {{else}}
+                  {{this.ingredients}}
+                {{/if}}
+              </p>
+              <div class="btn-wrapper">
+                <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
+              </div>
+            </article>
+          </a>
+        {{/each}}
+      {{/if}}
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
+      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 
+      crossorigin="anonymous">
+    </script>
+    <script src="./assets/script/utils-handlebars.js"></script>
+    <script src="./assets/script/constants-bg.js"></script>
+    <script src="./assets/script/data/allPizzasData.js"></script>
+    <script src="./assets/script/data/allDesertsData.js"></script>
+    <script src="./assets/script/productsController.js"></script>
     <script src="./assets/script/index.js"></script>
   </body>
 </html>

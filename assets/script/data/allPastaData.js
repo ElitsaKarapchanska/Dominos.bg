@@ -1,4 +1,4 @@
-[
+const allPastaData = [
   {
     "title": PASTA_NAMES_CONSTANTS.CARBONARA_PASTA,
     "price": 6.8,

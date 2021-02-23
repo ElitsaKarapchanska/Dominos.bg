@@ -1,6 +1,6 @@
 // 2d array where the first element of the inner array is always the category name and the rest are objects
 // "price"s are 0 for the first of it's category and + 2 for every next one with some exceptions (on big pizzas)
-[
+const allIngredientsData = [
   [
     INGREDIENT_NAMES_CONSTANTS.SAUCES,
     {

@@ -1,4 +1,4 @@
-[
+const allDrinksData = [
   {
     "title": DRINK_NAMES_CONSTANTS.ARYAN,
     "price": [1.6],

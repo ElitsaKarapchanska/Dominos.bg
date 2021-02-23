@@ -1,4 +1,4 @@
-[
+const allDesertsData = [
   {
     "title": DESSERT_NAMES_CONSTANTS.CHOCO_PIE,
     "price": 5.5,

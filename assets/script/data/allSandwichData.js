@@ -1,4 +1,4 @@
-[
+const allSandwichData = [
   {
     "title": SANDWICH_NAMES_CONSTANTS.PEPPERONI_SANDWICH,
     "price": 6.5,
