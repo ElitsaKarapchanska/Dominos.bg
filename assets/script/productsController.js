@@ -7,6 +7,42 @@ function displaySimpleProduct(products, categoryTab) {
   const html = template(products);
 
   categoryTab.innerHTML = html;
+
+  let allCards = document.querySelectorAll(
+    "#" + categoryTab.id + " .simple-card"
+  );
+
+  let openedSection;
+
+  allCards.forEach((card) => {
+    card.addEventListener(
+      "click",
+      function (ev) {
+        let index = -1;
+        ev.path.forEach((el, i) => {
+          if (el.tagName === "ARTICLE") index = i;
+        });
+
+        let slideUpSection = ev.path[index].querySelector(
+          ":scope section.slide-up"
+        );
+        if (slideUpSection.classList.contains("opened")) {
+          slideUpSection.classList.remove("opened");
+          slideUpSection.classList.add("closed");
+          openedSection = null;
+        } else {
+          slideUpSection.classList.remove("closed");
+          slideUpSection.classList.add("opened");
+          if (openedSection) {
+            openedSection.classList.remove("opened");
+            openedSection.classList.add("closed");
+          }
+          openedSection = slideUpSection;
+        }
+      },
+      true
+    );
+  });
 }
 
 function displayCustomizableProduct(products, categoryTab) {

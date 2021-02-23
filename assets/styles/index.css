@@ -318,17 +318,116 @@ div#appLink {
   border-top: 1px solid #d7d7d7;
 }
 
-.card button {
+.card .button {
   width: 206px;
 }
 
 .simple-card .slide-up {
-  display: none;
+  width: 100%;
   position: absolute;
   padding: 10px;
+  box-sizing: border-box;
+  height: 215px;
   box-shadow: 0px 5px 11px rgb(0 0 0 / 75%);
   background-color: rgba(255, 255, 255, 0.9);
-  transition: bottom 0.2s ease-in-out;
+  transition: bottom 2s ease-in-out;
+  border-radius: 0 0 4px 4px;
+}
+
+.simple-card .slide-up.closed {
+  display: none;
+  bottom: -275px;
+}
+
+.simple-card .slide-up.opened {
+  display: block;
+  bottom: 0px;
+}
+
+.simple-card .slide-up .weight-container {
+  display: flex;
+  padding-top: 10px;
+  width: 100%;
+  position: relative;
+}
+
+.simple-card .slide-up .weight-container .border {
+  width: 40%;
+  height: 1px;
+  background: lightgrey;
+  margin-top: 25px;
+}
+
+.simple-card .slide-up .weight-container img {
+  width: 45px;
+  height: 45px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.simple-card .slide-up .weight-container .weight {
+  position: absolute;
+  text-align: center;
+  color: white;
+  left: 45%;
+  bottom: 10px;
+  font-size: 9px;
+}
+
+.simple-card .slide-up .details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.simple-card .slide-up .details .card-quantity,
+.simple-card .slide-up .details .card-price {
+  width: 45%;
+  height: 57px;
+  margin-top: 15px;
+}
+
+.simple-card .slide-up p {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.simple-card .slide-up p.price-sum {
+  font-size: 20px;
+  line-height: 27px;
+  margin-top: 10px;
+  color: #0073aa;
+}
+
+.simple-card .slide-up .quantity-wrapper {
+  height: 26px;
+  margin-top: 10px;
+}
+
+.simple-card .slide-up .quantity-wrapper .quantity-number {
+  font-size: 20px;
+}
+
+.simple-card .slide-up .quantity-controller {
+  width: 25px;
+  height: 25px;
+  padding: 0px;
+  margin: 0 5px;
+  border: 2px solid #898989;
+  border-radius: 50%;
+  color: #898989;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 13px;
+  box-sizing: border-box;
+}
+
+.simple-card .slide-up .minus {
+  padding-bottom: 1px;
+}
+
+.simple-card .slide-up > button.button {
+  margin-top: 25px;
 }
 
 .complex-card .top-wrapper {

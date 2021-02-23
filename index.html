@@ -528,7 +528,8 @@
     <script id="simpleProduct" type="text/x-handlebars-template">
       {{#if this}}
         {{#each this}}
-          <article class="card rounded simple-card">
+        <!-- using the image as an id because it's the only unique property without spaces -->
+          <article id="{{this.image}}" class="card rounded simple-card">
             {{#ifCond this.tags.length '>' 0}}
               <div class="card-tags-wrapper">
                 {{#each this.tags}}
@@ -574,13 +575,28 @@
             <div class="btn-wrapper">
               <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
             </div>
-            <section class="slide-up">
+            <section class="slide-up closed">
               <div class="weight-container">
                 <span class="border"></span>
                 <img src="./assets/images/weight.svg" alt="weight">
                 <span class="border"></span>
-                <span>{{this.weight}}g</span>
+                <span class="weight">{{this.weight}}g</span>
               </div>
+              <div class="details">
+                <div class="card-quantity">
+                  <p>КОЛИЧЕСТВО</p>
+                  <div class="quantity-wrapper">
+                    <button class="minus quantity-controller">-</button>
+                    <span class="quantity-number">1</span>
+                    <button class="plus quantity-controller">+</button>
+                  </div>
+                </div>
+                <div class="card-price">
+                  <p>ЦЕНА</p>
+                  <p class="price-sum">{{this.price}}лв</p>
+                </div>
+              </div>
+              <button class="green-button button rounded">ДОБАВИ</button>
             </section>
           </article>
         {{/each}}
