@@ -1,4 +1,4 @@
-[
+const allSaladsData = [
   {
     "title": SALAD_NAMES_CONSTANTS.ROCKET_SALAD,
     "price": 5.3,

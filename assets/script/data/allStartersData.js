@@ -1,4 +1,4 @@
-[
+const allStartersData = [
   {
     "title": STARTER_NAMES_CONSTANTS.MOZZARELLA_BREAD,
     "price": 3.5,

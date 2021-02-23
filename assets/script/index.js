@@ -33,7 +33,10 @@ function showPage() {
       noPageWasShown = false;
       page.style.display = "block";
       errorPage.style.display = "none";
-      //   if (page.id.includes("all"))   meaning that the page a menu page -> show the menu navigation and the filters for the category
+      if (page.id.includes("all")) {
+        // meaning that the page a menu page -> show the menu navigation and the filters for the category
+        page.style.display = "grid";
+      }
     } else {
       page.style.display = "none";
     }

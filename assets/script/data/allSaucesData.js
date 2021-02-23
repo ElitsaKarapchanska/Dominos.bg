@@ -1,4 +1,4 @@
-[
+const allSaucesData = [
   {
     "title": DIP_NAMES_CONSTANTS.FRANKS_HOT_SAUCE,
     "price": 1,

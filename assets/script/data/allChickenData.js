@@ -1,4 +1,4 @@
-[
+const allChickenData = [
   {
     "title": CHICKEN_NAMES_CONSTANTS.CHICKEN_KICKERS,
     "price": 6.5,
