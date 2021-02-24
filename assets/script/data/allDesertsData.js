@@ -1,6 +1,7 @@
 const allDesertsData = [
   {
     "title": DESSERT_NAMES_CONSTANTS.CHOCO_PIE,
+    "id": "de1",
     "price": 5.5,
     "weight": 165,
     "image": "desserts/1204ipar.png",
@@ -9,6 +10,7 @@ const allDesertsData = [
   },
   {
     "title": DESSERT_NAMES_CONSTANTS.CHOCOLATE_SOUFFLE,
+    "id": "de2",
     "price": 5.5,
     "weight": 105,
     "image": "desserts/1228ipar.png",
@@ -17,6 +19,7 @@ const allDesertsData = [
   },
   {
     "title": DESSERT_NAMES_CONSTANTS.NIRVANA_PRALINES,
+    "id": "de3",
     "price": 3.2,
     "weight": 122,
     "image": "desserts/1336ipar.png",
@@ -25,6 +28,7 @@ const allDesertsData = [
   },
   {
     "title": DESSERT_NAMES_CONSTANTS.NIRVANA_COOKIES,
+    "id": "de4",
     "price": 3.2,
     "weight": 122,
     "image": "desserts/1335ipar.png",
@@ -33,6 +37,7 @@ const allDesertsData = [
   },
   {
     "title": DESSERT_NAMES_CONSTANTS.BROWNIE_BITES,
+    "id": "de5",
     "price": 3,
     "weight": 55,
     "image": "desserts/1516ipar.png",
@@ -41,6 +46,7 @@ const allDesertsData = [
   },
   {
     "title": DESSERT_NAMES_CONSTANTS.NIRVANA_CHOCOLATE,
+    "id": "de6",
     "price": 3.2,
     "weight": 122,
     "image": "desserts/1549ipar.png",
@@ -49,6 +55,7 @@ const allDesertsData = [
   },
   {
     "title": DESSERT_NAMES_CONSTANTS.CHOCO_PIZZA,
+    "id": "de7",
     "price": 10.5,
     "weight": 340,
     "image": "desserts/1567ipar.png",
@@ -57,6 +64,7 @@ const allDesertsData = [
   },
   {
     "title": DESSERT_NAMES_CONSTANTS.NIRVANA_CHOCO_FUDGE,
+    "id": "de8",
     "price": 3.2,
     "weight": 120,
     "image": "desserts/1633ipar.png",
@@ -65,6 +73,7 @@ const allDesertsData = [
   },
   {
     "title": DESSERT_NAMES_CONSTANTS.NIRVANA_CARAMEL_FUDGE,
+    "id": "de9",
     "price": 3.2,
     "weight": 120,
     "image": "desserts/1634ipar.png",
