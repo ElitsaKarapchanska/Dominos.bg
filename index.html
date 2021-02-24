@@ -528,8 +528,7 @@
     <script id="simpleProduct" type="text/x-handlebars-template">
       {{#if this}}
         {{#each this}}
-        <!-- using the image as an id because it's the only unique property without spaces -->
-          <article id="{{this.image}}" class="card rounded simple-card">
+          <article id="{{this.id}}" class="card rounded simple-card">
             {{#ifCond this.tags.length '>' 0}}
               <div class="card-tags-wrapper">
                 {{#each this.tags}}
@@ -607,8 +606,8 @@
     <script id="customizableProduct" type="text/x-handlebars-template">
       {{#if this}}
         {{#each this}}
-          <a href="product-{{this.title}}">
-            <article class="card rounded complex-card">
+          <a href="#product-{{this.category}}-{{this.id}}">
+            <article id="{{this.id}}" class="card rounded complex-card">
               <div class="top-wrapper">
                 {{#ifCond this.tags.length '>' 0}}
                 <div class="card-tags-wrapper">
@@ -672,8 +671,37 @@
     </script>
     <script src="./assets/script/utils-handlebars.js"></script>
     <script src="./assets/script/constants-bg.js"></script>
+
+    <!-- JSON files -->
+    <script src="./assets/script/data/allIngredientsData.js"></script>
+    <script src="./assets/script/data/allChickenData.js"></script>
+    <script src="./assets/script/data/allDessertsData.js"></script>
+    <script src="./assets/script/data/allDrinksData.js"></script>
+    <script src="./assets/script/data/allPastaData.js"></script>
     <script src="./assets/script/data/allPizzasData.js"></script>
-    <script src="./assets/script/data/allDesertsData.js"></script>
+    <script src="./assets/script/data/allSaladsData.js"></script>
+    <script src="./assets/script/data/allSandwichData.js"></script>
+    <script src="./assets/script/data/allSaucesData.js"></script>
+    <script src="./assets/script/data/allStartersData.js"></script>
+
+    <!-- Structure classes -->
+    <script src="./assets/script/classes/ProductModel.js"></script>
+    <script src="./assets/script/classes/SimpleProductModel.js"></script>
+    <script src="./assets/script/classes/CustomizableProductModel.js"></script>
+
+    <!-- All product services -->
+    <script src="./assets/script/classes/IngredientService.js"></script>
+    <script src="./assets/script/classes/ChickenServise.js"></script>
+    <script src="./assets/script/classes/DealService.js"></script>
+    <script src="./assets/script/classes/DessertService.js"></script>
+    <script src="./assets/script/classes/DrinkService.js"></script>
+    <script src="./assets/script/classes/PastaService.js"></script>
+    <script src="./assets/script/classes/PizzaService.js"></script>
+    <script src="./assets/script/classes/SaladService.js"></script>
+    <script src="./assets/script/classes/SandwichService.js"></script>
+    <script src="./assets/script/classes/SauceService.js"></script>
+    <script src="./assets/script/classes/StarterService.js"></script>
+
     <script src="./assets/script/productsController.js"></script>
     <script src="./assets/script/index.js"></script>
   </body>

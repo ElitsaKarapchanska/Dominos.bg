@@ -1,4 +1,4 @@
-const allDesertsData = [
+const allDessertsData = [
   {
     "title": DESSERT_NAMES_CONSTANTS.CHOCO_PIE,
     "id": "de1",

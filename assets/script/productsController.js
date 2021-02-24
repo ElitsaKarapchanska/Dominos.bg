@@ -2,6 +2,29 @@ const simpleProductSource = document.getElementById("simpleProduct").innerHTML;
 const customizableProductSource = document.getElementById("customizableProduct")
   .innerHTML;
 
+chickenManager.addAllChickenProducts(allChickenData);
+dessertManager.addAllDessertProducts(allDessertsData);
+drinkManager.addAllDrinkProducts(allDrinksData);
+pastaManager.addAllPastaProducts(allPastaData);
+pizzaManager.addAllPizzaProducts(allPizzasData);
+saladManager.addAllSaladProducts(allSaladsData);
+sandwichManager.addAllSandwichProducts(allSandwichData);
+sauceManager.addAllSauceProducts(allSaucesData);
+starterManager.addAllStarterProducts(allStartersData);
+
+
+let allDealsPage = document.getElementById("allDealsPage");
+
+let allChickenPage = document.getElementById("allChickenPage");
+let allDessertsPage = document.getElementById("allDessertsPage");
+let allDrinksPage = document.getElementById("allDrinksPage");
+let allPastaPage = document.getElementById("allPastaPage");
+let allPizzasPage = document.getElementById("allPizzasPage");
+let allSaladsPage = document.getElementById("allSaladsPage");
+let allSandwichPage = document.getElementById("allSandwichPage");
+let allSaucesPage = document.getElementById("allSaucesPage");
+let allStartersPage = document.getElementById("allStartersPage");
+
 function displaySimpleProduct(products, categoryTab) {
   const template = Handlebars.compile(simpleProductSource);
   const html = template(products);
@@ -53,8 +76,6 @@ function displayCustomizableProduct(products, categoryTab) {
   categoryTab.innerHTML = html;
 }
 
-let allDesertsPage = document.getElementById("allDessertsPage");
-displaySimpleProduct(allDesertsData, allDesertsPage);
 
-let allPizzasPage = document.getElementById("allPizzasPage");
-displayCustomizableProduct(allPizzasData, allPizzasPage);
+displaySimpleProduct(dessertManager.allDesserts, allDessertsPage);
+displayCustomizableProduct(pizzaManager.allPizzas, allPizzasPage);
