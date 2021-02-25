@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap"
       rel="stylesheet"
     />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./assets/styles/reset.css" />
     <link rel="stylesheet" href="./assets/styles/index.css" />
     <link
@@ -665,6 +666,96 @@
         {{/each}}
       {{/if}}
     </script>
+    <script>
+
+    </script>
+    <!-- <div id="loadingScreen" class="flex center">
+      <img src="./assets/images/preloader.gif" alt="loading screen" />
+    </div> -->
+    <div class="product-float">
+      <div class="close-icon">
+        <span class="glyphicon glyphicon-remove"></span>
+      </div>
+      <div class="container-complex-card">
+        <div class="box-wrapper">
+          <div class="product-image" style="background-image: url(assets/images/pizzas/1265medium_marg.png);"></div>
+        
+        <h2 class="product-title">
+          <span class="decoration-title red-decoration-title">Маргарита</span>
+        </h2>
+        <div class="dots-seperator"></div>
+        <div class="product-wrapper-left">
+           <div class="form-group size">
+             <label for="pizza-size">ГОЛЕМИНА</label>
+             <div class="select-wrapper">
+               <select id="pizzz-size" class="select-size form-control light-grey-bg text-select" name="size-id">
+                 <option class ="sizes"value="Medium">СРЕДНА (6 ПАРЧЕТА) </option>
+                 <option class ="sizes"value="Large">ГОЛЯМА (8 ПАРЧЕТА)</option>
+                 <option class ="sizes"value="Jumbo">Джъмбо (12 ПАРЧЕТА) </option>
+               </select>
+               <div class='selected'></div>
+           </div>
+          </div>
+           <div class="form-group pan">
+             <label for="pizza-pan">ТЕСТО</label>
+             <div class="select-wrapper">
+               <select name="pan-size-id" id="pizza-pan" class="select-size form-control light-grey-bg text-select">
+                 <option value="Traditional"price="11.00">Традиционно</option>
+                 <option value="Italian" price="11.00">Италиански стил</option>
+                 <option value="Thin" price="11.00">Тънко и хрупкаво</option>
+                 <option value="Philadelphia"price="13.25">с Philadelphia (+2.25лв)</option>
+                 <option value="Whole grain"price="11.00">Пълнозърнесто</option>
+               </select>
+             </div>
+           </div>
+           <div class="sub_toppings_container">
+            <p class="pull-left font-bold">Продукти</p>
+            <div class="ingredients">
+              <span class="product-ingredient">Доматен сос</span>
+              ,
+              <span class="product-ingredient">Extra Моцарела</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-wrapper-right">
+            <div class='weight-image'>
+              <img style="height:50px;" src="assets/images/weight.svg" alt="weight">
+              <div class="weight_cont">570g</div>
+            </div>
+            <div class="quantity">
+               <p class='text-bold'>КОЛИЧЕСТВО</p>
+               <div class="product-quantity-wrapper"></div>
+               <img class="noselect minus" alt="minus" src="assets/images/minus.svg">
+               <span class="product-quantity noselect Quantity">1</span>
+               <img class="noselect plus" alt="plus" src="assets/images/plus.svg">
+            </div>
+            <div class="price">
+              <p class='text-bold'>Цена</p>
+              <div class="product-total-price">
+              <span class="total-price">11.00</span> лв.
+              <div class="save-20 hidden-xs">
+                <em>
+                  <strong>Cпестете до 20%</strong>
+                 </em>
+                 <span class="left_ribbon"></span>
+                 <span class="right_ribbon"></span>
+             </div>
+            </div>
+            </div>
+            
+            <div class="btn-wrapper">
+              <button class="green-button button rounded">ДОБАВИ</button>
+            </div>
+      </div>
+        <div class="rounted">
+          <div class="rounded-left"></div>
+          <div class="rounded-center"></div>
+          <div class="rounded-right"></div>
+        </div>
+      </div>
+
+    </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
       integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 
