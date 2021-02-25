@@ -74,6 +74,7 @@ const userStorage = (function () {
           new User(email, pass, fName, lName, subbedToOffers, subbedToNews)
         );
         localStorage.setItem("users", JSON.stringify(this.users));
+        return true;
       }
     }
 
@@ -106,7 +107,9 @@ const userStorage = (function () {
     ) {
       if (pass !== confirmPass) return false;
 
-      // TODO: validate email with regex
+      // validate email with regex
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!re.test(String(email).toLowerCase())) return false;
 
       if (pass.trim().length < 6) return false;
       if (fName.trim().length < 3 || lName.trim().length < 3) return false;

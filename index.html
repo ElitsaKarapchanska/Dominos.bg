@@ -329,15 +329,15 @@
         <div id="allDrinksPage" class="card-container main-wrapper"></div>
       </div>
       <div id="registrationPage" class="main-wrapper rounded">
-        <form action="">
+        <form id="registrationForm" action="#">
           <h2>РЕГИСТРАЦИЯ</h2>
           <div class="flex space-between responsive-block">
             <div class="text-col">
-              <label for="name" class="inline-block">ИМЕ *</label>
+              <label for="fName" class="inline-block">ИМЕ *</label>
               <input
                 type="text"
-                name="name"
-                id="name"
+                name="fName"
+                id="fName"
                 class="rounded"
                 required
               />
@@ -353,19 +353,19 @@
               />
             </div>
           </div>
-          <label for="email" class="inline-block">E-MAIL *</label>
+          <label for="regEmail" class="inline-block">E-MAIL *</label>
           <input
             type="email"
-            name="email"
-            id="email"
+            name="regEmail"
+            id="regEmail"
             class="rounded"
             required
           />
-          <label for="pass" class="inline-block">ПАРОЛА *</label>
+          <label for="regPass" class="inline-block">ПАРОЛА *</label>
           <input
             type="password"
-            name="pass"
-            id="pass"
+            name="regPass"
+            id="regPass"
             class="rounded"
             required
           />
@@ -703,6 +703,8 @@
     <script src="./assets/script/classes/SauceService.js"></script>
     <script src="./assets/script/classes/StarterService.js"></script>
 
+    <script src="./assets/script/classes/UserService.js"></script>
+    
     <script src="./assets/script/productsController.js"></script>
     <script src="./assets/script/registrationPageController.js"></script>
     <script src="./assets/script/index.js"></script>
