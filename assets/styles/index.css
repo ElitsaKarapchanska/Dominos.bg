@@ -675,7 +675,7 @@ nav.nav.navbar-default {
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 100%;
+  bottom: 115%;
   left: 50%;
   margin-left: -60px;
 }
