@@ -329,15 +329,15 @@
         <div id="allDrinksPage" class="card-container main-wrapper"></div>
       </div>
       <div id="registrationPage" class="main-wrapper rounded">
-        <form action="">
+        <form id="registrationForm" action="#">
           <h2>РЕГИСТРАЦИЯ</h2>
           <div class="flex space-between responsive-block">
             <div class="text-col">
-              <label for="name" class="inline-block">ИМЕ *</label>
+              <label for="fName" class="inline-block">ИМЕ *</label>
               <input
                 type="text"
-                name="name"
-                id="name"
+                name="fName"
+                id="fName"
                 class="rounded"
                 required
               />
@@ -353,19 +353,19 @@
               />
             </div>
           </div>
-          <label for="email" class="inline-block">E-MAIL *</label>
+          <label for="regEmail" class="inline-block">E-MAIL *</label>
           <input
             type="email"
-            name="email"
-            id="email"
+            name="regEmail"
+            id="regEmail"
             class="rounded"
             required
           />
-          <label for="pass" class="inline-block">ПАРОЛА *</label>
+          <label for="regPass" class="inline-block">ПАРОЛА *</label>
           <input
             type="password"
-            name="pass"
-            id="pass"
+            name="regPass"
+            id="regPass"
             class="rounded"
             required
           />
@@ -528,8 +528,7 @@
     <script id="simpleProduct" type="text/x-handlebars-template">
       {{#if this}}
         {{#each this}}
-        <!-- using the image as an id because it's the only unique property without spaces -->
-          <article id="{{this.image}}" class="card rounded simple-card">
+          <article id="{{this.id}}" class="card rounded simple-card">
             {{#ifCond this.tags.length '>' 0}}
               <div class="card-tags-wrapper">
                 {{#each this.tags}}
@@ -607,8 +606,8 @@
     <script id="customizableProduct" type="text/x-handlebars-template">
       {{#if this}}
         {{#each this}}
-          <a href="product-{{this.title}}">
-            <article class="card rounded complex-card">
+          <a href="#product-{{this.category}}-{{this.id}}">
+            <article id="{{this.id}}" class="card rounded complex-card">
               <div class="top-wrapper">
                 {{#ifCond this.tags.length '>' 0}}
                 <div class="card-tags-wrapper">
@@ -672,9 +671,42 @@
     </script>
     <script src="./assets/script/utils-handlebars.js"></script>
     <script src="./assets/script/constants-bg.js"></script>
+    <script src="./assets/script/selectorsConstants.js"></script>
+
+    <!-- JSON files -->
+    <script src="./assets/script/data/allIngredientsData.js"></script>
+    <script src="./assets/script/data/allChickenData.js"></script>
+    <script src="./assets/script/data/allDessertsData.js"></script>
+    <script src="./assets/script/data/allDrinksData.js"></script>
+    <script src="./assets/script/data/allPastaData.js"></script>
     <script src="./assets/script/data/allPizzasData.js"></script>
-    <script src="./assets/script/data/allDesertsData.js"></script>
+    <script src="./assets/script/data/allSaladsData.js"></script>
+    <script src="./assets/script/data/allSandwichData.js"></script>
+    <script src="./assets/script/data/allSaucesData.js"></script>
+    <script src="./assets/script/data/allStartersData.js"></script>
+
+    <!-- Structure classes -->
+    <script src="./assets/script/classes/ProductModel.js"></script>
+    <script src="./assets/script/classes/SimpleProductModel.js"></script>
+    <script src="./assets/script/classes/CustomizableProductModel.js"></script>
+
+    <!-- All product services -->
+    <script src="./assets/script/classes/IngredientService.js"></script>
+    <script src="./assets/script/classes/ChickenServise.js"></script>
+    <script src="./assets/script/classes/DealService.js"></script>
+    <script src="./assets/script/classes/DessertService.js"></script>
+    <script src="./assets/script/classes/DrinkService.js"></script>
+    <script src="./assets/script/classes/PastaService.js"></script>
+    <script src="./assets/script/classes/PizzaService.js"></script>
+    <script src="./assets/script/classes/SaladService.js"></script>
+    <script src="./assets/script/classes/SandwichService.js"></script>
+    <script src="./assets/script/classes/SauceService.js"></script>
+    <script src="./assets/script/classes/StarterService.js"></script>
+
+    <script src="./assets/script/classes/UserService.js"></script>
+    
     <script src="./assets/script/productsController.js"></script>
+    <script src="./assets/script/registrationPageController.js"></script>
     <script src="./assets/script/index.js"></script>
   </body>
 </html>

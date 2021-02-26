@@ -1,46 +1,25 @@
-let body = document.body;
-let loadingScreen = document.getElementById("loadingScreen");
-let allPages = [
-  document.getElementById("homePage"),
-  document.getElementById("allDealsPage"),
-  document.getElementById("allPizzasPage"),
-  document.getElementById("allStartersPage"),
-  document.getElementById("allChickenPage"),
-  document.getElementById("allPastaPage"),
-  document.getElementById("allSaladsPage"),
-  document.getElementById("allSandwichPage"),
-  document.getElementById("allSaucesPage"),
-  document.getElementById("allDessertsPage"),
-  document.getElementById("allDrinksPage"),
-  document.getElementById("registrationPage"),
-];
-let errorPage = document.getElementById("errorPage");
-let menuPage = document.getElementById("menuPage");
-let placeholderDiv = document.getElementById("placeholder");
-let controllerCeckbox = document.getElementById("pData");
-let hiddentCheckboxes = Array.from(
-  document.querySelectorAll(".hiddenCheckbox")
-);
-
 function showPage() {
   let currentPage = location.hash.slice(1);
   if (currentPage === "") currentPage = "home";
   // placholder for behind the menu so that the space for it is not taken by the main, has display none on home page
-  currentPage === "home" ? placeholderDiv.style.display = "none" : placeholderDiv.style.display = "block";
+  currentPage === "home"
+    ? (placeholderDiv.style.display = "none")
+    : (placeholderDiv.style.display = "block");
   let noPageWasShown = true;
-  allPages.forEach((page) => {
-    if (page.id === currentPage + "Page") {
+
+  for (let page in allPages) {
+    if (allPages[page].id === currentPage + "Page") {
       noPageWasShown = false;
-      page.style.display = "block";
+      allPages[page].style.display = "block";
       errorPage.style.display = "none";
-      if (page.id.includes("all")) {
+      if (allPages[page].id.includes("all")) {
         // meaning that the page a menu page -> show the menu navigation and the filters for the category
-        page.style.display = "grid";
+        allPages[page].style.display = "grid";
       }
     } else {
-      page.style.display = "none";
+      allPages[page].style.display = "none";
     }
-  });
+  }
   if (noPageWasShown) errorPage.style.display = "flex";
 }
 
@@ -54,7 +33,7 @@ function showLoadingScreen(loadingScreen) {
   loadingScreen.style.display = "flex";
   body.style.overflow = "hidden";
   body.style.height = "100%";
-  setTimeout(() => hideLoadingScreen(loadingScreen), 1000);
+  setTimeout(() => hideLoadingScreen(loadingScreen), 1500);
 }
 
 function openResponsiveNavBar() {
@@ -115,21 +94,6 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
 }
-
-// fade checkboxes on registration page
-controllerCeckbox.addEventListener("change", (event) => {
-  console.log(event.target.checked);
-  if (event.target.checked) {
-    hiddentCheckboxes.forEach((checkbox) => {
-      checkbox.style.display = "flex";
-      checkbox.classList.add("flex");
-    });
-  } else {
-    hiddentCheckboxes.forEach((checkbox) => {
-      checkbox.style.display = "none";
-    });
-  }
-});
 
 window.addEventListener("scroll", createFixedNavbar);
 document

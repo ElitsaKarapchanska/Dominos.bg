@@ -1,6 +1,7 @@
 const allChickenData = [
   {
     "title": CHICKEN_NAMES_CONSTANTS.CHICKEN_KICKERS,
+    "id": "ch1",
     "price": 6.5,
     "weight": 225,
     "image": "chicken/807ipar.png",
@@ -9,6 +10,7 @@ const allChickenData = [
   },
   {
     "title": CHICKEN_NAMES_CONSTANTS.CHICKEN_STRIPPERS,
+    "id": "ch2",
     "price": 6.5,
     "weight": 225,
     "image": "chicken/811ipar.png",
@@ -17,6 +19,7 @@ const allChickenData = [
   },
   {
     "title": CHICKEN_NAMES_CONSTANTS.BUFFALO_WINGS,
+    "id": "ch3",
     "price": 6.5,
     "weight": 230,
     "image": "chicken/809ipar.png",
@@ -25,6 +28,7 @@ const allChickenData = [
   },
   {
     "title": CHICKEN_NAMES_CONSTANTS.HOT_BUFFALO_WINGS,
+    "id": "ch4",
     "price": 6.5,
     "weight": 230,
     "image": "chicken/718ipar.png",

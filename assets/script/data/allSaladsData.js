@@ -1,6 +1,7 @@
 const allSaladsData = [
   {
     "title": SALAD_NAMES_CONSTANTS.ROCKET_SALAD,
+    "id": "sl1",
     "price": 5.3,
     "weight": 220,
     "image": "salads/1325ipar.png",
@@ -9,6 +10,7 @@ const allSaladsData = [
   },
   {
     "title": SALAD_NAMES_CONSTANTS.CAESARS_BACON,
+    "id": "sl2",
     "price": 5.8,
     "weight": 330,
     "image": "salads/1307ipar.png",
@@ -17,6 +19,7 @@ const allSaladsData = [
   },
   {
     "title": SALAD_NAMES_CONSTANTS.CAESARS_CHICKEN,
+    "id": "sl3",
     "price": 5.8,
     "weight": 330,
     "image": "salads/1308ipar.png",
@@ -25,6 +28,7 @@ const allSaladsData = [
   },
   {
     "title": SALAD_NAMES_CONSTANTS.TUNA_SALAD,
+    "id": "sl4",
     "price": 5.8,
     "weight": 280,
     "image": "salads/1328ipar.png",

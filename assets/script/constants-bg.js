@@ -169,16 +169,23 @@ const DRINK_NAMES_CONSTANTS = {
   SHUMENSKO_1L: "ШУМЕНСКО 1Л",
 };
 
+const INGREDIENT_CATEGORY_SAUCES = "Сосове";
+const INGREDIENT_CATEGORY_HERBS = "Подправки"
+const INGREDIENT_CATEGORY_CHEESES = "Сирена";
+const INGREDIENT_CATEGORY_MEATS = "Меса";
+const INGREDIENT_CATEGORY_VEGETABLES = "Зеленчуци";
+const INGREDIENT_CATEGORY_MISC = "Смесени";
+
 const INGREDIENT_NAMES_CONSTANTS = {
-  SAUCES: "Сосове",
+  // sauces
   TOMATO_SAUCE: "Доматен сос",
   CREAM: "Сметана",
   BBQ: "Барбекю сос",
-  HERBS: "Подправки",
+  // herbs
   PARMESAN_SPRINKLES: "Пармезан снежинки",
   BASIL: "Босилек",
   OREGANO: "Риган",
-  CHEESES: "Сирена",
+  // cheeses
   EMMENTAL: "Ементал",
   FETA: "Краве сирене",
   MOZZARELLA: "Моцарела",
@@ -186,7 +193,7 @@ const INGREDIENT_NAMES_CONSTANTS = {
   PARMESAN: "Пармезан",
   VEGAN_MOZZARELLA: "Веган Моцарела",
   CHEDDAR: "Чедър сирене",
-  MEATS: "Меса",
+  // meats
   PULLED_BEEF: "Дърпано телешко",
   SPICY_BEEF: "Пикантно телешко",
   SMOCKED_HAM: "Пушена шунка",
@@ -196,7 +203,7 @@ const INGREDIENT_NAMES_CONSTANTS = {
   CHICKEN: "Пиле",
   PEPPERONI: "Пеперони",
   TUNA: "Риба тон",
-  VEGETABLES: "Зеленчуци",
+  // vegetable
   ARUGULA: "Рукола",
   PICKLES: "Кисeли краставички",
   CORN: "Царевица",
@@ -207,7 +214,7 @@ const INGREDIENT_NAMES_CONSTANTS = {
   FRESH_MUSHROOMS: "Пресни гъби",
   FRESH_GREEN_PEPPERS: "Пресни зелени чушки",
   JALAPENO_PEPPER: "Халапеньо-люти чушки",
-  MISC: "Смесен",
+  // misc
   PESTO: "Песто сос",
   CARAMELIZED_ONIONS: "Карамелизиран лук",
   EXTRA: "Допълнително",

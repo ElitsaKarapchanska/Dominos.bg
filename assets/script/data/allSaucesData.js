@@ -1,6 +1,7 @@
 const allSaucesData = [
   {
     "title": DIP_NAMES_CONSTANTS.FRANKS_HOT_SAUCE,
+    "id": "su1",
     "price": 1,
     "weight": 25,
     "image": "sauces/1365ipar.png",
@@ -9,6 +10,7 @@ const allSaucesData = [
   },
   {
     "title": DIP_NAMES_CONSTANTS.HONEY_MUSTARD_DIP,
+    "id": "su2",
     "price": 1,
     "weight": 25,
     "image": "sauces/1366ipar.png",
@@ -17,6 +19,7 @@ const allSaucesData = [
   },
   {
     "title": DIP_NAMES_CONSTANTS.GARLIC_HERBS_DIP,
+    "id": "su3",
     "price": 1,
     "weight": 25,
     "image": "sauces/1201ipar.png",
@@ -25,6 +28,7 @@ const allSaucesData = [
   },
   {
     "title": DIP_NAMES_CONSTANTS.BARBECUE_DIP,
+    "id": "su4",
     "price": 1,
     "weight": 25,
     "image": "sauces/1200ipar.png",
@@ -33,6 +37,7 @@ const allSaucesData = [
   },
   {
     "title": DIP_NAMES_CONSTANTS.SWEET_CHILLI_DIP,
+    "id": "su5",
     "price": 1,
     "weight": 25,
     "image": "sauces/1202ipar.png",
@@ -41,6 +46,7 @@ const allSaucesData = [
   },
   {
     "title": DIP_NAMES_CONSTANTS.TOMATO_DIP,
+    "id": "su6",
     "price": 1,
     "weight": 45,
     "image": "sauces/1206ipar.png",
@@ -49,6 +55,7 @@ const allSaucesData = [
   },
   {
     "title": DIP_NAMES_CONSTANTS.MILK_BASED_SAUCE,
+    "id": "su7",
     "price": 1,
     "weight": 60,
     "image": "sauces/1207ipar.png",
@@ -57,6 +64,7 @@ const allSaucesData = [
   },
   {
     "title": DIP_NAMES_CONSTANTS.RANCH_DIP,
+    "id": "su8",
     "price": 1,
     "weight": 45,
     "image": "sauces/1205ipar.png",
@@ -65,6 +73,7 @@ const allSaucesData = [
   },
   {
     "title": DIP_NAMES_CONSTANTS.CAESAR_DIP,
+    "id": "su9",
     "price": 1,
     "weight": 45,
     "image": "sauces/1512ipar.png",
@@ -73,6 +82,7 @@ const allSaucesData = [
   },
   {
     "title": DIP_NAMES_CONSTANTS.ITALIAN_DIP,
+    "id": "su10",
     "price": 1,
     "weight": 45,
     "image": "sauces/1539ipar.png",
