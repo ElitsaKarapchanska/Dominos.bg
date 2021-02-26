@@ -65,11 +65,11 @@ function showCard(hashLocation){
                   displayCard(product,tab); 
                   // where to display them;
     break;
-    case 'pasta':  let product = getProductByProductCategoryAndId(pastaManager.allPasta,productId);
+    case 'pasta': let product = getProductByProductCategoryAndId(pastaManager.allPasta,productId);
                    displayCard(product,tab); 
                    // where to display them;
     break;
-    case 'salad': getProductByProductCategoryAndId(saladManager.allSalads,productId);
+    case 'salad':  let product = getProductByProductCategoryAndId(saladManager.allSalads,productId);
                   displayCard(product,tab); 
                  // where to display them;
     break;
