@@ -1,6 +1,7 @@
 const allPastaData = [
   {
     "title": PASTA_NAMES_CONSTANTS.CARBONARA_PASTA,
+    "id": "pa1",
     "price": 6.8,
     "weight": 440,
     "image": "pasta/1242ipar.png",
@@ -9,6 +10,7 @@ const allPastaData = [
   },
   {
     "title": PASTA_NAMES_CONSTANTS.NAPOLITEN,
+    "id": "pa2",
     "price": 6.8,
     "weight": 400,
     "image": "pasta/1243ipar.png",
@@ -17,6 +19,7 @@ const allPastaData = [
   },
   {
     "title": PASTA_NAMES_CONSTANTS.PASTA_PEPPERONI,
+    "id": "pa3",
     "price": 6.8,
     "weight": 410,
     "image": "pasta/843ipar.png",
@@ -25,6 +28,7 @@ const allPastaData = [
   },
   {
     "title": PASTA_NAMES_CONSTANTS.MAC_AND_CHEESE,
+    "id": "pa4",
     "price": 6.8,
     "weight": 400,
     "image": "pasta/1591ipar.png",

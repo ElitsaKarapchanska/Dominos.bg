@@ -1,192 +1,187 @@
-// 2d array where the first element of the inner array is always the category name and the rest are objects
-// "price"s are 0 for the first of it's category and + 2 for every next one with some exceptions (on big pizzas)
-const allIngredientsData = [
-  [
-    INGREDIENT_NAMES_CONSTANTS.SAUCES,
+// object with keys - the category names and values - an array of the ingredient objects
+// "prices" are 0 for the first of it's category and + 2 for every next one with some exceptions (on big pizzas)
+const allIngredientsData = {
+  INGREDIENT_CATEGORY_SAUCES: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE,
-      "isAdditional": false,
+      "id": 1,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.CREAM,
-      "isAdditional": false,
+      "id": 2,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.BBQ,
-      "isAdditional": false,
+      "id": 3,
       "price": [0, 2],
     },
   ],
-  [
-    INGREDIENT_NAMES_CONSTANTS.HERBS,
+  INGREDIENT_CATEGORY_HERBS: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN_SPRINKLES,
-      "isAdditional": false,
+      "id": 4,
       "price": [0.5, 0.5],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.BASIL,
-      "isAdditional": false,
+      "id": 5,
       "price": [0, 0],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.OREGANO,
-      "isAdditional": false,
+      "id": 6,
       "price": [0, 0],
     },
   ],
-  [
-    INGREDIENT_NAMES_CONSTANTS.CHEESES,
+  INGREDIENT_CATEGORY_CHEESES: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.EMMENTAL,
-      "isAdditional": false,
+      "id": 7,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.FETA,
-      "isAdditional": false,
+      "id": 8,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA,
-      "isAdditional": false,
+      "id": 9,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.SMOKED_CHEESE,
-      "isAdditional": false,
+      "id": 10,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN,
-      "isAdditional": false,
+      "id": 11,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.VEGAN_MOZZARELLA,
-      "isAdditional": false,
+      "id": 12,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.CHEDDAR,
+      "id": 13,
       "isAdditional": false,
       "price": [0, 2],
     },
   ],
-  [
-    INGREDIENT_NAMES_CONSTANTS.MEATS,
+  INGREDIENT_CATEGORY_MEATS: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PULLED_BEEF,
-      "isAdditional": false,
+      "id": 14,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.SPICY_BEEF,
-      "isAdditional": false,
+      "id": 15,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_HAM,
-      "isAdditional": false,
+      "id": 16,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON,
-      "isAdditional": false,
+      "id": 17,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.CHORISO,
-      "isAdditional": false,
+      "id": 18,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.VENTRICHINA,
-      "isAdditional": false,
+      "id": 19,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.CHICKEN,
-      "isAdditional": false,
+      "id": 20,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PEPPERONI,
-      "isAdditional": false,
+      "id": 21,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.TUNA,
-      "isAdditional": false,
+      "id": 22,
       "price": [0, 2],
     },
   ],
-  [
-    INGREDIENT_NAMES_CONSTANTS.VEGETABLES,
+  INGREDIENT_CATEGORY_VEGETABLES: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.ARUGULA,
-      "isAdditional": false,
+      "id": 23,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PICKLES,
-      "isAdditional": false,
+      "id": 24,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.CORN,
-      "isAdditional": false,
+      "id": 25,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.ONION,
-      "isAdditional": false,
+      "id": 26,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.BLACK_OLIVES,
-      "isAdditional": false,
+      "id": 27,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PINAPPLE,
-      "isAdditional": false,
+      "id": 28,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES,
-      "isAdditional": false,
+      "id": 29,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS,
-      "isAdditional": false,
+      "id": 30,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.FRESH_GREEN_PEPPERS,
-      "isAdditional": false,
+      "id": 31,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.JALAPENO_PEPPER,
-      "isAdditional": false,
+      "id": 32,
       "price": [0, 2],
     },
   ],
-  [
-    INGREDIENT_NAMES_CONSTANTS.MISC,
+  INGREDIENT_CATEGORY_MISC: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PESTO,
-      "isAdditional": false,
+      "id": 33,
       "price": [0, 2],
     },
     {
       "title": INGREDIENT_NAMES_CONSTANTS.CARAMELIZED_ONIONS,
-      "isAdditional": false,
+      "id": 34,
       "price": [0, 2],
     },
   ],
-];
+};

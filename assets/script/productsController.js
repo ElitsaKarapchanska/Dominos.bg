@@ -2,6 +2,16 @@ const simpleProductSource = document.getElementById("simpleProduct").innerHTML;
 const customizableProductSource = document.getElementById("customizableProduct")
   .innerHTML;
 
+chickenManager.addAllChickenProducts(allChickenData);
+dessertManager.addAllDessertProducts(allDessertsData);
+drinkManager.addAllDrinkProducts(allDrinksData);
+pastaManager.addAllPastaProducts(allPastaData);
+pizzaManager.addAllPizzaProducts(allPizzasData);
+saladManager.addAllSaladProducts(allSaladsData);
+sandwichManager.addAllSandwichProducts(allSandwichData);
+sauceManager.addAllSauceProducts(allSaucesData);
+starterManager.addAllStarterProducts(allStartersData);
+
 function displaySimpleProduct(products, categoryTab) {
   const template = Handlebars.compile(simpleProductSource);
   const html = template(products);
@@ -19,14 +29,14 @@ function displaySimpleProduct(products, categoryTab) {
   allCards.forEach((card) => {
     card.addEventListener("click", function (ev) {
       // finding the actual card that was clicked from the 'event.path'
-      let index = -1;
-      ev.path.forEach((el, i) => {
-        if (el.tagName === "ARTICLE") index = i;
+      let id = -1;
+      ev.path.forEach((el) => {
+        if (el.tagName === "ARTICLE") id = el.id;
       });
 
       // selecting the 'slide-up' section from the card
-      let slideUpSection = ev.path[index].querySelector(
-        ":scope section.slide-up"
+      let slideUpSection = document.querySelector(
+        "#" + id + " section.slide-up"
       );
       if (slideUpSection.classList.contains("opened")) {
         slideUpSection.classList.remove("opened");
@@ -53,8 +63,5 @@ function displayCustomizableProduct(products, categoryTab) {
   categoryTab.innerHTML = html;
 }
 
-let allDesertsPage = document.getElementById("allDessertsPage");
-displaySimpleProduct(allDesertsData, allDesertsPage);
-
-let allPizzasPage = document.getElementById("allPizzasPage");
-displayCustomizableProduct(allPizzasData, allPizzasPage);
+displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);
+displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);
