@@ -666,7 +666,7 @@
       {{/if}}
     </script>
   <!-- complexCard-pizza -->
-    <script id="complexCard-pizza" type="text/x-handlebars-template">
+    <script id="complexCardProduct" type="text/x-handlebars-template">
     {{#if this}}
      {{#each this}}
     <div id="loadingScreen" class="flex center">
@@ -686,6 +686,7 @@
         <div class="dots-seperator"></div>
         <div class="product-wrapper">
         <div class="product-wrapper-left">
+          {{#ifCond this.category '===' "pizza" }}
            <div class="form-group size">
              <label for="pizza-size">ГОЛЕМИНА</label>
              <div class="select-wrapper">
@@ -709,6 +710,7 @@
                </select>
              </div>
            </div>
+           {{/ifCond}}
            <div class="sub_toppings_container">
             <p class="pull-left font-bold">Продукти</p>
             <!-- array from ingredients -->

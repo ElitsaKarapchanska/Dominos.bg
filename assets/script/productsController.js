@@ -1,6 +1,7 @@
 const simpleProductSource = document.getElementById("simpleProduct").innerHTML;
 const customizableProductSource = document.getElementById("customizableProduct")
   .innerHTML;
+const complexCardProductSource = document.getElementById("complexCardProduct").innerHTML;
 
 chickenManager.addAllChickenProducts(allChickenData);
 dessertManager.addAllDessertProducts(allDessertsData);
@@ -54,6 +55,34 @@ function displaySimpleProduct(products, categoryTab) {
       }
     });
   });
+}
+function showCard(hashLocation){
+  let product = hashLocation.split("-");
+  let productCategory = currentPorduct[1];
+  let productId = product[2];
+  switch(productCategory){
+    case 'pizza': let product = getProductByProductCategoryAndId(pizzaManager.allPizzas,productId);
+                  displayCard(product,tab); 
+                  // where to display them;
+    break;
+    case 'pasta':  let product = getProductByProductCategoryAndId(pastaManager.allPasta,productId);
+                   displayCard(product,tab); 
+                   // where to display them;
+    break;
+    case 'salad': getProductByProductCategoryAndId(saladManager.allSalads,productId);
+                  displayCard(product,tab); 
+                 // where to display them;
+    break;
+  }
+}
+function getProductByProductCategoryAndId(data,id){
+     return data.filter( element => element.id === id);
+}
+function displayCard(products, categoryTab){
+  const template = Handlebars.compile(complexCardProductSource);
+  const html = template(products);
+
+  categoryTab.innerHTML = html;
 }
 
 function displayCustomizableProduct(products, categoryTab) {
