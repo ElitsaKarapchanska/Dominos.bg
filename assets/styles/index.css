@@ -932,7 +932,7 @@ footer ul li {
   margin-right: 10px;
 }
 /* complex-cart */
-.product_float {
+.product-cart {
   position: absolute;
   width: 100%;
   z-index: 9999;
@@ -954,18 +954,7 @@ footer ul li {
 #closeIcon {
   width: 25px;
   height: 25px;
-  text-align: justify;
 }
-/* .glyphicon {
-  position: relative;
-  display: inline-block;
-  font-family: "Glyphicons Halflings";
-  font-style: normal;
-  font-weight: normal;
-  top: 1px;
-  font-size: 26px;
-  padding-top: 4px;
-} */
 .container-complex-card {
   margin-right: auto;
   margin-left: auto;

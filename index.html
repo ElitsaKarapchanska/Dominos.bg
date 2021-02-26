@@ -666,22 +666,23 @@
         {{/each}}
       {{/if}}
     </script>
-    <script>
-
-    </script>
-    <!-- <div id="loadingScreen" class="flex center">
+  <!-- complexCard-pizza -->
+    <script id="complexCard-pizza" type="text/x-handlebars-template">
+    {{#if this}}
+     {{#each this}}
+    <div id="loadingScreen" class="flex center">
       <img src="./assets/images/preloader.gif" alt="loading screen" />
-    </div> -->
-    <div class="product-float">
+    </div>
+    <div class="product-cart">
       <div class="close-icon">
         <img id='closeIcon' src="assets/images/close_x.svg" alt="close icon">
       </div>
       <div class="container-complex-card">
         <div class="box-wrapper">
-          <div class="product-image" style="background-image: url(assets/images/pizzas/1265medium_marg.png);"></div>
+          <div class="product-image" style="background-image: url(assets/images/pizzas/{{this.image}});"></div>
         
         <h2 class="product-title">
-          <span class="decoration-title red-decoration-title">Маргарита</span>
+          <span class="decoration-title red-decoration-title">{{this.title}}</span>
         </h2>
         <div class="dots-seperator"></div>
         <div class="product-wrapper">
@@ -711,10 +712,11 @@
            </div>
            <div class="sub_toppings_container">
             <p class="pull-left font-bold">Продукти</p>
+            <!-- array from ingredients -->
             <div class="ingredients">
-              <span class="product-ingredient">Доматен сос</span>
-              ,
-              <span class="product-ingredient">Extra Моцарела</span>
+              {{#each this.ingredients}}
+              <span class="product-ingredient">{{this}} </span>
+              {{/each}}
             </div>
           </div>
         </div>
@@ -722,7 +724,7 @@
           <div>
              <div class='weight-image'>
               <img style="height:50px;" src="assets/images/weight.svg" alt="weight">
-              <div class="weight_cont">570g</div>
+              <div class="weight_cont">{{this.weight}}g</div>
              </div>
              <div class="quantity">
                <p class='text-bold'>КОЛИЧЕСТВО</p>
@@ -735,7 +737,7 @@
             <div class="price">
               <p class='text-bold'>Цена</p>
               <div class="product-total-price">
-              <span class="total-price">11.00</span> лв.
+              <span class="total-price">{{this.price}}лв</span>
             </div>
               <div class="save-20 hidden-xs">
                 <em>
@@ -759,6 +761,9 @@
           <div class="rounded-right"></div>
         </div>
     </div>
+     {{/each}}
+    {{/if}}
+  </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
       integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 
