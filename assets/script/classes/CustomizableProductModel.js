@@ -3,4 +3,10 @@ class CustomizableProduct extends Product {
     super(title, image, price, weight, id, category, tags);
     this.ingredients = ingredients; // array
   }
+
+  addIngredient(ingredient) {
+    if (ingredientManager.checkIfIngredient(ingredient)) {
+      this.ingredients.push(ingredient);
+    }
+  }
 }

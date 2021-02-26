@@ -4,6 +4,7 @@ const pastaManager = (function () {
       super(title, image, price, weight, id, "pasta", tags, ingredients);
     }
   }
+  
   class PastaManager {
     constructor() {
       this.allPasta = [];
