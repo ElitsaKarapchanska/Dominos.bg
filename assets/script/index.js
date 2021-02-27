@@ -21,7 +21,6 @@ function showPage() {
     }
     if (currentPage.includes("product")) {
         showCard(currentPage);
-        console.log(currentPage);
         allPages.complexProductPage.style.display = "block";
     }
 

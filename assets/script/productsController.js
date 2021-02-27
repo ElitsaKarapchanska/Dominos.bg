@@ -62,17 +62,13 @@ function showCard(hashLocation){
   let productId = productPage[2];
   switch(productCategory){
     case 'pizza': {let pizza = getProductByProductCategoryAndId(pizzaManager.allPizzas,productId);
-                  console.log(pizza);
-                  displayCard(pizza,allPages.complexProductPage); }
-                  // where to display them;
+                  displayCard(pizza[0],allPages.complexProductPage); }
     break;
     case 'pasta':{ let pasta = getProductByProductCategoryAndId(pastaManager.allPasta,productId);
-                   displayCard(pasta,allPages.complexProductPage); }
-                   // where to display them;
+                   displayCard(pasta[0],allPages.complexProductPage); }
     break;
     case 'salad':  {let salad = getProductByProductCategoryAndId(saladManager.allSalads,productId);
-                  displayCard(salad,allPages.complexProductPage); }
-                 // where to display them;
+                  displayCard(salad[0],allPages.complexProductPage); }
     break;
   }
 }
@@ -82,7 +78,6 @@ function getProductByProductCategoryAndId(data,id){
 function displayCard(products, categoryTab){
   const template = Handlebars.compile(complexCardProductSource);
   const html = template(products);
- console.log(html);
   categoryTab.innerHTML = html;
 }
 
