@@ -13,6 +13,7 @@ const allPages = {
   allDessertsPage: document.getElementById("allDessertsPage"),
   allDerinksPage: document.getElementById("allDrinksPage"),
   registrationPage: document.getElementById("registrationPage"),
+  complexProductPage: document.getElementById("complexProductPage"),
 };
 const errorPage = document.getElementById("errorPage");
 const menuPage = document.getElementById("menuPage");
