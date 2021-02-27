@@ -93,6 +93,7 @@ const userStorage = (function () {
     }
 
     logout() {
+      this.loggedInUser = null;
       localStorage.removeItem("loggedInUser");
     }
 
@@ -140,29 +141,58 @@ const userStorage = (function () {
       // TODO
     }
 
-    addToCart(product) {
+    addToCart(product, quantity) {
+      // if the product is not already in the cart, add it
+      if (!this.editCartProductQuantity(product, true, quantity)) {
+        this.loggedInUser.cart.push({ prod: product, quantity: quantity });
+        localStorage.setItem("users", JSON.stringify(this.users));
+      }
+      return this.loggedInUser.cart.length;
+    }
+
+    /**
+     * Increments or decrements the quantity of a specific product in the cart
+     * @param {Product} product
+     * @param {Boolean} toIncrement wether to increment or decrement
+     * @param {Number} amount 
+     */
+    editCartProductQuantity(product, toIncrement, amount = 1) {
       if (!(product instanceof Product)) return false;
-      // if there is a current loggedInUser -> add to his cart and save all in local storage
       if (!this.loggedInUser) return false;
+
       // check if already in cart with stringify since they could have added a pizza with custom
       // ingredients and this seems like the easiest way to compare
-      let cartStr = JSON.stringify(this.loggedInUser.cart);
-      let productStr = JSON.stringify(product)
-      let index = cartStr.indexOf(productStr)
-      if (index + 1) {
-        index += productStr.length;
-        // TODO: change the amount in cartStr after index
-        let quantity = parseInt(cartStr.slice(index + 1))++; // + 1 for the ',' after each object
+      let editProductStr = JSON.stringify(product);
+      let matchInCart = this.loggedInUser.cart.find((entry) => {
+        return JSON.stringify(entry.prod) === editProductStr;
+      });
+      if (matchInCart) {
+        toIncrement
+          ? (matchInCart.quantity += amount)
+          : (matchInCart.quantity -= amount);
 
-        this.loggedInUser.cart = JSON.parse(cartStr);
+        // if the quantity of the product becomes 0 or less, remove it from cart
+        if (matchInCart.quantity <= 0) {
+          // possible because they have the same reference
+          let index = this.loggedInUser.cart.indexOf(matchInCart);
+          this.loggedInUser.cart.splice(index, 1);
+        }
+        localStorage.setItem("users", JSON.stringify(this.users));
         return true;
       }
-      this.loggedInUser.cart.push({prod: product, quantity: 1});
-      localStorage.setItem("users", JSON.stringify(this.users));
+      return false;
     }
 
     removeFromCart(product) {
-      // TODO
+      if (!(product instanceof Product)) return false;
+      if (!this.loggedInUser) return false;
+
+      let productToRemoveStr = JSON.stringify(product);
+      let indexInCart = this.loggedInUser.cart.findIndex((entry) => {
+        return JSON.stringify(entry.prod) === productToRemoveStr;
+      });
+      if (indexInCart < 0) return false;
+      this.loggedInUser.cart.splice(indexInCart, 1);
     }
   }
 

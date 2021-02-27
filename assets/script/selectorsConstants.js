@@ -18,3 +18,6 @@ const errorPage = document.getElementById("errorPage");
 const menuPage = document.getElementById("menuPage");
 const placeholderDiv = document.getElementById("placeholder");
 
+const userIcon = document.getElementById("loggedIn");
+const menuLink = document.getElementById("menu");
+const orderNowBtn = document.getElementById("orderNowBtn");

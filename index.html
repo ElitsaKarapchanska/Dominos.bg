@@ -120,7 +120,7 @@
               <!-- menu -->
               <li id="menu">
                 <a
-                  href="#"
+                  href="#allDeals"
                   data-rel="select-store"
                   class="font-bold open-modal text-center"
                   >МЕНЮ</a
@@ -129,11 +129,15 @@
               <!-- order now -->
               <li>
                 <a
-                  href="#"
+                  href="#allDeals"
                   class="button font-bold cart-btn text-center"
+                  id="orderNowBtn"
                   data-type="order"
                   >ПОРЪЧАЙ СЕГА</a
                 >
+              </li>
+              <li id="loggedIn">
+                <img src="./assets/images/account_avatar_icon.svg" alt="profile">
               </li>
               <li class="visible-resposnsive">
                 <a href="#" class="font-bold">СВЪРЖЕТЕ СЕ С НАС</a>
@@ -595,7 +599,7 @@
                   <p class="price-sum">{{this.price}}лв</p>
                 </div>
               </div>
-              <button class="green-button button rounded">ДОБАВИ</button>
+              <button class="addBtn green-button button rounded">ДОБАВИ</button>
             </section>
           </article>
         {{/each}}
@@ -670,6 +674,7 @@
       crossorigin="anonymous">
     </script>
     <script src="./assets/script/utils-handlebars.js"></script>
+    <script src="./assets/script/utils.js"></script>
     <script src="./assets/script/constants-bg.js"></script>
     <script src="./assets/script/selectorsConstants.js"></script>
 
@@ -706,7 +711,7 @@
     <script src="./assets/script/classes/UserService.js"></script>
     
     <script src="./assets/script/productsController.js"></script>
-    <script src="./assets/script/registrationPageController.js"></script>
+    <script src="./assets/script/userController.js"></script>
     <script src="./assets/script/index.js"></script>
   </body>
 </html>

@@ -20,10 +20,6 @@ controllerCeckbox.addEventListener("change", (event) => {
   }
 });
 
-// other pages
-
-
-
 // functionality
 
 // registration page
@@ -64,3 +60,20 @@ registrationForm.addEventListener("submit", function (ev) {
 });
 
 // other pages
+orderNowBtn.addEventListener("click", function(event) {
+  if (!userStorage.loggedInUser) {
+    event.preventDefault();
+    // TODO: open login modal
+  }
+});
+
+// product pages
+function addToCartBtn(product, quantity) {
+  if (!userStorage.loggedInUser) {
+    // TODO: open login modal
+  } else {
+    let numberOfProductsInCart = userStorage.addToCart(product, quantity);
+    let cartNumber = document.getElementById("orderNumber");
+    cartNumber.innerText = numberOfProductsInCart;
+  }
+}

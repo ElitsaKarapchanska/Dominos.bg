@@ -7,6 +7,9 @@ function showPage() {
     : (placeholderDiv.style.display = "block");
   let noPageWasShown = true;
 
+  changeElementVisibility(userIcon, userStorage.loggedInUser);
+  changeElementVisibility(menuLink, !userStorage.loggedInUser);
+
   for (let page in allPages) {
     if (allPages[page].id === currentPage + "Page") {
       noPageWasShown = false;

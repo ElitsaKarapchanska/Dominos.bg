@@ -23,6 +23,11 @@ function displaySimpleProduct(products, categoryTab) {
     "#" + categoryTab.id + " .simple-card"
   );
 
+  // selecting all buttons which when pressed add the product to the cart
+  let allAddButtons = document.querySelectorAll(
+    "#" + categoryTab.id + " .simple-card .addBtn"
+  );
+
   // saving the last opened section so that we can close it, when another one is opened
   let openedSection;
 
@@ -52,6 +57,24 @@ function displaySimpleProduct(products, categoryTab) {
         }
         openedSection = slideUpSection;
       }
+    });
+  });
+
+  allAddButtons.forEach((btn) => {
+    btn.addEventListener("click", function (event) {
+      // select the product and the quantity
+      let id = -1;
+      event.path.forEach((el) => {
+        if (el.tagName === "ARTICLE") id = el.id;
+      });
+
+      // get product from the id
+      let product
+
+      let quantityElement = document.querySelector("#" + id + " .quantity-number");
+      let quantity = parseInt(quantityElement.innerHTML);
+      
+      addToCartBtn(product, quantity);
     });
   });
 }
