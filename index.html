@@ -717,15 +717,15 @@
              <div class="quantity">
                <p class='text-bold'>КОЛИЧЕСТВО</p>
                <div class="product-quantity-wrapper"></div>
-               <img class="minus" alt="minus" src="assets/images/minus.svg">
-               <span class="product-quantity noselect Quantity">1</span>
-               <img class="plus" alt="plus" src="assets/images/plus.svg">
+               <img id="minus" alt="minus" src="assets/images/minus.svg">
+               <span id="selectedQuantity" class="product-quantity noselect Quantity">1</span>
+               <img id="plus" alt="plus" src="assets/images/plus.svg">
              </div>
           </div>
             <div class="price">
               <p class='text-bold'>Цена</p>
               <div class="product-total-price">
-              <span class="total-price">{{this.price.[1]}} лв</span>
+              <span id="currentPrice" class="total-price">{{this.price.[1]}}</span><span class="currency">  лв.</span>
             </div>
               <div class="save-20 hidden-xs">
                 <em>
