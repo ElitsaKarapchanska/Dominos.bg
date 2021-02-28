@@ -960,7 +960,7 @@ footer ul li {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-  width: 1220px;
+  max-width: 100%;
 }
 .box-wrapper {
   border-radius: 0;
@@ -1282,6 +1282,19 @@ label {
   }
   .list {
     display: none;
+  }
+  /* complex-product-page */
+  .product-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .product-wrapper-left{
+    background: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-wrapper-right{
+    width: 100%;
   }
 }
 
