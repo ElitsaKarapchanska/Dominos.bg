@@ -1,6 +1,5 @@
 const simpleProductSource = document.getElementById("simpleProduct").innerHTML;
-const customizableProductSource = document.getElementById("customizableProduct")
-  .innerHTML;
+const customizableProductSource = document.getElementById("customizableProduct").innerHTML;
 const complexCardProductSource = document.getElementById("complexCardProduct").innerHTML;
 
 chickenManager.addAllChickenProducts(allChickenData);
@@ -20,9 +19,7 @@ function displaySimpleProduct(products, categoryTab) {
   categoryTab.innerHTML = html;
 
   // selecting the cards within the current tab
-  let allCards = document.querySelectorAll(
-    "#" + categoryTab.id + " .simple-card"
-  );
+  let allCards = document.querySelectorAll("#" + categoryTab.id + " .simple-card");
 
   // saving the last opened section so that we can close it, when another one is opened
   let openedSection;
@@ -56,29 +53,41 @@ function displaySimpleProduct(products, categoryTab) {
     });
   });
 }
-function showCard(hashLocation){
+function showCard(hashLocation) {
   let productPage = hashLocation.split("-");
   let productCategory = productPage[1];
   let productId = productPage[2];
-  switch(productCategory){
-    case 'pizza': {let pizza = getProductByProductCategoryAndId(pizzaManager.allPizzas,productId);
-                  displayCard(pizza[0],allPages.complexProductPage); }
-    break;
-    case 'pasta':{ let pasta = getProductByProductCategoryAndId(pastaManager.allPasta,productId);
-                   displayCard(pasta[0],allPages.complexProductPage); }
-    break;
-    case 'salad':  {let salad = getProductByProductCategoryAndId(saladManager.allSalads,productId);
-                  displayCard(salad[0],allPages.complexProductPage); }
-    break;
-  }
+  switch (productCategory) {
+      case 'pizza':
+          {
+            let pizza = getProductByProductCategoryAndId(pizzaManager.allPizzas, productId);
+            displayComplexProductPage(pizza[0], allPages.complexProductPage);
+          }
+          break;
+      case 'pasta':
+          {
+            let pasta = getProductByProductCategoryAndId(pastaManager.allPasta, productId);
+            displayComplexProductPage(pasta[0], allPages.complexProductPage);
+          }
+          break;
+      case 'salad':
+          {
+            let salad = getProductByProductCategoryAndId(saladManager.allSalads, productId);
+            displayComplexProductPage(salad[0], allPages.complexProductPage);
+          }
+          break;
+    }
 }
-function getProductByProductCategoryAndId(data,id){
-     return data.filter( element => element.id === id);
+function getProductByProductCategoryAndId(data, id) {
+    return data.filter(element => element.id === id);
 }
-function displayCard(products, categoryTab){
-  const template = Handlebars.compile(complexCardProductSource);
-  const html = template(products);
-  categoryTab.innerHTML = html;
+function displayComplexProductPage(products, categoryTab) {
+    const template = Handlebars.compile(complexCardProductSource);
+    const html = template(products);
+
+    categoryTab.innerHTML = html;
+
+
 }
 
 function displayCustomizableProduct(products, categoryTab) {

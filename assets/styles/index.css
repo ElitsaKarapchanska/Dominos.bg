@@ -1149,7 +1149,7 @@ label {
 }
 .rounted > div {
   float: left;
-  height: 25px;
+  height: 30px;
 }
 .rounded-left {
   width: 25px;
@@ -1296,6 +1296,7 @@ label {
   .product-wrapper-right{
     width: 100%;
   }
+  
 }
 
 @media screen and (max-width: 990px) {
@@ -1338,6 +1339,9 @@ label {
   .card-container {
     grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
   }
+  .product-title span{
+    font-size: 26px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1375,5 +1379,11 @@ label {
   .card-container {
     grid-template-columns: repeat(auto-fill, minmax(214px, 1fr));
     justify-content: center;
+  }
+  .save-20{
+    display: none;
+  }
+  .product-title span{
+    font-size: 16px;
   }
 }
