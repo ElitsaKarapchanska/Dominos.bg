@@ -24,7 +24,9 @@ const userStorage = (function () {
   class UserStorage {
     constructor() {
       if (localStorage.getItem("users")) {
-        this.users = JSON.parse(localStorage.getItem("users"));
+        this.users = this.createUsersFromObjects(
+          JSON.parse(localStorage.getItem("users"))
+        );
       } else {
         this.users = [
           new User("admin", "admin", "admin", "admin", false, false),
@@ -34,18 +36,35 @@ const userStorage = (function () {
       }
 
       if (localStorage.getItem("loggedInUser")) {
-        this.loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        let loggedInUserData = JSON.parse(localStorage.getItem("loggedInUser"));
+        this.loggedInUser = this.searchUserByEmail(loggedInUserData.email);
       } else {
         this.loggedInUser = null;
       }
     }
 
+    createUsersFromObjects(arr) {
+      return arr.map((user) => {
+        return new User(
+          user.email,
+          user.pass,
+          user.fName,
+          user.lName,
+          user.subbedToOffers,
+          user.subbedToNews,
+          user.favourites,
+          user.cart
+        );
+      });
+    }
+
     searchUserByEmail(email) {
       for (let i = 0; i < this.users.length; i++) {
         if (this.users[i].email === email) {
-          return i;
+          return this.users[i];
         }
       }
+      return null;
     }
 
     register(
@@ -79,15 +98,11 @@ const userStorage = (function () {
     }
 
     login(email, pass) {
-      for (let i = 0; i < this.users.length; i++) {
-        if (this.users[i].email === email && this.users[i].pass === pass) {
-          this.loggedInUser = this.users[i];
-          localStorage.setItem(
-            "loggedInUser",
-            JSON.stringify(this.loggedInUser)
-          );
-          return true;
-        }
+      let user = this.searchUserByEmail(email);
+      if (user && user.pass === pass) {
+        this.loggedInUser = user;
+        localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
+        return true;
       }
       return false;
     }
@@ -117,9 +132,7 @@ const userStorage = (function () {
       if (!hasAgreedToData || !hasAgreedToConf) return false;
 
       // check user with this email is not already registered
-      let userIsAlreadyRegistered = this.users.some(
-        (user) => user.email === email
-      );
+      let userIsAlreadyRegistered = this.searchUserByEmail(email);
       if (userIsAlreadyRegistered) return false;
 
       return true;
@@ -135,10 +148,12 @@ const userStorage = (function () {
       if (faves.includes(JSON.stringify(product))) return false;
       this.loggedInUser.favourites.push(product);
       localStorage.setItem("users", JSON.stringify(this.users));
+      localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
     }
 
     removeFromFavourites(product) {
       // TODO
+      localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
     }
 
     addToCart(product, quantity) {
@@ -146,6 +161,7 @@ const userStorage = (function () {
       if (!this.editCartProductQuantity(product, true, quantity)) {
         this.loggedInUser.cart.push({ prod: product, quantity: quantity });
         localStorage.setItem("users", JSON.stringify(this.users));
+        localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
       }
       return this.loggedInUser.cart.length;
     }
@@ -154,7 +170,7 @@ const userStorage = (function () {
      * Increments or decrements the quantity of a specific product in the cart
      * @param {Product} product
      * @param {Boolean} toIncrement wether to increment or decrement
-     * @param {Number} amount 
+     * @param {Number} amount
      */
     editCartProductQuantity(product, toIncrement, amount = 1) {
       if (!(product instanceof Product)) return false;
@@ -178,6 +194,7 @@ const userStorage = (function () {
           this.loggedInUser.cart.splice(index, 1);
         }
         localStorage.setItem("users", JSON.stringify(this.users));
+        localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
         return true;
       }
       return false;
@@ -193,6 +210,8 @@ const userStorage = (function () {
       });
       if (indexInCart < 0) return false;
       this.loggedInUser.cart.splice(indexInCart, 1);
+      localStorage.setItem("users", JSON.stringify(this.users));
+      localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
     }
   }
 

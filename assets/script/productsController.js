@@ -12,6 +12,47 @@ sandwichManager.addAllSandwichProducts(allSandwichData);
 sauceManager.addAllSauceProducts(allSaucesData);
 starterManager.addAllStarterProducts(allStartersData);
 
+// to remove
+function getProductFromCategoryById(data, id) {
+  return data.filter((element) => element.id === id)[0];
+}
+
+function getProductByWholeId(id) {
+  let category = id.slice(0, 2);
+
+  let categoryArr;
+  switch (category) {
+    case "ch":
+      categoryArr = chickenManager.allChicken;
+      break;
+    case "de":
+      categoryArr = dessertManager.allDesserts;
+      break;
+    case "dr":
+      categoryArr = drinkManager.allDrinks;
+      break;
+    case "pa":
+      categoryArr = pastaManager.allPasta;
+      break;
+    case "pi":
+      categoryArr = pizzaManager.allPizzas;
+      break;
+    case "sl":
+      categoryArr = saladManager.allSalads;
+      break;
+    case "sn":
+      categoryArr = sandwichManager.allSandwiches;
+      break;
+    case "su":
+      categoryArr = sauceManager.allSauces;
+      break;
+    case "st":
+      categoryArr = starterManager.allStarters;
+      break;
+  }
+  return getProductFromCategoryById(categoryArr, id);
+}
+
 function displaySimpleProduct(products, categoryTab) {
   const template = Handlebars.compile(simpleProductSource);
   const html = template(products);
@@ -26,6 +67,10 @@ function displaySimpleProduct(products, categoryTab) {
   // selecting all buttons which when pressed add the product to the cart
   let allAddButtons = document.querySelectorAll(
     "#" + categoryTab.id + " .simple-card .addBtn"
+  );
+
+  let allQuantityControllerButtons = document.querySelectorAll(
+    "#" + categoryTab.id + " .simple-card .quantity-controller"
   );
 
   // saving the last opened section so that we can close it, when another one is opened
@@ -69,13 +114,18 @@ function displaySimpleProduct(products, categoryTab) {
       });
 
       // get product from the id
-      let product
+      let product = getProductByWholeId(id);
 
-      let quantityElement = document.querySelector("#" + id + " .quantity-number");
-      let quantity = parseInt(quantityElement.innerHTML);
-      
+      let quantityElement = document.querySelector(
+        "#" + id + " .quantity-number"
+      );
+      let quantity = parseInt(quantityElement.innerText);
       addToCartBtn(product, quantity);
     });
+  });
+
+  allQuantityControllerButtons.forEach((btn) => {
+    btn.addEventListener("click", quantityButtonClick);
   });
 }
 
@@ -84,6 +134,18 @@ function displayCustomizableProduct(products, categoryTab) {
   const html = template(products);
 
   categoryTab.innerHTML = html;
+}
+
+function quantityButtonClick(event) {
+  event.stopImmediatePropagation();
+  let isMinusBtn = event.target.classList.contains("minus");
+  let container = event.target.parentElement;
+  let quantityEl = container.children[1];
+  let currentQuantity = parseInt(quantityEl.innerText);
+
+  isMinusBtn ? currentQuantity-- : currentQuantity++;
+  currentQuantity = currentQuantity < 1 ? 1 : currentQuantity;
+  quantityEl.innerText = currentQuantity;
 }
 
 displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);
