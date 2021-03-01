@@ -3,6 +3,7 @@ function showPage() {
     if (currentPage === "") 
         currentPage = "home";
     
+
     // placholder for behind the menu so that the space for it is not taken by the main, has display none on home page
     currentPage === "home" ? (placeholderDiv.style.display = "none") : (placeholderDiv.style.display = "block");
     let noPageWasShown = true;
@@ -14,6 +15,8 @@ function showPage() {
             errorPage.style.display = "none";
             if (allPages[page].id.includes("all")) { // meaning that the page a menu page -> show the menu navigation and the filters for the category
                 allPages[page].style.display = "grid";
+                header.style.display = "block"; // can be change;
+                footer.style.display = "block";  
             }
         } else {
             allPages[page].style.display = "none";
@@ -21,9 +24,14 @@ function showPage() {
     }
     if (currentPage.includes("product")) {
         showCard(currentPage);
+        console.log(currentPage);
         allPages.complexProductPage.style.display = "block";
+        header.style.display = "none"; // can be change;
+        footer.style.display = "none";
+        placeholderDiv.style.display = "none";
+        noPageWasShown = false;
+        errorPage.style.display="none";
     }
-
     if (noPageWasShown) 
         errorPage.style.display = "flex";
     

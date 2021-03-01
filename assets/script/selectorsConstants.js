@@ -18,4 +18,6 @@ const allPages = {
 const errorPage = document.getElementById("errorPage");
 const menuPage = document.getElementById("menuPage");
 const placeholderDiv = document.getElementById("placeholder");
+const header = document.querySelector("header");
+const footer = document.querySelector("footer");
 

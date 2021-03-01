@@ -119,7 +119,7 @@ function displayComplexProductPage(products, categoryTab) {
         let currPrice = Number(price.innerHTML);
 
         count++;
-        currPrice = itemPrice * count; // to modify the pricel
+        currPrice = itemPrice * count; // to modify the price;
 
         quantity.innerText = count;
         price.innerHTML = currPrice.toFixed(2);

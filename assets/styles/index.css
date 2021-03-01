@@ -934,10 +934,10 @@ footer ul li {
 }
 /* complex-cart */
 .product-cart {
-  position: absolute;
-  width: 100%;
-  z-index: 9999;
+  width: 1220px;
+  z-index: 99;
   transition: transform 0.4s ease-in-out;
+  margin: 0 auto;
 }
 .close-icon {
   margin: 20px 40px;
@@ -1299,6 +1299,9 @@ label {
   }
   .product-wrapper-right{
     width: 100%;
+  }
+  .product-cart {
+    max-width: 100%;
   }
   
 }
