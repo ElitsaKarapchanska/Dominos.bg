@@ -171,6 +171,15 @@ function showCard(hashLocation) {
         displayComplexProductPage(salad, allPages.complexProductPage);
       }
       break;
+    case "sandwich":
+      {
+        let sandwich = getProductFromCategoryById(
+          sandwichManager.allSandwiches,
+          productId
+        );
+        displayComplexProductPage(sandwich, allPages.complexProductPage);
+      }
+      break;
   }
 }
 
@@ -239,7 +248,7 @@ function displayComplexProductPage(products, categoryTab) {
 
     // reset the product if new ingredients have been added
     // products.resetProductIngredients();
-    
+
     let quantityNumber = parseInt(quantity.innerText);
     addToCartBtn(productToAdd, quantityNumber);
     window.history.back();
@@ -268,5 +277,13 @@ function quantityButtonClick(event) {
   priceEl.innerText = currentPrice.toFixed(2) + "лв";
 }
 
+displaySimpleProduct(chickenManager.allChicken, allPages.allChickenPage);
+// TODO: deals
 displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);
+// TODO: drinks
+displayCustomizableProduct(pastaManager.allPasta, allPages.allPastaPage);
 displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);
+displayCustomizableProduct(saladManager.allSalads, allPages.allSaladsPage);
+displayCustomizableProduct(sandwichManager.allSandwiches, allPages.allSandwichPage);
+displaySimpleProduct(sauceManager.allSauces, allPages.allSaucesPage);
+displaySimpleProduct(starterManager.allStarters, allPages.allStartersPage);

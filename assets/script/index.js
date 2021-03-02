@@ -12,25 +12,27 @@ function showPage() {
 
   changeElementVisibility(userIcon, userStorage.loggedInUser);
   changeElementVisibility(menuLink, !userStorage.loggedInUser);
+  changeElementVisibility(orderNowBtn, true, "list-item");
 
   for (let page in allPages) {
     if (allPages[page].id === currentPage + "Page") {
       noPageWasShown = false;
-      allPages[page].style.display = "block";
-      errorPage.style.display = "none";
+      changeElementVisibility(allPages[page]);
+      changeElementVisibility(errorPage, false);
       cartIcon.classList.replace("block", "hidden");
 
       if (allPages[page].id.includes("all")) {
         // meaning that the page a menu page -> show the menu navigation and the filters for the category
-        allPages[page].style.display = "grid";
+        changeElementVisibility(allPages[page], true, "grid");
         cartIcon.classList.replace("hidden", "block");
+        changeElementVisibility(orderNowBtn, false);
       }
     } else {
-      allPages[page].style.display = "none";
+      changeElementVisibility(allPages[page], false);
     }
   }
   if (noPageWasShown) {
-    errorPage.style.display = "flex";
+    changeElementVisibility(errorPage, true, "flex");
     cartIcon.classList.replace("block", "hidden");
   }
 

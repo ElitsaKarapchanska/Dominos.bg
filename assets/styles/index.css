@@ -604,12 +604,17 @@ nav#navbar-default1.navbar-default {
 }
 ul.navbar-right {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 480px;
   position: relative;
   top: 5px;
 }
+
+ul.navbar-right > li {
+  margin: 0px 10px;
+}
+
 ul.callcenter {
   display: flex;
   align-items: center;
