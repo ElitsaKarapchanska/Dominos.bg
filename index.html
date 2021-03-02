@@ -30,13 +30,11 @@
       <nav class="nav" id="navbar-default1">
         <div class="container">
           <div class="headIcons">
-            <!-- icon-responsive -->
             <div class="icon-responsive">
               <a href="javascript:void(0);" class="icon">
                 <i class="fa fa-bars" id="faIcon"></i>
               </a>
             </div>
-            <!-- logo -->
             <div id="logo-wrapper">
               <a href="#" class="navbar-logo">
                 <img
@@ -51,7 +49,6 @@
                   class="logo"
               /></a>
             </div>
-            <!-- to card responsive-->
             <div class="cart-icon">
               <img
                 class="pull-right cursor-pointer"
@@ -63,10 +60,8 @@
               </span>
             </div>
           </div>
-          <!-- first icons -->
           <div class="navbar-collapse" id="navigation">
             <ul class="navbar-right" id="navbar-rightt">
-              <!-- telefon -->
               <li class="text-center">
                 <ul class="callcenter">
                   <li>
@@ -101,7 +96,6 @@
                   </li>
                 </ul>
               </li>
-              <!-- language -->
               <li class="language-select text-center">
                 <a
                   href="#"
@@ -117,7 +111,6 @@
                   >EN</a
                 >
               </li>
-              <!-- menu -->
               <li id="menu">
                 <a
                   href="#"
@@ -126,7 +119,6 @@
                   >МЕНЮ</a
                 >
               </li>
-              <!-- order now -->
               <li>
                 <a
                   href="#"
@@ -328,6 +320,7 @@
         <div id="allDessertsPage" class="card-container main-wrapper"></div>
         <div id="allDrinksPage" class="card-container main-wrapper"></div>
       </div>
+      <div id="complexProductPage"></div>
       <div id="registrationPage" class="main-wrapper rounded">
         <form id="registrationForm" action="#">
           <h2>РЕГИСТРАЦИЯ</h2>
@@ -664,6 +657,98 @@
         {{/each}}
       {{/if}}
     </script>
+  <!-- complexCard-pizza -->
+    <script id="complexCardProduct" type="text/x-handlebars-template">
+    {{#if this}}
+    <div class="product-cart">
+      <div class="close-icon">
+        <img id='closeIcon' src="assets/images/close_x.svg" alt="close icon">
+      </div>
+      <div class="container-complex-card">
+        <div class="box-wrapper">
+          <div class="product-image" style="background-image: url(assets/images/{{this.image}});"></div>
+        <h2 class="product-title">
+          <span class="decoration-title red-decoration-title">{{this.title}}</span>
+        </h2>
+        <div class="dots-seperator"></div>
+        <div class="product-wrapper">
+        <div class="product-wrapper-left">
+          {{#ifCond this.category '===' "pizza" }}
+           <div class="form-group size">
+             <label for="pizza-size">ГОЛЕМИНА</label>
+             <div class="select-wrapper">
+               <select id="pizzz-size" class="select-size form-control light-grey-bg text-select" name="size-id">
+                 <option class ="sizes"value="Medium">СРЕДНА (6 ПАРЧЕТА) </option>
+                 <option class ="sizes"value="Large">ГОЛЯМА (8 ПАРЧЕТА)</option>
+                 <option class ="sizes"value="Jumbo">Джъмбо (12 ПАРЧЕТА) </option>
+               </select>
+               <div class='selected'></div>
+           </div>
+          </div>
+           <div class="form-group pan">
+             <label for="pizza-pan">ТЕСТО</label>
+             <div class="select-wrapper">
+               <select name="pan-size-id" id="pizza-pan" class="select-size form-control light-grey-bg text-select">
+                 <option value="Traditional"price="11.00">Традиционно</option>
+                 <option value="Italian" price="11.00">Италиански стил</option>
+                 <option value="Thin" price="11.00">Тънко и хрупкаво</option>
+                 <option value="Philadelphia"price="13.25">с Philadelphia (+2.25лв)</option>
+                 <option value="Whole grain"price="11.00">Пълнозърнесто</option>
+               </select>
+             </div>
+           </div>
+           {{/ifCond}}
+           <div class="sub_toppings_container">
+            <p class="pull-left font-bold">Продукти</p>
+            <!-- array from ingredients -->
+            <div class="ingredients">
+              {{#each this.ingredients}}
+              <span class="product-ingredient">{{this}} </span>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div class="product-wrapper-right">
+          <div>
+             <div class='weight-image'>
+              <img style="height:50px;" src="assets/images/weight.svg" alt="weight">
+              <div class="weight_cont">{{this.weight}}g</div>
+             </div>
+             <div class="quantity">
+               <p class='text-bold'>КОЛИЧЕСТВО</p>
+               <div class="product-quantity-wrapper"></div>
+               <img id="minus" alt="minus" src="assets/images/minus.svg">
+               <span id="selectedQuantity" class="product-quantity noselect Quantity">1</span>
+               <img id="plus" alt="plus" src="assets/images/plus.svg">
+             </div>
+          </div>
+            <div class="price">
+              <p class='text-bold'>Цена</p>
+              <div class="product-total-price">
+              <span id="currentPrice" class="total-price">{{this.price.[1]}}</span><span class="currency">  лв.</span>
+            </div>
+              <div class="save-20 hidden-xs">
+                <em>
+                  <strong>Cпестете до 20%</strong>
+                 </em>
+                 <span class="left_ribbon"></span>
+                 <span class="right_ribbon"></span>
+             </div>
+            </div>
+            <div class="btn-wrapper">
+              <button class=" button rounded addButton">ДОБАВИ</button>
+            </div>
+          </div> 
+      </div>
+    </div>
+        <div class="rounted margin-bottom-50">
+          <div class="rounded-left"></div>
+          <div class="rounded-center"></div>
+          <div class="rounded-right"></div>
+        </div>
+    </div>
+  {{/if}}
+  </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
       integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 
