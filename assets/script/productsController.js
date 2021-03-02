@@ -190,6 +190,8 @@ function displayComplexProductPage(products, categoryTab) {
   const firstPrice = document.getElementById("currentPrice");
   let itemPrice = Number(firstPrice.innerHTML);
 
+  let аddButton = document.getElementById("addBtn");
+
   let minus = document.getElementById("minus");
   minus.addEventListener("click", function () {
     let count = Number(quantity.innerText);
@@ -215,6 +217,32 @@ function displayComplexProductPage(products, categoryTab) {
 
     quantity.innerText = count;
     price.innerHTML = currPrice.toFixed(2);
+  });
+
+  аddButton.addEventListener("click", function () {
+    let category = location.hash.split("-")[1];
+    let productToAdd;
+    switch (category) {
+      case "pizza":
+        productToAdd = pizzaManager.getProductCopy(products);
+        break;
+      case "pasta":
+        productToAdd = pastaManager.getProductCopy(products);
+        break;
+      case "salad":
+        productToAdd = saladManager.getProductCopy(products);
+        break;
+      case "sandwich":
+        productToAdd = sandwichManager.getProductCopy(products);
+        break;
+    }
+
+    // reset the product if new ingredients have been added
+    // products.resetProductIngredients();
+    
+    let quantityNumber = parseInt(quantity.innerText);
+    addToCartBtn(productToAdd, quantityNumber);
+    window.history.back();
   });
 }
 

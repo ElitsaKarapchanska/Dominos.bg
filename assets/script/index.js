@@ -13,20 +13,6 @@ function showPage() {
   changeElementVisibility(userIcon, userStorage.loggedInUser);
   changeElementVisibility(menuLink, !userStorage.loggedInUser);
 
-  if (currentPage.includes("product")) {
-    showCard(currentPage);
-    allPages.complexProductPage.style.display = "block";
-    header.style.display = "none"; // can be change;
-    footer.style.display = "none";
-    placeholderDiv.style.display = "none";
-    noPageWasShown = false;
-    errorPage.style.display = "none";
-    return;
-  } else {
-    header.style.display = "block"; // can be change;
-    footer.style.display = "block";
-  }
-
   for (let page in allPages) {
     if (allPages[page].id === currentPage + "Page") {
       noPageWasShown = false;
@@ -46,6 +32,19 @@ function showPage() {
   if (noPageWasShown) {
     errorPage.style.display = "flex";
     cartIcon.classList.replace("block", "hidden");
+  }
+
+  if (currentPage.includes("product")) {
+    showCard(currentPage);
+    allPages.complexProductPage.style.display = "block";
+    header.style.display = "none"; // can be change;
+    footer.style.display = "none";
+    placeholderDiv.style.display = "none";
+    noPageWasShown = false;
+    errorPage.style.display = "none";
+  } else {
+    header.style.display = "block"; // can be change;
+    footer.style.display = "block";
   }
 }
 

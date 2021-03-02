@@ -413,6 +413,7 @@ div#appLink {
   margin-top: 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .simple-card .slide-up .quantity-wrapper .quantity-number {
@@ -422,21 +423,14 @@ div#appLink {
 .simple-card .slide-up .quantity-controller {
   width: 25px;
   height: 25px;
-  padding: 0px;
+  padding: 4px;
   margin: 0 5px;
   border: 2px solid #898989;
   border-radius: 50%;
   color: #898989;
   background-color: transparent;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 13px;
   box-sizing: border-box;
   cursor: pointer;
-}
-
-.simple-card .slide-up .minus {
-  padding-bottom: 1px;
 }
 
 .simple-card .slide-up > button.button {

@@ -31,6 +31,18 @@ const sandwichManager = (function () {
         );
       });
     }
+
+    getProductCopy(product) {
+      return new Sandwich(
+        product.title,
+        product.image,
+        product.price,
+        product.weight,
+        product.id,
+        product.tags,
+        product.ingredients
+      );
+    }
   }
   return new SandwichManager();
 })();

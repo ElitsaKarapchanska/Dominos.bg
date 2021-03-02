@@ -42,6 +42,18 @@ const pizzaManager = (function () {
         );
       });
     }
+
+    getProductCopy(product) {
+      return new Pizza(
+        product.title,
+        product.image,
+        product.price,
+        product.weight,
+        product.id,
+        product.tags,
+        product.ingredients
+      );
+    }
   }
   return new PizzaManager();
 })();

@@ -591,9 +591,9 @@
                 <div class="card-quantity">
                   <p>КОЛИЧЕСТВО</p>
                   <div class="quantity-wrapper">
-                    <button class="minus quantity-controller">-</button>
+                    <img class="minus quantity-controller" alt="minus" src="assets/images/minus.svg">
                     <span class="quantity-number">1</span>
-                    <button class="plus quantity-controller">+</button>
+                    <img class="plus quantity-controller" alt="minus" src="assets/images/plus.svg">
                   </div>
                 </div>
                 <div class="card-price">
@@ -670,6 +670,7 @@
         {{/each}}
       {{/if}}
     </script>
+
   <!-- complexCard-pizza -->
     <script id="complexCardProduct" type="text/x-handlebars-template">
     {{#if this}}
@@ -749,7 +750,7 @@
              </div>
             </div>
             <div class="btn-wrapper">
-              <button class=" button rounded addButton">ДОБАВИ</button>
+              <button id="addBtn" class="button rounded addButton">ДОБАВИ</button>
             </div>
           </div> 
       </div>

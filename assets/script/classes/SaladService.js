@@ -31,6 +31,18 @@ const saladManager = (function () {
         );
       });
     }
+
+    getProductCopy(product) {
+      return new Salad(
+        product.title,
+        product.image,
+        product.price,
+        product.weight,
+        product.id,
+        product.tags,
+        product.ingredients
+      );
+    }
   }
   return new SaladManager();
 })();
