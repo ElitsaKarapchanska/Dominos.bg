@@ -5,8 +5,9 @@ const sandwichManager = (function () {
     }
   }
 
-  class SandwichManager {
+  class SandwichManager extends CustomizableProductManager {
     constructor() {
+      super();
       this.allSandwiches = [];
     }
 

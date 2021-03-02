@@ -5,8 +5,9 @@ const pastaManager = (function () {
     }
   }
   
-  class PastaManager {
+  class PastaManager extends CustomizableProductManager {
     constructor() {
+      super();
       this.allPasta = [];
       this.spicyPasta = [];
       this.newPasta = [];

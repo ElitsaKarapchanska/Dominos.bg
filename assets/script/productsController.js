@@ -139,13 +139,23 @@ function displayCustomizableProduct(products, categoryTab) {
 function quantityButtonClick(event) {
   event.stopImmediatePropagation();
   let isMinusBtn = event.target.classList.contains("minus");
-  let container = event.target.parentElement;
-  let quantityEl = container.children[1];
+  let quantityContainer = event.target.parentElement;
+  let quantityEl = quantityContainer.children[1];
   let currentQuantity = parseInt(quantityEl.innerText);
+
+  let priceContainer = quantityContainer.parentElement.parentElement.children[1];
+  let priceEl = priceContainer.children[1];
+  let currentPrice = parseInt(priceEl.innerText);
+  console.log(priceEl);
+  let pricePerUnit = currentPrice / currentQuantity;
+  
 
   isMinusBtn ? currentQuantity-- : currentQuantity++;
   currentQuantity = currentQuantity < 1 ? 1 : currentQuantity;
+
+  currentPrice = pricePerUnit * currentQuantity;
   quantityEl.innerText = currentQuantity;
+  priceEl.innerText = currentPrice.toFixed(2) + 'лв';
 }
 
 displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);

@@ -5,8 +5,9 @@ const pizzaManager = (function () {
     }
   }
 
-  class PizzaManager {
+  class PizzaManager extends CustomizableProductManager {
     constructor() {
+      super();
       this.newPizzas = [];
       this.spicyPizzas = [];
       this.vegetariansPizzas = [];

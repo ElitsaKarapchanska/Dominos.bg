@@ -1,3 +1,3 @@
-function changeElementVisibility(element, toShow) {
-  toShow ? (element.style.display = "block") : (element.style.display = "none");
+function changeElementVisibility(element, toShow = true, displayVisible = "block") {
+  toShow ? (element.style.display = displayVisible) : (element.style.display = "none");
 }

@@ -74,6 +74,8 @@ function addToCartBtn(product, quantity) {
   } else {
     let numberOfProductsInCart = userStorage.addToCart(product, quantity);
     let cartNumber = document.getElementById("orderNumber");
+    let cartNumberResp = document.getElementById("orderNumberResponsive");
     cartNumber.innerText = numberOfProductsInCart;
+    cartNumberResp.innerText = numberOfProductsInCart;
   }
 }

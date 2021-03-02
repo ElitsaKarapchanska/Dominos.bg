@@ -51,16 +51,13 @@
                   class="logo"
               /></a>
             </div>
-            <!-- to card responsive-->
-            <div class="cart-icon">
+            <div id="cartIconResponsive" class="cart-icon responsive-hidden hidden">
               <img
-                class="pull-right cursor-pointer"
+                class="cursor-pointer"
                 src="./assets/images/basket.svg"
                 alt="Basket Icon"
               />
-              <span class="cart-num">
-                <span id="orderNumber">0</span>
-              </span>
+              <span id="orderNumberResponsive" class="order-num">0</span>
             </div>
           </div>
           <!-- first icons -->
@@ -135,6 +132,14 @@
                   data-type="order"
                   >ПОРЪЧАЙ СЕГА</a
                 >
+              </li>
+              <li id="cartIcon" class="cart-icon responsive-hidden hidden">
+                <img
+                  class="cursor-pointer"
+                  src="./assets/images/basket.svg"
+                  alt="Basket Icon"
+                />
+                <span id="orderNumber" class="order-num">0</span>
               </li>
               <li id="loggedIn">
                 <img src="./assets/images/account_avatar_icon.svg" alt="profile">
@@ -321,7 +326,10 @@
       <div id="placeholder"></div>
       <div id="menuPage">
         <nav id="menuNav"></nav>
-        <div id="allDealsPage" class="card-container main-wrapper"></div>
+        <div id="allDealsPage" class="card-container main-wrapper">
+          <nav></nav>
+          <div></div>
+        </div>
         <div id="allPizzasPage" class="card-container main-wrapper"></div>
         <div id="allStartersPage" class="card-container main-wrapper"></div>
         <div id="allChickenPage" class="card-container main-wrapper"></div>

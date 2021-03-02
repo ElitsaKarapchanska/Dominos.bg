@@ -5,8 +5,9 @@ const saladManager = (function () {
     }
   }
 
-  class SaladManager {
+  class SaladManager extends CustomizableProductManager {
     constructor() {
+      super();
       this.allSalads = [];
     }
 

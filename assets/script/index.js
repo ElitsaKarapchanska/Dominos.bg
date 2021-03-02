@@ -15,15 +15,22 @@ function showPage() {
       noPageWasShown = false;
       allPages[page].style.display = "block";
       errorPage.style.display = "none";
+      // changeElementVisibility(cartIcon, false);
+      cartIcon.classList.replace("block", "hidden");
       if (allPages[page].id.includes("all")) {
         // meaning that the page a menu page -> show the menu navigation and the filters for the category
         allPages[page].style.display = "grid";
+        // changeElementVisibility(cartIcon);
+        cartIcon.classList.replace("hidden", "block");
       }
     } else {
       allPages[page].style.display = "none";
     }
   }
-  if (noPageWasShown) errorPage.style.display = "flex";
+  if (noPageWasShown) {
+    errorPage.style.display = "flex";
+    cartIcon.classList.replace("block", "hidden");
+  }
 }
 
 function hideLoadingScreen(loadingScreen) {
@@ -98,6 +105,16 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
+function showInitialNumberOfItemsInCart() {
+  if (userStorage.loggedInUser) {
+    let numberOfProductsInCart = userStorage.loggedInUser.cart.length;
+    let cartNumber = document.getElementById("orderNumber");
+    let cartNumberResp = document.getElementById("orderNumberResponsive");
+    cartNumber.innerText = numberOfProductsInCart;
+    cartNumberResp.innerText = numberOfProductsInCart;
+  }
+}
+
 window.addEventListener("scroll", createFixedNavbar);
 document
   .getElementById("faIcon")
@@ -106,6 +123,7 @@ document
 window.addEventListener("DOMContentLoaded", () => {
   showLoadingScreen(loadingScreen);
   showPage();
+  showInitialNumberOfItemsInCart();
 });
 
 window.addEventListener("hashchange", () => {
