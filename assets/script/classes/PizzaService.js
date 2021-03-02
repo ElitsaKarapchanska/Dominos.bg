@@ -5,8 +5,9 @@ const pizzaManager = (function () {
     }
   }
 
-  class PizzaManager {
+  class PizzaManager extends CustomizableProductManager {
     constructor() {
+      super();
       this.newPizzas = [];
       this.spicyPizzas = [];
       this.vegetariansPizzas = [];
@@ -40,6 +41,18 @@ const pizzaManager = (function () {
           )
         );
       });
+    }
+
+    getProductCopy(product) {
+      return new Pizza(
+        product.title,
+        product.image,
+        product.price,
+        product.weight,
+        product.id,
+        product.tags,
+        product.ingredients
+      );
     }
   }
   return new PizzaManager();

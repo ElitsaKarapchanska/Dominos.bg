@@ -23,6 +23,12 @@ const ingredientManager = (function () {
       return object instanceof Ingredient;
     }
 
+    searchForIngredient(title) {
+      return this.allIngredients.find(
+        (ingredient) => ingredient.title === title
+      );
+    }
+
     /**
      * Takes an object and fills all the arrays.
      * @param {Object} ingredientsJSON object with keys - the category names and values - an array of the ingredient objects
@@ -60,6 +66,10 @@ const ingredientManager = (function () {
           this.allIngredients.push(ingredient);
         }
       }
+    }
+
+    getIngredientCopy(title) {
+      return { ...this.searchForIngredient(title) };
     }
   }
   return new IngredientManager();

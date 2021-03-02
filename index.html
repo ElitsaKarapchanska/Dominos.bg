@@ -49,15 +49,13 @@
                   class="logo"
               /></a>
             </div>
-            <div class="cart-icon">
+            <div id="cartIconResponsive" class="cart-icon responsive-hidden hidden">
               <img
-                class="pull-right cursor-pointer"
+                class="cursor-pointer"
                 src="./assets/images/basket.svg"
                 alt="Basket Icon"
               />
-              <span class="cart-num">
-                <span id="orderNumber">0</span>
-              </span>
+              <span id="orderNumberResponsive" class="order-num">0</span>
             </div>
           </div>
           <div class="navbar-collapse" id="navigation">
@@ -113,19 +111,30 @@
               </li>
               <li id="menu">
                 <a
-                  href="#"
+                  href="#allDeals"
                   data-rel="select-store"
                   class="font-bold open-modal text-center"
                   >МЕНЮ</a
                 >
               </li>
-              <li>
+              <li id="orderNowBtn">
                 <a
-                  href="#"
+                  href="#allDeals"
                   class="button font-bold cart-btn text-center"
                   data-type="order"
                   >ПОРЪЧАЙ СЕГА</a
                 >
+              </li>
+              <li id="cartIcon" class="cart-icon responsive-hidden hidden">
+                <img
+                  class="cursor-pointer"
+                  src="./assets/images/basket.svg"
+                  alt="Basket Icon"
+                />
+                <span id="orderNumber" class="order-num">0</span>
+              </li>
+              <li id="loggedIn">
+                <img src="./assets/images/account_avatar_icon.svg" alt="profile">
               </li>
               <li class="visible-resposnsive">
                 <a href="#" class="font-bold">СВЪРЖЕТЕ СЕ С НАС</a>
@@ -309,7 +318,10 @@
       <div id="placeholder"></div>
       <div id="menuPage">
         <nav id="menuNav"></nav>
-        <div id="allDealsPage" class="card-container main-wrapper"></div>
+        <div id="allDealsPage" class="card-container main-wrapper">
+          <nav></nav>
+          <div></div>
+        </div>
         <div id="allPizzasPage" class="card-container main-wrapper"></div>
         <div id="allStartersPage" class="card-container main-wrapper"></div>
         <div id="allChickenPage" class="card-container main-wrapper"></div>
@@ -578,9 +590,9 @@
                 <div class="card-quantity">
                   <p>КОЛИЧЕСТВО</p>
                   <div class="quantity-wrapper">
-                    <button class="minus quantity-controller">-</button>
+                    <img class="minus quantity-controller" alt="minus" src="assets/images/minus.svg">
                     <span class="quantity-number">1</span>
-                    <button class="plus quantity-controller">+</button>
+                    <img class="plus quantity-controller" alt="minus" src="assets/images/plus.svg">
                   </div>
                 </div>
                 <div class="card-price">
@@ -588,7 +600,7 @@
                   <p class="price-sum">{{this.price}}лв</p>
                 </div>
               </div>
-              <button class="green-button button rounded">ДОБАВИ</button>
+              <button class="addBtn green-button button rounded">ДОБАВИ</button>
             </section>
           </article>
         {{/each}}
@@ -657,6 +669,7 @@
         {{/each}}
       {{/if}}
     </script>
+
   <!-- complexCard-pizza -->
     <script id="complexCardProduct" type="text/x-handlebars-template">
     {{#if this}}
@@ -736,7 +749,7 @@
              </div>
             </div>
             <div class="btn-wrapper">
-              <button class=" button rounded addButton">ДОБАВИ</button>
+              <button id="addBtn" class="button rounded addButton">ДОБАВИ</button>
             </div>
           </div> 
       </div>
@@ -755,6 +768,7 @@
       crossorigin="anonymous">
     </script>
     <script src="./assets/script/utils-handlebars.js"></script>
+    <script src="./assets/script/utils.js"></script>
     <script src="./assets/script/constants-bg.js"></script>
     <script src="./assets/script/selectorsConstants.js"></script>
 
@@ -774,6 +788,7 @@
     <script src="./assets/script/classes/ProductModel.js"></script>
     <script src="./assets/script/classes/SimpleProductModel.js"></script>
     <script src="./assets/script/classes/CustomizableProductModel.js"></script>
+    <script src="./assets/script/classes/CustomizableProductManagerModel.js"></script>
 
     <!-- All product services -->
     <script src="./assets/script/classes/IngredientService.js"></script>
@@ -791,7 +806,7 @@
     <script src="./assets/script/classes/UserService.js"></script>
     
     <script src="./assets/script/productsController.js"></script>
-    <script src="./assets/script/registrationPageController.js"></script>
+    <script src="./assets/script/userController.js"></script>
     <script src="./assets/script/index.js"></script>
   </body>
 </html>

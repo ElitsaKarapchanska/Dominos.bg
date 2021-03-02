@@ -21,3 +21,7 @@ const placeholderDiv = document.getElementById("placeholder");
 const header = document.querySelector("header");
 const footer = document.querySelector("footer");
 
+const userIcon = document.getElementById("loggedIn");
+const menuLink = document.getElementById("menu");
+const orderNowBtn = document.getElementById("orderNowBtn");
+const cartIcon = document.getElementById("cartIcon");

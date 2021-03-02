@@ -5,8 +5,9 @@ const pastaManager = (function () {
     }
   }
   
-  class PastaManager {
+  class PastaManager extends CustomizableProductManager {
     constructor() {
+      super();
       this.allPasta = [];
       this.spicyPasta = [];
       this.newPasta = [];
@@ -44,6 +45,18 @@ const pastaManager = (function () {
         this.addNewPasta(pasta);
         this.addSpicyPasta(pasta);
       });
+    }
+
+    getProductCopy(product) {
+      return new Pasta(
+        product.title,
+        product.image,
+        product.price,
+        product.weight,
+        product.id,
+        product.tags,
+        product.ingredients
+      );
     }
   }
   return new PastaManager();
