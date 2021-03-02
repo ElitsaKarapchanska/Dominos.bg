@@ -24,7 +24,6 @@ function showPage() {
     }
     if (currentPage.includes("product")) {
         showCard(currentPage);
-        console.log(currentPage);
         allPages.complexProductPage.style.display = "block";
         header.style.display = "none"; // can be change;
         footer.style.display = "none";
@@ -32,8 +31,8 @@ function showPage() {
         noPageWasShown = false;
         errorPage.style.display="none";
     }
-    if (noPageWasShown) 
-        errorPage.style.display = "flex";
+    if (noPageWasShown) {
+        errorPage.style.display = "flex"; }
     
 }
 
