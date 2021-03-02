@@ -22,7 +22,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
-  <body>
+  <body class="modal-open">
     <div id="loadingScreen" class="flex center">
       <img src="./assets/images/preloader.gif" alt="loading screen" />
     </div>
@@ -530,6 +530,39 @@
       </div>
     </footer>
 
+    <!-- add modal-open class on body when opening + add 'in' class -->
+    <div id="popupModal" class="modal modal-fade in">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <img src="./assets/images/close_x.svg" class="modal-close" alt="Close">
+          <div class="popup">
+            <div class="popup-content">
+              <h3 class="decoration-title red-decoration-title">ВХОД</h3>
+              <form name="login">
+                <div class="">
+                    <input type="text" name="email" class="form-control rounded" required="" autocomplete="off" id="login-email" placeholder="E-mail">
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <span class="error_message error-txt"></span>
+                </div>
+                <div class="">
+                    <input type="password" name="password" class="form-control rounded" required="" autocomplete="off" id="login-pass" placeholder="парола">
+                    <span class="error_message error-txt"></span>
+                </div>
+                <div id="remember-pass-wrapper" class="text-right">
+                    <input type="checkbox" name="remember" value="1" checked="checked" class="" id="remember-pass">
+                    <label for="remember-pass">Запомни ме<span class="glyphicon glyphicon-ok"></span></label>
+                </div>
+                <input type="submit" class="button red-btn login rounded" value="Вход" />
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- add 'in' class -->
+    <div class="modal-backdrop modal-fade in"></div>
+
     <script id="simpleProduct" type="text/x-handlebars-template">
       {{#if this}}
         {{#each this}}
@@ -646,7 +679,7 @@
                 {{/ifCond}}
                 <img class="product-picture" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
                 <div class="title-wrapper">
-                  {{#ifCond this.title.length '>' 24}}
+                  {{#ifCond this.title.length '>' 23}}
                     <h2 class="ellipsis">{{this.title}}</h2>
                     <h2 class="name-scroll">{{this.title}}</h2>
                   {{else}}
