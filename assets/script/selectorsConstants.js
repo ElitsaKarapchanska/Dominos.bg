@@ -13,10 +13,13 @@ const allPages = {
   allDessertsPage: document.getElementById("allDessertsPage"),
   allDerinksPage: document.getElementById("allDrinksPage"),
   registrationPage: document.getElementById("registrationPage"),
+  complexProductPage: document.getElementById("complexProductPage"),
 };
 const errorPage = document.getElementById("errorPage");
 const menuPage = document.getElementById("menuPage");
 const placeholderDiv = document.getElementById("placeholder");
+const header = document.querySelector("header");
+const footer = document.querySelector("footer");
 
 const userIcon = document.getElementById("loggedIn");
 const menuLink = document.getElementById("menu");

@@ -1,6 +1,9 @@
 function showPage() {
   let currentPage = location.hash.slice(1);
-  if (currentPage === "") currentPage = "home";
+  if (currentPage === "") {
+    currentPage = "home";
+  }
+
   // placholder for behind the menu so that the space for it is not taken by the main, has display none on home page
   currentPage === "home"
     ? (placeholderDiv.style.display = "none")
@@ -10,17 +13,30 @@ function showPage() {
   changeElementVisibility(userIcon, userStorage.loggedInUser);
   changeElementVisibility(menuLink, !userStorage.loggedInUser);
 
+  if (currentPage.includes("product")) {
+    showCard(currentPage);
+    allPages.complexProductPage.style.display = "block";
+    header.style.display = "none"; // can be change;
+    footer.style.display = "none";
+    placeholderDiv.style.display = "none";
+    noPageWasShown = false;
+    errorPage.style.display = "none";
+    return;
+  } else {
+    header.style.display = "block"; // can be change;
+    footer.style.display = "block";
+  }
+
   for (let page in allPages) {
     if (allPages[page].id === currentPage + "Page") {
       noPageWasShown = false;
       allPages[page].style.display = "block";
       errorPage.style.display = "none";
-      // changeElementVisibility(cartIcon, false);
       cartIcon.classList.replace("block", "hidden");
+
       if (allPages[page].id.includes("all")) {
         // meaning that the page a menu page -> show the menu navigation and the filters for the category
         allPages[page].style.display = "grid";
-        // changeElementVisibility(cartIcon);
         cartIcon.classList.replace("hidden", "block");
       }
     } else {

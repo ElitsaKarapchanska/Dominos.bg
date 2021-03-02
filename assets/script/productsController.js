@@ -1,6 +1,8 @@
 const simpleProductSource = document.getElementById("simpleProduct").innerHTML;
 const customizableProductSource = document.getElementById("customizableProduct")
   .innerHTML;
+const complexCardProductSource = document.getElementById("complexCardProduct")
+  .innerHTML;
 
 chickenManager.addAllChickenProducts(allChickenData);
 dessertManager.addAllDessertProducts(allDessertsData);
@@ -12,7 +14,6 @@ sandwichManager.addAllSandwichProducts(allSandwichData);
 sauceManager.addAllSauceProducts(allSaucesData);
 starterManager.addAllStarterProducts(allStartersData);
 
-// to remove
 function getProductFromCategoryById(data, id) {
   return data.filter((element) => element.id === id)[0];
 }
@@ -81,7 +82,9 @@ function displaySimpleProduct(products, categoryTab) {
       // finding the actual card that was clicked from the 'event.path'
       let id = -1;
       ev.path.forEach((el) => {
-        if (el.tagName === "ARTICLE") id = el.id;
+        if (el.tagName === "ARTICLE") {
+          id = el.id;
+        }
       });
 
       // selecting the 'slide-up' section from the card
@@ -136,6 +139,85 @@ function displayCustomizableProduct(products, categoryTab) {
   categoryTab.innerHTML = html;
 }
 
+function showCard(hashLocation) {
+  let productPage = hashLocation.split("-");
+  let productCategory = productPage[1];
+  let productId = productPage[2];
+  switch (productCategory) {
+    case "pizza":
+      {
+        let pizza = getProductFromCategoryById(
+          pizzaManager.allPizzas,
+          productId
+        );
+        displayComplexProductPage(pizza, allPages.complexProductPage);
+      }
+      break;
+    case "pasta":
+      {
+        let pasta = getProductFromCategoryById(
+          pastaManager.allPasta,
+          productId
+        );
+        displayComplexProductPage(pasta, allPages.complexProductPage);
+      }
+      break;
+    case "salad":
+      {
+        let salad = getProductFromCategoryById(
+          saladManager.allSalads,
+          productId
+        );
+        displayComplexProductPage(salad, allPages.complexProductPage);
+      }
+      break;
+  }
+}
+
+function displayComplexProductPage(products, categoryTab) {
+  const template = Handlebars.compile(complexCardProductSource);
+  const html = template(products);
+
+  categoryTab.innerHTML = html;
+
+  let close = document.getElementById("closeIcon");
+  close.addEventListener("click", function () {
+    window.history.back();
+  });
+
+  let quantity = document.getElementById("selectedQuantity");
+  let price = document.getElementById("currentPrice");
+  const firstPrice = document.getElementById("currentPrice");
+  let itemPrice = Number(firstPrice.innerHTML);
+
+  let minus = document.getElementById("minus");
+  minus.addEventListener("click", function () {
+    let count = Number(quantity.innerText);
+    let currPrice = Number(price.innerHTML);
+
+    if (count >= 2) {
+      // check if the quantity is more than 1;
+      count--;
+
+      currPrice = currPrice - itemPrice; // to modify the price;
+      price.innerHTML = currPrice.toFixed(2);
+    }
+    quantity.innerText = count;
+  });
+
+  let plus = document.getElementById("plus");
+  plus.addEventListener("click", function () {
+    let count = Number(quantity.innerText);
+    let currPrice = Number(price.innerHTML);
+
+    count++;
+    currPrice = itemPrice * count; // to modify the price;
+
+    quantity.innerText = count;
+    price.innerHTML = currPrice.toFixed(2);
+  });
+}
+
 function quantityButtonClick(event) {
   event.stopImmediatePropagation();
   let isMinusBtn = event.target.classList.contains("minus");
@@ -143,19 +225,19 @@ function quantityButtonClick(event) {
   let quantityEl = quantityContainer.children[1];
   let currentQuantity = parseInt(quantityEl.innerText);
 
-  let priceContainer = quantityContainer.parentElement.parentElement.children[1];
+  let priceContainer =
+    quantityContainer.parentElement.parentElement.children[1];
   let priceEl = priceContainer.children[1];
   let currentPrice = parseInt(priceEl.innerText);
   console.log(priceEl);
   let pricePerUnit = currentPrice / currentQuantity;
-  
 
   isMinusBtn ? currentQuantity-- : currentQuantity++;
   currentQuantity = currentQuantity < 1 ? 1 : currentQuantity;
 
   currentPrice = pricePerUnit * currentQuantity;
   quantityEl.innerText = currentQuantity;
-  priceEl.innerText = currentPrice.toFixed(2) + 'лв';
+  priceEl.innerText = currentPrice.toFixed(2) + "лв";
 }
 
 displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);
