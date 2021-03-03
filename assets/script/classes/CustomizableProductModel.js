@@ -11,11 +11,13 @@ class CustomizableProduct extends Product {
   addIngredient(ingredient) {
     if (ingredientManager.checkIfIngredient(ingredient)) {
       this.ingredients.push(ingredient);
+      this.stringifiedIngredients = this.getIngredientsToString();
     }
   }
 
   resetProductIngredients() {
     this.ingredients = this.initialIngredients;
+    this.stringifiedIngredients = this.getIngredientsToString();
   }
 
   getIngredientsToString() {

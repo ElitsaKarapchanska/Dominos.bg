@@ -7,10 +7,10 @@ const allPastaData = [
     "image": "pasta/1242ipar.png",
     "tags": [],
     "ingredients": [
-      { title: INGREDIENT_NAMES_CONSTANTS.CREAM, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CREAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
     ],
   },
   {
@@ -21,9 +21,9 @@ const allPastaData = [
     "image": "pasta/1243ipar.png",
     "tags": [],
     "ingredients": [
-      { title: INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.PESTO, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PESTO, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
     ],
   },
   {
@@ -34,10 +34,10 @@ const allPastaData = [
     "image": "pasta/843ipar.png",
     "tags": [SORTING_TAGS_CONSTANTS.SPICY],
     "ingredients": [
-      { title: INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.CREAM, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.PEPPERONI, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CREAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PEPPERONI, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
     ],
   },
   {
@@ -48,10 +48,10 @@ const allPastaData = [
     "image": "pasta/1591ipar.png",
     "tags": [SORTING_TAGS_CONSTANTS.NEW],
     "ingredients": [
-      { title: INGREDIENT_NAMES_CONSTANTS.EMMENTAL, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.CHEDDAR, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.CREAM, isAdditional: false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.EMMENTAL, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHEDDAR, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CREAM, "isAdditional": false },
     ],
   },
 ];

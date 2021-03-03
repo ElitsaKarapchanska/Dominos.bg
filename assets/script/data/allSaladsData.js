@@ -7,9 +7,9 @@ const allSaladsData = [
     "image": "salads/1325ipar.png",
     "tags": [SORTING_TAGS_CONSTANTS.VEGETARIAN],
     "ingredients": [
-      { title: INGREDIENT_NAMES_CONSTANTS.ARUGULA, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.ARUGULA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
     ],
   },
   {
@@ -20,9 +20,9 @@ const allSaladsData = [
     "image": "salads/1307ipar.png",
     "tags": [],
     "ingredients": [
-      { title: INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.CORN, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CORN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
     ],
   },
   {
@@ -33,9 +33,9 @@ const allSaladsData = [
     "image": "salads/1308ipar.png",
     "tags": [],
     "ingredients": [
-      { title: INGREDIENT_NAMES_CONSTANTS.CHICKEN, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.CORN, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHICKEN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CORN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
     ],
   },
   {
@@ -46,9 +46,9 @@ const allSaladsData = [
     "image": "salads/1328ipar.png",
     "tags": [],
     "ingredients": [
-      { title: INGREDIENT_NAMES_CONSTANTS.TUNA, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.CORN, isAdditional: false },
-      { title: INGREDIENT_NAMES_CONSTANTS.BLACK_OLIVES, isAdditional: false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.TUNA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CORN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.BLACK_OLIVES, "isAdditional": false },
     ],
   },
 ];
