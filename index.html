@@ -22,7 +22,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
-  <body class="modal-open">
+  <body>
     <div id="loadingScreen" class="flex center">
       <img src="./assets/images/preloader.gif" alt="loading screen" />
     </div>
@@ -334,7 +334,7 @@
       </div>
       <div id="complexProductPage"></div>
       <div id="registrationPage" class="main-wrapper rounded">
-        <form id="registrationForm" action="#">
+        <form id="registrationForm" action="#" method="POST">
           <h2>РЕГИСТРАЦИЯ</h2>
           <div class="flex space-between responsive-block">
             <div class="text-col">
@@ -530,38 +530,45 @@
       </div>
     </footer>
 
-    <!-- add modal-open class on body when opening + add 'in' class -->
-    <div id="popupModal" class="modal modal-fade in">
+    <div id="popupModal" class="modal modal-fade">
       <div class="modal-dialog">
-        <div class="modal-content">
-          <img src="./assets/images/close_x.svg" class="modal-close" alt="Close">
+        <div id="modalContent" class="modal-content">
+          <img id="closeModal" src="./assets/images/close_x.svg" class="modal-close" alt="Close">
           <div class="popup">
             <div class="popup-content">
+              <!-- login modal content, maybe we can only change the content for others -->
               <h3 class="decoration-title red-decoration-title">ВХОД</h3>
-              <form name="login">
-                <div class="">
-                    <input type="text" name="email" class="form-control rounded" required="" autocomplete="off" id="login-email" placeholder="E-mail">
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                    <span class="error_message error-txt"></span>
+              <form id="loginForm" name="login" class="flex column" method="POST">
+                <input type="text" name="email" class="form-control rounded" required="" autocomplete="off" id="login-email" placeholder="E-mail">
+                <span class="error_message error-txt"></span>
+                <input type="password" name="password" class="form-control rounded" required="" autocomplete="off" id="login-pass" placeholder="парола">
+                <span class="error_message error-txt"></span>
+                <div id="remember-pass-wrapper" class="flex end">
+                  <label for="remember-pass" class="flex check">
+                    <input
+                      type="checkbox"
+                      name="remember-pass"
+                      id="remember-pass"
+                      class="hidden"
+                    />
+                    <span class="checkbox rounded"></span>
+                    <span class="remember">Запомни ме</span>
+                  </label>
                 </div>
-                <div class="">
-                    <input type="password" name="password" class="form-control rounded" required="" autocomplete="off" id="login-pass" placeholder="парола">
-                    <span class="error_message error-txt"></span>
-                </div>
-                <div id="remember-pass-wrapper" class="text-right">
-                    <input type="checkbox" name="remember" value="1" checked="checked" class="" id="remember-pass">
-                    <label for="remember-pass">Запомни ме<span class="glyphicon glyphicon-ok"></span></label>
-                </div>
-                <input type="submit" class="button red-btn login rounded" value="Вход" />
-            </form>
+                <input type="submit" id="login" class="button red-btn rounded" value="Вход" />
+              </form>
+              <div class="registration flex column">
+                <div class="dots-seperator"></div>
+                <p class="register-txt">Нов член? Регистрация</p>
+                <a href="#registration" class="button blue-btn register rounded">Регистрация</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- add 'in' class -->
-    <div class="modal-backdrop modal-fade in"></div>
+    <div id="modalBackdrop" class="modal-backdrop modal-fade"></div>
 
     <script id="simpleProduct" type="text/x-handlebars-template">
       {{#if this}}
@@ -837,7 +844,7 @@
     <script src="./assets/script/classes/StarterService.js"></script>
 
     <script src="./assets/script/classes/UserService.js"></script>
-    
+    <script src="./assets/script/modalController.js"></script>
     <script src="./assets/script/productsController.js"></script>
     <script src="./assets/script/userController.js"></script>
     <script src="./assets/script/index.js"></script>

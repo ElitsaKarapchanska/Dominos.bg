@@ -25,3 +25,11 @@ const userIcon = document.getElementById("loggedIn");
 const menuLink = document.getElementById("menu");
 const orderNowBtn = document.getElementById("orderNowBtn");
 const cartIcon = document.getElementById("cartIcon");
+const registrationForm = document.getElementById("registrationForm");
+
+// modals
+const popupModal = document.getElementById("popupModal");
+const modalContent = document.getElementById("modalContent");
+const modalBackdrop = document.getElementById("modalBackdrop");
+const closeModal = document.getElementById("closeModal");
+const loginForm = document.getElementById("loginForm");

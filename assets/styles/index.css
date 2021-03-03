@@ -524,7 +524,7 @@ div#appLink {
   line-height: 20px;
 }
 
-#registrationPage input[type="checkbox"]:checked + span.checkbox:after {
+input[type="checkbox"].hidden:checked + span.checkbox:after {
   content: "\2714";
   position: absolute;
   top: 0.05em;
@@ -558,6 +558,7 @@ div.modal-backdrop.in {
 }
 
 .modal-backdrop {
+  visibility: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -568,8 +569,6 @@ div.modal-backdrop.in {
 }
 
 body.modal-open {
-  /* padding-right: 0 !important;
-  overflow: auto !important; */
   padding-right: 0;
   overflow: auto;
 }
@@ -582,6 +581,7 @@ body.modal-open {
 }
 
 .modal {
+  visibility: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -674,6 +674,60 @@ body.modal-open {
 .popup-content form {
   width: 84%;
   margin-top: 25px;
+}
+
+#remember-pass-wrapper {
+  width: 100%;
+}
+
+#login {
+  margin: 25px 0px;
+}
+
+p.register-txt {
+  margin-top: 25px;
+  font-size: 19px;
+  letter-spacing: 0.5px;
+}
+
+a.register {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.modal .button:hover {
+  opacity: 0.9;
+}
+
+.modal .button,
+.modal .button:hover,
+.modal .button:focus {
+  display: block;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px;
+  letter-spacing: 1px;
+  outline: 0;
+  outline-offset: 0px;
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.modal .registration {
+  width: 84%;
+}
+
+.red-btn {
+  background-color: #e2213d;
+}
+
+.blue-btn {
+  background-color: #0d6490;
 }
 
 #loadingScreen {
