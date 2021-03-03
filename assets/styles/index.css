@@ -120,8 +120,11 @@ button {
 
 #socialContainer {
   display: grid;
-  grid-template-columns: 1fr 7.5px 1fr 15px 1fr;
-  grid-template-rows: 220px 220px 220px;
+  grid-template-columns: minmax(230px, 1fr) 7.5px minmax(230px, 1fr) 15px minmax(
+      230px,
+      1fr
+    );
+  grid-template-rows: repeat(3, minmax(220px, 230px));
   grid-row-gap: 15px;
 }
 
@@ -129,6 +132,7 @@ button {
   padding: 20px;
   text-align: center;
   color: white;
+  box-sizing: border-box;
 }
 
 .red-card {
@@ -760,6 +764,11 @@ a.register {
   display: none;
 }
 
+#cartIcon,
+#cartIconResponsive {
+  cursor: pointer;
+}
+
 nav#navbar-default1.navbar-default {
   background: white;
   box-shadow: none;
@@ -954,7 +963,7 @@ footer img {
   vertical-align: top;
 }
 .list {
-  margin: 10px 100px;
+  margin: 10px auto;
 }
 .nav.navbar-default li.language-select :hover {
   color: #337ab7;
@@ -1534,6 +1543,10 @@ label {
     max-width: 96%;
   }
 
+  #socialContainer {
+    grid-template-columns: 1fr 7.5px 1fr 15px 1fr;
+  }
+
   #socialContainer div.red-card {
     grid-column: 1/4;
   }
@@ -1625,5 +1638,17 @@ label {
 @media screen and (max-width: 600px) {
   .modal-content {
     max-width: 90%;
+  }
+
+  .white-button,
+  .black-button {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .white-button,
+  .black-button {
+    width: 85%;
   }
 }

@@ -6,7 +6,11 @@ const allSaladsData = [
     "weight": 220,
     "image": "salads/1325ipar.png",
     "tags": [SORTING_TAGS_CONSTANTS.VEGETARIAN],
-    "ingredients": [],
+    "ingredients": [
+      { title: INGREDIENT_NAMES_CONSTANTS.ARUGULA, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
+    ],
   },
   {
     "title": SALAD_NAMES_CONSTANTS.CAESARS_BACON,
@@ -15,7 +19,11 @@ const allSaladsData = [
     "weight": 330,
     "image": "salads/1307ipar.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { title: INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.CORN, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
+    ],
   },
   {
     "title": SALAD_NAMES_CONSTANTS.CAESARS_CHICKEN,
@@ -24,7 +32,11 @@ const allSaladsData = [
     "weight": 330,
     "image": "salads/1308ipar.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { title: INGREDIENT_NAMES_CONSTANTS.CHICKEN, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.CORN, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.PARMESAN, isAdditional: false },
+    ],
   },
   {
     "title": SALAD_NAMES_CONSTANTS.TUNA_SALAD,
@@ -33,6 +45,10 @@ const allSaladsData = [
     "weight": 280,
     "image": "salads/1328ipar.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { title: INGREDIENT_NAMES_CONSTANTS.TUNA, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.CORN, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.BLACK_OLIVES, isAdditional: false },
+    ],
   },
 ];

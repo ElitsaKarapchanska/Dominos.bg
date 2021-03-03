@@ -4,6 +4,7 @@ const customizableProductSource = document.getElementById("customizableProduct")
 const complexCardProductSource = document.getElementById("complexCardProduct")
   .innerHTML;
 
+ingredientManager.addAllIngredients(allIngredientsData);
 chickenManager.addAllChickenProducts(allChickenData);
 dessertManager.addAllDessertProducts(allDessertsData);
 drinkManager.addAllDrinkProducts(allDrinksData);

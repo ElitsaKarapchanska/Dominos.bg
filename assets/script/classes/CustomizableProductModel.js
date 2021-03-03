@@ -5,6 +5,7 @@ class CustomizableProduct extends Product {
     // saving the initial ingredients so that we can reset the product after it has been
     // customized and added to basket
     this.initialIngredients = ingredients;
+    this.stringifiedIngredients = this.getIngredientsToString();
   }
 
   addIngredient(ingredient) {
@@ -19,10 +20,11 @@ class CustomizableProduct extends Product {
 
   getIngredientsToString() {
     let stringified = this.ingredients.reduce((string, ingredient) => {
-      string += ingredient.isAdditional
+      string += ingredient.title + ', ';
+      return string += ingredient.isAdditional
         ? INGREDIENT_NAMES_CONSTANTS.EXTRA + " " + ingredient.title + ', '
-        : ingredient.title + ', ';
+        : '';
     }, "");
-    return stringified.trim().slice(0, stringified.length - 1).toLowerCase();
+    return stringified.trim().slice(0, stringified.length - 2).toLowerCase();
   }
 }

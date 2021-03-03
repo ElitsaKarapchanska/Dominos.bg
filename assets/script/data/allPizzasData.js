@@ -6,7 +6,10 @@ const allPizzasData = [
     "price": [6.50, 8.90, 10.50],
     "image": "pizzas/1266medium.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { title: INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, isAdditional: false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.MARGHERITA,
@@ -14,7 +17,10 @@ const allPizzasData = [
     "price": [7.90, 11.00, 13.40],
     "image": "pizzas/1265medium_marg.png",
     "tags": [SORTING_TAGS_CONSTANTS.VEGETARIAN],
-    "ingredients": [],
+    "ingredients": [
+      { title: INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, isAdditional: false },
+      { title: INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, isAdditional: true },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.RIVERONI,

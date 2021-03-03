@@ -36,7 +36,7 @@ const ingredientManager = (function () {
     addAllIngredients(ingredientsJSON) {
       for (let category in ingredientsJSON) {
         for (let i = 0; i < ingredientsJSON[category].length; i++) {
-          let current = ingredientsJSON.category[i];
+          let current = ingredientsJSON[category][i];
           let ingredient = new Ingredient(
             current["title"],
             false,
@@ -44,22 +44,22 @@ const ingredientManager = (function () {
             current["id"]
           );
           switch (category) {
-            case INGREDIENT_CATEGORY_SAUCES:
+            case "SAUCES":
               this.sauces.push(ingredient);
               break;
-            case INGREDIENT_CATEGORY_HERBS:
+            case "HERBS":
               this.herbs.push(ingredient);
               break;
-            case INGREDIENT_CATEGORY_CHEESES:
+            case "CHEESES":
               this.cheeses.push(ingredient);
               break;
-            case INGREDIENT_CATEGORY_MEATS:
+            case "MEATS":
               this.meats.push(ingredient);
               break;
-            case INGREDIENT_CATEGORY_VEGETABLES:
+            case "VEGETABLES":
               this.vegetables.push(ingredient);
               break;
-            case INGREDIENT_CATEGORY_MISC:
+            case "MISC":
               this.misc.push(ingredient);
               break;
           }
@@ -68,8 +68,8 @@ const ingredientManager = (function () {
       }
     }
 
-    getIngredientCopy(title) {
-      return { ...this.searchForIngredient(title) };
+    getIngredientCopy(title, isAdditional) {
+      return { ...this.searchForIngredient(title), isAdditional: isAdditional };
     }
   }
   return new IngredientManager();
