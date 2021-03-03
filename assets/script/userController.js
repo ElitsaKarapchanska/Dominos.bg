@@ -103,3 +103,19 @@ function addToCartBtn(product, quantity) {
     cartNumberResp.innerText = numberOfProductsInCart;
   }
 }
+
+cartIcon.addEventListener("click", function() {
+  if (!userStorage.loggedInUser) {
+    openLoginModal();
+  } else {
+    // TODO: redirect to cart page
+  }
+});
+
+cartIconResponsive.addEventListener("click", function() {
+  if (!userStorage.loggedInUser) {
+    openLoginModal();
+  } else {
+    // TODO: redirect to cart page
+  }
+});

@@ -25,6 +25,7 @@ const userIcon = document.getElementById("loggedIn");
 const menuLink = document.getElementById("menu");
 const orderNowBtn = document.getElementById("orderNowBtn");
 const cartIcon = document.getElementById("cartIcon");
+const cartIconResponsive = document.getElementById("cartIconResponsive");
 const registrationForm = document.getElementById("registrationForm");
 
 // modals

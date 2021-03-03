@@ -12,7 +12,6 @@ function closeAnyModal() {
   modalBackdrop.style.visibility = "hidden";
   popupModal.classList.remove("in");
   popupModal.style.visibility = "hidden";
-
 }
 
 function openLoginModal() {
@@ -22,6 +21,6 @@ function openLoginModal() {
 closeModal.addEventListener("click", closeAnyModal);
 popupModal.addEventListener("click", closeAnyModal);
 modalBackdrop.addEventListener("click", closeAnyModal);
-modalContent.addEventListener("click", function(event) {
-    event.stopPropagation();
-})
+modalContent.addEventListener("click", function (event) {
+  event.stopPropagation();
+});

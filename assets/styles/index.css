@@ -631,14 +631,14 @@ body.modal-open {
   box-sizing: border-box;
 }
 
-.popup {
+.popup-modal {
   position: relative;
   width: inherit;
   height: inherit;
 }
 
-.popup::before,
-.popup::after {
+.popup-modal::before,
+.popup-modal::after {
   content: "";
   background: url(../images/box-top.png) no-repeat bottom left;
   width: 100%;
@@ -647,8 +647,9 @@ body.modal-open {
   display: block;
 }
 
-.popup::after {
+.popup-modal::after {
   background: url(../images/box-bottom.png) no-repeat top left;
+  background-size: contain;
 }
 
 .popup-content {
@@ -668,6 +669,7 @@ body.modal-open {
   letter-spacing: 2px;
   line-height: 30px;
   width: 33%;
+  min-width: 130px;
   font-size: 20px;
 }
 
@@ -716,6 +718,7 @@ a.register {
   text-align: center;
   font-size: 17px;
   line-height: 24px;
+  min-width: 150px;
 }
 
 .modal .registration {
@@ -1580,6 +1583,10 @@ label {
     display: block;
   }
 
+  .modal-content {
+    max-width: 505px;
+  }
+
   #socialContainer {
     grid-template-columns: 100%;
     grid-template-rows: auto auto auto auto auto;
@@ -1612,5 +1619,11 @@ label {
   }
   .product-title span {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal-content {
+    max-width: 90%;
   }
 }
