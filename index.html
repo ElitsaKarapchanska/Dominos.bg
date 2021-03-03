@@ -861,10 +861,10 @@
            <div class="form-group size">
              <label for="pizza-size">ГОЛЕМИНА</label>
              <div class="select-wrapper">
-               <select id="pizzz-size" class="select-size form-control light-grey-bg text-select" name="size-id">
-                 <option class ="sizes"value="Medium">СРЕДНА (6 ПАРЧЕТА) </option>
-                 <option class ="sizes"value="Large">ГОЛЯМА (8 ПАРЧЕТА)</option>
-                 <option class ="sizes"value="Jumbo">Джъмбо (12 ПАРЧЕТА) </option>
+               <select id="pizza-size" class="select-size form-control light-grey-bg text-select" name="size-id">
+                 <option class ="sizes"value="0">СРЕДНА (6 ПАРЧЕТА) </option>
+                 <option class ="sizes"value="1">ГОЛЯМА (8 ПАРЧЕТА)</option>
+                 <option class ="sizes"value="2">Джъмбо (12 ПАРЧЕТА) </option>
                </select>
                <div class='selected'></div>
            </div>
@@ -873,11 +873,11 @@
              <label for="pizza-pan">ТЕСТО</label>
              <div class="select-wrapper">
                <select name="pan-size-id" id="pizza-pan" class="select-size form-control light-grey-bg text-select">
-                 <option value="Traditional"price="11.00">Традиционно</option>
-                 <option value="Italian" price="11.00">Италиански стил</option>
-                 <option value="Thin" price="11.00">Тънко и хрупкаво</option>
-                 <option value="Philadelphia"price="13.25">с Philadelphia (+2.25лв)</option>
-                 <option value="Whole grain"price="11.00">Пълнозърнесто</option>
+                 <option value="Traditional"price="0">Традиционно</option>
+                 <option value="Italian" price="0">Италиански стил</option>
+                 <option value="Thin" price="0">Тънко и хрупкаво</option>
+                 <option value="Philadelphia" price="2.25">с Philadelphia (+2.25лв)</option>
+                 <option value="Whole grain"price="0">Пълнозърнесто</option>
                </select>
              </div>
            </div>
@@ -909,7 +909,11 @@
             <div class="price">
               <p class='text-bold'>Цена</p>
               <div class="product-total-price">
-              <span id="currentPrice" class="total-price">{{this.price.[1]}}</span><span class="currency">  лв.</span>
+                {{#ifCond this.category '===' "pizza" }}
+              <span id="currentPrice" class="total-price">{{this.price.[0]}}</span><span class="currency">  лв.</span>
+              {{else}}
+              <span id="currentPrice" class="total-price">{{this.price}}</span><span class="currency">  лв.</span>
+                {{/ifCond}}
             </div>
               <div class="save-20 hidden-xs">
                 <em>
