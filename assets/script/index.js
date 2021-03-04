@@ -64,19 +64,19 @@ function showLoadingScreen(loadingScreen) {
 }
 
 function openResponsiveNavBar() {
-  let container = document.getElementById("navbar-rightt");
+  let container = getById("navbar-rightt");
   container.classList.toggle("navbar-right-right");
-  let telefonNumber = document.getElementById("telText");
+  let telefonNumber = getById("telText");
   telefonNumber.classList.toggle("visible");
 }
 
 function createFixedNavbar() {
-  let headerNavbar = document.getElementById("navbar-default1");
+  let headerNavbar = getById("navbar-default1");
   let fixed = headerNavbar.offsetTop;
-  let logoImage = document.getElementById("whiteLogo");
-  let logoImageBlue = document.getElementById("blueLogo");
-  let greytel = document.getElementById("greytel");
-  let whitetel = document.getElementById("whitetel");
+  let logoImage = getById("whiteLogo");
+  let logoImageBlue = getById("blueLogo");
+  let greytel = getById("greytel");
+  let whitetel = getById("whitetel");
   if (window.pageYOffset > fixed) {
     headerNavbar.classList.add("navbar-default");
     logoImage.style.display = "none";
@@ -125,8 +125,8 @@ function showSlides(n) {
 function showInitialNumberOfItemsInCart() {
   if (userStorage.loggedInUser) {
     let numberOfProductsInCart = userStorage.loggedInUser.cart.length;
-    let cartNumber = document.getElementById("orderNumber");
-    let cartNumberResp = document.getElementById("orderNumberResponsive");
+    let cartNumber = getById("orderNumber");
+    let cartNumberResp = getById("orderNumberResponsive");
     cartNumber.innerText = numberOfProductsInCart;
     cartNumberResp.innerText = numberOfProductsInCart;
   }

@@ -1,7 +1,29 @@
 const pizzaManager = (function () {
   class Pizza extends CustomizableProduct {
-    constructor(title, image, price, weight, id, tags, ingredients) {
+    constructor(
+      title,
+      image,
+      price,
+      weight,
+      id,
+      tags,
+      ingredients,
+      size = PIZZA_SIZES.BIG,
+      crustType = PIZZA_CRUST_TYPES.TRADITIONAL
+    ) {
       super(title, image, price, weight, id, "pizza", tags, ingredients);
+      this.size = size;
+      this.crustType = crustType;
+    }
+
+    changePizzaSize(size) {
+      // verification
+      this.size = size;
+    }
+
+    changePizzaCrust(crustType) {
+      // verification
+      this.crustType = crustType;
     }
   }
 
@@ -56,7 +78,14 @@ const pizzaManager = (function () {
         product.weight,
         product.id,
         product.tags,
-        product.ingredients
+        product.ingredients.map((ingredient) =>
+          ingredientManager.getIngredientCopy(
+            ingredient["title"],
+            ingredient["isAdditional"]
+          )
+        ),
+        product.size,
+        product.crustType
       );
     }
   }

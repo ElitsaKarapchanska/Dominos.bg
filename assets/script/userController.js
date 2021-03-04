@@ -1,7 +1,7 @@
 // view
 
 // registration page
-let controllerCeckbox = document.getElementById("pData");
+let controllerCeckbox = getById("pData");
 let hiddentCheckboxes = Array.from(
   document.querySelectorAll(".hiddenCheckbox")
 );
@@ -24,17 +24,17 @@ controllerCeckbox.addEventListener("change", (event) => {
 
 // registration page
 let registrationFields = {
-  fName: document.getElementById("fName"),
-  lName: document.getElementById("lName"),
-  regEmail: document.getElementById("regEmail"),
-  regPass: document.getElementById("regPass"),
-  confirm: document.getElementById("confirm"),
+  fName: getById("fName"),
+  lName: getById("lName"),
+  regEmail: getById("regEmail"),
+  regPass: getById("regPass"),
+  confirm: getById("confirm"),
 
   // checkboxes:
-  pData: document.getElementById("pData"),
-  confidentiality: document.getElementById("confidentiality"),
-  offers: document.getElementById("offers"),
-  news: document.getElementById("news"),
+  pData: getById("pData"),
+  confidentiality: getById("confidentiality"),
+  offers: getById("offers"),
+  news: getById("news"),
 };
 
 registrationForm.addEventListener("submit", function (ev) {
@@ -63,10 +63,10 @@ registrationForm.addEventListener("submit", function (ev) {
 
 // other pages
 let loginFields = {
-  email: document.getElementById("login-email"),
-  pass: document.getElementById("login-pass"),
+  email: getById("login-email"),
+  pass: getById("login-pass"),
 
-  rememberPass: document.getElementById("remember-pass"),
+  rememberPass: getById("remember-pass"),
 };
 loginForm.addEventListener("submit", function (ev) {
   isLoggedIn = userStorage.login(
@@ -97,8 +97,8 @@ function addToCartBtn(product, quantity) {
     openLoginModal();
   } else {
     let numberOfProductsInCart = userStorage.addToCart(product, quantity);
-    let cartNumber = document.getElementById("orderNumber");
-    let cartNumberResp = document.getElementById("orderNumberResponsive");
+    let cartNumber = getById("orderNumber");
+    let cartNumberResp = getById("orderNumberResponsive");
     cartNumber.innerText = numberOfProductsInCart;
     cartNumberResp.innerText = numberOfProductsInCart;
   }

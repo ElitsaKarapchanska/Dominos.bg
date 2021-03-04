@@ -45,7 +45,12 @@ const sandwichManager = (function () {
         product.weight,
         product.id,
         product.tags,
-        product.ingredients
+        product.ingredients.map((ingredient) =>
+          ingredientManager.getIngredientCopy(
+            ingredient["title"],
+            ingredient["isAdditional"]
+          )
+        )
       );
     }
   }
