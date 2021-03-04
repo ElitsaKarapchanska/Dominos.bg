@@ -37,7 +37,12 @@ const pizzaManager = (function () {
             element["weight"],
             element["id"],
             element["tags"],
-            element["ingredients"]
+            element["ingredients"].map((ingredient) =>
+              ingredientManager.getIngredientCopy(
+                ingredient["title"],
+                ingredient["isAdditional"]
+              )
+            )
           )
         );
       });

@@ -66,7 +66,7 @@
                     <a
                       class="font-bold text-center"
                       style="width: 10px; height: 10px"
-                      href="#"
+                      href="tel:070012525"
                     >
                       <div class="tooltip">
                         <img
@@ -85,10 +85,10 @@
                     </a>
                   </li>
                   <li class="show-phone">
-                    <a class="font-bold text-center" href="#" id="telNumber"
+                    <a class="font-bold text-center" href="tel:070012525" id="telNumber"
                       >070012525</a
                     >
-                    <a class="font-bold text-center" href="#" id="telText"
+                    <a class="font-bold text-center" href="tel:070012525" id="telText"
                       >ОБАДЕТЕ НИ СЕ</a
                     >
                   </li>
@@ -333,7 +333,7 @@
       </div>
       <div id="complexProductPage"></div>
       <div id="registrationPage" class="main-wrapper rounded">
-        <form id="registrationForm" action="#">
+        <form id="registrationForm" action="#" method="POST">
           <h2>РЕГИСТРАЦИЯ</h2>
           <div class="flex space-between responsive-block">
             <div class="text-col">
@@ -454,7 +454,7 @@
       <div class='white'>
         <div class='footer-container'>
           <div class='padding-top-20 text-center'>
-            <ul class="list">
+            <ul class="list main-wrapper">
               <li>
                 <a href="#" class="menu-color open-modal">МЕНЮ</a>
               </li>
@@ -481,7 +481,7 @@
           <div class="text-center">
             <div class="social-container">
               <div class="tooltip tel">
-              <a href="#" class="telFooter">
+              <a href="tel:070012525" class="telFooter">
                <img src="assets/images/logos/070012525.svg" alt='070012525' id='tel070012525'>
                <img src="assets/images/tel.svg" alt='telefon' id='telImage'>
                <span class="tooltiptext">0700-1-2525</span>
@@ -528,6 +528,46 @@
         </div>
       </div>
     </footer>
+
+    <div id="popupModal" class="modal modal-fade">
+      <div class="modal-dialog">
+        <div id="modalContent" class="modal-content">
+          <img id="closeModal" src="./assets/images/close_x.svg" class="modal-close" alt="Close">
+          <div class="popup-modal">
+            <div class="popup-content">
+              <!-- login modal content, maybe we can only change the content for others -->
+              <h3 class="decoration-title red-decoration-title">ВХОД</h3>
+              <form id="loginForm" name="login" class="flex column" method="POST">
+                <input type="text" name="email" class="form-control rounded" required="" autocomplete="off" id="login-email" placeholder="E-mail">
+                <span class="error_message error-txt"></span>
+                <input type="password" name="password" class="form-control rounded" required="" autocomplete="off" id="login-pass" placeholder="парола">
+                <span class="error_message error-txt"></span>
+                <div id="remember-pass-wrapper" class="flex end">
+                  <label for="remember-pass" class="flex check">
+                    <input
+                      type="checkbox"
+                      name="remember-pass"
+                      id="remember-pass"
+                      class="hidden"
+                    />
+                    <span class="checkbox rounded"></span>
+                    <span class="remember">Запомни ме</span>
+                  </label>
+                </div>
+                <input type="submit" id="login" class="button red-btn rounded" value="Вход" />
+              </form>
+              <div class="registration flex column">
+                <div class="dots-seperator"></div>
+                <p class="register-txt">Нов член? Регистрация</p>
+                <a href="#registration" class="button blue-btn register rounded">Регистрация</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalBackdrop" class="modal-backdrop modal-fade"></div>
 
     <script id="simpleProduct" type="text/x-handlebars-template">
       {{#if this}}
@@ -645,7 +685,7 @@
                 {{/ifCond}}
                 <img class="product-picture" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
                 <div class="title-wrapper">
-                  {{#ifCond this.title.length '>' 24}}
+                  {{#ifCond this.title.length '>' 23}}
                     <h2 class="ellipsis">{{this.title}}</h2>
                     <h2 class="name-scroll">{{this.title}}</h2>
                   {{else}}
@@ -657,7 +697,7 @@
                 {{#if this.description}}
                   {{this.description}}
                 {{else}}
-                  {{this.ingredients}}
+                  {{this.stringifiedIngredients}}
                 {{/if}}
               </p>
               <div class="btn-wrapper">
@@ -714,9 +754,10 @@
             <p class="pull-left font-bold">Продукти</p>
             <!-- array from ingredients -->
             <div class="ingredients">
-              {{#each this.ingredients}}
+              <!-- {{#each this.ingredients}}
               <span class="product-ingredient">{{this}} </span>
-              {{/each}}
+              {{/each}} -->
+              {{this.stringifiedIngredients}}
             </div>
           </div>
         </div>
@@ -807,7 +848,7 @@
     <script src="./assets/script/classes/StarterService.js"></script>
 
     <script src="./assets/script/classes/UserService.js"></script>
-    
+    <script src="./assets/script/modalController.js"></script>
     <script src="./assets/script/productsController.js"></script>
     <script src="./assets/script/userController.js"></script>
     <script src="./assets/script/index.js"></script>

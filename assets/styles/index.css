@@ -120,8 +120,11 @@ button {
 
 #socialContainer {
   display: grid;
-  grid-template-columns: 1fr 7.5px 1fr 15px 1fr;
-  grid-template-rows: 220px 220px 220px;
+  grid-template-columns: minmax(230px, 1fr) 7.5px minmax(230px, 1fr) 15px minmax(
+      230px,
+      1fr
+    );
+  grid-template-rows: repeat(3, minmax(220px, 230px));
   grid-row-gap: 15px;
 }
 
@@ -129,6 +132,7 @@ button {
   padding: 20px;
   text-align: center;
   color: white;
+  box-sizing: border-box;
 }
 
 .red-card {
@@ -469,7 +473,8 @@ div#appLink {
   background-repeat: no-repeat;
 }
 
-#registrationPage form input:not([type="submit"]) {
+#registrationPage form input:not([type="submit"]),
+.modal input:not([type="submit"]) {
   width: 100%;
   margin-bottom: 20px;
   height: 44px;
@@ -482,7 +487,8 @@ div#appLink {
   box-sizing: border-box;
 }
 
-#registrationPage form input:focus {
+#registrationPage form input:focus,
+.modal input:focus {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%),
@@ -522,7 +528,7 @@ div#appLink {
   line-height: 20px;
 }
 
-#registrationPage input[type="checkbox"]:checked + span.checkbox:after {
+input[type="checkbox"].hidden:checked + span.checkbox:after {
   content: "\2714";
   position: absolute;
   top: 0.05em;
@@ -544,6 +550,191 @@ label.fade-in {
 
 .green-button:hover {
   background-color: #78ac36;
+}
+
+/* Modal styles */
+div.modal-backdrop.in {
+  opacity: 0.5;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal-backdrop {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+
+body.modal-open {
+  padding-right: 0;
+  overflow: auto;
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+  opacity: 0;
+}
+
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+}
+
+.modal-fade {
+  opacity: 0;
+  transition: opacity 0.25s linear;
+}
+
+.modal-fade.in {
+  opacity: 1;
+}
+
+.modal.in .modal-dialog {
+  transform: translate(0, 0);
+}
+
+.modal.modal-fade .modal-dialog {
+  height: 100%;
+  width: 100%;
+  transition: transform 0.3s ease-out;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 640px;
+  width: inherit;
+  height: inherit;
+  margin: 20px auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: -14px;
+  right: -12px;
+  width: 35px;
+  height: 35px;
+  padding: 8px;
+  z-index: 9;
+  background-color: #0d6490;
+  cursor: pointer;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.popup-modal {
+  position: relative;
+  width: inherit;
+  height: inherit;
+}
+
+.popup-modal::before,
+.popup-modal::after {
+  content: "";
+  background: url(../images/box-top.png) no-repeat bottom left;
+  width: 100%;
+  height: 35px;
+  background-size: contain;
+  display: block;
+}
+
+.popup-modal::after {
+  background: url(../images/box-bottom.png) no-repeat top left;
+  background-size: contain;
+}
+
+.popup-content {
+  background: url(../images/box-middle.png) repeat top left;
+  background-size: contain;
+  padding: 20px 40px 10px;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popup-content h3 {
+  font-weight: 400;
+  background-position: -4px center, 100.9% center;
+  letter-spacing: 2px;
+  line-height: 30px;
+  width: 33%;
+  min-width: 130px;
+  font-size: 20px;
+}
+
+.popup-content form {
+  width: 84%;
+  margin-top: 25px;
+}
+
+#remember-pass-wrapper {
+  width: 100%;
+}
+
+#login {
+  margin: 25px 0px;
+}
+
+p.register-txt {
+  margin-top: 25px;
+  font-size: 19px;
+  letter-spacing: 0.5px;
+}
+
+a.register {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.modal .button:hover {
+  opacity: 0.9;
+}
+
+.modal .button,
+.modal .button:hover,
+.modal .button:focus {
+  display: block;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px;
+  letter-spacing: 1px;
+  outline: 0;
+  outline-offset: 0px;
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 17px;
+  line-height: 24px;
+  min-width: 150px;
+}
+
+.modal .registration {
+  width: 84%;
+}
+
+.red-btn {
+  background-color: #e2213d;
+}
+
+.blue-btn {
+  background-color: #0d6490;
 }
 
 #loadingScreen {
@@ -571,6 +762,11 @@ label.fade-in {
 .icon-responsive,
 #cartIconResponsive {
   display: none;
+}
+
+#cartIcon,
+#cartIconResponsive {
+  cursor: pointer;
 }
 
 nav#navbar-default1.navbar-default {
@@ -767,7 +963,7 @@ footer img {
   vertical-align: top;
 }
 .list {
-  margin: 10px 100px;
+  margin: 10px auto;
 }
 .nav.navbar-default li.language-select :hover {
   color: #337ab7;
@@ -1150,7 +1346,7 @@ label {
   font-weight: 700;
   color: #0073aa;
 }
-.currency{
+.currency {
   line-height: 48px;
   font-weight: 700;
   color: #0073aa;
@@ -1329,23 +1525,26 @@ label {
     display: flex;
     flex-direction: column;
   }
-  .product-wrapper-left{
+  .product-wrapper-left {
     background: none;
     display: flex;
     flex-direction: column;
   }
-  .product-wrapper-right{
+  .product-wrapper-right {
     width: 100%;
   }
   .product-cart {
     max-width: 100%;
   }
-  
 }
 
 @media screen and (max-width: 990px) {
   .main-wrapper {
     max-width: 96%;
+  }
+
+  #socialContainer {
+    grid-template-columns: 1fr 7.5px 1fr 15px 1fr;
   }
 
   #socialContainer div.red-card {
@@ -1383,7 +1582,7 @@ label {
   .card-container {
     grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
   }
-  .product-title span{
+  .product-title span {
     font-size: 26px;
   }
 }
@@ -1395,6 +1594,10 @@ label {
 
   .responsive-block {
     display: block;
+  }
+
+  .modal-content {
+    max-width: 505px;
   }
 
   #socialContainer {
@@ -1424,10 +1627,28 @@ label {
     grid-template-columns: repeat(auto-fill, minmax(214px, 1fr));
     justify-content: center;
   }
-  .save-20{
+  .save-20 {
     display: none;
   }
-  .product-title span{
+  .product-title span {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal-content {
+    max-width: 90%;
+  }
+
+  .white-button,
+  .black-button {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .white-button,
+  .black-button {
+    width: 85%;
   }
 }

@@ -1,7 +1,7 @@
 // object with keys - the category names and values - an array of the ingredient objects
 // "prices" are 0 for the first of it's category and + 2 for every next one with some exceptions (on big pizzas)
 const allIngredientsData = {
-  INGREDIENT_CATEGORY_SAUCES: [
+  SAUCES: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE,
       "id": 1,
@@ -18,7 +18,7 @@ const allIngredientsData = {
       "price": [0, 2],
     },
   ],
-  INGREDIENT_CATEGORY_HERBS: [
+  HERBS: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN_SPRINKLES,
       "id": 4,
@@ -35,7 +35,7 @@ const allIngredientsData = {
       "price": [0, 0],
     },
   ],
-  INGREDIENT_CATEGORY_CHEESES: [
+  CHEESES: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.EMMENTAL,
       "id": 7,
@@ -73,7 +73,7 @@ const allIngredientsData = {
       "price": [0, 2],
     },
   ],
-  INGREDIENT_CATEGORY_MEATS: [
+  MEATS: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PULLED_BEEF,
       "id": 14,
@@ -120,7 +120,7 @@ const allIngredientsData = {
       "price": [0, 2],
     },
   ],
-  INGREDIENT_CATEGORY_VEGETABLES: [
+  VEGETABLES: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.ARUGULA,
       "id": 23,
@@ -172,7 +172,7 @@ const allIngredientsData = {
       "price": [0, 2],
     },
   ],
-  INGREDIENT_CATEGORY_MISC: [
+  MISC: [
     {
       "title": INGREDIENT_NAMES_CONSTANTS.PESTO,
       "id": 33,

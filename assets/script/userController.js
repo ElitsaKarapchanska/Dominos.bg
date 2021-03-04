@@ -23,8 +23,7 @@ controllerCeckbox.addEventListener("change", (event) => {
 // functionality
 
 // registration page
-let registrationForm = document.getElementById("registrationForm");
-let fields = {
+let registrationFields = {
   fName: document.getElementById("fName"),
   lName: document.getElementById("lName"),
   regEmail: document.getElementById("regEmail"),
@@ -41,36 +40,61 @@ let fields = {
 registrationForm.addEventListener("submit", function (ev) {
   // TODO: show validating messages
   let isRegistered = userStorage.register(
-    fields.regEmail.value,
-    fields.regPass.value,
-    fields.confirm.value,
-    fields.fName.value,
-    fields.lName.value,
-    fields.pData.checked,
-    fields.confidentiality.checked,
-    fields.offers.checked,
-    fields.news.checked
+    registrationFields.regEmail.value,
+    registrationFields.regPass.value,
+    registrationFields.confirm.value,
+    registrationFields.fName.value,
+    registrationFields.lName.value,
+    registrationFields.pData.checked,
+    registrationFields.confidentiality.checked,
+    registrationFields.offers.checked,
+    registrationFields.news.checked
   );
   ev.preventDefault();
 
   if (isRegistered) {
-    userStorage.login(fields.regEmail.value, fields.regPass.value);
+    userStorage.login(
+      registrationFields.regEmail.value,
+      registrationFields.regPass.value
+    );
     // show order modal (choose delivery or takeout)
   }
 });
 
 // other pages
-orderNowBtn.addEventListener("click", function(event) {
+let loginFields = {
+  email: document.getElementById("login-email"),
+  pass: document.getElementById("login-pass"),
+
+  rememberPass: document.getElementById("remember-pass"),
+};
+loginForm.addEventListener("submit", function (ev) {
+  isLoggedIn = userStorage.login(
+    loginFields.email.value,
+    loginFields.pass.value,
+    loginFields.rememberPass.checked
+  );
+
+  if (isLoggedIn) {
+    // TODO: show takeout or delivery modal
+    closeAnyModal();
+  } else {
+    // TODO: show validationg messages
+    ev.preventDefault();
+  }
+});
+
+orderNowBtn.addEventListener("click", function (event) {
   if (!userStorage.loggedInUser) {
     event.preventDefault();
-    // TODO: open login modal
+    openLoginModal();
   }
 });
 
 // product pages
 function addToCartBtn(product, quantity) {
   if (!userStorage.loggedInUser) {
-    // TODO: open login modal
+    openLoginModal();
   } else {
     let numberOfProductsInCart = userStorage.addToCart(product, quantity);
     let cartNumber = document.getElementById("orderNumber");
@@ -79,3 +103,19 @@ function addToCartBtn(product, quantity) {
     cartNumberResp.innerText = numberOfProductsInCart;
   }
 }
+
+cartIcon.addEventListener("click", function() {
+  if (!userStorage.loggedInUser) {
+    openLoginModal();
+  } else {
+    // TODO: redirect to cart page
+  }
+});
+
+cartIconResponsive.addEventListener("click", function() {
+  if (!userStorage.loggedInUser) {
+    openLoginModal();
+  } else {
+    // TODO: redirect to cart page
+  }
+});

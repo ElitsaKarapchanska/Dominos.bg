@@ -6,7 +6,10 @@ const allPizzasData = [
     "price": [6.50, 8.90, 10.50],
     "image": "pizzas/1266medium.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.MARGHERITA,
@@ -14,7 +17,10 @@ const allPizzasData = [
     "price": [7.90, 11.00, 13.40],
     "image": "pizzas/1265medium_marg.png",
     "tags": [SORTING_TAGS_CONSTANTS.VEGETARIAN],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": true },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.RIVERONI,
@@ -22,7 +28,12 @@ const allPizzasData = [
     "price": [12.90, 15.90, 18.90],
     "image": "pizzas/1593medium_river.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.VENTRICHINA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PEPPERONI, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.BEAST_V2,
@@ -30,7 +41,13 @@ const allPizzasData = [
     "price": [11.90, 14.90, 17.90],
     "image": "pizzas/1555medium_zverska.png",
     "tags": [SORTING_TAGS_CONSTANTS.NEW],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_HAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHORISO, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.CHICKENITA,
@@ -38,7 +55,14 @@ const allPizzasData = [
     "price": [11.90, 14.90, 17.90],
     "image": "pizzas/1341medium_chicken.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHICKEN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PEPPERONI, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.EMMENTAL, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.DOMINOS_SPECIAL,
@@ -46,7 +70,15 @@ const allPizzasData = [
     "price": [10.90, 13.90, 16.90],
     "image": "pizzas/1290medium_dominos.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_HAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_GREEN_PEPPERS, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.ONION, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.CHICK_CHI_RICK,
@@ -54,7 +86,13 @@ const allPizzasData = [
     "price": [11.90, 14.90, 17.90],
     "image": "pizzas/1342medium_chick.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHICKEN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOKED_CHEESE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CORN, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.CARBONARA,
@@ -62,7 +100,12 @@ const allPizzasData = [
     "price": [9.90, 12.90, 15.90],
     "image": "pizzas/1360medium_carbonara.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.CREAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.AMERICAN_HOT,
@@ -70,7 +113,13 @@ const allPizzasData = [
     "price": [10.90, 13.90, 16.90],
     "image": "pizzas/1291medium_american.png",
     "tags": [SORTING_TAGS_CONSTANTS.SPICY],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PEPPERONI, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.JALAPENO_PEPPER, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.ONION, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.GARDEN_CLASSIC,
@@ -78,7 +127,15 @@ const allPizzasData = [
     "price": [8.90, 11.90, 14.90],
     "image": "pizzas/1295medium_garden.png",
     "tags": [SORTING_TAGS_CONSTANTS.VEGETARIAN],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.BLACK_OLIVES, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_GREEN_PEPPERS, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.ONION, "isAdditional": false }, 
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.PEPPERONI_CLASSIC,
@@ -86,7 +143,11 @@ const allPizzasData = [
     "price": [11.90, 14.90, 17.90],
     "image": "pizzas/1293medium_pepperoni.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": true },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PEPPERONI, "isAdditional": true },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.BARBECUE_CHICKEN,
@@ -94,7 +155,12 @@ const allPizzasData = [
     "price": [10.90, 13.90, 16.90],
     "image": "pizzas/1302medium_bbq-chicken.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.BBQ, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHICKEN, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.BARBECUE_CLASSIC,
@@ -102,7 +168,12 @@ const allPizzasData = [
     "price": [10.90, 13.90, 16.90],
     "image": "pizzas/1298medium_bbq-classic.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.BBQ, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SPICY_BEEF, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.NEW_YORK,
@@ -110,7 +181,13 @@ const allPizzasData = [
     "price": [11.90, 14.90, 17.90],
     "image": "pizzas/1300medium_new-york.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHEDDAR, "isAdditional": true },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.HAM_CLASSIC,
@@ -118,7 +195,13 @@ const allPizzasData = [
     "price": [8.90, 11.90, 14.90],
     "image": "pizzas/1292medium_ham-classic.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_HAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_GREEN_PEPPERS, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.ITALIAN_CLASSIC,
@@ -126,7 +209,14 @@ const allPizzasData = [
     "price": [9.90, 12.90, 15.90],
     "image": "pizzas/1355medium_italian.png",
     "tags": [SORTING_TAGS_CONSTANTS.VEGETARIAN],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PESTO, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.BASIL, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.HAWAII,
@@ -134,7 +224,12 @@ const allPizzasData = [
     "price": [8.90, 11.90, 14.90],
     "image": "pizzas/1313medium_hawaian.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_HAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PINAPPLE, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.FOUR_CHEESES,
@@ -142,7 +237,13 @@ const allPizzasData = [
     "price": [9.90, 12.90, 15.90],
     "image": "pizzas/1312medium_formaggi.png",
     "tags": [SORTING_TAGS_CONSTANTS.VEGETARIAN],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHEDDAR, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FETA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.TUNA_PIZZA,
@@ -150,7 +251,13 @@ const allPizzasData = [
     "price": [10.90, 13.90, 16.90],
     "image": "pizzas/1363medium_tuna.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.TUNA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.ONION, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.MEAT_MANIA,
@@ -158,7 +265,15 @@ const allPizzasData = [
     "price": [12.90, 15.90, 18.90],
     "image": "pizzas/1364medium_meat-mania.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_HAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SPICY_BEEF, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHICKEN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHORISO, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.EXTRAVAGANZA,
@@ -166,7 +281,16 @@ const allPizzasData = [
     "price": [11.90, 14.90, 17.90],
     "image": "pizzas/1631medium_extravaganca.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_HAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PEPPERONI, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.ONION, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_GREEN_PEPPERS, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.BLACK_OLIVES, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.BURGER_PIZZA,
@@ -174,7 +298,14 @@ const allPizzasData = [
     "price": [10.90, 13.90, 16.90],
     "image": "pizzas/1505medium_burger.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHEDDAR, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SPICY_BEEF, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.ONION, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PICKLES, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.MASTER_BURGER_PIZZA,
@@ -182,7 +313,13 @@ const allPizzasData = [
     "price": [10.90, 13.90, 16.90],
     "image": "pizzas/1535medium_master-burger.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.BBQ, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CARAMELIZED_ONIONS, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHICKEN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.FASTING_V2,
@@ -190,7 +327,13 @@ const allPizzasData = [
     "price": [8.90, 11.90, 14.90],
     "image": "pizzas/1616medium_vegan.png",
     "tags": [SORTING_TAGS_CONSTANTS.FASTING, SORTING_TAGS_CONSTANTS.VEGETARIAN],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.VEGAN_MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_TOMATOES, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.BLACK_OLIVES, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.RANCHERA,
@@ -198,7 +341,12 @@ const allPizzasData = [
     "price": [9.90, 12.90, 15.90],
     "image": "pizzas/1619medium_ranchera.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHORISO, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_GREEN_PEPPERS, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.PIZZA_OSLO_CREAM,
@@ -206,7 +354,12 @@ const allPizzasData = [
     "price": [12.90, 15.90, 18.90],
     "image": "pizzas/1625medium_oslo-pizza.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.CREAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHEDDAR, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.ARUGULA, "isAdditional": false },
+    ],
   },
   {
     "title": PIZZA_NAMES_CONSTANTS.PIZZA_GAUCHO,
@@ -214,6 +367,11 @@ const allPizzasData = [
     "price": [10.90, 13.90, 16.90],
     "image": "pizzas/1643medium_gaucho.png",
     "tags": [SORTING_TAGS_CONSTANTS.NEW, SORTING_TAGS_CONSTANTS.SPICY],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.MOZZARELLA, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PULLED_BEEF, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.JALAPENO_PEPPER, "isAdditional": false },
+    ],
   },
 ];

@@ -2,6 +2,7 @@ const simpleProductSource = document.getElementById("simpleProduct").innerHTML;
 const customizableProductSource = document.getElementById("customizableProduct").innerHTML;
 const complexCardProductSource = document.getElementById("complexCardProduct").innerHTML;
 
+ingredientManager.addAllIngredients(allIngredientsData);
 chickenManager.addAllChickenProducts(allChickenData);
 dessertManager.addAllDessertProducts(allDessertsData);
 drinkManager.addAllDrinkProducts(allDrinksData);

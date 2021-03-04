@@ -144,6 +144,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("hashchange", () => {
+  closeAnyModal();
   showLoadingScreen(loadingScreen);
   showPage();
 });

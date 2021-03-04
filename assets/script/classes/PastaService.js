@@ -4,7 +4,7 @@ const pastaManager = (function () {
       super(title, image, price, weight, id, "pasta", tags, ingredients);
     }
   }
-  
+
   class PastaManager extends CustomizableProductManager {
     constructor() {
       super();
@@ -39,7 +39,12 @@ const pastaManager = (function () {
           element["weight"],
           element["id"],
           element["tags"],
-          element["ingredients"]
+          element["ingredients"].map((ingredient) =>
+            ingredientManager.getIngredientCopy(
+              ingredient["title"],
+              ingredient["isAdditional"]
+            )
+          )
         );
         this.addAnyPasta(pasta);
         this.addNewPasta(pasta);

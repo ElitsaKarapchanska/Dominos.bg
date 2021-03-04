@@ -6,7 +6,12 @@ const allPastaData = [
     "weight": 440,
     "image": "pasta/1242ipar.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.CREAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.FRESH_MUSHROOMS, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.SMOCKED_BACON, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
+    ],
   },
   {
     "title": PASTA_NAMES_CONSTANTS.NAPOLITEN,
@@ -15,7 +20,11 @@ const allPastaData = [
     "weight": 400,
     "image": "pasta/1243ipar.png",
     "tags": [],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PESTO, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
+    ],
   },
   {
     "title": PASTA_NAMES_CONSTANTS.PASTA_PEPPERONI,
@@ -24,7 +33,12 @@ const allPastaData = [
     "weight": 410,
     "image": "pasta/843ipar.png",
     "tags": [SORTING_TAGS_CONSTANTS.SPICY],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.TOMATO_SAUCE, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CREAM, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PEPPERONI, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
+    ],
   },
   {
     "title": PASTA_NAMES_CONSTANTS.MAC_AND_CHEESE,
@@ -33,6 +47,11 @@ const allPastaData = [
     "weight": 400,
     "image": "pasta/1591ipar.png",
     "tags": [SORTING_TAGS_CONSTANTS.NEW],
-    "ingredients": [],
+    "ingredients": [
+      { "title": INGREDIENT_NAMES_CONSTANTS.EMMENTAL, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.PARMESAN, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CHEDDAR, "isAdditional": false },
+      { "title": INGREDIENT_NAMES_CONSTANTS.CREAM, "isAdditional": false },
+    ],
   },
 ];
