@@ -594,7 +594,7 @@
     <script id="simpleProduct" type="text/x-handlebars-template">
       {{#if this}}
         {{#each this}}
-          <article id="{{this.id}}" class="card rounded simple-card">
+          <article id="{{this.id}}" class="card rounded simple-card {{this.category}}-card">
             {{#ifCond this.tags.length '>' 0}}
               <div class="card-tags-wrapper">
                 {{#each this.tags}}
@@ -642,7 +642,7 @@
             <div class="btn-wrapper">
               <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
             </div>
-            <section class="slide-up closed">
+            <section class="slide-up closed flex column space-between">
               {{#ifCond this.category '!==' 'drink'}}
                 <div class="weight-container">
                   <span class="border"></span>
@@ -653,11 +653,12 @@
               {{/ifCond}}
               {{#ifCond this.types.length '>' 0}}
                 <div class="select-wrapper">
-                  <select name="productTypes" id="productTypes">
+                  <select name="productTypes" class="productTypes">
                     {{#each this.types}}
-                      <option value="type{{@index}}">{{this}}</option>
+                      <option value="{{@index}}">{{this}}</option>
                     {{/each}}
                   </select>
+                  <!-- <div class="cselect">{{this.types.[0]}}</div> -->
                 </div>
               {{/ifCond}}
               <div class="details">

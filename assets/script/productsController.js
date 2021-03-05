@@ -129,6 +129,46 @@ function displaySimpleProduct(products, categoryTab) {
   allQuantityControllerButtons.forEach((btn) => {
     btn.addEventListener("click", quantityButtonClick);
   });
+
+  if (categoryTab.id === "allDrinksPage") {
+    let typesDropdown = document.querySelectorAll(
+      "#" + categoryTab.id + " .simple-card .productTypes"
+    );
+
+    if (typesDropdown) {
+      typesDropdown.forEach((dropdown) => {
+        dropdown.addEventListener("click", function (event) {
+          event.stopPropagation();
+        });
+
+        dropdown.addEventListener("change", function (event) {
+          // select the product and the quantity
+          let id = -1;
+          event.path.forEach((el) => {
+            if (el.tagName === "ARTICLE") id = el.id;
+          });
+
+          // get product from the id
+          let product = getProductByWholeId(id);
+
+          let priceElement = document.querySelector(
+            "#" + id + " .price-sum"
+          );
+
+          let quantityElement = document.querySelector(
+            "#" + id + " .quantity-number"
+          );
+
+          let typeIndex = parseInt(event.target.value);
+          product.selectedType = product.types[typeIndex];
+
+          priceElement.innerText = product.price[typeIndex].toFixed(2) + "лв";
+          // reset quantity
+          quantityElement.innerText = 1;
+        });
+      });
+    }
+  }
 }
 
 function displayCustomizableProduct(products, categoryTab) {
@@ -335,7 +375,6 @@ function quantityButtonClick(event) {
     quantityContainer.parentElement.parentElement.children[1];
   let priceEl = priceContainer.children[1];
   let currentPrice = parseInt(priceEl.innerText);
-  console.log(priceEl);
   let pricePerUnit = currentPrice / currentQuantity;
 
   isMinusBtn ? currentQuantity-- : currentQuantity++;
@@ -349,7 +388,7 @@ function quantityButtonClick(event) {
 displaySimpleProduct(chickenManager.allChicken, allPages.allChickenPage);
 // TODO: deals
 displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);
-displaySimpleProduct(drinkManager.allDrinks, allPages.allDrinksPage)
+displaySimpleProduct(drinkManager.allDrinks, allPages.allDrinksPage);
 displayCustomizableProduct(pastaManager.allPasta, allPages.allPastaPage);
 displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);
 displayCustomizableProduct(saladManager.allSalads, allPages.allSaladsPage);
