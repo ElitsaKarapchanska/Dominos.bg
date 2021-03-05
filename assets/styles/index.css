@@ -897,6 +897,12 @@ nav.nav.navbar-default {
   cursor: pointer;
 }
 
+#loggedIn .login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dropdown-container {
   position: absolute;
   top: 37px;
@@ -1561,6 +1567,21 @@ label {
     justify-content: space-between;
     width: 100%;
   }
+
+  .dropdown-container {
+    position: static;
+    margin: 0px;
+  }
+
+  .dropdown-container .arrow-container {
+    display: none;
+  }
+
+  .dropdown-menu {
+    box-shadow: none;
+    text-align: center;
+  }
+
   .container {
     display: block;
     width: 100%;

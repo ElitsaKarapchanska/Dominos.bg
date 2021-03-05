@@ -11,7 +11,7 @@ const allPages = {
   allSandwichPage: getById("allSandwichPage"),
   allSaucesPage: getById("allSaucesPage"),
   allDessertsPage: getById("allDessertsPage"),
-  allDerinksPage: getById("allDrinksPage"),
+  allDrinksPage: getById("allDrinksPage"),
   registrationPage: getById("registrationPage"),
   complexProductPage: getById("complexProductPage"),
 };

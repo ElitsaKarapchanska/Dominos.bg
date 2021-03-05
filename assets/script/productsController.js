@@ -349,7 +349,7 @@ function quantityButtonClick(event) {
 displaySimpleProduct(chickenManager.allChicken, allPages.allChickenPage);
 // TODO: deals
 displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);
-// TODO: drinks
+displaySimpleProduct(drinkManager.allDrinks, allPages.allDrinksPage)
 displayCustomizableProduct(pastaManager.allPasta, allPages.allPastaPage);
 displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);
 displayCustomizableProduct(saladManager.allSalads, allPages.allSaladsPage);
