@@ -135,6 +135,24 @@
               </li>
               <li id="loggedIn">
                 <img src="./assets/images/account_avatar_icon.svg" alt="profile">
+                <div id="profileDropdown" class="dropdown-container flex column hidden">
+                  <div class="arrow-container">
+                    <div class="arrow"></div>
+                  </div>
+                  <ul class="dropdown-menu flex column">
+                    <li><a href="#profile-account">ЗА МЕН</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#profile-addresses">АДРЕСИ</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#profile-orders">ПОРЪЧКИ</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#profile-coupons">ТАЛОНИ/ ПОДАРЪЦИ</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#profile-privacySettings">НАСТРОЙКИ ЗА ПОВЕРИТЕЛНОСТ</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a id="logoutBtn" href="#">ИЗХОД</a></li>
+                  </ul>
+                </div>
               </li>
               <li class="visible-resposnsive">
                 <a href="#" class="font-bold">СВЪРЖЕТЕ СЕ С НАС</a>
@@ -314,6 +332,7 @@
           </div>
         </div>
       </div>
+      <div id="shadow"></div>
       <!-- a placeholder for the header -->
       <div id="placeholder"></div>
       <div id="menuPage">

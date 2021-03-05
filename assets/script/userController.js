@@ -84,6 +84,24 @@ loginForm.addEventListener("submit", function (ev) {
   }
 });
 
+userIcon.addEventListener("click", function () {
+  profileDropdown.classList.toggle("hidden");
+});
+
+// closing the dropdown on click anywhere except the profile icon
+window.addEventListener("click", function (event) {
+  let toClose = !event.path.some((el) => el.id === "loggedIn");
+  if (toClose) {
+    profileDropdown.classList.add("hidden");
+  }
+});
+
+logoutBtn.addEventListener("click", function () {
+  userStorage.logout();
+  changeElementVisibility(userIcon, userStorage.loggedInUser);
+  changeElementVisibility(menuLink, !userStorage.loggedInUser);
+});
+
 orderNowBtn.addEventListener("click", function (event) {
   if (!userStorage.loggedInUser) {
     event.preventDefault();
@@ -104,7 +122,7 @@ function addToCartBtn(product, quantity) {
   }
 }
 
-cartIcon.addEventListener("click", function() {
+cartIcon.addEventListener("click", function () {
   if (!userStorage.loggedInUser) {
     openLoginModal();
   } else {
@@ -112,7 +130,7 @@ cartIcon.addEventListener("click", function() {
   }
 });
 
-cartIconResponsive.addEventListener("click", function() {
+cartIconResponsive.addEventListener("click", function () {
   if (!userStorage.loggedInUser) {
     openLoginModal();
   } else {

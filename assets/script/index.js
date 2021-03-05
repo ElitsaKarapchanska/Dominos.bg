@@ -5,9 +5,17 @@ function showPage() {
   }
 
   // placholder for behind the menu so that the space for it is not taken by the main, has display none on home page
-  currentPage === "home"
-    ? (placeholderDiv.style.display = "none")
-    : (placeholderDiv.style.display = "block");
+  if (currentPage === "home") {
+    changeElementVisibility(placeholderDiv, false);
+    changeElementVisibility(shadowDiv);
+    window.addEventListener("scroll", createFixedNavbar);
+    showTransparentHeader();
+  } else {
+    changeElementVisibility(placeholderDiv);
+    changeElementVisibility(shadowDiv, false);
+    window.removeEventListener("scroll", createFixedNavbar);
+    showWhiteHeader();
+  }
   let noPageWasShown = true;
 
   changeElementVisibility(userIcon, userStorage.loggedInUser);
@@ -71,25 +79,29 @@ function openResponsiveNavBar() {
 }
 
 function createFixedNavbar() {
-  let headerNavbar = getById("navbar-default1");
   let fixed = headerNavbar.offsetTop;
-  let logoImage = getById("whiteLogo");
-  let logoImageBlue = getById("blueLogo");
-  let greytel = getById("greytel");
-  let whitetel = getById("whitetel");
+
   if (window.pageYOffset > fixed) {
-    headerNavbar.classList.add("navbar-default");
-    logoImage.style.display = "none";
-    logoImageBlue.style.display = "inline";
-    greytel.style.display = "inline";
-    whitetel.style.display = "none";
+    showWhiteHeader();
   } else {
-    headerNavbar.classList.remove("navbar-default");
-    logoImage.style.display = "inline";
-    logoImageBlue.style.display = "none";
-    greytel.style.display = "none";
-    whitetel.style.display = "inline";
+    showTransparentHeader();
   }
+}
+
+function showTransparentHeader() {
+  headerNavbar.classList.remove("navbar-default");
+  logoImage.style.display = "inline";
+  logoImageBlue.style.display = "none";
+  greytel.style.display = "none";
+  whitetel.style.display = "inline";
+}
+
+function showWhiteHeader() {
+  headerNavbar.classList.add("navbar-default");
+  logoImage.style.display = "none";
+  logoImageBlue.style.display = "inline";
+  greytel.style.display = "inline";
+  whitetel.style.display = "none";
 }
 let slideIndex = 1;
 showSlides(slideIndex);
