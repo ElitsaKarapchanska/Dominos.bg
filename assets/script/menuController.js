@@ -1,13 +1,13 @@
-function tooglleClass(ev) {
-    console.log(ev.target);
+function cleanCheckedClasses() {
+    activePage.forEach(page => page.classList.remove("checked"));
 }
-activePage.forEach(page=> page.addEventListener("click", function(ev){
-   
+activePage.forEach(page => page.addEventListener("click", function (ev) {
+    cleanCheckedClasses();
     if(ev.target.nodeName === "SPAN"){
-        if(!(ev.target.className)){
-            ev.target.classList.add("checked");
-        }
+        ev.path[2].classList.add("checked");
     }
-    //todo remove the className from others;
-})
-)
+}))
+
+
+
+

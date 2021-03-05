@@ -37,4 +37,4 @@ const closeModal = document.getElementById("closeModal");
 const loginForm = document.getElementById("loginForm");
 
 //menu
-const activePage = document.querySelectorAll("ul.main-menu");
+const activePage = document.querySelectorAll(".main-menu > li");
