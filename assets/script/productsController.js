@@ -158,13 +158,12 @@ function displaySimpleProduct(products, categoryTab) {
           let quantityElement = document.querySelector(
             "#" + id + " .quantity-number"
           );
+          let currentQuantity = parseInt(quantityElement.innerText);
 
           let typeIndex = parseInt(event.target.value);
           product.selectedType = product.types[typeIndex];
 
-          priceElement.innerText = product.price[typeIndex].toFixed(2) + "лв";
-          // reset quantity
-          quantityElement.innerText = 1;
+          priceElement.innerText = (product.price[typeIndex] * currentQuantity).toFixed(2) + "лв";
         });
       });
     }
@@ -374,7 +373,7 @@ function quantityButtonClick(event) {
   let priceContainer =
     quantityContainer.parentElement.parentElement.children[1];
   let priceEl = priceContainer.children[1];
-  let currentPrice = parseInt(priceEl.innerText);
+  let currentPrice = parseFloat(priceEl.innerText);
   let pricePerUnit = currentPrice / currentQuantity;
 
   isMinusBtn ? currentQuantity-- : currentQuantity++;
