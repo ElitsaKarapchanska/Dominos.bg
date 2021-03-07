@@ -1545,7 +1545,7 @@ a > svg {
     border: 1px solid #0d6490;
     position: absolute;
     z-index: 1000;
-    width: 100vw;
+    height: 100vh;
   }
   .nav.navbar-default li > .font-bold {
     font-weight: 700;
