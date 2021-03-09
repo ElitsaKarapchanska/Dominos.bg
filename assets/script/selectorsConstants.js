@@ -1,40 +1,50 @@
 const body = document.body;
-const loadingScreen = document.getElementById("loadingScreen");
+const loadingScreen = getById("loadingScreen");
 const allPages = {
-  homePage: document.getElementById("homePage"),
-  allDealsPage: document.getElementById("allDealsPage"),
-  allPizzasPage: document.getElementById("allPizzasPage"),
-  allStartersPage: document.getElementById("allStartersPage"),
-  allChickenPage: document.getElementById("allChickenPage"),
-  allPastaPage: document.getElementById("allPastaPage"),
-  allSaladsPage: document.getElementById("allSaladsPage"),
-  allSandwichPage: document.getElementById("allSandwichPage"),
-  allSaucesPage: document.getElementById("allSaucesPage"),
-  allDessertsPage: document.getElementById("allDessertsPage"),
-  allDerinksPage: document.getElementById("allDrinksPage"),
-  registrationPage: document.getElementById("registrationPage"),
-  complexProductPage: document.getElementById("complexProductPage"),
+  homePage: getById("homePage"),
+  allDealsPage: getById("allDealsPage"),
+  allPizzasPage: getById("allPizzasPage"),
+  allStartersPage: getById("allStartersPage"),
+  allChickenPage: getById("allChickenPage"),
+  allPastaPage: getById("allPastaPage"),
+  allSaladsPage: getById("allSaladsPage"),
+  allSandwichPage: getById("allSandwichPage"),
+  allSaucesPage: getById("allSaucesPage"),
+  allDessertsPage: getById("allDessertsPage"),
+  allDrinksPage: getById("allDrinksPage"),
+  registrationPage: getById("registrationPage"),
+  complexProductPage: getById("complexProductPage"),
 };
-const errorPage = document.getElementById("errorPage");
-const menuPage = document.getElementById("menuPage");
-const placeholderDiv = document.getElementById("placeholder");
+const errorPage = getById("errorPage");
+const menuPage = getById("menuPage");
+const placeholderDiv = getById("placeholder");
+const shadowDiv = getById("shadow");
 const header = document.querySelector("header");
 const footer = document.querySelector("footer");
-const nav = document.getElementById("menuNav");
+const nav = getById("menuNav");
 
-const userIcon = document.getElementById("loggedIn");
-const menuLink = document.getElementById("menu");
-const orderNowBtn = document.getElementById("orderNowBtn");
-const cartIcon = document.getElementById("cartIcon");
-const cartIconResponsive = document.getElementById("cartIconResponsive");
-const registrationForm = document.getElementById("registrationForm");
+const userIcon = getById("loggedIn");
+const menuLink = getById("menu");
+const orderNowBtn = getById("orderNowBtn");
+const cartIcon = getById("cartIcon");
+const cartIconResponsive = getById("cartIconResponsive");
+const registrationForm = getById("registrationForm");
+const profileDropdown = getById("profileDropdown");
+const logoutBtn = getById("logoutBtn");
 
 // modals
-const popupModal = document.getElementById("popupModal");
-const modalContent = document.getElementById("modalContent");
-const modalBackdrop = document.getElementById("modalBackdrop");
-const closeModal = document.getElementById("closeModal");
-const loginForm = document.getElementById("loginForm");
+const popupModal = getById("popupModal");
+const modalContent = getById("modalContent");
+const modalBackdrop = getById("modalBackdrop");
+const closeModal = getById("closeModal");
+const loginForm = getById("loginForm");
+
+// header
+const headerNavbar = getById("navbar-default1");
+const logoImage = getById("whiteLogo");
+const logoImageBlue = getById("blueLogo");
+const greytel = getById("greytel");
+const whitetel = getById("whitetel");
 
 //menu
 const activePage = document.querySelectorAll(".main-menu > li");

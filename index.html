@@ -134,7 +134,28 @@
                 <span id="orderNumber" class="order-num">0</span>
               </li>
               <li id="loggedIn">
-                <img src="./assets/images/account_avatar_icon.svg" alt="profile">
+                <div class="login-container">
+                  <img src="./assets/images/account_avatar_icon.svg" alt="profile">
+                  <span id="avatar-txt" class="visible-resposnsive text-bold">PROFILE</span>
+                </div>
+                <div id="profileDropdown" class="dropdown-container flex column hidden">
+                  <div class="arrow-container">
+                    <div class="arrow"></div>
+                  </div>
+                  <ul class="dropdown-menu flex column">
+                    <li><a href="#profile-account">ЗА МЕН</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#profile-addresses">АДРЕСИ</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#profile-orders">ПОРЪЧКИ</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#profile-coupons">ТАЛОНИ/ ПОДАРЪЦИ</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#profile-privacySettings">НАСТРОЙКИ ЗА ПОВЕРИТЕЛНОСТ</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a id="logoutBtn" href="#">ИЗХОД</a></li>
+                  </ul>
+                </div>
               </li>
               <li class="visible-resposnsive">
                 <a href="#" class="font-bold">СВЪРЖЕТЕ СЕ С НАС</a>
@@ -314,6 +335,7 @@
           </div>
         </div>
       </div>
+      <div id="shadow"></div>
       <!-- a placeholder for the header -->
       <div id="placeholder"></div>
       <div id="menuPage">
@@ -746,7 +768,7 @@
     <script id="simpleProduct" type="text/x-handlebars-template">
       {{#if this}}
         {{#each this}}
-          <article id="{{this.id}}" class="card rounded simple-card">
+          <article id="{{this.id}}" class="card rounded simple-card {{this.category}}-card">
             {{#ifCond this.tags.length '>' 0}}
               <div class="card-tags-wrapper">
                 {{#each this.tags}}
@@ -785,20 +807,33 @@
                 <h2>{{this.title}}</h2>
               {{/ifCond}}
             </div>
-            <p class="product-description">
-              {{this.description}}
-            </p>
-            <img class="product-picture" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
+            {{#ifCond this.category '!==' 'drink'}}
+              <p class="product-description">
+                {{this.description}}
+              </p>
+            {{/ifCond}}
+            <img class="product-picture {{this.category}}-img" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
             <div class="btn-wrapper">
               <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
             </div>
-            <section class="slide-up closed">
-              <div class="weight-container">
-                <span class="border"></span>
-                <img src="./assets/images/weight.svg" alt="weight">
-                <span class="border"></span>
-                <span class="weight">{{this.weight}}g</span>
-              </div>
+            <section class="slide-up closed flex column space-between">
+              {{#ifCond this.category '!==' 'drink'}}
+                <div class="weight-container">
+                  <span class="border"></span>
+                  <img src="./assets/images/weight.svg" alt="weight">
+                  <span class="border"></span>
+                  <span class="weight">{{this.weight}}g</span>
+                </div>
+              {{/ifCond}}
+              {{#ifCond this.types.length '>' 0}}
+                <div class="select-wrapper">
+                  <select name="productTypes" class="productTypes">
+                    {{#each this.types}}
+                      <option value="{{@index}}">{{this}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              {{/ifCond}}
               <div class="details">
                 <div class="card-quantity">
                   <p>КОЛИЧЕСТВО</p>
@@ -810,7 +845,11 @@
                 </div>
                 <div class="card-price">
                   <p>ЦЕНА</p>
-                  <p class="price-sum">{{this.price}}лв</p>
+                    {{#ifCond this.category '===' 'drink'}}
+                      <p class="price-sum">{{this.price.[0]}}лв</p>
+                    {{else}}
+                      <p class="price-sum">{{this.price}}лв</p>
+                    {{/ifCond}}
                 </div>
               </div>
               <button class="addBtn green-button button rounded">ДОБАВИ</button>
@@ -904,9 +943,9 @@
              <label for="pizza-size">ГОЛЕМИНА</label>
              <div class="select-wrapper">
                <select id="pizza-size" class="select-size form-control light-grey-bg text-select" name="size-id">
-                 <option class ="sizes"value="0">СРЕДНА (6 ПАРЧЕТА) </option>
-                 <option class ="sizes"value="1">ГОЛЯМА (8 ПАРЧЕТА)</option>
-                 <option class ="sizes"value="2">Джъмбо (12 ПАРЧЕТА) </option>
+                 <option class="sizes" value="0">СРЕДНА (6 ПАРЧЕТА)</option>
+                 <option class="sizes" value="1">ГОЛЯМА (8 ПАРЧЕТА)</option>
+                 <option class="sizes" value="2">Джъмбо (12 ПАРЧЕТА)</option>
                </select>
                <div class='selected'></div>
            </div>
@@ -915,11 +954,11 @@
              <label for="pizza-pan">ТЕСТО</label>
              <div class="select-wrapper">
                <select name="pan-size-id" id="pizza-pan" class="select-size form-control light-grey-bg text-select">
-                 <option value="Traditional"price="0">Традиционно</option>
+                 <option value="Traditional" price="0">Традиционно</option>
                  <option value="Italian" price="0">Италиански стил</option>
                  <option value="Thin" price="0">Тънко и хрупкаво</option>
                  <option value="Philadelphia" price="2.25">с Philadelphia (+2.25лв)</option>
-                 <option value="Whole grain"price="0">Пълнозърнесто</option>
+                 <option value="Whole grain" price="0">Пълнозърнесто</option>
                </select>
              </div>
            </div>
@@ -1003,10 +1042,10 @@
     <script src="./assets/script/data/allStartersData.js"></script>
 
     <!-- Structure classes -->
-    <script src="./assets/script/classes/ProductModel.js"></script>
-    <script src="./assets/script/classes/SimpleProductModel.js"></script>
-    <script src="./assets/script/classes/CustomizableProductModel.js"></script>
-    <script src="./assets/script/classes/CustomizableProductManagerModel.js"></script>
+    <script src="./assets/script/models/ProductModel.js"></script>
+    <script src="./assets/script/models/SimpleProductModel.js"></script>
+    <script src="./assets/script/models/CustomizableProductModel.js"></script>
+    <script src="./assets/script/models/CustomizableProductManagerModel.js"></script>
 
     <!-- All product services -->
     <script src="./assets/script/classes/IngredientService.js"></script>

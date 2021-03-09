@@ -75,6 +75,20 @@ const PIZZA_NAMES_CONSTANTS = {
   PIZZA_GAUCHO: "ПИЦА ГАУЧО",
 };
 
+const PIZZA_SIZES = {
+  MEDIUM: "Средна (6 Парчета)",
+  BIG: "Голяма (8 Парчета)",
+  JUMBO: "Джъмбо (12 Парчета)",
+};
+
+const PIZZA_CRUST_TYPES = {
+  TRADITIONAL: "Традиционно",
+  ITALLIAN: "Италиански стил",
+  THIN: "Тънко и хрупкаво",
+  WHOLEGRAIN: "Пълнозърнесто",
+  PHILLADELPHIA: "с Philadelphia (+2.25лв)",
+}
+
 const STARTER_NAMES_CONSTANTS = {
   MOZZARELLA_BREAD: "МОЦАРЕЛЕНО ХЛЕБЧЕ",
   MOZZARELLA_BREAD_DESC:

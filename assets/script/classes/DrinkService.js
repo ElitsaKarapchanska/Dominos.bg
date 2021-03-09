@@ -8,6 +8,9 @@ const drinkManager = (function () {
       this.tags = tags; // array;
       this.types = types;
       this.category = "drink";
+      if (types.length > 0) {
+        this.selectedType = types[0];
+      }
     }
   }
 

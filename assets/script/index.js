@@ -5,9 +5,17 @@ function showPage() {
   }
 
   // placholder for behind the menu so that the space for it is not taken by the main, has display none on home page
-  currentPage === "home"
-    ? (placeholderDiv.style.display = "none")
-    : (placeholderDiv.style.display = "block");
+  if (currentPage === "home") {
+    changeElementVisibility(placeholderDiv, false);
+    changeElementVisibility(shadowDiv);
+    window.addEventListener("scroll", createFixedNavbar);
+    showTransparentHeader();
+  } else {
+    changeElementVisibility(placeholderDiv);
+    changeElementVisibility(shadowDiv, false);
+    window.removeEventListener("scroll", createFixedNavbar);
+    showWhiteHeader();
+  }
   let noPageWasShown = true;
 
   changeElementVisibility(userIcon, userStorage.loggedInUser);
@@ -26,6 +34,11 @@ function showPage() {
         changeElementVisibility(allPages[page], true, "grid");
         cartIcon.classList.replace("hidden", "block");
         changeElementVisibility(orderNowBtn, false);
+        changeElementVisibility(nav);
+        nav.style.display="block";
+      }
+      else {
+        changeElementVisibility(nav, false);
       }
     } else {
       changeElementVisibility(allPages[page], false);
@@ -44,11 +57,10 @@ function showPage() {
     placeholderDiv.style.display = "none";
     noPageWasShown = false;
     errorPage.style.display = "none";
-    nav.style.display="none";
+    changeElementVisibility(nav, false);
   } else {
     header.style.display = "block"; // can be change;
     footer.style.display = "block";
-    nav.style.display="block";
   }
 }
 
@@ -66,32 +78,36 @@ function showLoadingScreen(loadingScreen) {
 }
 
 function openResponsiveNavBar() {
-  let container = document.getElementById("navbar-rightt");
+  let container = getById("navbar-rightt");
   container.classList.toggle("navbar-right-right");
-  let telefonNumber = document.getElementById("telText");
+  let telefonNumber = getById("telText");
   telefonNumber.classList.toggle("visible");
 }
 
 function createFixedNavbar() {
-  let headerNavbar = document.getElementById("navbar-default1");
   let fixed = headerNavbar.offsetTop;
-  let logoImage = document.getElementById("whiteLogo");
-  let logoImageBlue = document.getElementById("blueLogo");
-  let greytel = document.getElementById("greytel");
-  let whitetel = document.getElementById("whitetel");
+
   if (window.pageYOffset > fixed) {
-    headerNavbar.classList.add("navbar-default");
-    logoImage.style.display = "none";
-    logoImageBlue.style.display = "inline";
-    greytel.style.display = "inline";
-    whitetel.style.display = "none";
+    showWhiteHeader();
   } else {
-    headerNavbar.classList.remove("navbar-default");
-    logoImage.style.display = "inline";
-    logoImageBlue.style.display = "none";
-    greytel.style.display = "none";
-    whitetel.style.display = "inline";
+    showTransparentHeader();
   }
+}
+
+function showTransparentHeader() {
+  headerNavbar.classList.remove("navbar-default");
+  logoImage.style.display = "inline";
+  logoImageBlue.style.display = "none";
+  greytel.style.display = "none";
+  whitetel.style.display = "inline";
+}
+
+function showWhiteHeader() {
+  headerNavbar.classList.add("navbar-default");
+  logoImage.style.display = "none";
+  logoImageBlue.style.display = "inline";
+  greytel.style.display = "inline";
+  whitetel.style.display = "none";
 }
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -127,8 +143,8 @@ function showSlides(n) {
 function showInitialNumberOfItemsInCart() {
   if (userStorage.loggedInUser) {
     let numberOfProductsInCart = userStorage.loggedInUser.cart.length;
-    let cartNumber = document.getElementById("orderNumber");
-    let cartNumberResp = document.getElementById("orderNumberResponsive");
+    let cartNumber = getById("orderNumber");
+    let cartNumberResp = getById("orderNumberResponsive");
     cartNumber.innerText = numberOfProductsInCart;
     cartNumberResp.innerText = numberOfProductsInCart;
   }
