@@ -34,6 +34,11 @@ function showPage() {
         changeElementVisibility(allPages[page], true, "grid");
         cartIcon.classList.replace("hidden", "block");
         changeElementVisibility(orderNowBtn, false);
+        changeElementVisibility(nav);
+        nav.style.display="block";
+      }
+      else {
+        changeElementVisibility(nav, false);
       }
     } else {
       changeElementVisibility(allPages[page], false);

@@ -21,6 +21,7 @@ const placeholderDiv = getById("placeholder");
 const shadowDiv = getById("shadow");
 const header = document.querySelector("header");
 const footer = document.querySelector("footer");
+const nav = getById("menuNav");
 
 const userIcon = getById("loggedIn");
 const menuLink = getById("menu");
@@ -44,3 +45,6 @@ const logoImage = getById("whiteLogo");
 const logoImageBlue = getById("blueLogo");
 const greytel = getById("greytel");
 const whitetel = getById("whitetel");
+
+//menu
+const activePage = document.querySelectorAll(".main-menu > li");

@@ -52,7 +52,7 @@ body {
 }
 
 #placeholder {
-  height: 100px;
+  height: 80px;
 }
 
 .rounded {
@@ -816,6 +816,7 @@ nav#navbar-default1.navbar-default {
   z-index: 999;
   border-radius: 0;
   border: none;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
 }
 .nav {
   position: absolute;
@@ -1546,6 +1547,76 @@ label {
   width: 25px;
   background: url(../images/bottom_right.svg) no-repeat right top;
 }
+/* menu */
+.main-menu {
+  display: flex;
+  justify-content: center;
+  /* padding: 30px 0; */
+}
+.main-menu > li > a > span {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.main-menu > li {
+  border-radius: 0;
+  padding: 5px 10px;
+  margin: 10px 8.3px;
+}
+.main-menu > li:hover {
+  border: 2px solid white;
+}
+.main-menu >li >a{
+  display: flex;
+  flex-direction: column;
+}
+.main-menu >li >a>span{
+   text-align: center;
+}
+
+#filter-bar {
+  background-color: rgba(111, 64, 9, 0.3);
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 20%);
+}
+.menu-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#menuNav {
+  /* padding: 10px 0; */
+  display: none;
+}
+#combo {
+  background: #be1e2d;
+}
+#filter-bar .main-menu li a::after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+#filter-bar .main-menu li a::before {
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #fff;
+  border-width: 11px;
+  margin-left: -11px;
+  width: 200px;
+}
+.checked {
+  border: 3px solid white;
+}
+.filter-bar-icons {
+  width: 50px;
+  height: 50px;
+  display: none;
+}
 
 @media screen and (max-width: 1250px) {
   .main-wrapper {
@@ -1634,6 +1705,7 @@ label {
     border: 1px solid #0d6490;
     position: absolute;
     z-index: 1000;
+    /* height: 100vh; */
     width: 100vw;
   }
   .nav.navbar-default li > .font-bold {
@@ -1689,6 +1761,14 @@ label {
   .product-cart {
     max-width: 100%;
   }
+  /* menu */
+  .main-menu{
+    flex-wrap: wrap;
+  }
+  .filter-bar-icons{
+    display: block;
+  }
+
 }
 
 @media screen and (max-width: 990px) {
