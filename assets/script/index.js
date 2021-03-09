@@ -44,9 +44,11 @@ function showPage() {
     placeholderDiv.style.display = "none";
     noPageWasShown = false;
     errorPage.style.display = "none";
+    nav.style.display="none";
   } else {
     header.style.display = "block"; // can be change;
     footer.style.display = "block";
+    nav.style.display="block";
   }
 }
 

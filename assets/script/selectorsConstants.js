@@ -20,6 +20,7 @@ const menuPage = document.getElementById("menuPage");
 const placeholderDiv = document.getElementById("placeholder");
 const header = document.querySelector("header");
 const footer = document.querySelector("footer");
+const nav = document.getElementById("menuNav");
 
 const userIcon = document.getElementById("loggedIn");
 const menuLink = document.getElementById("menu");
@@ -34,3 +35,6 @@ const modalContent = document.getElementById("modalContent");
 const modalBackdrop = document.getElementById("modalBackdrop");
 const closeModal = document.getElementById("closeModal");
 const loginForm = document.getElementById("loginForm");
+
+//menu
+const activePage = document.querySelectorAll(".main-menu > li");
