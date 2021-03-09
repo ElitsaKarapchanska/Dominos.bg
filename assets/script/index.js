@@ -57,6 +57,7 @@ function showPage() {
     placeholderDiv.style.display = "none";
     noPageWasShown = false;
     errorPage.style.display = "none";
+    changeElementVisibility(nav, false);
   } else {
     header.style.display = "block"; // can be change;
     footer.style.display = "block";
