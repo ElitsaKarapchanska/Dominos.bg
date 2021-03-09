@@ -1551,7 +1551,8 @@ label {
     border: 1px solid #0d6490;
     position: absolute;
     z-index: 1000;
-    height: 100vh;
+    /* height: 100vh; */
+    width: 100vw;
   }
   .nav.navbar-default li > .font-bold {
     font-weight: 700;
