@@ -1,0 +1,24 @@
+<div id="loginModal" class="modal-content-wrapper">
+    <h3 class="decoration-title red-decoration-title">ВХОД</h3>
+    <form id="loginForm" name="login" class="flex column" method="GET">
+        <input type="text" name="email" class="form-control rounded" required="" autocomplete="off" id="login-email"
+            placeholder="E-mail">
+        <span class="error_message error-txt"></span>
+        <input type="password" name="password" class="form-control rounded" required="" autocomplete="off"
+            id="login-pass" placeholder="парола">
+        <span class="error_message error-txt"></span>
+        <div id="remember-pass-wrapper" class="flex end">
+            <label for="remember-pass" class="flex check">
+                <input type="checkbox" name="remember-pass" id="remember-pass" class="hidden" />
+                <span class="checkbox rounded"></span>
+                <span class="remember">Запомни ме</span>
+            </label>
+        </div>
+        <input type="submit" id="login" class="button red-btn rounded" value="Вход" />
+    </form>
+    <div class="registration flex column">
+        <div class="dots-seperator"></div>
+        <p class="register-txt">Нов член? Регистрация</p>
+        <a href="#registration" class="button blue-btn register rounded">Регистрация</a>
+    </div>
+</div>

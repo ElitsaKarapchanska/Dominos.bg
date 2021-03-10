@@ -258,6 +258,22 @@ const userStorage = (function () {
       localStorage.setItem("users", JSON.stringify(this.users));
       localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
     }
+
+    setDeliveryChoice(toDeliver) {
+      // expires very quickly, so we put them in sessionStorage instead of localStorage
+      sessionStorage.setItem("toDeliver", toDeliver);
+    }
+
+    setRestaurant(restaurantIndex) {
+      // expires very quickly, so we put them in sessionStorage instead of localStorage
+      sessionStorage.setItem(
+        "restaurant",
+        JSON.stringify({
+          restaurantName: ALL_RESTAURANTS[restaurantIndex],
+          restaurantIndex: restaurantIndex,
+        })
+      );
+    }
   }
 
   return new UserStorage();

@@ -5,3 +5,13 @@ function changeElementVisibility(element, toShow = true, displayVisible = "block
 function getById(id) {
   return document.getElementById(id);
 }
+
+function loadTemplate(page, container, obj = {}) {
+  return fetch("./assets/script/views/" + page)
+    .then((res) => res.text())
+    .then((res) => {
+      let template = Handlebars.compile(res);
+      let html = template(obj);
+      container.innerHTML = html;
+    });
+}

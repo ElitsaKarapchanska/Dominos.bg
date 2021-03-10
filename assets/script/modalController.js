@@ -14,8 +14,76 @@ function closeAnyModal() {
   popupModal.style.visibility = "hidden";
 }
 
-function openLoginModal() {
-  openAnyModal(); // for now
+function openLoginModal(
+  toOpenDeliveryModal = true,
+  toOpenRestaurantModal = true
+) {
+  openAnyModal();
+  loadTemplate("modals/loginModal.hbs", modalContentContainer).then(() => {
+    changeElementVisibility(modalCurvedBorder, false);
+    let loginFields = {
+      email: getById("login-email"),
+      pass: getById("login-pass"),
+
+      rememberPass: getById("remember-pass"),
+    };
+    const loginForm = getById("loginForm");
+    loginForm.addEventListener("submit", function (ev) {
+      isLoggedIn = userStorage.login(
+        loginFields.email.value,
+        loginFields.pass.value,
+        loginFields.rememberPass.checked
+      );
+
+      ev.preventDefault();
+
+      if (isLoggedIn) {
+        if (toOpenDeliveryModal) {
+          openDeliveryModal(toOpenRestaurantModal);
+        } else {
+          closeAnyModal();
+        }
+      } else {
+        // TODO: show validationg messages
+      }
+    });
+  });
+}
+
+function openDeliveryModal(toOpenRestaurantModal) {
+  openAnyModal();
+  loadTemplate("modals/deliveryModal.hbs", modalContentContainer).then(() => {
+    changeElementVisibility(modalCurvedBorder, false);
+    const choices = [getById("deliveryChoice"), getById("takeoutChoice")];
+
+    choices.forEach((option) => {
+      option.addEventListener("click", function (event) {
+        event.target.id === "deliveryChoice"
+          ? userStorage.setDeliveryChoice(true)
+          : userStorage.setDeliveryChoice(false);
+
+        toOpenRestaurantModal ? openRestaurantModal() : closeAnyModal();
+      });
+    });
+  });
+}
+
+function openRestaurantModal() {
+  openAnyModal();
+  loadTemplate("modals/restaurantModal.hbs", modalContentContainer, {
+    ...ALL_RESTAURANTS,
+  }).then(() => {
+    changeElementVisibility(modalCurvedBorder, true);
+    const selectRestaurant = getById("selectRestaurant");
+    selectRestaurant.addEventListener("change", function (event) {
+      let restaurant = event.target.value;
+      if (restaurant !== "empty") {
+        let restaurantIndex = parseInt(restaurant);
+        userStorage.setRestaurant(restaurantIndex);
+        closeAnyModal();
+      }
+    });
+  });
 }
 
 closeModal.addEventListener("click", closeAnyModal);

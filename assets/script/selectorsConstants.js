@@ -35,9 +35,10 @@ const logoutBtn = getById("logoutBtn");
 // modals
 const popupModal = getById("popupModal");
 const modalContent = getById("modalContent");
+const modalContentContainer = getById("modalContentContainer");
 const modalBackdrop = getById("modalBackdrop");
 const closeModal = getById("closeModal");
-const loginForm = getById("loginForm");
+const modalCurvedBorder = getById("modalCurvedBorder");
 
 // header
 const headerNavbar = getById("navbar-default1");

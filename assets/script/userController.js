@@ -57,32 +57,33 @@ registrationForm.addEventListener("submit", function (ev) {
       registrationFields.regEmail.value,
       registrationFields.regPass.value
     );
-    // show order modal (choose delivery or takeout)
+    // TODO: show order modal (choose delivery or takeout)
   }
 });
 
 // other pages
-let loginFields = {
-  email: getById("login-email"),
-  pass: getById("login-pass"),
+// let loginFields = {
+//   email: getById("login-email"),
+//   pass: getById("login-pass"),
 
-  rememberPass: getById("remember-pass"),
-};
-loginForm.addEventListener("submit", function (ev) {
-  isLoggedIn = userStorage.login(
-    loginFields.email.value,
-    loginFields.pass.value,
-    loginFields.rememberPass.checked
-  );
+//   rememberPass: getById("remember-pass"),
+// };
+// loginForm.addEventListener("submit", function (ev) {
+//   isLoggedIn = userStorage.login(
+//     loginFields.email.value,
+//     loginFields.pass.value,
+//     loginFields.rememberPass.checked
+//   );
 
-  if (isLoggedIn) {
-    // TODO: show takeout or delivery modal
-    closeAnyModal();
-  } else {
-    // TODO: show validationg messages
-    ev.preventDefault();
-  }
-});
+//   if (isLoggedIn) {
+//     // TODO: show takeout or delivery modal
+//     closeAnyModal();
+//     ev.preventDefault();
+//   } else {
+//     // TODO: show validationg messages
+//     ev.preventDefault();
+//   }
+// });
 
 userIcon.addEventListener("click", function () {
   profileDropdown.classList.toggle("hidden");
