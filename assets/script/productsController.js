@@ -389,6 +389,137 @@ function filterCheckBoxesAndProducts(products,where){
   const html = template(products);
 
   where.innerHTML = html;
+  let newPizza = getById("new_p");
+  let vegetarianPizza = getById("vegeterian");
+  let spicyPizzas = getById("hotP");
+  let leanPizzas = getById("leanP");
+
+  //pizzas;
+  if(products.category ==="pizza"){
+
+  newPizza.addEventListener("click",function(){
+    if(newPizza.checked){
+    pizza.innerHTML="";
+    displayCustomizableProduct(pizzaManager.newPizzas, pizza);
+    }else{
+      displayCustomizableProduct(pizzaManager.allPizzas, pizza);
+    }
+  });
+  vegetarianPizza.addEventListener("click",function(){
+    if(vegetarianPizza.checked){
+      pizza.innerHTML="";
+      displayCustomizableProduct(pizzaManager.vegetariansPizzas, pizza);
+      }else{
+        displayCustomizableProduct(pizzaManager.allPizzas, pizza);
+      }
+    });
+    spicyPizzas.addEventListener("click",function(){
+      if(spicyPizzas.checked){
+        pizza.innerHTML="";
+        displayCustomizableProduct(pizzaManager.spicyPizzas, pizza);
+        }else{
+          displayCustomizableProduct(pizzaManager.allPizzas, pizza);
+        }
+    });
+    leanPizzas.addEventListener("click",function(){
+      if(leanPizzas.checked){
+        pizza.innerHTML="";
+        displayCustomizableProduct(pizzaManager.leanPizzas, pizza);
+        }else{
+          displayCustomizableProduct(pizzaManager.allPizzas, pizza);
+        }
+    });
+  }
+    //starters;
+    else if(products.category ==="starter"){
+    let vegeterianStarters = getById("vegeterianStarters");
+    let newStarters = getById("newStarters");
+
+    vegeterianStarters.addEventListener("click",function(){
+      if(vegeterianStarters.checked){
+        console.log(vegeterianStarters.checked);
+        starter.innerHTML="";
+        displaySimpleProduct(starterManager.spicyStarters, starter);
+        }else{
+        displaySimpleProduct(starterManager.allStarters, starter);
+        }
+    });
+    newStarters.addEventListener("click",function(){
+      if(vegeterianStarters.checked){
+        starter.innerHTML="";
+        displaySimpleProduct(starterManager.newStarters, starter);
+        }else{
+        displaySimpleProduct(starterManager.allStarters, starter);
+        }
+    });
+  }
+    //pasta;
+    if(products.category ==="pasta"){
+    let spicyPasta = getById("spicyPasta");
+    let newPasta = getById("newPasta");
+
+    spicyPasta.addEventListener("click",function(){
+      if(spicyPasta.checked){
+        pasta.innerHTML="";
+        displayCustomizableProduct(pastaManager.spicyPasta, pasta);
+        }else{
+          displayCustomizableProduct(pastaManager.allPasta, pasta);
+        }
+    });
+    newPasta.addEventListener("click",function(){
+      if(newPasta.checked){
+        pasta.innerHTML="";
+        displayCustomizableProduct(pastaManager.newPasta, pasta);
+        }else{
+          displayCustomizableProduct(pastaManager.allPasta, pasta);
+        }
+    });
+  }
+    //sauce
+   else if (products.category==="sauce"){
+    let newSauces = getById("newSauces");
+    let spicySauces = getById("spicySauces");
+
+    newSauces.addEventListener("click",function(){
+      if(newSauces.checked){
+        sauce.innerHTML="";
+        displaySimpleProduct(sauceManager.newSauces, sauce);
+      }else{
+        displaySimpleProduct(sauceManager.allSauces, sauce);
+      }
+    });
+    spicySauces.addEventListener("click",function(){
+      if(spicySauces.checked){
+        sauce.innerHTML="";
+        displaySimpleProduct(sauceManager.spicySauces, sauce);
+      }else{
+        displaySimpleProduct(sauceManager.allSauces, sauce);
+      }
+    });
+  }
+
+    //dessert
+   else if(products.category==="dessert"){
+     let desserts = getById("desserts");
+     let icecreams = getById("icecreams");
+
+     desserts.addEventListener("click",function(){
+       if(desserts.checked){
+        displaySimpleProduct(dessertManager.desserts, dessert);
+       }else{
+        displaySimpleProduct(dessertManager.allDesserts, dessert);
+       }
+     });
+
+     icecreams.addEventListener("click",function(){
+      if(desserts.checked){
+       displaySimpleProduct(dessertManager.icecreams, dessert);
+      }else{
+       displaySimpleProduct(dessertManager.allDesserts, dessert);
+      }
+    });
+  }
+
 }
 
 displaySimpleProduct(chickenManager.allChicken, allPages.allChickenPage);
