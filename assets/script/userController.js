@@ -57,33 +57,9 @@ registrationForm.addEventListener("submit", function (ev) {
       registrationFields.regEmail.value,
       registrationFields.regPass.value
     );
-    // TODO: show order modal (choose delivery or takeout)
+    openDeliveryModal(true);
   }
 });
-
-// other pages
-// let loginFields = {
-//   email: getById("login-email"),
-//   pass: getById("login-pass"),
-
-//   rememberPass: getById("remember-pass"),
-// };
-// loginForm.addEventListener("submit", function (ev) {
-//   isLoggedIn = userStorage.login(
-//     loginFields.email.value,
-//     loginFields.pass.value,
-//     loginFields.rememberPass.checked
-//   );
-
-//   if (isLoggedIn) {
-//     // TODO: show takeout or delivery modal
-//     closeAnyModal();
-//     ev.preventDefault();
-//   } else {
-//     // TODO: show validationg messages
-//     ev.preventDefault();
-//   }
-// });
 
 userIcon.addEventListener("click", function () {
   profileDropdown.classList.toggle("hidden");
@@ -104,9 +80,21 @@ logoutBtn.addEventListener("click", function () {
 });
 
 orderNowBtn.addEventListener("click", function (event) {
+  event.preventDefault();
   if (!userStorage.loggedInUser) {
-    event.preventDefault();
     openLoginModal();
+  } else {
+    if (
+      userStorage.getDeliveryChoice() !== true &&
+      userStorage.getDeliveryChoice() !== false
+    ) {
+      return openDeliveryModal(true);
+    }
+    if (!userStorage.getRestaurant()) {
+      return openRestaurantModal();
+    }
+    location.hash = "#allDeals";
+    location.reload();
   }
 });
 
@@ -127,7 +115,8 @@ cartIcon.addEventListener("click", function () {
   if (!userStorage.loggedInUser) {
     openLoginModal();
   } else {
-    // TODO: redirect to cart page
+    location.hash = "#checkout";
+    location.reload();
   }
 });
 
@@ -135,6 +124,7 @@ cartIconResponsive.addEventListener("click", function () {
   if (!userStorage.loggedInUser) {
     openLoginModal();
   } else {
-    // TODO: redirect to cart page
+    location.hash = "#checkout";
+    location.reload();
   }
 });

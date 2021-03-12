@@ -1,0 +1,45 @@
+<div id="checkout-basket-wrapper" class="main-wrapper rounded">
+    <h2 class="decoration-title red-decoration-title">ПОТВЪРЖДАВАНЕ НА ПОРЪЧКАТА</h2>
+    <div class="basket-header font-bold">
+        <div>ПРОДУКТ</div>
+        <div>КОЛИЧЕСТВО</div>
+        <div>ЦЕНА</div>
+    </div>
+    <div>
+        {{#if this}}
+        {{#each this}}
+        <div class="cart-item">
+            <img src="./assets/images/{{this.prod.image}}" alt="{{this.prod.title}}">
+            <div class="details-container">
+                {{#if this.prod.selectedType}}
+                <p><span class="blue-txt font-bold">{{this.prod.title}} {{this.prod.selectedType}}</span></p>
+                {{else}}
+                <p><span class="blue-txt font-bold">{{this.prod.title}}</span></p>
+                {{/if}}
+                {{{printProductDetails this.prod}}}
+            </div>
+            <div class="quantity-wrapper">
+                <img class="minus quantity-controller" alt="minus" src="assets/images/minus.svg">
+                <span class="quantity-number">{{this.quantity}}</span>
+                <img class="plus quantity-controller" alt="minus" src="assets/images/plus.svg">
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+        
+            {{!-- <div class="basket-bottom-wrapper">
+                <div class="basket-total-wrapper text-right col-xs-12 padding-top-bottom-10">
+                    <p class="font-bold col-xs-9">общо</p>
+                    <p class="basket-total col-xs-2 Old_Price">31.90лв</p>
+                </div>
+                <div class="basket-discount-total-wrapper text-right col-xs-12 padding-0 padding-bottom-10">
+                    <p class="font-bold col-xs-9">Общо с отстъпка</p>
+                    <p class="basket-discount-total font-bold col-xs-2">30.02лв</p>
+                </div>
+            </div> --}}
+
+    </div>
+    <div class="menu-back-btn button grey-btn white-txt mrouter" data-type="order">ОБРАТНО КЪМ МЕНЮТО
+        <span class="return-icon"></span>
+    </div>
+</div>

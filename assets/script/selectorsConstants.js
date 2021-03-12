@@ -16,6 +16,7 @@ const allPages = {
   complexProductPage: getById("complexProductPage"),
 };
 const errorPage = getById("errorPage");
+const checkoutPage = getById("checkoutPage");
 const menuPage = getById("menuPage");
 const placeholderDiv = getById("placeholder");
 const shadowDiv = getById("shadow");

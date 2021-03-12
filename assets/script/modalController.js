@@ -80,6 +80,8 @@ function openRestaurantModal() {
       if (restaurant !== "empty") {
         let restaurantIndex = parseInt(restaurant);
         userStorage.setRestaurant(restaurantIndex);
+        location.hash = "#allDeals";
+        location.reload();
         closeAnyModal();
       }
     });

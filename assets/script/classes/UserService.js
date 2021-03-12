@@ -264,6 +264,10 @@ const userStorage = (function () {
       sessionStorage.setItem("toDeliver", toDeliver);
     }
 
+    getDeliveryChoice() {
+      return JSON.parse(sessionStorage.getItem("toDeliver"));
+    }
+
     setRestaurant(restaurantIndex) {
       // expires very quickly, so we put them in sessionStorage instead of localStorage
       sessionStorage.setItem(
@@ -273,6 +277,13 @@ const userStorage = (function () {
           restaurantIndex: restaurantIndex,
         })
       );
+    }
+
+    getRestaurant() {
+      if (JSON.parse(sessionStorage.getItem("restaurant"))) {
+        return JSON.parse(sessionStorage.getItem("restaurant")).restaurantName;
+      }
+      return null;
     }
   }
 

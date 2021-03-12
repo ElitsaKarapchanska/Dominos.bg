@@ -4,7 +4,8 @@ class CustomizableProduct extends Product {
     this.ingredients = ingredients; // array
     // saving the initial ingredients so that we can reset the product after it has been
     // customized and added to basket
-    this.initialIngredients = ingredients;
+    let ingredientsCopy = JSON.parse(JSON.stringify(ingredients));
+    this.initialIngredients = ingredientsCopy;
     this.stringifiedIngredients = this.getIngredientsToString();
   }
 
@@ -16,7 +17,8 @@ class CustomizableProduct extends Product {
   }
 
   resetProductIngredients() {
-    this.ingredients = this.initialIngredients;
+    let ingredientsCopy = JSON.parse(JSON.stringify(this.initialIngredients));
+    this.ingredients = ingredientsCopy;
     this.stringifiedIngredients = this.getIngredientsToString();
   }
 

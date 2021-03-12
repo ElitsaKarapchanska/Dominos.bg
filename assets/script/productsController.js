@@ -151,9 +151,7 @@ function displaySimpleProduct(products, categoryTab) {
           // get product from the id
           let product = getProductByWholeId(id);
 
-          let priceElement = document.querySelector(
-            "#" + id + " .price-sum"
-          );
+          let priceElement = document.querySelector("#" + id + " .price-sum");
 
           let quantityElement = document.querySelector(
             "#" + id + " .quantity-number"
@@ -163,7 +161,8 @@ function displaySimpleProduct(products, categoryTab) {
           let typeIndex = parseInt(event.target.value);
           product.selectedType = product.types[typeIndex];
 
-          priceElement.innerText = (product.price[typeIndex] * currentQuantity).toFixed(2) + "лв";
+          priceElement.innerText =
+            (product.price[typeIndex] * currentQuantity).toFixed(2) + "лв";
         });
       });
     }
@@ -218,6 +217,8 @@ function showCard(hashLocation) {
         displayComplexProductPage(sandwich, allPages.complexProductPage);
       }
       break;
+    default:
+      return false;
   }
 }
 
@@ -229,6 +230,8 @@ function displayComplexProductPage(products, categoryTab) {
 
   let close = getById("closeIcon");
   close.addEventListener("click", function () {
+    // reset the product if new ingredients have been added
+    products.resetProductIngredients();
     window.history.back();
   });
 
@@ -355,7 +358,7 @@ function displayComplexProductPage(products, categoryTab) {
     }
 
     // reset the product if new ingredients have been added
-    // products.resetProductIngredients();
+    products.resetProductIngredients();
 
     let quantityNumber = parseInt(quantity.innerText);
     addToCartBtn(productToAdd, quantityNumber);
