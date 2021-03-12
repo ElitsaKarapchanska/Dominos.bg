@@ -389,24 +389,25 @@ function filterCheckBoxesAndProducts(products,where){
   const html = template(products);
 
   where.innerHTML = html;
-  let newPizza = getById("new_p");
-  let vegetarianPizza = getById("vegeterian");
+ // refactoring !!!;
+  let newPizzas = getById("new_p");
+  let vegetariansPizzas = getById("vegeterian");
   let spicyPizzas = getById("hotP");
   let leanPizzas = getById("leanP");
 
   //pizzas;
   if(products.category ==="pizza"){
 
-  newPizza.addEventListener("click",function(){
-    if(newPizza.checked){
+    newPizzas.addEventListener("click",function(){
+    if(newPizzas.checked){
     pizza.innerHTML="";
     displayCustomizableProduct(pizzaManager.newPizzas, pizza);
     }else{
       displayCustomizableProduct(pizzaManager.allPizzas, pizza);
     }
   });
-  vegetarianPizza.addEventListener("click",function(){
-    if(vegetarianPizza.checked){
+  vegetariansPizzas.addEventListener("click",function(){
+    if(vegetariansPizzas.checked){
       pizza.innerHTML="";
       displayCustomizableProduct(pizzaManager.vegetariansPizzas, pizza);
       }else{
@@ -437,7 +438,6 @@ function filterCheckBoxesAndProducts(products,where){
 
     vegeterianStarters.addEventListener("click",function(){
       if(vegeterianStarters.checked){
-        console.log(vegeterianStarters.checked);
         starter.innerHTML="";
         displaySimpleProduct(starterManager.spicyStarters, starter);
         }else{
