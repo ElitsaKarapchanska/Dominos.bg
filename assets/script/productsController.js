@@ -1,6 +1,7 @@
 const simpleProductSource = getById("simpleProduct").innerHTML;
 const customizableProductSource = getById("customizableProduct").innerHTML;
 const complexCardProductSource = getById("complexCardProduct").innerHTML;
+const filtersSource = getById("productFilters").innerHTML;
 
 ingredientManager.addAllIngredients(allIngredientsData);
 chickenManager.addAllChickenProducts(allChickenData);
@@ -383,17 +384,41 @@ function quantityButtonClick(event) {
   quantityEl.innerText = currentQuantity;
   priceEl.innerText = currentPrice.toFixed(2) + "лв";
 }
+function filterCheckBoxesAndProducts(products,where){
+  const template = Handlebars.compile(filtersSource);
+  const html = template(products);
+
+  where.innerHTML = html;
+}
 
 displaySimpleProduct(chickenManager.allChicken, allPages.allChickenPage);
 // TODO: deals
-displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);
+// displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);//filtered;
 displaySimpleProduct(drinkManager.allDrinks, allPages.allDrinksPage);
-displayCustomizableProduct(pastaManager.allPasta, allPages.allPastaPage);
-displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);
+// displayCustomizableProduct(pastaManager.allPasta, allPages.allPastaPage);//filtered;
+// displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);//filtered;
 displayCustomizableProduct(saladManager.allSalads, allPages.allSaladsPage);
 displayCustomizableProduct(
   sandwichManager.allSandwiches,
   allPages.allSandwichPage
 );
-displaySimpleProduct(sauceManager.allSauces, allPages.allSaucesPage);
-displaySimpleProduct(starterManager.allStarters, allPages.allStartersPage);
+// displaySimpleProduct(sauceManager.allSauces, allPages.allSaucesPage);//filtered;
+// displaySimpleProduct(starterManager.allStarters, allPages.allStartersPage);//filtered;
+
+//which have filter-checkboxes;
+displayCustomizableProduct(pizzaManager.allPizzas, pizza);
+displaySimpleProduct(starterManager.allStarters, starter);
+displayCustomizableProduct(pastaManager.allPasta, pasta);
+displaySimpleProduct(sauceManager.allSauces, sauce);
+displaySimpleProduct(dessertManager.allDesserts, dessert);
+
+filterCheckBoxesAndProducts(pizzaManager.allPizzas[0], filteredPizza);//pizza checkboxes
+filterCheckBoxesAndProducts(starterManager.allStarters[0], filteredStarter);//starters checkboxes
+filterCheckBoxesAndProducts(pastaManager.allPasta[0], filterPasta);//pasta checkboxes
+filterCheckBoxesAndProducts(sauceManager.allSauces[0], filterSauce);//sauces checkboxes
+filterCheckBoxesAndProducts(dessertManager.allDesserts[0], filterDessert); //dessert checkboxes
+
+
+
+
+

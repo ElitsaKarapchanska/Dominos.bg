@@ -515,16 +515,31 @@
           <nav></nav>
           <div></div>
         </div>
-        <div id="allPizzasPage" class="card-container main-wrapper">
-          <!-- // tags; -->
+        <div id="allPizzasPage">
+          <div id="filter-pizza" class="filter-category" ></div>
+          <div id="pizza-container" class="card-container main-wrapper"></div>
         </div>
-        <div id="allStartersPage" class="card-container main-wrapper"></div>
+        <div id="allStartersPage">
+          <div id="filter-starter" class="filter-category" ></div>
+          <div id="starter-container" class="card-container main-wrapper"></div>
+        </div>
         <div id="allChickenPage" class="card-container main-wrapper"></div>
-        <div id="allPastaPage" class="card-container main-wrapper"></div>
-        <div id="allSaladsPage" class="card-container main-wrapper"></div>
-        <div id="allSandwichPage" class="card-container main-wrapper"></div>
-        <div id="allSaucesPage" class="card-container main-wrapper"></div>
-        <div id="allDessertsPage" class="card-container main-wrapper"></div>
+        <div id="allPastaPage">
+          <div id="filter-pasta" class="filter-category" ></div>
+          <div id="pasta-container" class="card-container main-wrapper"></div>
+        </div>
+        <div id="allSaladsPage" class="card-container main-wrapper">
+        </div>
+        <div id="allSandwichPage" class="card-container main-wrapper">
+        </div>
+        <div id="allSaucesPage">
+          <div id="filter-sauce" class="filter-category"></div>
+          <div id="sauce-container" class="card-container main-wrapper"></div>
+        </div>
+        <div id="allDessertsPage">
+          <div id="filter-dessert" class="filter-category" ></div>
+          <div id="dessert-container" class="card-container main-wrapper"></div>
+        </div>
         <div id="allDrinksPage" class="card-container main-wrapper"></div>
       </div>
       <div id="complexProductPage"></div>
@@ -1019,7 +1034,80 @@
     </div>
   {{/if}}
   </script>
-
+ <!-- filter-category -->
+  <script id="productFilters" type="text/x-handlebars-template">
+  {{#if this}}
+  <!-- <p>{{this.category}}</p> -->
+    {{#ifCond this.category '===' "pizza" }}
+       <div class="filter-container">
+         <div class="filter">
+           <input type="checkbox" id="vegeterian">
+           <label>ЗА ВЕГЕТАРИАНЦИ</label>
+         </div>
+         <div class="filter">
+          <input type="checkbox" id="hot">
+          <label>ПИКАНТНО</label>
+        </div>
+        <div class="filter">
+          <input type="checkbox" id="fasting">
+          <label>ПОСТНИ</label>
+        </div>
+        <div class="filter">
+          <input type="checkbox" id="new_p">
+          <label>НОВО</label>
+        </div>
+       </div>
+    {{/ifCond}}
+    {{#ifCond this.category '===' "starter" }}
+      <div class="filter-container">
+        <div class="filter">
+        <input type="checkbox" id="vegeterian">
+        <label>ЗА ВЕГЕТАРИАНЦИ</label>
+      </div>
+     <div class="filter">
+       <input type="checkbox" id="new_p">
+       <label>НОВО</label>
+     </div>
+    </div>
+    {{/ifCond}}
+    {{#ifCond this.category '===' "pasta" }}
+     <div class="filter-container">
+       <div class="filter">
+        <input type="checkbox" id="hot">
+        <label>ПИКАНТНО</label>
+      </div>
+      <div class="filter">
+        <input type="checkbox" id="new_p">
+        <label>НОВО</label>
+      </div>
+     </div>
+   {{/ifCond}}
+   {{#ifCond this.category '===' "sauce" }}
+     <div class="filter-container">
+       <div class="filter">
+        <input type="checkbox" id="hot">
+        <label>ПИКАНТНО</label>
+       </div>
+     <div class="filter">
+       <input type="checkbox" id="new_p">
+       <label>НОВО</label>
+      </div>
+    </div>
+   {{/ifCond}}
+   {{#ifCond this.category '===' "dessert" }}
+     <div class="filter-container">
+       <div class="filter">
+        <input type="checkbox" id="dessert">
+        <label>ДЕСЕРТИ</label>
+       </div>
+     <div class="filter">
+       <input type="checkbox" id="ice_cream">
+       <label>СЛАДОЛЕДИ</label>
+      </div>
+    </div>
+   {{/ifCond}}
+  {{/if}}
+  </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
       integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 
       crossorigin="anonymous">
