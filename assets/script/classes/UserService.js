@@ -70,9 +70,9 @@ const userStorage = (function () {
       return false;
     }
 
-    addToCart(product, quantity) {
+    addToCart(product, quantity, priceModifiers = 0) {
       if (!this.editCartProductQuantity(product, true, quantity)) {
-        this.cart.push({ prod: product, quantity: quantity });
+        this.cart.push({ prod: product, quantity: quantity, priceModifiers: priceModifiers });
       }
       return this.cart.length;
     }
@@ -229,11 +229,11 @@ const userStorage = (function () {
       localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
     }
 
-    addToCart(product, quantity) {
+    addToCart(product, quantity, priceModifiers = 0) {
       if (!this.loggedInUser) return false;
 
       // if the product is not already in the cart, add it
-      this.loggedInUser.addToCart(product, quantity);
+      this.loggedInUser.addToCart(product, quantity, priceModifiers);
       localStorage.setItem("users", JSON.stringify(this.users));
       localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
       return this.loggedInUser.cart.length;

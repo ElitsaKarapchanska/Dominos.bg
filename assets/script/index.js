@@ -56,7 +56,12 @@ function showPage() {
   }
 
   if (currentPage === "checkout") {
-    checkoutController();
+    if (userStorage.loggedInUser) {
+      checkoutController();
+    } else {
+      location.hash = "#home";
+      location.reload();
+    }
     noPageWasShown = false;
   } else {
     changeElementVisibility(checkoutPage, false);

@@ -53,7 +53,7 @@ Handlebars.registerHelper("printProductDetails", function (product) {
             ingredientDiff += `<div class="extra_topp_text3">- x2 ${ingredient.title}</div>` :
             ingredientDiff += `<div class="extra_topp_text4">- ${ingredient.title}</div>`;  
         }
-      })
+      });
 
       if (commonIngredients < product.ingredients.length) {   // new ingredients have been added
         product.ingredients.forEach(ingredient => {
@@ -63,12 +63,16 @@ Handlebars.registerHelper("printProductDetails", function (product) {
               ingredientDiff += `<div class="extra_topp_text5">+ x2 ${ingredient.title}</div>` :
               ingredientDiff += `<div class="extra_topp_text6">+ ${ingredient.title}</div>`;
           }
-        })
+        });
       }
       ingredientDiff += "</div>";
       html += ingredientDiff;
     }
   }
-  // TODO: add discount ribbon if it applies
+  // TODO: add discount ribbon, if it applies
   return html;
+});
+
+Handlebars.registerHelper("getProductFinalPrice", function (item) {
+  return Product.getFinalPrice(item).toFixed(2);
 });

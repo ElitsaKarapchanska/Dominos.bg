@@ -99,11 +99,11 @@ orderNowBtn.addEventListener("click", function (event) {
 });
 
 // product pages
-function addToCartBtn(product, quantity) {
+function addToCartBtn(product, quantity, priceModifiers = 0) {
   if (!userStorage.loggedInUser) {
     openLoginModal();
   } else {
-    let numberOfProductsInCart = userStorage.addToCart(product, quantity);
+    let numberOfProductsInCart = userStorage.addToCart(product, quantity, priceModifiers);
     let cartNumber = getById("orderNumber");
     let cartNumberResp = getById("orderNumberResponsive");
     cartNumber.innerText = numberOfProductsInCart;

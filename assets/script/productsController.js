@@ -228,6 +228,10 @@ function displayComplexProductPage(products, categoryTab) {
 
   categoryTab.innerHTML = html;
 
+  // a number to add or subtract from the product price to get the final price pre unit
+  // (depends on pizza dough type, added and subtracted ingredients, but not on size)
+  let priceModifiers = [0];
+
   let close = getById("closeIcon");
   close.addEventListener("click", function () {
     // reset the product if new ingredients have been added
@@ -338,6 +342,7 @@ function displayComplexProductPage(products, categoryTab) {
             break;
           case "Philadelphia":
             products.changePizzaCrust(PIZZA_CRUST_TYPES.PHILLADELPHIA);
+            priceModifiers += 2.25;
             break;
           case "Whole grain":
             products.changePizzaCrust(PIZZA_CRUST_TYPES.WHOLEGRAIN);
@@ -361,7 +366,7 @@ function displayComplexProductPage(products, categoryTab) {
     products.resetProductIngredients();
 
     let quantityNumber = parseInt(quantity.innerText);
-    addToCartBtn(productToAdd, quantityNumber);
+    addToCartBtn(productToAdd, quantityNumber, priceModifiers);
     window.history.back();
   });
 }
