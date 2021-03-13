@@ -8,7 +8,7 @@ const userStorage = (function () {
       subbedToOffers,
       subbedToNews,
       favourites = [],
-      cart = []
+      cart = {}
     ) {
       this.email = email;
       this.pass = pass;
@@ -17,7 +17,7 @@ const userStorage = (function () {
       this.subbedToOffers = subbedToOffers;
       this.subbedToNews = subbedToNews;
       this.favourites = favourites;
-      this.cart = cart;
+      this.cart = new Cart(cart.products, cart.productsWithIDs);
     }
 
     addToFavourites(product) {
@@ -38,6 +38,50 @@ const userStorage = (function () {
       if (indexInFaves < 0) return false;
       this.favourites.splice(indexInFaves, 1);
     }
+  }
+
+  class Cart {
+    constructor(products = [], productsWithIDs = []) {
+      // [{prod: product, quantity: 1, priceModifiers: 0}]
+      if (productsWithIDs.length > 0) {
+        this.productsWithIDs = productsWithIDs;
+      } else {
+        this.productsWithIDs = products.map((product) => ({
+          ...product,
+          uuid: Date.now(),
+        }));
+      }
+      this.products = products;
+
+      console.log(this.productsWithIDs);
+
+      this.finalPrice = this.getTotalPrice();
+    }
+
+    getTotalPrice() {
+      return this.products.reduce(
+        (sum, el) => (sum += Product.getFinalPrice(el) * el.quantity),
+        0
+      );
+    }
+
+    getIndexInCartByUUID(uuid) {
+      return this.productsWithIDs.findIndex((entry) => entry.uuid === uuid);
+    }
+
+    searchInCartByProduct(product) {
+      let searched = JSON.stringify(product);
+      return this.products.find((entry) => {
+        return JSON.stringify(entry) === searched;
+      });
+    }
+
+    getIndexInCartByProduct(product) {
+      let searched = JSON.stringify(product);
+      return this.products.findIndex((entry) => {
+        return JSON.stringify(entry) === searched;
+      });
+    }
 
     /**
      * Increments or decrements the quantity of a specific product in the cart
@@ -46,25 +90,29 @@ const userStorage = (function () {
      * @param {Number} amount
      */
     editCartProductQuantity(product, toIncrement, amount = 1) {
-      if (!(product instanceof Product)) return false;
-
-      // check if already in cart with stringify since they could have added a pizza with custom
-      // ingredients and this seems like the easiest way to compare
-      let editProductStr = JSON.stringify(product);
-      let matchInCart = this.cart.find((entry) => {
-        return JSON.stringify(entry.prod) === editProductStr;
-      });
-      if (matchInCart) {
-        toIncrement
-          ? (matchInCart.quantity += amount)
-          : (matchInCart.quantity -= amount);
-
-        // if the quantity of the product becomes 0 or less, remove it from cart
-        if (matchInCart.quantity <= 0) {
-          // possible because they have the same reference
-          let index = this.loggedInUser.cart.indexOf(matchInCart);
-          this.loggedInUser.cart.splice(index, 1);
+      // check if already in cart
+      console.log(product);
+      
+      let matchInCartIndex = this.getIndexInCartByProduct(product);
+      console.log(matchInCartIndex);
+      
+      if (matchInCartIndex >= 0) {
+        if (toIncrement) {
+          this.products[matchInCartIndex].quantity += amount;
+          this.productsWithIDs[matchInCartIndex].quantity += amount;
+        } else {
+          this.products[matchInCartIndex].quantity -= amount;
+          this.productsWithIDs[matchInCartIndex].quantity -= amount;
         }
+        // if the quantity of the product becomes 0 or less, remove it from cart
+        if (this.products[matchInCartIndex].quantity <= 0) {
+          // remove from both arrays
+          this.productsWithIDs.splice(matchInCartIndex, 1);
+          this.products.splice(matchInCartIndex, 1);
+        }
+        this.finalPrice = this.getTotalPrice();
+        console.log(this);
+        
         return true;
       }
       return false;
@@ -72,20 +120,30 @@ const userStorage = (function () {
 
     addToCart(product, quantity, priceModifiers = 0) {
       if (!this.editCartProductQuantity(product, true, quantity)) {
-        this.cart.push({ prod: product, quantity: quantity, priceModifiers: priceModifiers });
+        this.productsWithIDs.push({
+          prod: product,
+          quantity: quantity,
+          priceModifiers: priceModifiers,
+          uuid: Date.now(),
+        });
+
+        this.products.push({
+          prod: product,
+          quantity: quantity,
+          priceModifiers: priceModifiers,
+        })
+
+        this.finalPrice = this.getTotalPrice();
       }
-      return this.cart.length;
+      return this.products.length;
     }
 
     removeFromCart(product) {
-      if (!(product instanceof Product)) return false;
-
-      let productToRemoveStr = JSON.stringify(product);
-      let indexInCart = this.cart.findIndex((entry) => {
-        return JSON.stringify(entry.prod) === productToRemoveStr;
-      });
+      let indexInCart = this.getIndexInCartByProduct(product);
       if (indexInCart < 0) return false;
-      this.cart.splice(indexInCart, 1);
+      this.productsWithIDs.splice(indexInCart, 1);
+      this.products.splice(indexInCart, 1);
+      this.finalPrice = this.getTotalPrice();
     }
   }
 
@@ -233,10 +291,10 @@ const userStorage = (function () {
       if (!this.loggedInUser) return false;
 
       // if the product is not already in the cart, add it
-      this.loggedInUser.addToCart(product, quantity, priceModifiers);
+      this.loggedInUser.cart.addToCart(product, quantity, priceModifiers);
       localStorage.setItem("users", JSON.stringify(this.users));
       localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
-      return this.loggedInUser.cart.length;
+      return this.loggedInUser.cart.products.length;
     }
 
     /**
@@ -247,14 +305,16 @@ const userStorage = (function () {
      */
     editCartProductQuantity(product, toIncrement, amount = 1) {
       if (!this.loggedInUser) return false;
-      this.loggedInUser.editCartProductQuantity(product, toIncrement, amount);
+      console.log(this.loggedInUser.cart);
+      
+      this.loggedInUser.cart.editCartProductQuantity(product, toIncrement, amount);
       localStorage.setItem("users", JSON.stringify(this.users));
       localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
     }
 
     removeFromCart(product) {
       if (!this.loggedInUser) return false;
-      this.loggedInUser.removeFromCart(product);
+      this.loggedInUser.cart.removeFromCart(product);
       localStorage.setItem("users", JSON.stringify(this.users));
       localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
     }

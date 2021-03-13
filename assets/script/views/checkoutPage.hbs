@@ -1,5 +1,5 @@
-<h2 class="decoration-title red-decoration-title">ПОТВЪРЖДАВАНЕ НА ПОРЪЧКАТА</h2>
-<div id="checkout-basket-wrapper">
+<div id="checkout-basket-wrapper" class="main-wrapper rounded">
+    <h2 class="decoration-title red-decoration-title">ПОТВЪРЖДАВАНЕ НА ПОРЪЧКАТА</h2>
     <div class="basket-header font-bold">
         <div id="product-header">ПРОДУКТ</div>
         <div id="quantity-header">КОЛИЧЕСТВО</div>
@@ -8,7 +8,7 @@
     <div class="cart-item-container">
         {{#if this}}
         {{#each this}}
-        <div class="cart-item">
+        <div class="cart-item" data-id="{{this.prod.id}}" data-uuid="{{this.uuid}}">
             <div class="image-container">
                 <img src="./assets/images/{{this.prod.image}}" alt="{{this.prod.title}}">
             </div>
@@ -23,29 +23,21 @@
             <div class="quantity-wrapper">
                 <img class="minus quantity-controller" alt="minus" src="./assets/images/minus.svg">
                 <span class="quantity-number">{{this.quantity}}</span>
-                <img class="plus quantity-controller" alt="minus" src="./assets/images/plus.svg">
+                <img class="plus quantity-controller" alt="plus" src="./assets/images/plus.svg">
             </div>
-            <div class="price-container">{{getProductFinalPrice this}}лв.</div>
+            <div class="price-container" data-price="{{getPricePerUnit this}}">{{getProductFinalPrice this}}лв</div>
             <div class="x-container">
                 <img class="remove-x" src="./assets/images/delete_cross.svg" alt="remove from cart">
             </div>
         </div>
         {{/each}}
         {{/if}}
-
-        {{!-- <div class="basket-bottom-wrapper">
-            <div class="basket-total-wrapper text-right col-xs-12 padding-top-bottom-10">
-                <p class="font-bold col-xs-9">общо</p>
-                <p class="basket-total col-xs-2 Old_Price">31.90лв</p>
-            </div>
-            <div class="basket-discount-total-wrapper text-right col-xs-12 padding-0 padding-bottom-10">
-                <p class="font-bold col-xs-9">Общо с отстъпка</p>
-                <p class="basket-discount-total font-bold col-xs-2">30.02лв</p>
-            </div>
-        </div> --}}
-
     </div>
+    <div class="basket-bottom-wrapper">
+        <div class="font-bold">Общо</div>
+        <div id="totalPriceCart" class="basket-total">{{getTotalPrice this}}лв</div>
+    </div>
+    <div class="menu-back-btn button grey-btn white-txt">ОБРАТНО КЪМ МЕНЮТО</div>
 </div>
-<div class="menu-back-btn button grey-btn white-txt mrouter" data-type="order">ОБРАТНО КЪМ МЕНЮТО
-    <span class="return-icon"></span>
-</div>
+
+<button class="CheckOut button red-btn text-center rounded">ЗАВЪРШЕТЕ ПОРЪЧКАТА СИ</button>
