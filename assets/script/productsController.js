@@ -384,142 +384,57 @@ function quantityButtonClick(event) {
   quantityEl.innerText = currentQuantity;
   priceEl.innerText = currentPrice.toFixed(2) + "лв";
 }
+
 function filterCheckBoxesAndProducts(products,where){
   const template = Handlebars.compile(filtersSource);
   const html = template(products);
 
   where.innerHTML = html;
- // refactoring !!!;
-  let newPizzas = getById("new_p");
-  let vegetariansPizzas = getById("vegeterian");
-  let spicyPizzas = getById("hotP");
-  let leanPizzas = getById("leanP");
 
   //pizzas;
-  if(products.category ==="pizza"){
-
-    newPizzas.addEventListener("click",function(){
-    if(newPizzas.checked){
-    pizza.innerHTML="";
-    displayCustomizableProduct(pizzaManager.newPizzas, pizza);
-    }else{
-      displayCustomizableProduct(pizzaManager.allPizzas, pizza);
-    }
-  });
-  vegetariansPizzas.addEventListener("click",function(){
-    if(vegetariansPizzas.checked){
-      pizza.innerHTML="";
-      displayCustomizableProduct(pizzaManager.vegetariansPizzas, pizza);
-      }else{
-        displayCustomizableProduct(pizzaManager.allPizzas, pizza);
-      }
-    });
-    spicyPizzas.addEventListener("click",function(){
-      if(spicyPizzas.checked){
-        pizza.innerHTML="";
-        displayCustomizableProduct(pizzaManager.spicyPizzas, pizza);
-        }else{
-          displayCustomizableProduct(pizzaManager.allPizzas, pizza);
-        }
-    });
-    leanPizzas.addEventListener("click",function(){
-      if(leanPizzas.checked){
-        pizza.innerHTML="";
-        displayCustomizableProduct(pizzaManager.leanPizzas, pizza);
-        }else{
-          displayCustomizableProduct(pizzaManager.allPizzas, pizza);
-        }
-    });
+if(products.category ==="pizza"){
+    let newPizzas = getById("new_p");
+    let vegetariansPizzas = getById("vegeterian");
+    let spicyPizzas = getById("hotP");
+    let leanPizzas = getById("leanP");
+  
+    filterPizzas(newPizzas,pizzaManager.newPizzas);
+    filterPizzas(vegetariansPizzas,pizzaManager.vegetariansPizzas);
+    filterPizzas(spicyPizzas,pizzaManager.spicyPizzas);
+    filterPizzas(leanPizzas,pizzaManager.leanPizzas);
   }
     //starters;
-    else if(products.category ==="starter"){
+  else if(products.category ==="starter"){
     let vegeterianStarters = getById("vegeterianStarters");
     let newStarters = getById("newStarters");
 
-    vegeterianStarters.addEventListener("click",function(){
-      if(vegeterianStarters.checked){
-        starter.innerHTML="";
-        displaySimpleProduct(starterManager.spicyStarters, starter);
-        }else{
-        displaySimpleProduct(starterManager.allStarters, starter);
-        }
-    });
-    newStarters.addEventListener("click",function(){
-      if(vegeterianStarters.checked){
-        starter.innerHTML="";
-        displaySimpleProduct(starterManager.newStarters, starter);
-        }else{
-        displaySimpleProduct(starterManager.allStarters, starter);
-        }
-    });
-  }
+    filterStarters(vegeterianStarters,starterManager.spicyStarters);
+    filterStarters(newStarters,starterManager.newStarters);
+    }
     //pasta;
-    if(products.category ==="pasta"){
+  else if(products.category ==="pasta"){
     let spicyPasta = getById("spicyPasta");
     let newPasta = getById("newPasta");
 
-    spicyPasta.addEventListener("click",function(){
-      if(spicyPasta.checked){
-        pasta.innerHTML="";
-        displayCustomizableProduct(pastaManager.spicyPasta, pasta);
-        }else{
-          displayCustomizableProduct(pastaManager.allPasta, pasta);
-        }
-    });
-    newPasta.addEventListener("click",function(){
-      if(newPasta.checked){
-        pasta.innerHTML="";
-        displayCustomizableProduct(pastaManager.newPasta, pasta);
-        }else{
-          displayCustomizableProduct(pastaManager.allPasta, pasta);
-        }
-    });
+    filterPastas(spicyPasta,pastaManager.spicyPasta);
+    filterPastas(newPasta,pastaManager.newPasta);
   }
     //sauce
-   else if (products.category==="sauce"){
+  else if (products.category==="sauce"){
     let newSauces = getById("newSauces");
     let spicySauces = getById("spicySauces");
 
-    newSauces.addEventListener("click",function(){
-      if(newSauces.checked){
-        sauce.innerHTML="";
-        displaySimpleProduct(sauceManager.newSauces, sauce);
-      }else{
-        displaySimpleProduct(sauceManager.allSauces, sauce);
-      }
-    });
-    spicySauces.addEventListener("click",function(){
-      if(spicySauces.checked){
-        sauce.innerHTML="";
-        displaySimpleProduct(sauceManager.spicySauces, sauce);
-      }else{
-        displaySimpleProduct(sauceManager.allSauces, sauce);
-      }
-    });
+    filterSauces(newSauces,sauceManager.newSauces);
+    filterSauces(spicySauces,sauceManager.spicySauces);
   }
-
     //dessert
-   else if(products.category==="dessert"){
+  else if(products.category==="dessert"){
      let desserts = getById("desserts");
      let icecreams = getById("icecreams");
 
-     desserts.addEventListener("click",function(){
-       if(desserts.checked){
-        displaySimpleProduct(dessertManager.desserts, dessert);
-       }else{
-        displaySimpleProduct(dessertManager.allDesserts, dessert);
-       }
-     });
-
-     icecreams.addEventListener("click",function(){
-      if(desserts.checked){
-       displaySimpleProduct(dessertManager.icecreams, dessert);
-      }else{
-       displaySimpleProduct(dessertManager.allDesserts, dessert);
-      }
-    });
+     filterDesserts(desserts,dessertManager.desserts);
+     filterDesserts(icecreams,dessertManager.icecreams);
   }
-
 }
 
 displaySimpleProduct(chickenManager.allChicken, allPages.allChickenPage);
@@ -536,7 +451,7 @@ displayCustomizableProduct(
 // displaySimpleProduct(sauceManager.allSauces, allPages.allSaucesPage);//filtered;
 // displaySimpleProduct(starterManager.allStarters, allPages.allStartersPage);//filtered;
 
-//which have filter-checkboxes;
+//with filter-checkboxes;
 displayCustomizableProduct(pizzaManager.allPizzas, pizza);
 displaySimpleProduct(starterManager.allStarters, starter);
 displayCustomizableProduct(pastaManager.allPasta, pasta);
