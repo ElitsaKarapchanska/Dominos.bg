@@ -512,8 +512,6 @@
           </div>
         </nav>
         <div id="allDealsPage" class="card-container main-wrapper">
-          <nav></nav>
-          <div></div>
         </div>
         <div id="allPizzasPage">
           <div id="filter-pizza" class="filter-category" ></div>
@@ -1037,7 +1035,6 @@
  <!-- filter-category -->
   <script id="productFilters" type="text/x-handlebars-template">
   {{#if this}}
-  <!-- <p>{{this.category}}</p> -->
     {{#ifCond this.category '===' "pizza" }}
        <div class="filter-container">
          <div class="filter">
@@ -1107,6 +1104,39 @@
     </div>
    {{/ifCond}}
   {{/if}}
+  </script>
+  
+  <!-- deals page -->
+  <script id="dealsProduct" type="text/x-handlebars-template">
+    {{#if this}}
+      {{#each this}}
+        <article class="card rounded complex-card">
+          <img class="deals-image" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
+          <div>
+            <img src="assets/images/offer_ribbon_bg.svg" alt="Offer-ribbon" class="offer-ribbon">
+          </div>
+          <div class="title-wrapper-deals">
+              <h2>{{this.title}}</h2>
+          </div>
+            <p class="product-description">
+                {{this.description}}
+            </p>
+            <div class="btn-wrapper">
+              <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
+            </div>
+            <div class="delivery-carryout">
+              <div>
+                <img src="assets/images/delivery_bike.svg" alt="Delivery icon" class="delivery-carryout_icons">
+                <span class="deal-dc">DELIVERY</span>
+              </div>
+              <div>
+                <img src="assets/images/carry_out_store.svg" alt="Carry out store icon" class="delivery-carryout_icons">
+                <span class="deal-dc">CARRY OUT</span>
+              </div>
+            </div>
+        </article>
+      {{/each}}
+    {{/if}}
   </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
       integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 

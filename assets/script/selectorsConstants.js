@@ -48,7 +48,7 @@ const whitetel = getById("whitetel");
 
 //menu
 const activePage = document.querySelectorAll(".main-menu > li");
-// const filtered = getById("filter-category");
+
 //filters;
 const filteredPizza = getById("filter-pizza");
 const filteredStarter =getById("filter-starter");

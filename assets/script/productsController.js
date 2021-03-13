@@ -2,6 +2,7 @@ const simpleProductSource = getById("simpleProduct").innerHTML;
 const customizableProductSource = getById("customizableProduct").innerHTML;
 const complexCardProductSource = getById("complexCardProduct").innerHTML;
 const filtersSource = getById("productFilters").innerHTML;
+const dealsProductSource = getById("dealsProduct").innerHTML;
 
 ingredientManager.addAllIngredients(allIngredientsData);
 chickenManager.addAllChickenProducts(allChickenData);
@@ -55,12 +56,19 @@ function getProductByWholeId(id) {
   return getProductFromCategoryById(categoryArr, id);
 }
 
+function displayDeals(products, categoryTab){
+  const template = Handlebars.compile(dealsProductSource);
+  const html = template(products);
+
+  categoryTab.innerHTML = html;
+}
+
 function displaySimpleProduct(products, categoryTab) {
   const template = Handlebars.compile(simpleProductSource);
   const html = template(products);
 
   categoryTab.innerHTML = html;
-  
+
   // selecting the cards within the current tab
   let allCards = document.querySelectorAll(
     "#" + categoryTab.id + " .simple-card"
@@ -439,18 +447,18 @@ if(products.category ==="pizza"){
 }
 
 displaySimpleProduct(chickenManager.allChicken, allPages.allChickenPage);
-// TODO: deals
-// displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);//filtered;
+displayDeals(dealManager.allDeals, allPages.allDealsPage);
+// displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);//filter;
 displaySimpleProduct(drinkManager.allDrinks, allPages.allDrinksPage);
-// displayCustomizableProduct(pastaManager.allPasta, allPages.allPastaPage);//filtered;
-// displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);//filtered;
+// displayCustomizableProduct(pastaManager.allPasta, allPages.allPastaPage);//filter;
+// displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);//filter;
 displayCustomizableProduct(saladManager.allSalads, allPages.allSaladsPage);
 displayCustomizableProduct(
   sandwichManager.allSandwiches,
   allPages.allSandwichPage
 );
-// displaySimpleProduct(sauceManager.allSauces, allPages.allSaucesPage);//filtered;
-// displaySimpleProduct(starterManager.allStarters, allPages.allStartersPage);//filtered;
+// displaySimpleProduct(sauceManager.allSauces, allPages.allSaucesPage);//filter;
+// displaySimpleProduct(starterManager.allStarters, allPages.allStartersPage);//filter;
 
 //with filter-checkboxes;
 displayCustomizableProduct(pizzaManager.allPizzas, pizza);
