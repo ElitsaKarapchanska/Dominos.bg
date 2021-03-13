@@ -183,6 +183,18 @@ const DRINK_NAMES_CONSTANTS = {
   SHUMENSKO_1L: "ШУМЕНСКО 1Л",
 };
 
+const DEALS_NAMES_CONSTANTS = {
+  NIRVANA_COMBO: "Nirvana Combo",
+  PIZZA_STARTER_2SHUMENSKO: "Пица+предястие+2бр Шуменско за 18,50",
+  COMBO_CARLSBERG:"Комбо Carlsberg",
+  COMBO_SHUMENSKO:"Комбо с Шуменско 1л",
+  COMBO_FAMILY:"СЕМЕЙНО КОМБО",
+  THIRT_PIZZA_FOR_4:"Трета пица за 4 лв!",
+  EVERY_SECOND:"ВСЯКА ВТОРА ПИЦА НА ПОЛОВИН ЦЕНА!",
+  PIZZA_STARTER_2COCA_COLA:"Пица + предястие + 2 бр. Coca-Cola само за 17,50лв!",
+  PIZZA_FROM_A_PLACE:"Пица от място само за 5,50лв",
+};
+
 const INGREDIENT_CATEGORY_SAUCES = "Сосове";
 const INGREDIENT_CATEGORY_HERBS = "Подправки"
 const INGREDIENT_CATEGORY_CHEESES = "Сирена";

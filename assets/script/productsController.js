@@ -13,6 +13,7 @@ saladManager.addAllSaladProducts(allSaladsData);
 sandwichManager.addAllSandwichProducts(allSandwichData);
 sauceManager.addAllSauceProducts(allSaucesData);
 starterManager.addAllStarterProducts(allStartersData);
+dealManager.addAllDealProducts(allDealsData);
 
 function getProductFromCategoryById(data, id) {
   return data.filter((element) => element.id === id)[0];
@@ -59,7 +60,7 @@ function displaySimpleProduct(products, categoryTab) {
   const html = template(products);
 
   categoryTab.innerHTML = html;
-
+  
   // selecting the cards within the current tab
   let allCards = document.querySelectorAll(
     "#" + categoryTab.id + " .simple-card"
