@@ -14,9 +14,9 @@
             </div>
             <div class="details-container">
                 {{#if this.prod.selectedType}}
-                <p><span class="blue-txt font-bold">{{this.prod.title}} {{this.prod.selectedType}}</span></p>
+                <p class="blue-txt font-bold">{{this.prod.title}} {{this.prod.selectedType}}</p>
                 {{else}}
-                <p><span class="blue-txt font-bold">{{this.prod.title}}</span></p>
+                <p class="blue-txt font-bold">{{this.prod.title}}</p>
                 {{/if}}
                 {{{printProductDetails this.prod}}}
             </div>
@@ -34,10 +34,12 @@
         {{/if}}
     </div>
     <div class="basket-bottom-wrapper">
-        <div class="font-bold">Общо</div>
-        <div id="totalPriceCart" class="basket-total">{{getTotalPrice this}}лв</div>
+        <div class="font-bold total">Общо</div>
+        <div id="totalPriceCart" class="basket-total font-bold">{{getTotalPrice this}}лв</div>
     </div>
-    <div class="menu-back-btn button grey-btn white-txt">ОБРАТНО КЪМ МЕНЮТО</div>
+    <div id="backBtn" class="menu-back-btn button rounded">ОБРАТНО КЪМ МЕНЮТО</div>
 </div>
 
-<button class="CheckOut button red-btn text-center rounded">ЗАВЪРШЕТЕ ПОРЪЧКАТА СИ</button>
+<div class="order-btn-container">
+    <button id="checkOutBtn" class="button red-btn text-center rounded">ЗАВЪРШЕТЕ ПОРЪЧКАТА СИ</button>
+</div>

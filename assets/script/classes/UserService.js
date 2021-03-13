@@ -52,9 +52,6 @@ const userStorage = (function () {
         }));
       }
       this.products = products;
-
-      console.log(this.productsWithIDs);
-
       this.finalPrice = this.getTotalPrice();
     }
 
@@ -91,11 +88,7 @@ const userStorage = (function () {
      */
     editCartProductQuantity(product, toIncrement, amount = 1) {
       // check if already in cart
-      console.log(product);
-      
       let matchInCartIndex = this.getIndexInCartByProduct(product);
-      console.log(matchInCartIndex);
-      
       if (matchInCartIndex >= 0) {
         if (toIncrement) {
           this.products[matchInCartIndex].quantity += amount;
@@ -111,8 +104,6 @@ const userStorage = (function () {
           this.products.splice(matchInCartIndex, 1);
         }
         this.finalPrice = this.getTotalPrice();
-        console.log(this);
-        
         return true;
       }
       return false;
@@ -305,8 +296,6 @@ const userStorage = (function () {
      */
     editCartProductQuantity(product, toIncrement, amount = 1) {
       if (!this.loggedInUser) return false;
-      console.log(this.loggedInUser.cart);
-      
       this.loggedInUser.cart.editCartProductQuantity(product, toIncrement, amount);
       localStorage.setItem("users", JSON.stringify(this.users));
       localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));

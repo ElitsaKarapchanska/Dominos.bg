@@ -226,6 +226,10 @@ div#appLink {
   background: none;
 }
 
+.blue-txt {
+  color: #0073aa;
+}
+
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 226px);
@@ -489,6 +493,7 @@ div#appLink {
   height: 180px;
 }
 
+/* checkout page */
 #checkout-basket-wrapper {
   background-color: white;
   padding: 35px;
@@ -513,6 +518,24 @@ div#appLink {
   font-size: 15px;
   border-bottom: 2px solid #898989;
   padding-bottom: 5px;
+}
+
+.basket-bottom-wrapper {
+  display: grid;
+  grid-template-columns: 17% 34% 17% 17% 15%;
+  grid-template-rows: 1fr;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.basket-bottom-wrapper .total {
+  grid-column: 3/4;
+  text-align: center;
+}
+
+.basket-bottom-wrapper #totalPriceCart {
+  grid-column: 4/5;
+  text-align: center;
 }
 
 #product-header {
@@ -556,6 +579,21 @@ div#appLink {
 
 .cart-item .details-container {
   grid-column: 2/3;
+  line-height: 24px;
+}
+
+.cart-item .details-container .pizza-desc {
+  line-height: 19px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cart-item .details-container .ingredient-diff {
+  line-height: 19px;
+  font-size: 13px;
+  font-style: italic;
+  margin-left: 10px;
+  color: #777;
 }
 
 .cart-item .quantity-wrapper {
@@ -577,14 +615,39 @@ div#appLink {
   grid-column: 5/6;
 }
 
-.x-container .remove-x{
+.x-container .remove-x {
   width: 25px;
-    height: 25px;
-    margin: 0 5px;
-    border-radius: 50%;
-    background-color: transparent;
-    box-sizing: border-box;
-    cursor: pointer;
+  height: 25px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.menu-back-btn {
+  font-size: 13px;
+  padding: 5px 10px;
+  background-color: #bbbaba;
+  color: #fff;
+  line-height: 19px;
+  display: inline-block;
+}
+
+.order-btn-container {
+  text-align: center;
+}
+
+#checkOutBtn {
+  color: #fff;
+  margin: 15px auto;
+  font-size: 17px;
+  line-height: 24px;
+  width: 400px;
+}
+
+#checkOutBtn:hover {
+  opacity: 0.9;
 }
 
 #registrationPage {
@@ -1020,6 +1083,12 @@ a.register {
 nav#navbar-default1 {
   z-index: 10;
 }
+
+/* a.navbar-logo {
+  display: inline-block;
+  margin: 0px auto;
+  max-width: 228px;
+} */
 
 nav#navbar-default1.navbar-default {
   background: white;
@@ -1884,6 +1953,7 @@ label {
   .headIcons {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
 
@@ -2051,6 +2121,13 @@ label {
   }
 }
 
+@media screen and (max-width: 850px) {
+  .cart-item .image-container img {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .text-col {
     width: 100%;
@@ -2123,6 +2200,16 @@ label {
   .product-title span {
     font-size: 16px;
   }
+
+  .cart-item,
+  .basket-header,
+  .basket-bottom-wrapper {
+    grid-template-columns: 1% 42% 27% 20% 10%;
+  }
+
+  .cart-item .image-container img {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -2159,7 +2246,33 @@ label {
   .black-button {
     width: 70%;
   }
+
+  .basket-header {
+    color: transparent;
+  }
+
+  #checkout-basket-wrapper {
+    padding: 10px;
+  }
+
+  .cart-item .quantity-wrapper .quantity-number {
+    margin: 0px;
+  }
 }
+
+/* @media screen and (max-width: 420px) {
+  #logo-wrapper {
+    width: 50%;
+  }
+
+  a.navbar-logo {
+    width: 100%;
+  }
+  
+  .logo {
+    width: 100%;
+  }
+} */
 
 @media screen and (max-width: 370px) {
   .white-button,

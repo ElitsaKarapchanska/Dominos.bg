@@ -74,11 +74,10 @@ Handlebars.registerHelper("printProductDetails", function (product) {
 });
 
 Handlebars.registerHelper("getPricePerUnit", function (item) {
-  return Product.getFinalPrice(item).toFixed(2);
+  return (Product.getFinalPrice(item)).toFixed(2);
 });
 
 Handlebars.registerHelper("getProductFinalPrice", function (item) {
-  console.log(item);
   return (Product.getFinalPrice(item) * item.quantity).toFixed(2);
 });
 

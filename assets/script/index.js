@@ -153,7 +153,7 @@ function showSlides(n) {
 
 function showInitialNumberOfItemsInCart() {
   if (userStorage.loggedInUser) {
-    let numberOfProductsInCart = userStorage.loggedInUser.cart.length;
+    let numberOfProductsInCart = userStorage.loggedInUser.cart.products.length;
     let cartNumber = getById("orderNumber");
     let cartNumberResp = getById("orderNumberResponsive");
     cartNumber.innerText = numberOfProductsInCart;
