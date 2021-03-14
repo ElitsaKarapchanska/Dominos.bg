@@ -38,13 +38,15 @@ function openLoginModal(
       ev.preventDefault();
 
       if (isLoggedIn) {
+        changeElementVisibility(loginError, false);
         if (toOpenDeliveryModal) {
           openDeliveryModal(toOpenRestaurantModal);
         } else {
           closeAnyModal();
         }
       } else {
-        // TODO: show validationg messages
+        let loginError = getById("loginError");
+        changeElementVisibility(loginError);
       }
     });
   });

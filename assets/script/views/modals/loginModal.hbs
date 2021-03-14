@@ -3,10 +3,9 @@
     <form id="loginForm" name="login" class="flex column" method="GET">
         <input type="text" name="email" class="form-control rounded" required="" autocomplete="off" id="login-email"
             placeholder="E-mail">
-        <span class="error_message error-txt"></span>
         <input type="password" name="password" class="form-control rounded" required="" autocomplete="off"
             id="login-pass" placeholder="парола">
-        <span class="error_message error-txt"></span>
+        <span id="loginError" class="error_message error-txt">Грешен имейл или парола</span>
         <div id="remember-pass-wrapper" class="flex end">
             <label for="remember-pass" class="flex check">
                 <input type="checkbox" name="remember-pass" id="remember-pass" class="hidden" />

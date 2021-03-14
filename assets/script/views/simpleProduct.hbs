@@ -1,0 +1,93 @@
+{{#if this}}
+{{#each this}}
+<article id="{{this.id}}" class="card rounded simple-card {{this.category}}-card">
+    {{#ifCond this.tags.length '>' 0}}
+    <div class="card-tags-wrapper">
+        {{#each this.tags}}
+        {{#ifCond this '===' 'ПИКАНТНО'}}
+        <div class="tooltip">
+            <img class="card-tag" src="./assets/images/tags/hot.svg" alt="spicy">
+            <span class="tooltiptext">{{this}}</span>
+        </div>
+        {{/ifCond}}
+        {{#ifCond this '===' 'ЗА ВЕГЕТАРИАНЦИ'}}
+        <div class="tooltip">
+            <img class="card-tag" src="./assets/images/tags/vegeterian.svg" alt="vegeterian">
+            <span class="tooltiptext">{{this}}</span>
+        </div>
+        {{/ifCond}}
+        {{#ifCond this '===' 'ПОСТНИ'}}
+        <div class="tooltip">
+            <img class="card-tag" src="./assets/images/tags/fasting.svg" alt="vegan">
+            <span class="tooltiptext">{{this}}</span>
+        </div>
+        {{/ifCond}}
+        {{#ifCond this '===' 'НОВО'}}
+        <div class="tooltip">
+            <img class="card-tag" src="./assets/images/tags/new_bg.svg" alt="new">
+            <span class="tooltiptext">{{this}}</span>
+        </div>
+        {{/ifCond}}
+        {{/each}}
+    </div>
+    {{/ifCond}}
+    <div class="title-wrapper">
+        {{#ifCond this.title.length '>' 24}}
+        <h2 class="ellipsis">{{this.title}}</h2>
+        <h2 class="name-scroll">{{this.title}}</h2>
+        {{else}}
+        <h2>{{this.title}}</h2>
+        {{/ifCond}}
+    </div>
+    {{#ifCond this.category '!==' 'drink'}}
+    <p class="product-description">
+        {{this.description}}
+    </p>
+    {{/ifCond}}
+    <img class="product-picture {{this.category}}-img" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
+    <div class="btn-wrapper">
+        <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
+    </div>
+    <section
+        class="slide-up closed flex column space-between {{#ifCond this.types.length '==' 0}}slide-up-short{{/ifCond}}">
+        {{#ifCond this.category '!==' 'drink'}}
+        <div class="weight-container">
+            <span class="border"></span>
+            <div class="weight-center">
+                <div class="weight">{{this.weight}}g</div>
+            </div>
+            <span class="border"></span>
+        </div>
+        {{/ifCond}}
+        {{#ifCond this.types.length '>' 0}}
+        <div class="select-wrapper">
+            <select name="productTypes" class="productTypes">
+                {{#each this.types}}
+                <option value="{{@index}}">{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+        {{/ifCond}}
+        <div class="details">
+            <div class="card-quantity">
+                <p>КОЛИЧЕСТВО</p>
+                <div class="quantity-wrapper">
+                    <img class="minus quantity-controller" alt="minus" src="assets/images/minus.svg">
+                    <span class="quantity-number">1</span>
+                    <img class="plus quantity-controller" alt="plus" src="assets/images/plus.svg">
+                </div>
+            </div>
+            <div class="card-price">
+                <p>ЦЕНА</p>
+                {{#ifCond this.category '===' 'drink'}}
+                <p class="price-sum">{{this.price.[0]}}лв</p>
+                {{else}}
+                <p class="price-sum">{{this.price}}лв</p>
+                {{/ifCond}}
+            </div>
+        </div>
+        <button class="addBtn green-button button rounded">ДОБАВИ</button>
+    </section>
+</article>
+{{/each}}
+{{/if}}

@@ -31,7 +31,7 @@
 body {
   font-size: 17px;
   font-family: "Open Sans", sans-serif;
-  background: rgb(216, 175, 117) url(../images/background.jpg);
+  background: url(../images/background.jpg) rgb(216, 175, 117);
   color: rgb(90, 90, 90);
   font-weight: normal;
 }
@@ -355,6 +355,10 @@ div#appLink {
   background-color: rgba(255, 255, 255, 0.9);
   transition: transform 0.2s ease-in-out;
   border-radius: 0 0 4px 4px;
+}
+
+.simple-card .slide-up-short {
+  height: 160px;
 }
 
 .simple-card .slide-up.closed {
@@ -1001,6 +1005,15 @@ body.modal-open {
   margin: 25px 0px;
 }
 
+.error-txt {
+  color: red;
+}
+
+span.error_message {
+  display: none;
+  margin: 10px 0px;
+}
+
 p.register-txt {
   margin-top: 25px;
   font-size: 19px;
@@ -1049,7 +1062,7 @@ a.register {
 }
 
 #loadingScreen {
-  background: rgb(216, 175, 117) url(../images/background.jpg);
+  background: url(../images/background.jpg) rgb(216, 175, 117);
   width: 100%;
   height: 100%;
   z-index: 100;

@@ -38,7 +38,6 @@ let registrationFields = {
 };
 
 registrationForm.addEventListener("submit", function (ev) {
-  // TODO: show validating messages
   let isRegistered = userStorage.register(
     registrationFields.regEmail.value,
     registrationFields.regPass.value,
@@ -53,11 +52,15 @@ registrationForm.addEventListener("submit", function (ev) {
   ev.preventDefault();
 
   if (isRegistered) {
+    changeElementVisibility(regError, false);
     userStorage.login(
       registrationFields.regEmail.value,
       registrationFields.regPass.value
     );
     openDeliveryModal(true);
+  } else {
+    let regError = getById("regError");
+    changeElementVisibility(regError);
   }
 });
 
@@ -67,7 +70,8 @@ userIcon.addEventListener("click", function () {
 
 // closing the dropdown on click anywhere except the profile icon
 window.addEventListener("click", function (event) {
-  let toClose = !event.path.some((el) => el.id === "loggedIn");
+  let path = event.path || (event.composedPath && event.composedPath());
+  let toClose = !path.some((el) => el.id === "loggedIn");
   if (toClose) {
     profileDropdown.classList.add("hidden");
   }

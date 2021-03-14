@@ -30,38 +30,50 @@ Handlebars.registerHelper("printProductDetails", function (product) {
   // checking through a template because once saved in localStorage, the products lose their constructors
   let productTemplate = getProductByWholeId(product.id);
   if (productTemplate instanceof CustomizableProduct) {
-    
     if (product.category === "pizza") {
-      html += `<div class="pizza-desc">${product.size.split(" ")[0]} ${product.crustType}</div>`;
+      html += `<div class="pizza-desc">${product.size.split(" ")[0]} ${
+        product.crustType
+      }</div>`;
     }
 
     // check if product.ingredients are different than template ingredients and add differences
-    if (JSON.stringify(product.initialIngredients) !== JSON.stringify(product.ingredients)) {
-      let ingredientDiff = "<div class=\"ingredient-diff\">";
+    if (
+      JSON.stringify(product.initialIngredients) !==
+      JSON.stringify(product.ingredients)
+    ) {
+      let ingredientDiff = '<div class="ingredient-diff">';
       let commonIngredients = 0;
-      product.initialIngredients.forEach(ingredient => {
-        let index = product.ingredients.findIndex(el => el.id === ingredient.id);
+      product.initialIngredients.forEach((ingredient) => {
+        let index = product.ingredients.findIndex(
+          (el) => el.id === ingredient.id
+        );
         if (index > -1) {
-          if (ingredient.isAdditional !== product.ingredients[index].isAdditional) {
+          if (
+            ingredient.isAdditional !== product.ingredients[index].isAdditional
+          ) {
             commonIngredients++;
-            ingredient.isAdditional ? 
-              ingredientDiff += `<div class="extra_topp_text1">- ${ingredient.title}</div>` :
-              ingredientDiff += `<div class="extra_topp_text2">+ ${ingredient.title}</div>`;
+            ingredient.isAdditional
+              ? (ingredientDiff += `<div class="extra_topp_text1">- ${ingredient.title}</div>`)
+              : (ingredientDiff += `<div class="extra_topp_text2">+ ${ingredient.title}</div>`);
           }
-        } else {    // an ingredient from the original has been removed
-          ingredient.isAdditional ?
-            ingredientDiff += `<div class="extra_topp_text3">- x2 ${ingredient.title}</div>` :
-            ingredientDiff += `<div class="extra_topp_text4">- ${ingredient.title}</div>`;  
+        } else {
+          // an ingredient from the original has been removed
+          ingredient.isAdditional
+            ? (ingredientDiff += `<div class="extra_topp_text3">- x2 ${ingredient.title}</div>`)
+            : (ingredientDiff += `<div class="extra_topp_text4">- ${ingredient.title}</div>`);
         }
       });
 
-      if (commonIngredients < product.ingredients.length) {   // new ingredients have been added
-        product.ingredients.forEach(ingredient => {
-          let index = product.initialIngredients.findIndex(el => el.id === ingredient.id);
+      if (commonIngredients < product.ingredients.length) {
+        // new ingredients have been added
+        product.ingredients.forEach((ingredient) => {
+          let index = product.initialIngredients.findIndex(
+            (el) => el.id === ingredient.id
+          );
           if (index < 0) {
-            ingredient.isAdditional ? 
-              ingredientDiff += `<div class="extra_topp_text5">+ x2 ${ingredient.title}</div>` :
-              ingredientDiff += `<div class="extra_topp_text6">+ ${ingredient.title}</div>`;
+            ingredient.isAdditional
+              ? (ingredientDiff += `<div class="extra_topp_text5">+ x2 ${ingredient.title}</div>`)
+              : (ingredientDiff += `<div class="extra_topp_text6">+ ${ingredient.title}</div>`);
           }
         });
       }
@@ -74,7 +86,7 @@ Handlebars.registerHelper("printProductDetails", function (product) {
 });
 
 Handlebars.registerHelper("getPricePerUnit", function (item) {
-  return (Product.getFinalPrice(item)).toFixed(2);
+  return Product.getFinalPrice(item).toFixed(2);
 });
 
 Handlebars.registerHelper("getProductFinalPrice", function (item) {
@@ -82,6 +94,68 @@ Handlebars.registerHelper("getProductFinalPrice", function (item) {
 });
 
 Handlebars.registerHelper("getTotalPrice", function (items) {
-  let totalPrice = items.reduce((sum, item) => sum += (Product.getFinalPrice(item) * item.quantity), 0);
+  let totalPrice = items.reduce(
+    (sum, item) => (sum += Product.getFinalPrice(item) * item.quantity),
+    0
+  );
   return totalPrice.toFixed(2);
+});
+
+Handlebars.registerHelper("printProductIngredients", function (product) {
+  let html = "";
+  // compare to product.initialIngredients and check
+  html += `<div class="category-col sauces">
+  <div class="category-header">${INGREDIENT_CATEGORY_SAUCES}</div>`;
+  ingredientManager.sauces.forEach((sauce) => {
+    // radiobuttons ???
+  });
+  html += `</div>`;
+
+  let categoriesAndIngredients = [
+    [INGREDIENT_CATEGORY_HERBS, ...ingredientManager.herbs],
+    [INGREDIENT_CATEGORY_CHEESES, ...ingredientManager.cheeses],
+    [INGREDIENT_CATEGORY_MEATS, ...ingredientManager.meats],
+    [INGREDIENT_CATEGORY_VEGETABLES, ...ingredientManager.vegetables],
+    [INGREDIENT_CATEGORY_MISC, ...ingredientManager.misc],
+  ];
+
+  for (let i = 0; i < categoriesAndIngredients.length; i++) {
+    let column = `<div class="category-col herbs">
+    <div class="category-header">${categoriesAndIngredients[i][0]}</div>`;
+
+    for (let j = 1; j < categoriesAndIngredients[i].length; j++) {
+      let currentIngredient = categoriesAndIngredients[i][j];
+
+      let isInProduct = product.initialIngredients.find(
+        (ingredient) => ingredient.id === currentIngredient.id
+      );
+
+      column += `<div>
+        <input class="ingredient ${
+          isInProduct ? "added" : ""
+        }" type="checkbox" id="${currentIngredient.id}" name="${
+        currentIngredient.id
+      }" value="${currentIngredient.title}" 
+          ${isInProduct ? "checked" : ""}>
+        <label class="ingredient ${isInProduct ? "added" : ""}" for="${
+        currentIngredient.id
+      }">${currentIngredient.title}</label>
+        <input class="additional" type="checkbox" id="${
+          currentIngredient.id
+        }-Add" name="${currentIngredient.id}-Add" value="${
+        currentIngredient.id
+      }-Add" 
+          ${isInProduct ? (isInProduct.isAdditional ? "checked" : "") : ""}>
+        <label class="additional" for="${currentIngredient.id}-Add">${
+        INGREDIENT_NAMES_CONSTANTS.EXTRA
+      }</label>
+      </div>`;
+    }
+    column += `</div>`;
+    html += column;
+  }
+
+  
+
+  return html;
 });
