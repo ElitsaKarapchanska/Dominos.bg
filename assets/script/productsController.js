@@ -1,5 +1,7 @@
 const customizableProductSource = getById("customizableProduct").innerHTML;
 const complexCardProductSource = getById("complexCardProduct").innerHTML;
+const filtersSource = getById("productFilters").innerHTML;
+const dealsProductSource = getById("dealsProduct").innerHTML;
 
 ingredientManager.addAllIngredients(allIngredientsData);
 chickenManager.addAllChickenProducts(allChickenData);
@@ -11,6 +13,7 @@ saladManager.addAllSaladProducts(allSaladsData);
 sandwichManager.addAllSandwichProducts(allSandwichData);
 sauceManager.addAllSauceProducts(allSaucesData);
 starterManager.addAllStarterProducts(allStartersData);
+dealManager.addAllDealProducts(allDealsData);
 
 function getProductFromCategoryById(data, id) {
   return data.filter((element) => element.id === id)[0];
@@ -50,6 +53,13 @@ function getProductByWholeId(id) {
       break;
   }
   return getProductFromCategoryById(categoryArr, id);
+}
+
+function displayDeals(products, categoryTab) {
+  const template = Handlebars.compile(dealsProductSource);
+  const html = template(products);
+
+  categoryTab.innerHTML = html;
 }
 
 function displaySimpleProduct(products, categoryTab) {
@@ -336,7 +346,7 @@ function displayComplexProductPage(products, categoryTab) {
           );
 
           allSaucesCheckboxes.forEach((checkbox) => {
-            // all sauces checkmarks except for the one that was just checked           
+            // all sauces checkmarks except for the one that was just checked
             if (checkbox !== event.target) {
               checkbox.checked = false;
               let sauceTitle = checkbox.value;
@@ -503,18 +513,81 @@ function quantityButtonClick(event) {
   priceEl.innerText = currentPrice.toFixed(2) + "лв";
 }
 
-function additionalIngredientOnChange(checkbox) {}
+function filterCheckBoxesAndProducts(products, where) {
+  const template = Handlebars.compile(filtersSource);
+  const html = template(products);
+
+  where.innerHTML = html;
+
+  //pizzas;
+  if (products.category === "pizza") {
+    let newPizzas = getById("new_p");
+    let vegetariansPizzas = getById("vegeterian");
+    let spicyPizzas = getById("hotP");
+    let leanPizzas = getById("leanP");
+
+    filterPizzas(newPizzas, pizzaManager.newPizzas);
+    filterPizzas(vegetariansPizzas, pizzaManager.vegetariansPizzas);
+    filterPizzas(spicyPizzas, pizzaManager.spicyPizzas);
+    filterPizzas(leanPizzas, pizzaManager.leanPizzas);
+  }
+  //starters;
+  else if (products.category === "starter") {
+    let vegeterianStarters = getById("vegeterianStarters");
+    let newStarters = getById("newStarters");
+
+    filterStarters(vegeterianStarters, starterManager.spicyStarters);
+    filterStarters(newStarters, starterManager.newStarters);
+  }
+  //pasta;
+  else if (products.category === "pasta") {
+    let spicyPasta = getById("spicyPasta");
+    let newPasta = getById("newPasta");
+
+    filterPastas(spicyPasta, pastaManager.spicyPasta);
+    filterPastas(newPasta, pastaManager.newPasta);
+  }
+  //sauce
+  else if (products.category === "sauce") {
+    let newSauces = getById("newSauces");
+    let spicySauces = getById("spicySauces");
+
+    filterSauces(newSauces, sauceManager.newSauces);
+    filterSauces(spicySauces, sauceManager.spicySauces);
+  }
+  //dessert
+  else if (products.category === "dessert") {
+    let desserts = getById("desserts");
+    let icecreams = getById("icecreams");
+
+    filterDesserts(desserts, dessertManager.desserts);
+    filterDesserts(icecreams, dessertManager.icecreams);
+  }
+}
 
 displaySimpleProduct(chickenManager.allChicken, allPages.allChickenPage);
-// TODO: deals
-displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);
+displayDeals(dealManager.allDeals, allPages.allDealsPage);
+// displaySimpleProduct(dessertManager.allDesserts, allPages.allDessertsPage);//filter;
 displaySimpleProduct(drinkManager.allDrinks, allPages.allDrinksPage);
-displayCustomizableProduct(pastaManager.allPasta, allPages.allPastaPage);
-displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);
+// displayCustomizableProduct(pastaManager.allPasta, allPages.allPastaPage);//filter;
+// displayCustomizableProduct(pizzaManager.allPizzas, allPages.allPizzasPage);//filter;
 displayCustomizableProduct(saladManager.allSalads, allPages.allSaladsPage);
 displayCustomizableProduct(
   sandwichManager.allSandwiches,
   allPages.allSandwichPage
 );
-displaySimpleProduct(sauceManager.allSauces, allPages.allSaucesPage);
-displaySimpleProduct(starterManager.allStarters, allPages.allStartersPage);
+// displaySimpleProduct(sauceManager.allSauces, allPages.allSaucesPage);//filter;
+// displaySimpleProduct(starterManager.allStarters, allPages.allStartersPage);//filter;
+
+//with filter-checkboxes;
+displayCustomizableProduct(pizzaManager.allPizzas, pizza);
+displaySimpleProduct(starterManager.allStarters, starter);
+displayCustomizableProduct(pastaManager.allPasta, pasta);
+displaySimpleProduct(sauceManager.allSauces, sauce);
+displaySimpleProduct(dessertManager.allDesserts, dessert);
+
+filterCheckBoxesAndProducts(pizzaManager.allPizzas[0], filteredPizza); //pizza checkboxes
+filterCheckBoxesAndProducts(starterManager.allStarters[0], filteredStarter); //starters checkboxes
+filterCheckBoxesAndProducts(pastaManager.allPasta[0], filterPasta); //pasta checkboxes
+filterCheckBoxesAndProducts(sauceManager.allSauces[0], filterSauce); //sauces checkboxes
+filterCheckBoxesAndProducts(dessertManager.allDesserts[0], filterDessert); //dessert checkboxes
