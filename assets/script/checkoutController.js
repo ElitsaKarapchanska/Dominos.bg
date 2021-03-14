@@ -169,4 +169,4 @@ function checkoutPreviewController() {
   });
 }
 
-checkoutPreviewController();
+cartIcon.addEventListener("mouseenter", checkoutPreviewController);
