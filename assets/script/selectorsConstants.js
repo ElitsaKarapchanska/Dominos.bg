@@ -48,3 +48,18 @@ const whitetel = getById("whitetel");
 
 //menu
 const activePage = document.querySelectorAll(".main-menu > li");
+
+//filters;
+const filteredPizza = getById("filter-pizza");
+const filteredStarter =getById("filter-starter");
+const filterPasta = getById("filter-pasta");
+const filterSauce = getById("filter-sauce");
+const filterDessert = getById("filter-dessert");
+
+
+//product containers
+const pizza = getById("pizza-container");
+const starter = getById("starter-container");
+const pasta = getById("pasta-container");
+const sauce = getById("sauce-container");
+const dessert = getById("dessert-container");
