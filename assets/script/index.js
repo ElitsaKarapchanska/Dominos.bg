@@ -57,6 +57,7 @@ function showPage() {
 
   if (currentPage === "checkout") {
     if (userStorage.loggedInUser) {
+      changeElementVisibility(orderNowBtn, false);
       checkoutController();
     } else {
       location.hash = "#home";

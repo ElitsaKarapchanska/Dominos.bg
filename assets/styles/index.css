@@ -1902,6 +1902,12 @@ label {
   margin-bottom: 10px;
 }
 
+.toppings-wrapper label {
+  margin-bottom: 5px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
 .toppings-wrapper label + div.additional-container {
   transition: all .1s ease-in-out;
   visibility: hidden;

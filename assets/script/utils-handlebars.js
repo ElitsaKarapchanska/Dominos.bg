@@ -140,8 +140,8 @@ Handlebars.registerHelper("printProductIngredients", function (product) {
         <input class="additional" type="checkbox" id="${
           currentIngredient.id
         }-Add" name="${currentIngredient.id}-Add" value="${
-        currentIngredient.id
-      }-Add" 
+        currentIngredient.title
+      }" 
           ${isInProduct ? (isInProduct.isAdditional ? "checked" : "") : ""}>
         <label class="additional" for="${currentIngredient.id}-Add">${
         INGREDIENT_NAMES_CONSTANTS.EXTRA

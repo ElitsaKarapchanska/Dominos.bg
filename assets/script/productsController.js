@@ -141,7 +141,8 @@ function displaySimpleProduct(products, categoryTab) {
           dropdown.addEventListener("change", function (event) {
             // select the product and the quantity
             let id = -1;
-            let path = event.path || (event.composedPath && event.composedPath());
+            let path =
+              event.path || (event.composedPath && event.composedPath());
             path.forEach((el) => {
               if (el.tagName === "ARTICLE") id = el.id;
             });
@@ -229,7 +230,7 @@ function displayComplexProductPage(products, categoryTab) {
 
   // a number to add or subtract from the product price to get the final price pre unit
   // (depends on pizza dough type, added and subtracted ingredients, but not on size)
-  let priceModifiers = [0];
+  let priceModifiers = 0;
 
   let close = getById("closeIcon");
   close.addEventListener("click", function () {
@@ -307,6 +308,68 @@ function displayComplexProductPage(products, categoryTab) {
       }
     });
   }
+
+  let mainIngredientInputs = document.querySelectorAll(
+    "#complexProductPage .toppings-container input.single-ingredient"
+  );
+  console.log(mainIngredientInputs);
+
+  mainIngredientInputs.forEach((input) => {
+    input.addEventListener("change", function (event) {
+      let id = event.target.id;
+      // select the 'additional' checkbox
+      let additional = getById(id + "-Add");
+
+      let ingredientTitle = event.target.value;
+      let ingredient = ingredientManager.getIngredientCopy(
+        ingredientTitle,
+        false
+      );
+
+      let strIngredientContainer = getById("strIngredientContainer");
+      let stringifiedIngr = "";
+
+      // TODO: update price with priceModifiers
+
+      if (event.target.checked) {
+        stringifiedIngr = products.addIngredient(ingredient);
+      } else {
+        stringifiedIngr = products.removeIngredient(ingredient);
+        additional.checked = false;
+      }
+      strIngredientContainer.innerText = stringifiedIngr;
+    });
+  });
+
+  let additionalIngredientInputs = document.querySelectorAll(
+    "#complexProductPage .toppings-container input.additional"
+  );
+
+  additionalIngredientInputs.forEach((input) => {
+    input.addEventListener("change", function (event) {
+      let ingredientTitle = event.target.value;
+      let ingredient = ingredientManager.getIngredientCopy(
+        ingredientTitle,
+        false
+      );
+
+      let strIngredientContainer = getById("strIngredientContainer");
+
+      let toAdd = event.target.checked;
+
+      let stringifiedIngr = products.changeAdditionalIngredient(
+        ingredient,
+        toAdd
+      );
+
+      priceModifiers = toAdd
+        ? priceModifiers + ingredient.price[1]
+        : priceModifiers - ingredient.price[1];
+
+      strIngredientContainer.innerText = stringifiedIngr;
+      // TODO: update price with priceModifiers
+    });
+  });
 
   аddButton.addEventListener("click", function () {
     let category = location.hash.split("-")[1];

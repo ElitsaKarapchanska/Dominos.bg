@@ -8,10 +8,11 @@ const pizzaManager = (function () {
       id,
       tags,
       ingredients,
+      initialIngredients,
       size = PIZZA_SIZES.BIG,
       crustType = PIZZA_CRUST_TYPES.TRADITIONAL
     ) {
-      super(title, image, price, weight, id, "pizza", tags, ingredients);
+      super(title, image, price, weight, id, "pizza", tags, ingredients, initialIngredients);
       this.size = size;
       this.crustType = crustType;
     }
@@ -79,6 +80,12 @@ const pizzaManager = (function () {
         product.id,
         product.tags,
         product.ingredients.map((ingredient) =>
+          ingredientManager.getIngredientCopy(
+            ingredient["title"],
+            ingredient["isAdditional"]
+          )
+        ),
+        product.initialIngredients.map((ingredient) =>
           ingredientManager.getIngredientCopy(
             ingredient["title"],
             ingredient["isAdditional"]
