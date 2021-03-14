@@ -68,6 +68,14 @@ body {
   align-items: center;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
 .column {
   flex-direction: column;
 }
@@ -163,6 +171,12 @@ button {
 
 .wide-card {
   grid-column: 1/4;
+}
+
+.white-decoration-title {
+  color: #fff;
+  background-image: url(../images/decor_elem_left_white.svg),
+    url(../images/decor_elem_right_white.svg);
 }
 
 #socialContainer h2 {
@@ -1845,6 +1859,101 @@ label {
   width: 25px;
   background: url(../images/bottom_right.svg) no-repeat right top;
 }
+
+.toppings-wrapper {
+  /* display: none; */
+  background-color: rgba(111, 64, 9, 0.3);
+  color: white;
+  padding-top: 30px;
+}
+
+.toppings-wrapper > h2 {
+  margin-bottom: 30px;
+}
+
+.toppings-wrapper > h2 > span {
+  font-size: 26px;
+  padding: 0 40px;
+  line-height: 28px;
+}
+
+.toppings-container {
+  column-count: 4;
+  column-width: 220px;
+}
+
+.toppings-wrapper .category-col {
+  width: 25%;
+  min-width: 220px;
+  margin-bottom: 35px;
+  break-inside: avoid-column;
+}
+
+.toppings-wrapper .category-col h3 {
+  text-decoration: underline;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 1.17em;
+}
+
+.toppings-wrapper li {
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.toppings-wrapper label + div.additional-container {
+  transition: all .1s ease-in-out;
+  visibility: hidden;
+  height: 0;
+  padding-left: 25px;
+}
+
+.toppings-wrapper input {
+  display: none;
+}
+
+.toppings-wrapper input.single-ingredient:checked + label + div.additional-container {
+  visibility: visible;
+  height: 25px;
+}
+
+.toppings-wrapper input.single-ingredient + label:before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  vertical-align: -2px;
+  box-sizing: border-box;
+}
+
+.toppings-wrapper input.single-ingredient:checked + label:before {
+  background: #fff;
+}
+
+.toppings-wrapper div.additional-container input + label:before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border: 2px solid #fff;
+  background: transparent;
+  cursor: pointer;
+  vertical-align: -2px;
+  box-sizing: border-box;
+}
+
+.toppings-wrapper div.additional-container input:checked + label:before {
+  background: url(../images/close_x.svg) no-repeat center center;
+  background-size: 8px;
+}
+
 /* menu */
 .main-menu {
   display: flex;

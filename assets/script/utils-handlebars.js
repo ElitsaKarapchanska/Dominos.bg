@@ -103,15 +103,9 @@ Handlebars.registerHelper("getTotalPrice", function (items) {
 
 Handlebars.registerHelper("printProductIngredients", function (product) {
   let html = "";
-  // compare to product.initialIngredients and check
-  html += `<div class="category-col sauces">
-  <div class="category-header">${INGREDIENT_CATEGORY_SAUCES}</div>`;
-  ingredientManager.sauces.forEach((sauce) => {
-    // radiobuttons ???
-  });
-  html += `</div>`;
 
   let categoriesAndIngredients = [
+    [INGREDIENT_CATEGORY_SAUCES, ...ingredientManager.sauces],
     [INGREDIENT_CATEGORY_HERBS, ...ingredientManager.herbs],
     [INGREDIENT_CATEGORY_CHEESES, ...ingredientManager.cheeses],
     [INGREDIENT_CATEGORY_MEATS, ...ingredientManager.meats],
@@ -120,8 +114,8 @@ Handlebars.registerHelper("printProductIngredients", function (product) {
   ];
 
   for (let i = 0; i < categoriesAndIngredients.length; i++) {
-    let column = `<div class="category-col herbs">
-    <div class="category-header">${categoriesAndIngredients[i][0]}</div>`;
+    let column = `<div class="category-col">
+    <h3 class="category-header">${categoriesAndIngredients[i][0]}</h3><ul>`;
 
     for (let j = 1; j < categoriesAndIngredients[i].length; j++) {
       let currentIngredient = categoriesAndIngredients[i][j];
@@ -130,16 +124,19 @@ Handlebars.registerHelper("printProductIngredients", function (product) {
         (ingredient) => ingredient.id === currentIngredient.id
       );
 
-      column += `<div>
-        <input class="ingredient ${
-          isInProduct ? "added" : ""
-        }" type="checkbox" id="${currentIngredient.id}" name="${
-        currentIngredient.id
-      }" value="${currentIngredient.title}" 
-          ${isInProduct ? "checked" : ""}>
-        <label class="ingredient ${isInProduct ? "added" : ""}" for="${
+      let ingredientHTML = `<li>
+      <input class="ingredient single-ingredient ${
+        isInProduct ? "added" : ""
+      }" type=${
+        categoriesAndIngredients[i][0] === INGREDIENT_CATEGORY_SAUCES
+          ? `"radio" name="sauce"`
+          : `"checkbox" name="${currentIngredient.id}"`
+      } id="${currentIngredient.id}" value="${currentIngredient.title}" 
+        ${isInProduct ? "checked" : ""}>
+      <label class="ingredient ${isInProduct ? "added" : ""}" for="${
         currentIngredient.id
       }">${currentIngredient.title}</label>
+      <div class="additional-container">
         <input class="additional" type="checkbox" id="${
           currentIngredient.id
         }-Add" name="${currentIngredient.id}-Add" value="${
@@ -149,13 +146,13 @@ Handlebars.registerHelper("printProductIngredients", function (product) {
         <label class="additional" for="${currentIngredient.id}-Add">${
         INGREDIENT_NAMES_CONSTANTS.EXTRA
       }</label>
-      </div>`;
+      </div>
+    </li>`;
+
+      column += ingredientHTML;
     }
-    column += `</div>`;
+    column += `</ul></div>`;
     html += column;
   }
-
-  
-
   return html;
 });
