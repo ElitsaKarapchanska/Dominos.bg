@@ -20,24 +20,24 @@ class CustomizableProduct extends Product {
   addIngredient(ingredient) {
     if (this.getIndexInCurrentIngredients(ingredient) < 0) {
       this.ingredients.push(ingredient);
-      return (this.stringifiedIngredients = this.getIngredientsToString());
     }
+    return (this.stringifiedIngredients = this.getIngredientsToString());
   }
 
   removeIngredient(ingredient) {
     let index = this.getIndexInCurrentIngredients(ingredient);
     if (index >= 0) {
       this.ingredients.splice(index, 1);
-      return (this.stringifiedIngredients = this.getIngredientsToString());
     }
+    return (this.stringifiedIngredients = this.getIngredientsToString());
   }
 
   changeAdditionalIngredient(ingredient, isAdditional) {
     let index = this.getIndexInCurrentIngredients(ingredient);
     if (index >= 0) {
       this.ingredients[index].isAdditional = isAdditional;
-      return (this.stringifiedIngredients = this.getIngredientsToString());
     }
+    return (this.stringifiedIngredients = this.getIngredientsToString());
   }
 
   resetProductIngredients() {

@@ -254,7 +254,7 @@ function displayComplexProductPage(products, categoryTab) {
       // check if the quantity is more than 1;
       count--;
 
-      currPrice = currPrice - itemPrice; // to modify the price;
+      currPrice /= count + 1; // to modify the price;
       price.innerHTML = currPrice.toFixed(2);
     }
     quantity.innerText = count;
@@ -266,7 +266,7 @@ function displayComplexProductPage(products, categoryTab) {
     let currPrice = Number(price.innerHTML);
 
     count++;
-    currPrice = itemPrice * count; // to modify the price;
+    currPrice *= count; // to modify the price;
 
     quantity.innerText = count;
     price.innerHTML = currPrice.toFixed(2);
@@ -312,7 +312,6 @@ function displayComplexProductPage(products, categoryTab) {
   let mainIngredientInputs = document.querySelectorAll(
     "#complexProductPage .toppings-container input.single-ingredient"
   );
-  console.log(mainIngredientInputs);
 
   mainIngredientInputs.forEach((input) => {
     input.addEventListener("change", function (event) {
@@ -329,14 +328,49 @@ function displayComplexProductPage(products, categoryTab) {
       let strIngredientContainer = getById("strIngredientContainer");
       let stringifiedIngr = "";
 
-      // TODO: update price with priceModifiers
-
       if (event.target.checked) {
+        // if it's a sauce, uncheck all other sauces and remove them from the product
+        if (event.target.classList.contains("sauces")) {
+          let allSaucesCheckboxes = document.querySelectorAll(
+            "#complexProductPage .toppings-container input.single-ingredient.sauces"
+          );
+
+          allSaucesCheckboxes.forEach((checkbox) => {
+            // all sauces checkmarks except for the one that was just checked           
+            if (checkbox !== event.target) {
+              checkbox.checked = false;
+              let sauceTitle = checkbox.value;
+              let sauce = ingredientManager.getIngredientCopy(
+                sauceTitle,
+                false
+              );
+              products.removeIngredient(sauce);
+            }
+          });
+        }
+
         stringifiedIngr = products.addIngredient(ingredient);
       } else {
         stringifiedIngr = products.removeIngredient(ingredient);
         additional.checked = false;
       }
+
+      // update the price
+      let quantityNumber = parseInt(quantity.innerText);
+      let currentPrice = 0;
+      if (products.category === "pizza") {
+        let selectSize = getById("pizza-size");
+        let size = parseInt(selectSize.value);
+        currentPrice = products.price[size];
+      } else {
+        currentPrice = products.price;
+      }
+
+      price.innerText = (
+        (currentPrice + priceModifiers) *
+        quantityNumber
+      ).toFixed(2);
+
       strIngredientContainer.innerText = stringifiedIngr;
     });
   });
@@ -367,7 +401,22 @@ function displayComplexProductPage(products, categoryTab) {
         : priceModifiers - ingredient.price[1];
 
       strIngredientContainer.innerText = stringifiedIngr;
-      // TODO: update price with priceModifiers
+
+      // update the price
+      let quantityNumber = parseInt(quantity.innerText);
+      let currentPrice = 0;
+      if (products.category === "pizza") {
+        let selectSize = getById("pizza-size");
+        let size = parseInt(selectSize.value);
+        currentPrice = products.price[size];
+      } else {
+        currentPrice = products.price;
+      }
+
+      price.innerText = (
+        (currentPrice + priceModifiers) *
+        quantityNumber
+      ).toFixed(2);
     });
   });
 
@@ -453,6 +502,8 @@ function quantityButtonClick(event) {
   quantityEl.innerText = currentQuantity;
   priceEl.innerText = currentPrice.toFixed(2) + "лв";
 }
+
+function additionalIngredientOnChange(checkbox) {}
 
 displaySimpleProduct(chickenManager.allChicken, allPages.allChickenPage);
 // TODO: deals

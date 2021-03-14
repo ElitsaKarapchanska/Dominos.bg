@@ -127,11 +127,13 @@ Handlebars.registerHelper("printProductIngredients", function (product) {
       let ingredientHTML = `<li>
       <input class="ingredient single-ingredient ${
         isInProduct ? "added" : ""
-      }" type=${
+      } ${
         categoriesAndIngredients[i][0] === INGREDIENT_CATEGORY_SAUCES
-          ? `"radio" name="sauce"`
-          : `"checkbox" name="${currentIngredient.id}"`
-      } id="${currentIngredient.id}" value="${currentIngredient.title}" 
+          ? "sauces"
+          : ""
+      }" type="checkbox" name="${currentIngredient.id}" id="${
+        currentIngredient.id
+      }" value="${currentIngredient.title}" 
         ${isInProduct ? "checked" : ""}>
       <label class="ingredient ${isInProduct ? "added" : ""}" for="${
         currentIngredient.id
