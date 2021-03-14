@@ -1,0 +1,45 @@
+<div id="checkout-basket-wrapper" class="main-wrapper rounded">
+    <h2 class="decoration-title red-decoration-title">ПОТВЪРЖДАВАНЕ НА ПОРЪЧКАТА</h2>
+    <div class="basket-header font-bold">
+        <div id="product-header">ПРОДУКТ</div>
+        <div id="quantity-header">КОЛИЧЕСТВО</div>
+        <div id="price-header">ЦЕНА</div>
+    </div>
+    <div class="cart-item-container">
+        {{#if this}}
+        {{#each this}}
+        <div class="cart-item" data-id="{{this.prod.id}}" data-uuid="{{this.uuid}}">
+            <div class="image-container">
+                <img src="./assets/images/{{this.prod.image}}" alt="{{this.prod.title}}">
+            </div>
+            <div class="details-container">
+                {{#if this.prod.selectedType}}
+                <p class="blue-txt font-bold">{{this.prod.title}} {{this.prod.selectedType}}</p>
+                {{else}}
+                <p class="blue-txt font-bold">{{this.prod.title}}</p>
+                {{/if}}
+                {{{printProductDetails this.prod}}}
+            </div>
+            <div class="quantity-wrapper">
+                <img class="minus quantity-controller" alt="minus" src="./assets/images/minus.svg">
+                <span class="quantity-number">{{this.quantity}}</span>
+                <img class="plus quantity-controller" alt="plus" src="./assets/images/plus.svg">
+            </div>
+            <div class="price-container" data-price="{{getPricePerUnit this}}">{{getProductFinalPrice this}}лв</div>
+            <div class="x-container">
+                <img class="remove-x" src="./assets/images/delete_cross.svg" alt="remove from cart">
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+    <div class="basket-bottom-wrapper">
+        <div class="font-bold total">Общо</div>
+        <div id="totalPriceCart" class="basket-total font-bold">{{getTotalPrice this}}лв</div>
+    </div>
+    <div id="backBtn" class="menu-back-btn button rounded">ОБРАТНО КЪМ МЕНЮТО</div>
+</div>
+
+<div class="order-btn-container">
+    <button id="checkOutBtn" class="button red-btn text-center rounded">ЗАВЪРШЕТЕ ПОРЪЧКАТА СИ</button>
+</div>

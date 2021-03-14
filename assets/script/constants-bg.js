@@ -87,7 +87,7 @@ const PIZZA_CRUST_TYPES = {
   THIN: "Тънко и хрупкаво",
   WHOLEGRAIN: "Пълнозърнесто",
   PHILLADELPHIA: "с Philadelphia (+2.25лв)",
-}
+};
 
 const STARTER_NAMES_CONSTANTS = {
   MOZZARELLA_BREAD: "МОЦАРЕЛЕНО ХЛЕБЧЕ",
@@ -196,7 +196,7 @@ const DEALS_NAMES_CONSTANTS = {
 };
 
 const INGREDIENT_CATEGORY_SAUCES = "Сосове";
-const INGREDIENT_CATEGORY_HERBS = "Подправки"
+const INGREDIENT_CATEGORY_HERBS = "Подправки";
 const INGREDIENT_CATEGORY_CHEESES = "Сирена";
 const INGREDIENT_CATEGORY_MEATS = "Меса";
 const INGREDIENT_CATEGORY_VEGETABLES = "Зеленчуци";
@@ -245,3 +245,28 @@ const INGREDIENT_NAMES_CONSTANTS = {
   CARAMELIZED_ONIONS: "Карамелизиран лук",
   EXTRA: "Допълнително",
 };
+
+const ALL_RESTAURANTS = [
+  "Варна - Левски",
+  "Варна - Планет Мол",
+  "Пловдив - Кючук Париж",
+  "Пловдив - Тракия",
+  "Пловдив - Център",
+  "София - Борово",
+  "София - Вапцаров",
+  "София - Гео Милев",
+  "София - Дружба",
+  "София - Костенски Водопад",
+  "София - Красна Поляна",
+  "София - Люлин",
+  "София - Младост",
+  "София - Младост 1",
+  "София - Мусагеница",
+  "София - Надежда",
+  "София - Павлово",
+  "София - Студ. Град 2",
+  "София - Студентски Град",
+  "София - Сухата Река",
+  "София - Център",
+  "София - Южен парк",
+];

@@ -1,7 +1,7 @@
 const saladManager = (function () {
   class Salad extends CustomizableProduct {
-    constructor(title, image, price, weight, id, tags, ingredients) {
-      super(title, image, price, weight, id, "salad", tags, ingredients);
+    constructor(title, image, price, weight, id, tags, ingredients, initialIngredients) {
+      super(title, image, price, weight, id, "salad", tags, ingredients, initialIngredients);
     }
   }
 
@@ -46,6 +46,12 @@ const saladManager = (function () {
         product.id,
         product.tags,
         product.ingredients.map((ingredient) =>
+          ingredientManager.getIngredientCopy(
+            ingredient["title"],
+            ingredient["isAdditional"]
+          )
+        ),
+        product.initialIngredients.map((ingredient) =>
           ingredientManager.getIngredientCopy(
             ingredient["title"],
             ingredient["isAdditional"]

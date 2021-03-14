@@ -9,4 +9,23 @@ class Product {
     this.category = category;
     this.tags = tags; // array
   }
+
+  static getFinalPrice(cartItem) {
+    let priceModifiers = parseFloat(cartItem.priceModifiers);
+    if (cartItem.prod.types) {
+      let index = cartItem.prod.types.indexOf(cartItem.prod.selectedType);
+      return cartItem.prod.price[index] + priceModifiers;
+    }
+    if (cartItem.prod.category !== 'pizza') {
+      return cartItem.prod.price + priceModifiers;
+    }
+    switch (cartItem.prod.size) {
+      case PIZZA_SIZES.MEDIUM:
+        return cartItem.prod.price[0] + priceModifiers;
+      case PIZZA_SIZES.BIG:
+        return cartItem.prod.price[1] + priceModifiers;
+      case PIZZA_SIZES.JUMBO:
+        return cartItem.prod.price[2] + priceModifiers;
+    }
+  }
 }

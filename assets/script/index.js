@@ -26,7 +26,6 @@ function showPage() {
     if (allPages[page].id === currentPage + "Page") {
       noPageWasShown = false;
       changeElementVisibility(allPages[page]);
-      changeElementVisibility(errorPage, false);
       cartIcon.classList.replace("block", "hidden");
 
       if (allPages[page].id.includes("all")) {
@@ -34,19 +33,13 @@ function showPage() {
         changeElementVisibility(allPages[page], true, "grid");
         cartIcon.classList.replace("hidden", "block");
         changeElementVisibility(orderNowBtn, false);
-        changeElementVisibility(nav);
-        nav.style.display="block";
-      }
-      else {
+        changeElementVisibility(nav); // show menu
+      } else {
         changeElementVisibility(nav, false);
       }
     } else {
       changeElementVisibility(allPages[page], false);
     }
-  }
-  if (noPageWasShown) {
-    changeElementVisibility(errorPage, true, "flex");
-    cartIcon.classList.replace("block", "hidden");
   }
 
   if (currentPage.includes("product")) {
@@ -56,11 +49,30 @@ function showPage() {
     footer.style.display = "none";
     placeholderDiv.style.display = "none";
     noPageWasShown = false;
-    errorPage.style.display = "none";
-    changeElementVisibility(nav, false);
+    changeElementVisibility(nav, false); // hide menu
   } else {
     header.style.display = "block"; // can be change;
     footer.style.display = "block";
+  }
+
+  if (currentPage === "checkout") {
+    if (userStorage.loggedInUser) {
+      changeElementVisibility(orderNowBtn, false);
+      checkoutController();
+    } else {
+      location.hash = "#home";
+      location.reload();
+    }
+    noPageWasShown = false;
+  } else {
+    changeElementVisibility(checkoutPage, false);
+  }
+
+  if (noPageWasShown) {
+    changeElementVisibility(errorPage, true, "flex");
+    cartIcon.classList.replace("block", "hidden");
+  } else {
+    changeElementVisibility(errorPage, false);
   }
 }
 
@@ -142,7 +154,7 @@ function showSlides(n) {
 
 function showInitialNumberOfItemsInCart() {
   if (userStorage.loggedInUser) {
-    let numberOfProductsInCart = userStorage.loggedInUser.cart.length;
+    let numberOfProductsInCart = userStorage.loggedInUser.cart.products.length;
     let cartNumber = getById("orderNumber");
     let cartNumberResp = getById("orderNumberResponsive");
     cartNumber.innerText = numberOfProductsInCart;

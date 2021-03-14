@@ -1,4 +1,3 @@
-const simpleProductSource = getById("simpleProduct").innerHTML;
 const customizableProductSource = getById("customizableProduct").innerHTML;
 const complexCardProductSource = getById("complexCardProduct").innerHTML;
 const filtersSource = getById("productFilters").innerHTML;
@@ -56,7 +55,7 @@ function getProductByWholeId(id) {
   return getProductFromCategoryById(categoryArr, id);
 }
 
-function displayDeals(products, categoryTab){
+function displayDeals(products, categoryTab) {
   const template = Handlebars.compile(dealsProductSource);
   const html = template(products);
 
@@ -64,120 +63,120 @@ function displayDeals(products, categoryTab){
 }
 
 function displaySimpleProduct(products, categoryTab) {
-  const template = Handlebars.compile(simpleProductSource);
-  const html = template(products);
-
-  categoryTab.innerHTML = html;
-
-  // selecting the cards within the current tab
-  let allCards = document.querySelectorAll(
-    "#" + categoryTab.id + " .simple-card"
-  );
-
-  // selecting all buttons which when pressed add the product to the cart
-  let allAddButtons = document.querySelectorAll(
-    "#" + categoryTab.id + " .simple-card .addBtn"
-  );
-
-  let allQuantityControllerButtons = document.querySelectorAll(
-    "#" + categoryTab.id + " .simple-card .quantity-controller"
-  );
-
-  // saving the last opened section so that we can close it, when another one is opened
-  let openedSection;
-
-  allCards.forEach((card) => {
-    card.addEventListener("click", function (ev) {
-      // finding the actual card that was clicked from the 'event.path'
-      let id = -1;
-      ev.path.forEach((el) => {
-        if (el.tagName === "ARTICLE") {
-          id = el.id;
-        }
-      });
-
-      // selecting the 'slide-up' section from the card
-      let slideUpSection = document.querySelector(
-        "#" + id + " section.slide-up"
-      );
-      if (slideUpSection.classList.contains("opened")) {
-        slideUpSection.classList.remove("opened");
-        slideUpSection.classList.add("closed");
-        openedSection = null;
-      } else {
-        slideUpSection.classList.remove("closed");
-        slideUpSection.classList.add("opened");
-        // if there is a section already opened, we close it
-        if (openedSection) {
-          openedSection.classList.remove("opened");
-          openedSection.classList.add("closed");
-        }
-        openedSection = slideUpSection;
-      }
-    });
-  });
-
-  allAddButtons.forEach((btn) => {
-    btn.addEventListener("click", function (event) {
-      // select the product and the quantity
-      let id = -1;
-      event.path.forEach((el) => {
-        if (el.tagName === "ARTICLE") id = el.id;
-      });
-
-      // get product from the id
-      let product = getProductByWholeId(id);
-
-      let quantityElement = document.querySelector(
-        "#" + id + " .quantity-number"
-      );
-      let quantity = parseInt(quantityElement.innerText);
-      addToCartBtn(product, quantity);
-    });
-  });
-
-  allQuantityControllerButtons.forEach((btn) => {
-    btn.addEventListener("click", quantityButtonClick);
-  });
-
-  if (categoryTab.id === "allDrinksPage") {
-    let typesDropdown = document.querySelectorAll(
-      "#" + categoryTab.id + " .simple-card .productTypes"
+  loadTemplate("simpleProduct.hbs", categoryTab, products).then(() => {
+    // selecting the cards within the current tab
+    let allCards = document.querySelectorAll(
+      "#" + categoryTab.id + " .simple-card"
     );
 
-    if (typesDropdown) {
-      typesDropdown.forEach((dropdown) => {
-        dropdown.addEventListener("click", function (event) {
-          event.stopPropagation();
+    // selecting all buttons which when pressed add the product to the cart
+    let allAddButtons = document.querySelectorAll(
+      "#" + categoryTab.id + " .simple-card .addBtn"
+    );
+
+    let allQuantityControllerButtons = document.querySelectorAll(
+      "#" + categoryTab.id + " .simple-card .quantity-controller"
+    );
+
+    // saving the last opened section so that we can close it, when another one is opened
+    let openedSection;
+
+    allCards.forEach((card) => {
+      card.addEventListener("click", function (ev) {
+        // finding the actual card that was clicked from the 'event.path'
+        let id = -1;
+        let path = ev.path || (ev.composedPath && ev.composedPath());
+        path.forEach((el) => {
+          if (el.tagName === "ARTICLE") {
+            id = el.id;
+          }
         });
 
-        dropdown.addEventListener("change", function (event) {
-          // select the product and the quantity
-          let id = -1;
-          event.path.forEach((el) => {
-            if (el.tagName === "ARTICLE") id = el.id;
+        // selecting the 'slide-up' section from the card
+        let slideUpSection = document.querySelector(
+          "#" + id + " section.slide-up"
+        );
+        if (slideUpSection.classList.contains("opened")) {
+          slideUpSection.classList.remove("opened");
+          slideUpSection.classList.add("closed");
+          openedSection = null;
+        } else {
+          slideUpSection.classList.remove("closed");
+          slideUpSection.classList.add("opened");
+          // if there is a section already opened, we close it
+          if (openedSection) {
+            openedSection.classList.remove("opened");
+            openedSection.classList.add("closed");
+          }
+          openedSection = slideUpSection;
+        }
+      });
+    });
+
+    allAddButtons.forEach((btn) => {
+      btn.addEventListener("click", function (event) {
+        // select the product and the quantity
+        let id = -1;
+        let path = event.path || (event.composedPath && event.composedPath());
+        path.forEach((el) => {
+          if (el.tagName === "ARTICLE") id = el.id;
+        });
+
+        // get product from the id
+        let product = getProductByWholeId(id);
+
+        let quantityElement = document.querySelector(
+          "#" + id + " .quantity-number"
+        );
+        let quantity = parseInt(quantityElement.innerText);
+        addToCartBtn(product, quantity);
+      });
+    });
+
+    allQuantityControllerButtons.forEach((btn) => {
+      btn.addEventListener("click", quantityButtonClick);
+    });
+
+    if (categoryTab.id === "allDrinksPage") {
+      let typesDropdown = document.querySelectorAll(
+        "#" + categoryTab.id + " .simple-card .productTypes"
+      );
+
+      if (typesDropdown) {
+        typesDropdown.forEach((dropdown) => {
+          dropdown.addEventListener("click", function (event) {
+            event.stopPropagation();
           });
 
-          // get product from the id
-          let product = getProductByWholeId(id);
+          dropdown.addEventListener("change", function (event) {
+            // select the product and the quantity
+            let id = -1;
+            let path =
+              event.path || (event.composedPath && event.composedPath());
+            path.forEach((el) => {
+              if (el.tagName === "ARTICLE") id = el.id;
+            });
 
-          let priceElement = document.querySelector(
-            "#" + id + " .price-sum"
-          );
+            // get product from the id
+            let product = getProductByWholeId(id);
 
-          let quantityElement = document.querySelector(
-            "#" + id + " .quantity-number"
-          );
-          let currentQuantity = parseInt(quantityElement.innerText);
+            let priceElement = document.querySelector("#" + id + " .price-sum");
 
-          let typeIndex = parseInt(event.target.value);
-          product.selectedType = product.types[typeIndex];
+            let quantityElement = document.querySelector(
+              "#" + id + " .quantity-number"
+            );
+            let currentQuantity = parseInt(quantityElement.innerText);
 
-          priceElement.innerText = (product.price[typeIndex] * currentQuantity).toFixed(2) + "лв";
+            let typeIndex = parseInt(event.target.value);
+            product.selectedType = product.types[typeIndex];
+
+            priceElement.innerText =
+              (product.price[typeIndex] * currentQuantity).toFixed(2) + "лв";
+          });
         });
-      });
+      }
     }
-  }
+  });
 }
 
 function displayCustomizableProduct(products, categoryTab) {
@@ -228,6 +227,8 @@ function showCard(hashLocation) {
         displayComplexProductPage(sandwich, allPages.complexProductPage);
       }
       break;
+    default:
+      return false;
   }
 }
 
@@ -237,8 +238,14 @@ function displayComplexProductPage(products, categoryTab) {
 
   categoryTab.innerHTML = html;
 
+  // a number to add or subtract from the product price to get the final price pre unit
+  // (depends on pizza dough type, added and subtracted ingredients, but not on size)
+  let priceModifiers = 0;
+
   let close = getById("closeIcon");
   close.addEventListener("click", function () {
+    // reset the product if new ingredients have been added
+    products.resetProductIngredients();
     window.history.back();
   });
 
@@ -257,7 +264,7 @@ function displayComplexProductPage(products, categoryTab) {
       // check if the quantity is more than 1;
       count--;
 
-      currPrice = currPrice - itemPrice; // to modify the price;
+      currPrice /= count + 1; // to modify the price;
       price.innerHTML = currPrice.toFixed(2);
     }
     quantity.innerText = count;
@@ -269,7 +276,7 @@ function displayComplexProductPage(products, categoryTab) {
     let currPrice = Number(price.innerHTML);
 
     count++;
-    currPrice = itemPrice * count; // to modify the price;
+    currPrice *= count; // to modify the price;
 
     quantity.innerText = count;
     price.innerHTML = currPrice.toFixed(2);
@@ -312,6 +319,117 @@ function displayComplexProductPage(products, categoryTab) {
     });
   }
 
+  let mainIngredientInputs = document.querySelectorAll(
+    "#complexProductPage .toppings-container input.single-ingredient"
+  );
+
+  mainIngredientInputs.forEach((input) => {
+    input.addEventListener("change", function (event) {
+      let id = event.target.id;
+      // select the 'additional' checkbox
+      let additional = getById(id + "-Add");
+
+      let ingredientTitle = event.target.value;
+      let ingredient = ingredientManager.getIngredientCopy(
+        ingredientTitle,
+        false
+      );
+
+      let strIngredientContainer = getById("strIngredientContainer");
+      let stringifiedIngr = "";
+
+      if (event.target.checked) {
+        // if it's a sauce, uncheck all other sauces and remove them from the product
+        if (event.target.classList.contains("sauces")) {
+          let allSaucesCheckboxes = document.querySelectorAll(
+            "#complexProductPage .toppings-container input.single-ingredient.sauces"
+          );
+
+          allSaucesCheckboxes.forEach((checkbox) => {
+            // all sauces checkmarks except for the one that was just checked
+            if (checkbox !== event.target) {
+              checkbox.checked = false;
+              let sauceTitle = checkbox.value;
+              let sauce = ingredientManager.getIngredientCopy(
+                sauceTitle,
+                false
+              );
+              products.removeIngredient(sauce);
+            }
+          });
+        }
+
+        stringifiedIngr = products.addIngredient(ingredient);
+      } else {
+        stringifiedIngr = products.removeIngredient(ingredient);
+        additional.checked = false;
+      }
+
+      // update the price
+      let quantityNumber = parseInt(quantity.innerText);
+      let currentPrice = 0;
+      if (products.category === "pizza") {
+        let selectSize = getById("pizza-size");
+        let size = parseInt(selectSize.value);
+        currentPrice = products.price[size];
+      } else {
+        currentPrice = products.price;
+      }
+
+      price.innerText = (
+        (currentPrice + priceModifiers) *
+        quantityNumber
+      ).toFixed(2);
+
+      strIngredientContainer.innerText = stringifiedIngr;
+    });
+  });
+
+  let additionalIngredientInputs = document.querySelectorAll(
+    "#complexProductPage .toppings-container input.additional"
+  );
+
+  additionalIngredientInputs.forEach((input) => {
+    input.addEventListener("change", function (event) {
+      let ingredientTitle = event.target.value;
+      let ingredient = ingredientManager.getIngredientCopy(
+        ingredientTitle,
+        false
+      );
+
+      let strIngredientContainer = getById("strIngredientContainer");
+
+      let toAdd = event.target.checked;
+
+      let stringifiedIngr = products.changeAdditionalIngredient(
+        ingredient,
+        toAdd
+      );
+
+      priceModifiers = toAdd
+        ? priceModifiers + ingredient.price[1]
+        : priceModifiers - ingredient.price[1];
+
+      strIngredientContainer.innerText = stringifiedIngr;
+
+      // update the price
+      let quantityNumber = parseInt(quantity.innerText);
+      let currentPrice = 0;
+      if (products.category === "pizza") {
+        let selectSize = getById("pizza-size");
+        let size = parseInt(selectSize.value);
+        currentPrice = products.price[size];
+      } else {
+        currentPrice = products.price;
+      }
+
+      price.innerText = (
+        (currentPrice + priceModifiers) *
+        quantityNumber
+      ).toFixed(2);
+    });
+  });
+
   аddButton.addEventListener("click", function () {
     let category = location.hash.split("-")[1];
     let productToAdd;
@@ -345,6 +463,7 @@ function displayComplexProductPage(products, categoryTab) {
             break;
           case "Philadelphia":
             products.changePizzaCrust(PIZZA_CRUST_TYPES.PHILLADELPHIA);
+            priceModifiers += 2.25;
             break;
           case "Whole grain":
             products.changePizzaCrust(PIZZA_CRUST_TYPES.WHOLEGRAIN);
@@ -365,10 +484,10 @@ function displayComplexProductPage(products, categoryTab) {
     }
 
     // reset the product if new ingredients have been added
-    // products.resetProductIngredients();
+    products.resetProductIngredients();
 
     let quantityNumber = parseInt(quantity.innerText);
-    addToCartBtn(productToAdd, quantityNumber);
+    addToCartBtn(productToAdd, quantityNumber, priceModifiers);
     window.history.back();
   });
 }
@@ -394,55 +513,55 @@ function quantityButtonClick(event) {
   priceEl.innerText = currentPrice.toFixed(2) + "лв";
 }
 
-function filterCheckBoxesAndProducts(products,where){
+function filterCheckBoxesAndProducts(products, where) {
   const template = Handlebars.compile(filtersSource);
   const html = template(products);
 
   where.innerHTML = html;
 
   //pizzas;
-if(products.category ==="pizza"){
+  if (products.category === "pizza") {
     let newPizzas = getById("new_p");
     let vegetariansPizzas = getById("vegeterian");
     let spicyPizzas = getById("hotP");
     let leanPizzas = getById("leanP");
-  
-    filterPizzas(newPizzas,pizzaManager.newPizzas);
-    filterPizzas(vegetariansPizzas,pizzaManager.vegetariansPizzas);
-    filterPizzas(spicyPizzas,pizzaManager.spicyPizzas);
-    filterPizzas(leanPizzas,pizzaManager.leanPizzas);
+
+    filterPizzas(newPizzas, pizzaManager.newPizzas);
+    filterPizzas(vegetariansPizzas, pizzaManager.vegetariansPizzas);
+    filterPizzas(spicyPizzas, pizzaManager.spicyPizzas);
+    filterPizzas(leanPizzas, pizzaManager.leanPizzas);
   }
-    //starters;
-  else if(products.category ==="starter"){
+  //starters;
+  else if (products.category === "starter") {
     let vegeterianStarters = getById("vegeterianStarters");
     let newStarters = getById("newStarters");
 
-    filterStarters(vegeterianStarters,starterManager.spicyStarters);
-    filterStarters(newStarters,starterManager.newStarters);
-    }
-    //pasta;
-  else if(products.category ==="pasta"){
+    filterStarters(vegeterianStarters, starterManager.spicyStarters);
+    filterStarters(newStarters, starterManager.newStarters);
+  }
+  //pasta;
+  else if (products.category === "pasta") {
     let spicyPasta = getById("spicyPasta");
     let newPasta = getById("newPasta");
 
-    filterPastas(spicyPasta,pastaManager.spicyPasta);
-    filterPastas(newPasta,pastaManager.newPasta);
+    filterPastas(spicyPasta, pastaManager.spicyPasta);
+    filterPastas(newPasta, pastaManager.newPasta);
   }
-    //sauce
-  else if (products.category==="sauce"){
+  //sauce
+  else if (products.category === "sauce") {
     let newSauces = getById("newSauces");
     let spicySauces = getById("spicySauces");
 
-    filterSauces(newSauces,sauceManager.newSauces);
-    filterSauces(spicySauces,sauceManager.spicySauces);
+    filterSauces(newSauces, sauceManager.newSauces);
+    filterSauces(spicySauces, sauceManager.spicySauces);
   }
-    //dessert
-  else if(products.category==="dessert"){
-     let desserts = getById("desserts");
-     let icecreams = getById("icecreams");
+  //dessert
+  else if (products.category === "dessert") {
+    let desserts = getById("desserts");
+    let icecreams = getById("icecreams");
 
-     filterDesserts(desserts,dessertManager.desserts);
-     filterDesserts(icecreams,dessertManager.icecreams);
+    filterDesserts(desserts, dessertManager.desserts);
+    filterDesserts(icecreams, dessertManager.icecreams);
   }
 }
 
@@ -467,13 +586,8 @@ displayCustomizableProduct(pastaManager.allPasta, pasta);
 displaySimpleProduct(sauceManager.allSauces, sauce);
 displaySimpleProduct(dessertManager.allDesserts, dessert);
 
-filterCheckBoxesAndProducts(pizzaManager.allPizzas[0], filteredPizza);//pizza checkboxes
-filterCheckBoxesAndProducts(starterManager.allStarters[0], filteredStarter);//starters checkboxes
-filterCheckBoxesAndProducts(pastaManager.allPasta[0], filterPasta);//pasta checkboxes
-filterCheckBoxesAndProducts(sauceManager.allSauces[0], filterSauce);//sauces checkboxes
+filterCheckBoxesAndProducts(pizzaManager.allPizzas[0], filteredPizza); //pizza checkboxes
+filterCheckBoxesAndProducts(starterManager.allStarters[0], filteredStarter); //starters checkboxes
+filterCheckBoxesAndProducts(pastaManager.allPasta[0], filterPasta); //pasta checkboxes
+filterCheckBoxesAndProducts(sauceManager.allSauces[0], filterSauce); //sauces checkboxes
 filterCheckBoxesAndProducts(dessertManager.allDesserts[0], filterDessert); //dessert checkboxes
-
-
-
-
-

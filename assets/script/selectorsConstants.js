@@ -16,6 +16,7 @@ const allPages = {
   complexProductPage: getById("complexProductPage"),
 };
 const errorPage = getById("errorPage");
+const checkoutPage = getById("checkoutPage");
 const menuPage = getById("menuPage");
 const placeholderDiv = getById("placeholder");
 const shadowDiv = getById("shadow");
@@ -35,9 +36,10 @@ const logoutBtn = getById("logoutBtn");
 // modals
 const popupModal = getById("popupModal");
 const modalContent = getById("modalContent");
+const modalContentContainer = getById("modalContentContainer");
 const modalBackdrop = getById("modalBackdrop");
 const closeModal = getById("closeModal");
-const loginForm = getById("loginForm");
+const modalCurvedBorder = getById("modalCurvedBorder");
 
 // header
 const headerNavbar = getById("navbar-default1");

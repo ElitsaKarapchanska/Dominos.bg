@@ -647,7 +647,7 @@
       </div>
       <div id="complexProductPage"></div>
       <div id="registrationPage" class="main-wrapper rounded">
-        <form id="registrationForm" action="#" method="POST">
+        <form id="registrationForm" action="#" method="GET">
           <h2>РЕГИСТРАЦИЯ</h2>
           <div class="flex space-between responsive-block">
             <div class="text-col">
@@ -658,6 +658,7 @@
                 id="fName"
                 class="rounded"
                 required
+                pattern=".{3,}" title="Three or more characters"
               />
             </div>
             <div class="text-col">
@@ -668,6 +669,7 @@
                 id="lName"
                 class="rounded"
                 required
+                pattern=".{3,}" title="Three or more characters"
               />
             </div>
           </div>
@@ -678,6 +680,7 @@
             id="regEmail"
             class="rounded"
             required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           />
           <label for="regPass" class="inline-block">ПАРОЛА *</label>
           <input
@@ -686,6 +689,7 @@
             id="regPass"
             class="rounded"
             required
+            pattern=".{6,}" title="Six or more characters"
           />
           <label for="confirm" class="inline-block">ПОТВЪРДИ ПАРОЛАТА *</label>
           <input
@@ -694,6 +698,7 @@
             id="confirm"
             class="rounded"
             required
+            pattern=".{6,}" title="Six or more characters"
           />
           <label for="pData" class="flex check">
             <input
@@ -747,6 +752,7 @@
               използваме предоставените от Вас данни за връзка.
             </span>
           </label>
+          <span id="regError" class="error_message error-txt">Невалидни данни</span>
           <div class="flex end">
             <input
               type="submit"
@@ -763,6 +769,7 @@
           alt="Page not found"
         />
       </div>
+      <div id="checkoutPage" class="main-wrapper rounded"></div>
     </main>
     <footer class='margin-top-25'>
       <div class='white'>
@@ -848,135 +855,16 @@
         <div id="modalContent" class="modal-content">
           <img id="closeModal" src="./assets/images/close_x.svg" class="modal-close" alt="Close">
           <div class="popup-modal">
-            <div class="popup-content">
-              <!-- login modal content, maybe we can only change the content for others -->
-              <h3 class="decoration-title red-decoration-title">ВХОД</h3>
-              <form id="loginForm" name="login" class="flex column" method="POST">
-                <input type="text" name="email" class="form-control rounded" required="" autocomplete="off" id="login-email" placeholder="E-mail">
-                <span class="error_message error-txt"></span>
-                <input type="password" name="password" class="form-control rounded" required="" autocomplete="off" id="login-pass" placeholder="парола">
-                <span class="error_message error-txt"></span>
-                <div id="remember-pass-wrapper" class="flex end">
-                  <label for="remember-pass" class="flex check">
-                    <input
-                      type="checkbox"
-                      name="remember-pass"
-                      id="remember-pass"
-                      class="hidden"
-                    />
-                    <span class="checkbox rounded"></span>
-                    <span class="remember">Запомни ме</span>
-                  </label>
-                </div>
-                <input type="submit" id="login" class="button red-btn rounded" value="Вход" />
-              </form>
-              <div class="registration flex column">
-                <div class="dots-seperator"></div>
-                <p class="register-txt">Нов член? Регистрация</p>
-                <a href="#registration" class="button blue-btn register rounded">Регистрация</a>
-              </div>
+            <div id="modalCurvedBorder" class="popup-curved">
+              <div class="popup-curved-img popup-curved-carry-out"></div>
             </div>
+            <div id="modalContentContainer" class="popup-content"></div>
           </div>
         </div>
       </div>
     </div>
 
     <div id="modalBackdrop" class="modal-backdrop modal-fade"></div>
-
-    <script id="simpleProduct" type="text/x-handlebars-template">
-      {{#if this}}
-        {{#each this}}
-          <article id="{{this.id}}" class="card rounded simple-card {{this.category}}-card">
-            {{#ifCond this.tags.length '>' 0}}
-              <div class="card-tags-wrapper">
-                {{#each this.tags}}
-                  {{#ifCond this '===' 'ПИКАНТНО'}}
-                    <div class="tooltip">
-                      <img class="card-tag" src="./assets/images/tags/hot.svg" alt="spicy">
-                      <span class="tooltiptext">{{this}}</span>
-                    </div>
-                  {{/ifCond}}
-                  {{#ifCond this '===' 'ЗА ВЕГЕТАРИАНЦИ'}}
-                    <div class="tooltip">
-                      <img class="card-tag" src="./assets/images/tags/vegeterian.svg" alt="vegeterian">
-                      <span class="tooltiptext">{{this}}</span>
-                    </div>
-                  {{/ifCond}}
-                  {{#ifCond this '===' 'ПОСТНИ'}}
-                    <div class="tooltip">
-                      <img class="card-tag" src="./assets/images/tags/fasting.svg" alt="vegan">
-                      <span class="tooltiptext">{{this}}</span>
-                    </div>
-                  {{/ifCond}}
-                  {{#ifCond this '===' 'НОВО'}}
-                    <div class="tooltip">
-                      <img class="card-tag" src="./assets/images/tags/new_bg.svg" alt="new">
-                      <span class="tooltiptext">{{this}}</span>
-                    </div>
-                  {{/ifCond}}
-                {{/each}}
-              </div>
-            {{/ifCond}}
-            <div class="title-wrapper">
-              {{#ifCond this.title.length '>' 24}}
-                <h2 class="ellipsis">{{this.title}}</h2>
-                <h2 class="name-scroll">{{this.title}}</h2>
-              {{else}}
-                <h2>{{this.title}}</h2>
-              {{/ifCond}}
-            </div>
-            {{#ifCond this.category '!==' 'drink'}}
-              <p class="product-description">
-                {{this.description}}
-              </p>
-            {{/ifCond}}
-            <img class="product-picture {{this.category}}-img" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
-            <div class="btn-wrapper">
-              <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
-            </div>
-            <section class="slide-up closed flex column space-between">
-              {{#ifCond this.category '!==' 'drink'}}
-                <div class="weight-container">
-                  <span class="border"></span>
-                  <img src="./assets/images/weight.svg" alt="weight">
-                  <span class="border"></span>
-                  <span class="weight">{{this.weight}}g</span>
-                </div>
-              {{/ifCond}}
-              {{#ifCond this.types.length '>' 0}}
-                <div class="select-wrapper">
-                  <select name="productTypes" class="productTypes">
-                    {{#each this.types}}
-                      <option value="{{@index}}">{{this}}</option>
-                    {{/each}}
-                  </select>
-                </div>
-              {{/ifCond}}
-              <div class="details">
-                <div class="card-quantity">
-                  <p>КОЛИЧЕСТВО</p>
-                  <div class="quantity-wrapper">
-                    <img class="minus quantity-controller" alt="minus" src="assets/images/minus.svg">
-                    <span class="quantity-number">1</span>
-                    <img class="plus quantity-controller" alt="minus" src="assets/images/plus.svg">
-                  </div>
-                </div>
-                <div class="card-price">
-                  <p>ЦЕНА</p>
-                    {{#ifCond this.category '===' 'drink'}}
-                      <p class="price-sum">{{this.price.[0]}}лв</p>
-                    {{else}}
-                      <p class="price-sum">{{this.price}}лв</p>
-                    {{/ifCond}}
-                </div>
-              </div>
-              <button class="addBtn green-button button rounded">ДОБАВИ</button>
-            </section>
-          </article>
-        {{/each}}
-      {{/if}}
-    </script>
-
 
     <script id="customizableProduct" type="text/x-handlebars-template">
       {{#if this}}
@@ -1050,12 +938,12 @@
       <div class="container-complex-card">
         <div class="box-wrapper">
           <div class="product-image" style="background-image: url(assets/images/{{this.image}});"></div>
-        <h2 class="product-title">
-          <span class="decoration-title red-decoration-title">{{this.title}}</span>
-        </h2>
-        <div class="dots-seperator"></div>
-        <div class="product-wrapper">
-        <div class="product-wrapper-left">
+          <h2 class="product-title">
+            <span class="decoration-title red-decoration-title">{{this.title}}</span>
+          </h2>
+          <div class="dots-seperator"></div>
+          <div class="product-wrapper">
+          <div class="product-wrapper-left">
           {{#ifCond this.category '===' "pizza" }}
            <div class="form-group size">
              <label for="pizza-size">ГОЛЕМИНА</label>
@@ -1084,10 +972,7 @@
            <div class="sub_toppings_container">
             <p class="pull-left font-bold">Продукти</p>
             <!-- array from ingredients -->
-            <div class="ingredients">
-              <!-- {{#each this.ingredients}}
-              <span class="product-ingredient">{{this}} </span>
-              {{/each}} -->
+            <div id="strIngredientContainer" class="ingredients">
               {{this.stringifiedIngredients}}
             </div>
           </div>
@@ -1134,6 +1019,15 @@
           <div class="rounded-center"></div>
           <div class="rounded-right"></div>
         </div>
+    </div>
+    </div>
+    <div class="toppings-wrapper">
+      <h2 class="text-center white-txt">
+        <span class="decoration-title white-decoration-title">ПРОДУКТИ - {{this.title}}</span>
+      </h2>
+      <div class="toppings-container main-wrapper">
+      {{{printProductIngredients this}}}
+      </div>
     </div>
   {{/if}}
   </script>
@@ -1287,6 +1181,7 @@
     <script src="./assets/script/classes/UserService.js"></script>
     <script src="./assets/script/menuController.js"></script>
     <script src="./assets/script/modalController.js"></script>
+    <script src="./assets/script/checkoutController.js"></script>
     <script src="./assets/script/productsController.js"></script>
     <script src="./assets/script/userController.js"></script>
     <script src="./assets/script/index.js"></script>

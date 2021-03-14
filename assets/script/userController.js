@@ -38,7 +38,6 @@ let registrationFields = {
 };
 
 registrationForm.addEventListener("submit", function (ev) {
-  // TODO: show validating messages
   let isRegistered = userStorage.register(
     registrationFields.regEmail.value,
     registrationFields.regPass.value,
@@ -53,34 +52,15 @@ registrationForm.addEventListener("submit", function (ev) {
   ev.preventDefault();
 
   if (isRegistered) {
+    changeElementVisibility(regError, false);
     userStorage.login(
       registrationFields.regEmail.value,
       registrationFields.regPass.value
     );
-    // show order modal (choose delivery or takeout)
-  }
-});
-
-// other pages
-let loginFields = {
-  email: getById("login-email"),
-  pass: getById("login-pass"),
-
-  rememberPass: getById("remember-pass"),
-};
-loginForm.addEventListener("submit", function (ev) {
-  isLoggedIn = userStorage.login(
-    loginFields.email.value,
-    loginFields.pass.value,
-    loginFields.rememberPass.checked
-  );
-
-  if (isLoggedIn) {
-    // TODO: show takeout or delivery modal
-    closeAnyModal();
+    openDeliveryModal(true);
   } else {
-    // TODO: show validationg messages
-    ev.preventDefault();
+    let regError = getById("regError");
+    changeElementVisibility(regError);
   }
 });
 
@@ -90,7 +70,8 @@ userIcon.addEventListener("click", function () {
 
 // closing the dropdown on click anywhere except the profile icon
 window.addEventListener("click", function (event) {
-  let toClose = !event.path.some((el) => el.id === "loggedIn");
+  let path = event.path || (event.composedPath && event.composedPath());
+  let toClose = !path.some((el) => el.id === "loggedIn");
   if (toClose) {
     profileDropdown.classList.add("hidden");
   }
@@ -103,18 +84,30 @@ logoutBtn.addEventListener("click", function () {
 });
 
 orderNowBtn.addEventListener("click", function (event) {
+  event.preventDefault();
   if (!userStorage.loggedInUser) {
-    event.preventDefault();
     openLoginModal();
+  } else {
+    if (
+      userStorage.getDeliveryChoice() !== true &&
+      userStorage.getDeliveryChoice() !== false
+    ) {
+      return openDeliveryModal(true);
+    }
+    if (!userStorage.getRestaurant()) {
+      return openRestaurantModal();
+    }
+    location.hash = "#allDeals";
+    location.reload();
   }
 });
 
 // product pages
-function addToCartBtn(product, quantity) {
+function addToCartBtn(product, quantity, priceModifiers = 0) {
   if (!userStorage.loggedInUser) {
     openLoginModal();
   } else {
-    let numberOfProductsInCart = userStorage.addToCart(product, quantity);
+    let numberOfProductsInCart = userStorage.addToCart(product, quantity, priceModifiers);
     let cartNumber = getById("orderNumber");
     let cartNumberResp = getById("orderNumberResponsive");
     cartNumber.innerText = numberOfProductsInCart;
@@ -126,7 +119,8 @@ cartIcon.addEventListener("click", function () {
   if (!userStorage.loggedInUser) {
     openLoginModal();
   } else {
-    // TODO: redirect to cart page
+    location.hash = "#checkout";
+    location.reload();
   }
 });
 
@@ -134,6 +128,7 @@ cartIconResponsive.addEventListener("click", function () {
   if (!userStorage.loggedInUser) {
     openLoginModal();
   } else {
-    // TODO: redirect to cart page
+    location.hash = "#checkout";
+    location.reload();
   }
 });

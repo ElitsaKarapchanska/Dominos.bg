@@ -1,0 +1,14 @@
+<div id="restaurantModal" class="modal-content-wrapper curved-border">
+    <h3 class="decoration-title red-decoration-title">ИЗБЕРЕТЕ РЕСТОРАНТ </h3>
+    <div class="form-group">
+        <label>РЕСТОРАНТ</label>
+        <div class="select-wrapper">
+            <select id="selectRestaurant" name="store_id">
+                <option value="empty" rel="0">Изберете ресторант </option>
+                {{#each this}}
+                    <option value="{{@index}}">{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+</div>
