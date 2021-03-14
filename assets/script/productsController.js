@@ -536,7 +536,7 @@ function filterCheckBoxesAndProducts(products, where) {
     let vegeterianStarters = getById("vegeterianStarters");
     let newStarters = getById("newStarters");
 
-    filterStarters(vegeterianStarters, starterManager.spicyStarters);
+    filterStarters(vegeterianStarters, starterManager.vegetarianStarters);
     filterStarters(newStarters, starterManager.newStarters);
   }
   //pasta;
