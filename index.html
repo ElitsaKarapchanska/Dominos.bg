@@ -282,7 +282,112 @@
             </div>
           </div>
         </div>
-        <div id="deals"></div>
+        <div class="first-deals">
+          <h1>Domino’s оферти</h1>
+          <div class="deal-flex main-wrapper">
+            <div class="deal">
+              <article class="card rounded complex-card deals-card">
+                <img class="deals-image" src="./assets/images/deals/928l.png" alt= "Nirvana Combo" />
+                <div>
+                  <img src="assets/images/offer_ribbon_bg.svg" alt="Offer-ribbon" class="offer-ribbon">
+                </div>
+                <div class="title-wrapper-deals">
+                    <h2>Nirvana Combo</h2>
+                </div>
+                  <p class="product-description">
+                    Две средни пици + два сладоледа Nirvana само за 21,50лв.*Не важи за (Риверони, пица Oslo, Meat Mania)
+                  </p>
+                  <div class="btn-wrapper" id="deals-button">
+                    <button class="green-button button rounded" id="deal-btn">ВЗЕМИ ТАЗИ ОФЕРТА</button>
+                  </div>
+                  <div class="delivery-carryout">
+                    <div>
+                      <img src="assets/images/delivery_bike.svg" alt="Delivery icon" class="delivery-carryout_icons">
+                      <span class="deal-dc">DELIVERY</span>
+                    </div>
+                    <div>
+                      <img src="assets/images/carry_out_store.svg" alt="Carry out store icon" class="delivery-carryout_icons">
+                      <span class="deal-dc">CARRY OUT</span>
+                    </div>
+                  </div>
+              </article>
+            </div>
+            <div class="deal">
+              <article class="card rounded complex-card deals-card">
+                <img class="deals-image" src="./assets/images/deals/691l.png" alt= "ВСЯКА ВТОРА ПИЦА НА ПОЛОВИН ЦЕНА!" />
+                <div>
+                  <img src="assets/images/offer_ribbon_bg.svg" alt="Offer-ribbon" class="offer-ribbon">
+                </div>
+                <div class="title-wrapper-deals">
+                    <h2>ВСЯКА ВТОРА ПИЦА НА ПОЛОВИН ЦЕНА!</h2>
+                </div>
+                  <p class="product-description">
+                    За всяка пица, взета от място, получавате втората на половин цена!
+                  </p>
+                  <div class="btn-wrapper" id="deals-button">
+                    <button class="green-button button rounded" id="deal-btn">ВЗЕМИ ТАЗИ ОФЕРТА</button>
+                  </div>
+                  <div class="delivery-carryout">
+                    <div>
+                      <img src="assets/images/carry_out_store.svg" alt="Carry out store icon" class="delivery-carryout_icons">
+                      <span class="deal-dc">CARRY OUT</span>
+                    </div>
+                  </div>
+              </article>
+            </div>
+            <div class="deal">
+              <article class="card rounded complex-card deals-card">
+                <img class="deals-image" src="./assets/images/deals/850l.png" alt= "Пица от място само за 5,50лв" />
+                <div>
+                  <img src="assets/images/offer_ribbon_bg.svg" alt="Offer-ribbon" class="offer-ribbon">
+                </div>
+                <div class="title-wrapper-deals">
+                    <h2>Пица от място само за 5,50лв</h2>
+                </div>
+                  <p class="product-description">
+                    Вземете сега средна пица Шунка класик, Хавай, Карбонара или Гардън класик от място само за 5,50лв
+                  </p>
+                  <div class="btn-wrapper" id="deals-button">
+                    <button class="green-button button rounded" id="deal-btn">ВЗЕМИ ТАЗИ ОФЕРТА</button>
+                  </div>
+                  <div class="delivery-carryout">
+                    <div>
+                      <img src="assets/images/carry_out_store.svg" alt="Carry out store icon" class="delivery-carryout_icons">
+                      <span class="deal-dc">CARRY OUT</span>
+                    </div>
+                  </div>
+              </article>
+            </div>
+            <div class="deal">
+              <article class="card rounded complex-card deals-card">
+                <img class="deals-image" src="./assets/images/deals/945l.png" alt= "Комбо Carlsberg" />
+                <div>
+                  <img src="assets/images/offer_ribbon_bg.svg" alt="Offer-ribbon" class="offer-ribbon">
+                </div>
+                <div class="title-wrapper-deals">
+                    <h2>Комбо Carlsberg</h2>
+                </div>
+                  <p class="product-description">
+                    Комбинирайте голяма пица + пилешко предястие + 2бр. Carlsberg кен 0.5л за 19.90лв.*за тесто с Филаделфия се доплаща 2.25 лв.
+                  </p>
+                  <div class="btn-wrapper" id="deals-button">
+                    <button class="green-button button rounded" id="deal-btn">ВЗЕМИ ТАЗИ ОФЕРТА</button>
+                  </div>
+                  <div class="delivery-carryout">
+                    <div>
+                      <img src="assets/images/delivery_bike.svg" alt="Delivery icon" class="delivery-carryout_icons">
+                      <span class="deal-dc">DELIVERY</span>
+                    </div>
+                    <div>
+                      <img src="assets/images/carry_out_store.svg" alt="Carry out store icon" class="delivery-carryout_icons">
+                      <span class="deal-dc">CARRY OUT</span>
+                    </div>
+                  </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
         <div id="socialContainer" class="main-wrapper">
           <div class="red-card rounded flex column space-between">
             <h2>PIZZA TRACKER</h2>
@@ -1110,7 +1215,7 @@
   <script id="dealsProduct" type="text/x-handlebars-template">
     {{#if this}}
       {{#each this}}
-        <article class="card rounded complex-card">
+        <article class="card rounded complex-card deals-card">
           <img class="deals-image" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
           <div>
             <img src="assets/images/offer_ribbon_bg.svg" alt="Offer-ribbon" class="offer-ribbon">
