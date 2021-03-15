@@ -1,0 +1,59 @@
+{{#if this}}
+{{#each this}}
+<a href="#product-{{this.category}}-{{this.id}}">
+    <article id="{{this.id}}" class="card rounded complex-card">
+        <div class="top-wrapper">
+            {{#ifCond this.tags.length '>' 0}}
+            <div class="card-tags-wrapper">
+                {{#each this.tags}}
+                {{#ifCond this '===' 'ПИКАНТНО'}}
+                <div class="tooltip">
+                    <img class="card-tag" src="./assets/images/tags/hot.svg" alt="spicy">
+                    <span class="tooltiptext">{{this}}</span>
+                </div>
+                {{/ifCond}}
+                {{#ifCond this '===' 'ЗА ВЕГЕТАРИАНЦИ'}}
+                <div class="tooltip">
+                    <img class="card-tag" src="./assets/images/tags/vegeterian.svg" alt="vegeterian">
+                    <span class="tooltiptext">{{this}}</span>
+                </div>
+                {{/ifCond}}
+                {{#ifCond this '===' 'ПОСТНИ'}}
+                <div class="tooltip">
+                    <img class="card-tag" src="./assets/images/tags/fasting.svg" alt="vegan">
+                    <span class="tooltiptext">{{this}}</span>
+                </div>
+                {{/ifCond}}
+                {{#ifCond this '===' 'НОВО'}}
+                <div class="tooltip">
+                    <img class="card-tag" src="./assets/images/tags/new_bg.svg" alt="new">
+                    <span class="tooltiptext">{{this}}</span>
+                </div>
+                {{/ifCond}}
+                {{/each}}
+            </div>
+            {{/ifCond}}
+            <img class="product-picture" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
+            <div class="title-wrapper">
+                {{#ifCond this.title.length '>' 23}}
+                <h2 class="ellipsis">{{this.title}}</h2>
+                <h2 class="name-scroll">{{this.title}}</h2>
+                {{else}}
+                <h2>{{this.title}}</h2>
+                {{/ifCond}}
+            </div>
+        </div>
+        <p class="product-description">
+            {{#if this.description}}
+            {{this.description}}
+            {{else}}
+            {{this.stringifiedIngredients}}
+            {{/if}}
+        </p>
+        <div class="btn-wrapper">
+            <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
+        </div>
+    </article>
+</a>
+{{/each}}
+{{/if}}

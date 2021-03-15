@@ -132,6 +132,12 @@
                   alt="Basket Icon"
                 />
                 <span id="orderNumber" class="order-num">0</span>
+                <div id="cartPreview" class="cart-preview flex column fade-in">
+                  <div class="arrow-container">
+                    <div class="arrow"></div>
+                  </div>
+                  <div id="cartContent"></div>
+                </div>
               </li>
               <li id="loggedIn">
                 <div class="login-container">
@@ -649,122 +655,7 @@
         <div id="allDrinksPage" class="card-container main-wrapper"></div>
       </div>
       <div id="complexProductPage"></div>
-      <div id="registrationPage" class="main-wrapper rounded">
-        <form id="registrationForm" action="#" method="GET">
-          <h2>РЕГИСТРАЦИЯ</h2>
-          <div class="flex space-between responsive-block">
-            <div class="text-col">
-              <label for="fName" class="inline-block">ИМЕ *</label>
-              <input
-                type="text"
-                name="fName"
-                id="fName"
-                class="rounded"
-                required
-                pattern=".{3,}" title="Three or more characters"
-              />
-            </div>
-            <div class="text-col">
-              <label for="lName" class="inline-block">ФАМИЛНО ИМЕ *</label>
-              <input
-                type="text"
-                name="lName"
-                id="lName"
-                class="rounded"
-                required
-                pattern=".{3,}" title="Three or more characters"
-              />
-            </div>
-          </div>
-          <label for="regEmail" class="inline-block">E-MAIL *</label>
-          <input
-            type="email"
-            name="regEmail"
-            id="regEmail"
-            class="rounded"
-            required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          />
-          <label for="regPass" class="inline-block">ПАРОЛА *</label>
-          <input
-            type="password"
-            name="regPass"
-            id="regPass"
-            class="rounded"
-            required
-            pattern=".{6,}" title="Six or more characters"
-          />
-          <label for="confirm" class="inline-block">ПОТВЪРДИ ПАРОЛАТА *</label>
-          <input
-            type="password"
-            name="confirm"
-            id="confirm"
-            class="rounded"
-            required
-            pattern=".{6,}" title="Six or more characters"
-          />
-          <label for="pData" class="flex check">
-            <input
-              type="checkbox"
-              name="pData"
-              id="pData"
-              required
-              class="hidden"
-            />
-            <span class="checkbox rounded"></span>
-            <span class="consent">
-              Доставка без име и адрес?... Правим чудеса, но това е невъзможно!
-              Затова за нас е необходимо да въвеждаме и обработваме вашите лични
-              данни в нашата база данни, според Общите правила за защита на
-              данните.
-            </span>
-          </label>
-          <label for="confidentiality" class="flex check">
-            <input
-              type="checkbox"
-              name="confidentiality"
-              id="confidentiality"
-              required
-              class="hidden"
-            />
-            <span class="checkbox rounded"></span>
-            <span class="consent">
-              Потвърждавам, че съм прочел и съм съгласен с
-              <a
-                href="https://www.dominos.bg/pdfs/Confidentiality_Statement_Regarding_Order_and_Delivery.pdf"
-                target="_blank"
-                >Декларация за поверителност във връзка с регистрация за поръчка
-                и доставка</a
-              >.
-            </span>
-          </label>
-          <label for="offers" class="check hidden hiddenCheckbox fade-in">
-            <input type="checkbox" name="offers" id="offers" class="hidden" />
-            <span class="checkbox rounded"></span>
-            <span class="consent">
-              Да Ви държим в течение с нашите най-нови горещи оферти и страхотни
-              нови продукти, като използваме предоставените от Вас данни за
-              връзка.
-            </span>
-          </label>
-          <label for="news" class="check hidden hiddenCheckbox fade-in">
-            <input type="checkbox" name="news" id="news" class="hidden" />
-            <span class="checkbox rounded"></span>
-            <span class="consent">
-              Да Ви държим в течение с нашите корпоративни новини, като
-              използваме предоставените от Вас данни за връзка.
-            </span>
-          </label>
-          <span id="regError" class="error_message error-txt">Невалидни данни</span>
-          <div class="flex end">
-            <input
-              type="submit"
-              value="РЕГИСТРАЦИЯ"
-              class="green-button button rounded"
-            />
-          </div>
-        </form>
-      </div>
+      <div id="registrationPage" class="main-wrapper rounded"></div>
       <div id="errorPage" class="main-wrapper flex center">
         <img
           id="errorImage"
@@ -869,171 +760,6 @@
 
     <div id="modalBackdrop" class="modal-backdrop modal-fade"></div>
 
-    <script id="customizableProduct" type="text/x-handlebars-template">
-      {{#if this}}
-        {{#each this}}
-          <a href="#product-{{this.category}}-{{this.id}}">
-            <article id="{{this.id}}" class="card rounded complex-card">
-              <div class="top-wrapper">
-                {{#ifCond this.tags.length '>' 0}}
-                <div class="card-tags-wrapper">
-                  {{#each this.tags}}
-                    {{#ifCond this '===' 'ПИКАНТНО'}}
-                      <div class="tooltip">
-                        <img class="card-tag" src="./assets/images/tags/hot.svg" alt="spicy">
-                        <span class="tooltiptext">{{this}}</span>
-                      </div>
-                    {{/ifCond}}
-                    {{#ifCond this '===' 'ЗА ВЕГЕТАРИАНЦИ'}}
-                      <div class="tooltip">
-                        <img class="card-tag" src="./assets/images/tags/vegeterian.svg" alt="vegeterian">
-                        <span class="tooltiptext">{{this}}</span>
-                      </div>
-                    {{/ifCond}}
-                    {{#ifCond this '===' 'ПОСТНИ'}}
-                      <div class="tooltip">
-                        <img class="card-tag" src="./assets/images/tags/fasting.svg" alt="vegan">
-                        <span class="tooltiptext">{{this}}</span>
-                      </div>
-                    {{/ifCond}}
-                    {{#ifCond this '===' 'НОВО'}}
-                      <div class="tooltip">
-                        <img class="card-tag" src="./assets/images/tags/new_bg.svg" alt="new">
-                        <span class="tooltiptext">{{this}}</span>
-                      </div>
-                    {{/ifCond}}
-                  {{/each}}
-                </div>
-                {{/ifCond}}
-                <img class="product-picture" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
-                <div class="title-wrapper">
-                  {{#ifCond this.title.length '>' 23}}
-                    <h2 class="ellipsis">{{this.title}}</h2>
-                    <h2 class="name-scroll">{{this.title}}</h2>
-                  {{else}}
-                    <h2>{{this.title}}</h2>
-                  {{/ifCond}}
-              </div>
-              </div>
-              <p class="product-description">
-                {{#if this.description}}
-                  {{this.description}}
-                {{else}}
-                  {{this.stringifiedIngredients}}
-                {{/if}}
-              </p>
-              <div class="btn-wrapper">
-                <button class="green-button button rounded">ИЗБЕРЕТЕ</button>
-              </div>
-            </article>
-          </a>
-        {{/each}}
-      {{/if}}
-    </script>
-
-  <!-- complexCard-pizza -->
-    <script id="complexCardProduct" type="text/x-handlebars-template">
-    {{#if this}}
-    <div class="product-cart">
-      <div class="close-icon">
-        <img id='closeIcon' src="assets/images/close_x.svg" alt="close icon">
-      </div>
-      <div class="container-complex-card">
-        <div class="box-wrapper">
-          <div class="product-image" style="background-image: url(assets/images/{{this.image}});"></div>
-          <h2 class="product-title">
-            <span class="decoration-title red-decoration-title">{{this.title}}</span>
-          </h2>
-          <div class="dots-seperator"></div>
-          <div class="product-wrapper">
-          <div class="product-wrapper-left">
-          {{#ifCond this.category '===' "pizza" }}
-           <div class="form-group size">
-             <label for="pizza-size">ГОЛЕМИНА</label>
-             <div class="select-wrapper">
-               <select id="pizza-size" class="select-size form-control light-grey-bg text-select" name="size-id">
-                 <option class="sizes" value="0">СРЕДНА (6 ПАРЧЕТА)</option>
-                 <option class="sizes" value="1">ГОЛЯМА (8 ПАРЧЕТА)</option>
-                 <option class="sizes" value="2">Джъмбо (12 ПАРЧЕТА)</option>
-               </select>
-               <div class='selected'></div>
-           </div>
-          </div>
-           <div class="form-group pan">
-             <label for="pizza-pan">ТЕСТО</label>
-             <div class="select-wrapper">
-               <select name="pan-size-id" id="pizza-pan" class="select-size form-control light-grey-bg text-select">
-                 <option value="Traditional" price="0">Традиционно</option>
-                 <option value="Italian" price="0">Италиански стил</option>
-                 <option value="Thin" price="0">Тънко и хрупкаво</option>
-                 <option value="Philadelphia" price="2.25">с Philadelphia (+2.25лв)</option>
-                 <option value="Whole grain" price="0">Пълнозърнесто</option>
-               </select>
-             </div>
-           </div>
-           {{/ifCond}}
-           <div class="sub_toppings_container">
-            <p class="pull-left font-bold">Продукти</p>
-            <!-- array from ingredients -->
-            <div id="strIngredientContainer" class="ingredients">
-              {{this.stringifiedIngredients}}
-            </div>
-          </div>
-        </div>
-        <div class="product-wrapper-right">
-          <div>
-             <div class='weight-image'>
-              <img style="height:50px;" src="assets/images/weight.svg" alt="weight">
-              <div class="weight_cont">{{this.weight}}g</div>
-             </div>
-             <div class="quantity">
-               <p class='text-bold'>КОЛИЧЕСТВО</p>
-               <div class="product-quantity-wrapper"></div>
-               <img id="minus" alt="minus" src="assets/images/minus.svg">
-               <span id="selectedQuantity" class="product-quantity noselect Quantity">1</span>
-               <img id="plus" alt="plus" src="assets/images/plus.svg">
-             </div>
-          </div>
-            <div class="price">
-              <p class='text-bold'>Цена</p>
-              <div class="product-total-price">
-                {{#ifCond this.category '===' "pizza" }}
-              <span id="currentPrice" class="total-price">{{this.price.[0]}}</span><span class="currency">  лв.</span>
-              {{else}}
-              <span id="currentPrice" class="total-price">{{this.price}}</span><span class="currency">  лв.</span>
-                {{/ifCond}}
-            </div>
-              <div class="save-20 hidden-xs">
-                <em>
-                  <strong>Cпестете до 20%</strong>
-                 </em>
-                 <span class="left_ribbon"></span>
-                 <span class="right_ribbon"></span>
-             </div>
-            </div>
-            <div class="btn-wrapper">
-              <button id="addBtn" class="button rounded addButton">ДОБАВИ</button>
-            </div>
-          </div> 
-      </div>
-    </div>
-        <div class="rounted margin-bottom-50">
-          <div class="rounded-left"></div>
-          <div class="rounded-center"></div>
-          <div class="rounded-right"></div>
-        </div>
-    </div>
-    </div>
-    <div class="toppings-wrapper">
-      <h2 class="text-center white-txt">
-        <span class="decoration-title white-decoration-title">ПРОДУКТИ - {{this.title}}</span>
-      </h2>
-      <div class="toppings-container main-wrapper">
-      {{{printProductIngredients this}}}
-      </div>
-    </div>
-  {{/if}}
-  </script>
  <!-- filter-category -->
   <script id="productFilters" type="text/x-handlebars-template">
   {{#if this}}
@@ -1140,6 +866,8 @@
       {{/each}}
     {{/if}}
   </script>
+
+    <!-- Handlebars -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
       integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 
       crossorigin="anonymous">

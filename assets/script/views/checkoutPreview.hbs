@@ -1,0 +1,39 @@
+<div id="checkout-preview-wrapper" class="main-wrapper rounded">
+    {{#if this}}
+    <div class="cart-item-container">
+        {{#each this}}
+        <div class="cart-item" data-id="{{this.prod.id}}" data-uuid="{{this.uuid}}">
+            <div class="image-container">
+                <img src="./assets/images/{{this.prod.image}}" alt="{{this.prod.title}}">
+            </div>
+            <div class="details-container">
+                {{#if this.prod.selectedType}}
+                <p class="blue-txt font-bold">{{this.prod.title}} {{this.prod.selectedType}}</p>
+                {{else}}
+                <p class="blue-txt font-bold">{{this.prod.title}}</p>
+                {{/if}}
+                {{{printProductDetails this.prod}}}
+            </div>
+            <div class="quantity-wrapper">
+                <img class="minus quantity-controller" alt="minus" src="./assets/images/minus.svg">
+                <span class="quantity-number">{{this.quantity}}</span>
+                <img class="plus quantity-controller" alt="plus" src="./assets/images/plus.svg">
+            </div>
+            <div class="price-container" data-price="{{getPricePerUnit this}}">{{getProductFinalPrice this}}лв</div>
+            <div class="x-container">
+                <img class="remove-x" src="./assets/images/delete_cross.svg" alt="remove from cart">
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="basket-bottom-wrapper">
+        <div class="font-bold total">Общо</div>
+        <div id="totalPricePreview" class="basket-total font-bold">{{getTotalPrice this}}лв</div>
+    </div>
+    <div id="finalizeBtn" class="green-button button rounded text-center">Завърши</div>
+    {{else}}
+    <div id="empty-cart" class="flex center">
+        <div>Вашата кошница е празна</div>
+    </div>
+    {{/if}}
+</div>

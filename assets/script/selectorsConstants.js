@@ -28,8 +28,8 @@ const userIcon = getById("loggedIn");
 const menuLink = getById("menu");
 const orderNowBtn = getById("orderNowBtn");
 const cartIcon = getById("cartIcon");
+const cartPreviewContainer = getById("cartContent");
 const cartIconResponsive = getById("cartIconResponsive");
-const registrationForm = getById("registrationForm");
 const profileDropdown = getById("profileDropdown");
 const logoutBtn = getById("logoutBtn");
 

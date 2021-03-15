@@ -9,6 +9,7 @@ const starterManager = (function () {
     constructor() {
       this.newStarters = [];
       this.spicyStarters = [];
+      this.vegetarianStarters = [];
       this.allStarters = [];
     }
 
@@ -28,6 +29,12 @@ const starterManager = (function () {
       }
     }
 
+    addVegetarianStarter(starter) {
+      if (starter instanceof Starter && starter.tags.includes("ЗА ВЕГЕТАРИАНЦИ")) {
+        this.vegetarianStarters.push(starter);
+      }
+    }
+
     addAllStarterProducts(startersJSON) {
       if (!Array.isArray(startersJSON)) return false;
       startersJSON.forEach((element) => {
@@ -43,6 +50,7 @@ const starterManager = (function () {
         this.addAnyStarter(starter);
         this.addNewStarter(starter);
         this.addSpicyStarter(starter);
+        this.addVegetarianStarter(starter);
       });
     }
   }

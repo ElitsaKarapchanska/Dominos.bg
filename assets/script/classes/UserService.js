@@ -76,7 +76,7 @@ const userStorage = (function () {
     getIndexInCartByProduct(product) {
       let searched = JSON.stringify(product);
       return this.products.findIndex((entry) => {
-        return JSON.stringify(entry) === searched;
+        return JSON.stringify(entry.prod) === searched;
       });
     }
 
@@ -130,7 +130,7 @@ const userStorage = (function () {
     }
 
     removeFromCart(product) {
-      let indexInCart = this.getIndexInCartByProduct(product);
+      let indexInCart = this.getIndexInCartByProduct(product.prod);
       if (indexInCart < 0) return false;
       this.productsWithIDs.splice(indexInCart, 1);
       this.products.splice(indexInCart, 1);

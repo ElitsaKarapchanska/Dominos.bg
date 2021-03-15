@@ -1,67 +1,68 @@
-// view
-
 // registration page
-let controllerCeckbox = getById("pData");
-let hiddentCheckboxes = Array.from(
-  document.querySelectorAll(".hiddenCheckbox")
-);
-
-// fade checkboxes on registration page
-controllerCeckbox.addEventListener("change", (event) => {
-  if (event.target.checked) {
-    hiddentCheckboxes.forEach((checkbox) => {
-      checkbox.style.display = "flex";
-      checkbox.classList.add("flex");
-    });
-  } else {
-    hiddentCheckboxes.forEach((checkbox) => {
-      checkbox.style.display = "none";
-    });
-  }
-});
-
-// functionality
-
-// registration page
-let registrationFields = {
-  fName: getById("fName"),
-  lName: getById("lName"),
-  regEmail: getById("regEmail"),
-  regPass: getById("regPass"),
-  confirm: getById("confirm"),
-
-  // checkboxes:
-  pData: getById("pData"),
-  confidentiality: getById("confidentiality"),
-  offers: getById("offers"),
-  news: getById("news"),
-};
-
-registrationForm.addEventListener("submit", function (ev) {
-  let isRegistered = userStorage.register(
-    registrationFields.regEmail.value,
-    registrationFields.regPass.value,
-    registrationFields.confirm.value,
-    registrationFields.fName.value,
-    registrationFields.lName.value,
-    registrationFields.pData.checked,
-    registrationFields.confidentiality.checked,
-    registrationFields.offers.checked,
-    registrationFields.news.checked
+loadTemplate("registrationPage.hbs", allPages.registrationPage).then(() => {
+  let controllerCheckbox = getById("pData");
+  let hiddentCheckboxes = Array.from(
+    document.querySelectorAll(".hiddenCheckbox")
   );
-  ev.preventDefault();
 
-  if (isRegistered) {
-    changeElementVisibility(regError, false);
-    userStorage.login(
+  // fade checkboxes on registration page
+  controllerCheckbox.addEventListener("change", (event) => {
+    if (event.target.checked) {
+      hiddentCheckboxes.forEach((checkbox) => {
+        checkbox.style.display = "flex";
+        checkbox.classList.add("flex");
+      });
+    } else {
+      hiddentCheckboxes.forEach((checkbox) => {
+        checkbox.style.display = "none";
+      });
+    }
+  });
+
+  // functionality
+
+  // registration page
+  let registrationFields = {
+    fName: getById("fName"),
+    lName: getById("lName"),
+    regEmail: getById("regEmail"),
+    regPass: getById("regPass"),
+    confirm: getById("confirm"),
+
+    // checkboxes:
+    pData: getById("pData"),
+    confidentiality: getById("confidentiality"),
+    offers: getById("offers"),
+    news: getById("news"),
+  };
+
+  const registrationForm = getById("registrationForm");
+  registrationForm.addEventListener("submit", function (ev) {
+    let isRegistered = userStorage.register(
       registrationFields.regEmail.value,
-      registrationFields.regPass.value
+      registrationFields.regPass.value,
+      registrationFields.confirm.value,
+      registrationFields.fName.value,
+      registrationFields.lName.value,
+      registrationFields.pData.checked,
+      registrationFields.confidentiality.checked,
+      registrationFields.offers.checked,
+      registrationFields.news.checked
     );
-    openDeliveryModal(true);
-  } else {
-    let regError = getById("regError");
-    changeElementVisibility(regError);
-  }
+    ev.preventDefault();
+
+    if (isRegistered) {
+      changeElementVisibility(regError, false);
+      userStorage.login(
+        registrationFields.regEmail.value,
+        registrationFields.regPass.value
+      );
+      openDeliveryModal(true);
+    } else {
+      let regError = getById("regError");
+      changeElementVisibility(regError);
+    }
+  });
 });
 
 userIcon.addEventListener("click", function () {
@@ -107,7 +108,11 @@ function addToCartBtn(product, quantity, priceModifiers = 0) {
   if (!userStorage.loggedInUser) {
     openLoginModal();
   } else {
-    let numberOfProductsInCart = userStorage.addToCart(product, quantity, priceModifiers);
+    let numberOfProductsInCart = userStorage.addToCart(
+      product,
+      quantity,
+      priceModifiers
+    );
     let cartNumber = getById("orderNumber");
     let cartNumberResp = getById("orderNumberResponsive");
     cartNumber.innerText = numberOfProductsInCart;
