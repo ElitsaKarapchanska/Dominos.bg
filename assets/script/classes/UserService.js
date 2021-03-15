@@ -122,7 +122,7 @@ const userStorage = (function () {
           prod: product,
           quantity: quantity,
           priceModifiers: priceModifiers,
-        })
+        });
 
         this.finalPrice = this.getTotalPrice();
       }
@@ -296,7 +296,11 @@ const userStorage = (function () {
      */
     editCartProductQuantity(product, toIncrement, amount = 1) {
       if (!this.loggedInUser) return false;
-      this.loggedInUser.cart.editCartProductQuantity(product, toIncrement, amount);
+      this.loggedInUser.cart.editCartProductQuantity(
+        product,
+        toIncrement,
+        amount
+      );
       localStorage.setItem("users", JSON.stringify(this.users));
       localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
     }
@@ -333,6 +337,15 @@ const userStorage = (function () {
         return JSON.parse(sessionStorage.getItem("restaurant")).restaurantName;
       }
       return null;
+    }
+
+    resetCart() {
+      if (this.loggedInUser) {
+        this.loggedInUser.cart = new Cart();
+        localStorage.setItem("users", JSON.stringify(this.users));
+        localStorage.setItem("loggedInUser", JSON.stringify(this.loggedInUser));
+      }
+      return false;
     }
   }
 

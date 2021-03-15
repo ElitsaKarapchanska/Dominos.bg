@@ -83,6 +83,11 @@ function checkoutController() {
       location.reload();
     })
 
+    checkOutBtn.addEventListener("click", function() {
+      userStorage.resetCart();
+      checkoutController();
+    })
+
     // TODO: checkoutBtn - on click -> empty cart
   });
 }
