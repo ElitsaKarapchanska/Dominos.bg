@@ -80,13 +80,6 @@ const userStorage = (function () {
       });
     }
 
-    getIndexInCartByWholeProduct(product) {
-      let searched = JSON.stringify(product);
-      return this.products.findIndex((entry) => {
-        return JSON.stringify(entry) === searched;
-      });
-    }
-
     /**
      * Increments or decrements the quantity of a specific product in the cart
      * @param {Product} product
@@ -137,7 +130,7 @@ const userStorage = (function () {
     }
 
     removeFromCart(product) {
-      let indexInCart = this.getIndexInCartByWholeProduct(product);
+      let indexInCart = this.getIndexInCartByProduct(product.prod);
       if (indexInCart < 0) return false;
       this.productsWithIDs.splice(indexInCart, 1);
       this.products.splice(indexInCart, 1);
