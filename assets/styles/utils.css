@@ -53,7 +53,7 @@
   padding: 10px 0;
 }
 
-.cursor-pointer {
+.pointer {
   cursor: pointer;
 }
 
@@ -73,12 +73,50 @@
   font-weight: 700;
 }
 
+/* Might make some text gray or change other properties so text-bold is safer*/
+.font-bold {
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .text-white {
   color: white;
 }
 
+.error-txt {
+  color: #e2213d;
+}
+
 .white-decoration-title {
   color: #fff;
-  background-image: url(../images/decor_elem_left_white.svg),
+  background-image: url(.i./mages/decor_elem_left_white.svg),
     url(../images/decor_elem_right_white.svg);
+}
+
+.red-decoration-title {
+  background-image: url(../images/decor_elem_left_red.svg),
+    url(../images/decor_elem_right_red.svg);
+}
+
+.decoration-title {
+  letter-spacing: 0.5px;
+  text-align: center;
+  background-position: -0.5% center, 100% center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1250px) {
+  .main-wrapper {
+    max-width: 950px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .main-wrapper {
+    max-width: 96%;
+  }
 }

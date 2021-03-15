@@ -8,7 +8,6 @@ function showPage() {
   if (currentPage === "home") {
     changeElementVisibility(placeholderDiv, false);
     changeElementVisibility(shadowDiv);
-    changeElementVisibility(stepperContainer,false);
     window.addEventListener("scroll", createFixedNavbar);
     showTransparentHeader();
   } else {
@@ -22,6 +21,8 @@ function showPage() {
   changeElementVisibility(userIcon, userStorage.loggedInUser);
   changeElementVisibility(menuLink, !userStorage.loggedInUser);
   changeElementVisibility(orderNowBtn, true, "list-item");
+  // hide stepper always, but if in menu page -> show
+  changeElementVisibility(stepperContainer, false);
 
   for (let page in allPages) {
     if (allPages[page].id === currentPage + "Page") {
@@ -60,6 +61,7 @@ function showPage() {
   if (currentPage === "checkout") {
     if (userStorage.loggedInUser) {
       changeElementVisibility(orderNowBtn, false);
+      changeElementVisibility(stepperContainer);
       checkoutController();
     } else {
       location.hash = "#home";

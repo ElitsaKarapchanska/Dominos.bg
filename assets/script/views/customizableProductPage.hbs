@@ -42,7 +42,7 @@
                     <div class="sub_toppings_container">
                         <div class="flex space-between">
                             <p class="pull-left font-bold">Продукти</p>
-                            <p id="edit-toppings-btn" class="font-bold cursor-pointer">МОДИФИЦИРАЙ</p>
+                            <p id="edit-toppings-btn" class="font-bold pointer">МОДИФИЦИРАЙ</p>
                         </div>
                         <div id="strIngredientContainer" class="ingredients">
                             {{this.stringifiedIngredients}}
@@ -56,15 +56,15 @@
                             <div class="weight_cont">{{this.weight}}g</div>
                         </div>
                         <div class="quantity">
-                            <p class='text-bold'>КОЛИЧЕСТВО</p>
+                            <p class="font-bold">КОЛИЧЕСТВО</p>
                             <div class="product-quantity-wrapper"></div>
-                            <img id="minus" alt="minus" src="assets/images/minus.svg">
+                            <img id="minus" class="pointer" alt="minus" src="assets/images/minus.svg">
                             <span id="selectedQuantity" class="product-quantity noselect Quantity">1</span>
-                            <img id="plus" alt="plus" src="assets/images/plus.svg">
+                            <img id="plus" class="pointer" alt="plus" src="assets/images/plus.svg">
                         </div>
                     </div>
                     <div class="price">
-                        <p class='text-bold'>Цена</p>
+                        <p class='font-bold'>Цена</p>
                         <div class="product-total-price">
                             {{#ifCond this.category '===' "pizza" }}
                             <span id="currentPrice" class="total-price">{{this.price.[0]}}</span><span class="currency">
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <div class="btn-wrapper">
-                        <button id="addBtn" class="button rounded addButton">ДОБАВИ</button>
+                        <button id="addBtn" class="button rounded addButton green-button">ДОБАВИ</button>
                     </div>
                 </div>
             </div>
