@@ -9,6 +9,9 @@ activePage.forEach(page => page.addEventListener("click", function (ev) {
 }));
 
 function createStepperMenu(toDelivery,restaurant,stepperContainer){
+
+   if(localStorage.getItem("loggedInUser")){
+       
    let div_delivery=document.createElement("div");
    div_delivery.className="stepper-btn";
    let stepper_icon1= document.createElement("div");
@@ -58,6 +61,7 @@ function createStepperMenu(toDelivery,restaurant,stepperContainer){
    div_end.append(stepper_icon4,span_end);
 
    stepperContainer.append(div_delivery,div_restourant,div_menu,div_end);
+ }
 }
 createStepperMenu(userStorage.getDeliveryChoice(),userStorage.getRestaurant(),stepper);
 
