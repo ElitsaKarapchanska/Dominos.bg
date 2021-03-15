@@ -89,6 +89,8 @@ const PIZZA_CRUST_TYPES = {
   PHILLADELPHIA: "с Philadelphia (+2.25лв)",
 };
 
+const PHILLADELPHIA_CRUST_PRICE = 2.25;
+
 const STARTER_NAMES_CONSTANTS = {
   MOZZARELLA_BREAD: "МОЦАРЕЛЕНО ХЛЕБЧЕ",
   MOZZARELLA_BREAD_DESC:
