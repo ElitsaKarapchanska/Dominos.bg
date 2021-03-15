@@ -2298,7 +2298,7 @@ label {
   margin-right: 30px;
 }
 .stepper-icon-wrapper:before {
-  content: url(/assets/images/green_check.svg);
+  content: url(../images/green_check.svg);
   position: absolute;
   display: block;
   width: 15px;
