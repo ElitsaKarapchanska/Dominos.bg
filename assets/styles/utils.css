@@ -61,6 +61,18 @@
   color: #0073aa;
 }
 
+.black-txt {
+  color: #323232;
+}
+
+.text-white {
+  color: white;
+}
+
+.error-txt {
+  color: #e2213d;
+}
+
 .red-btn {
   background-color: #e2213d;
 }
@@ -82,17 +94,9 @@
   text-align: center;
 }
 
-.text-white {
-  color: white;
-}
-
-.error-txt {
-  color: #e2213d;
-}
-
 .white-decoration-title {
   color: #fff;
-  background-image: url(.i./mages/decor_elem_left_white.svg),
+  background-image: url(../images/decor_elem_left_white.svg),
     url(../images/decor_elem_right_white.svg);
 }
 
