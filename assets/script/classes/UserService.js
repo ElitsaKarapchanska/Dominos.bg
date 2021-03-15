@@ -76,6 +76,13 @@ const userStorage = (function () {
     getIndexInCartByProduct(product) {
       let searched = JSON.stringify(product);
       return this.products.findIndex((entry) => {
+        return JSON.stringify(entry.prod) === searched;
+      });
+    }
+
+    getIndexInCartByWholeProduct(product) {
+      let searched = JSON.stringify(product);
+      return this.products.findIndex((entry) => {
         return JSON.stringify(entry) === searched;
       });
     }
@@ -130,7 +137,7 @@ const userStorage = (function () {
     }
 
     removeFromCart(product) {
-      let indexInCart = this.getIndexInCartByProduct(product);
+      let indexInCart = this.getIndexInCartByWholeProduct(product);
       if (indexInCart < 0) return false;
       this.productsWithIDs.splice(indexInCart, 1);
       this.products.splice(indexInCart, 1);
