@@ -87,8 +87,6 @@ function checkoutController() {
       userStorage.resetCart();
       checkoutController();
     })
-
-    // TODO: checkoutBtn - on click -> empty cart
   });
 }
 
