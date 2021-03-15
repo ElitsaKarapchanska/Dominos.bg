@@ -50,6 +50,8 @@ const whitetel = getById("whitetel");
 
 //menu
 const activePage = document.querySelectorAll(".main-menu > li");
+const stepper = getById("stepper");
+const stepperContainer = getById("stepper-container");
 
 //filters;
 const filteredPizza = getById("filter-pizza");
