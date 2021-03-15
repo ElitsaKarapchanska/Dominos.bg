@@ -1909,7 +1909,7 @@ label {
 }
 
 .toppings-wrapper label + div.additional-container {
-  transition: all .1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   visibility: hidden;
   height: 0;
   padding-left: 25px;
@@ -1919,13 +1919,16 @@ label {
   display: none;
 }
 
-.toppings-wrapper input.single-ingredient:checked + label + div.additional-container {
+.toppings-wrapper
+  input.single-ingredient:checked
+  + label
+  + div.additional-container {
   visibility: visible;
   height: 25px;
 }
 
 .toppings-wrapper input.single-ingredient + label:before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 15px;
   height: 15px;
@@ -1943,7 +1946,7 @@ label {
 }
 
 .toppings-wrapper div.additional-container input + label:before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -2152,6 +2155,53 @@ label {
 .delivery-carryout > div {
   margin: 0 5px;
 }
+#stepper {
+  background: #f4f4f4;
+  border-top: 1px solid #ebebeb;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+  color: #555555;
+  overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.stepper-btn {
+  border-left: 1px solid #ebebeb;
+  padding: 15px 0;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-width: 20px 0 30px 20px;
+  border-right-color: #ebebeb;
+  border-right-style: solid;
+}
+.stepper-icon-wrapper {
+  display: inline-block;
+  position: relative;
+}
+.stepper-btn img {
+  width: 25px;
+  height: 25px;
+}
+.stepper-btn span {
+  margin-left: 5px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  margin-right: 30px;
+}
+.stepper-icon-wrapper:before {
+  content: url(/assets/images/green_check.svg);
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  bottom: 0;
+  right: -4px;
+}
 
 @media screen and (max-width: 1250px) {
   .main-wrapper {
@@ -2311,6 +2361,9 @@ label {
     flex-direction: column;
     align-items: center;
     height: 100%;
+  }
+  #stepper {
+    display: none;
   }
 }
 

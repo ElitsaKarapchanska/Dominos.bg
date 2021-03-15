@@ -8,6 +8,7 @@ function showPage() {
   if (currentPage === "home") {
     changeElementVisibility(placeholderDiv, false);
     changeElementVisibility(shadowDiv);
+    changeElementVisibility(stepperContainer,false);
     window.addEventListener("scroll", createFixedNavbar);
     showTransparentHeader();
   } else {
@@ -34,6 +35,7 @@ function showPage() {
         cartIcon.classList.replace("hidden", "block");
         changeElementVisibility(orderNowBtn, false);
         changeElementVisibility(nav); // show menu
+        changeElementVisibility(stepperContainer);
       } else {
         changeElementVisibility(nav, false);
       }
