@@ -40,7 +40,10 @@
                     </div>
                     {{/ifCond}}
                     <div class="sub_toppings_container">
-                        <p class="pull-left font-bold">Продукти</p>
+                        <div class="flex space-between">
+                            <p class="pull-left font-bold">Продукти</p>
+                            <p id="edit-toppings-btn" class="font-bold cursor-pointer">МОДИФИЦИРАЙ</p>
+                        </div>
                         <div id="strIngredientContainer" class="ingredients">
                             {{this.stringifiedIngredients}}
                         </div>
@@ -92,7 +95,7 @@
         </div>
     </div>
 </div>
-<div class="toppings-wrapper">
+<div id="toppings-wrapper" class="hidden">
     <h2 class="text-center white-txt">
         <span class="decoration-title white-decoration-title">ПРОДУКТИ - {{this.title}}</span>
     </h2>

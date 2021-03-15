@@ -228,21 +228,20 @@ function showCard(hashLocation) {
 }
 
 function displayComplexProductPage(products, categoryTab) {
-  // const template = Handlebars.compile(complexCardProductSource);
-  // const html = template(products);
-
-  // categoryTab.innerHTML = html;
-
   loadTemplate("customizableProductCard.hbs", categoryTab, products).then(
     () => {
       // a number to add or subtract from the product price to get the final price pre unit
       // (depends on pizza dough type, added and subtracted ingredients, but not on size)
       let priceModifiers = 0;
 
+      let editToppingsBtn = getById("edit-toppings-btn");
+      let toppingsWrapper = getById("toppings-wrapper");
+
       let close = getById("closeIcon");
       close.addEventListener("click", function () {
         // reset the product if new ingredients have been added
         products.resetProductIngredients();
+        toppingsWrapper.classList.add("hidden");
         window.history.back();
       });
 
@@ -382,6 +381,10 @@ function displayComplexProductPage(products, categoryTab) {
         });
       });
 
+      editToppingsBtn.addEventListener("click", function () {
+        toppingsWrapper.classList.toggle("hidden");
+      });
+      
       let additionalIngredientInputs = document.querySelectorAll(
         "#complexProductPage .toppings-container input.additional"
       );

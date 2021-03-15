@@ -1,6 +1,6 @@
 <div id="checkout-preview-wrapper" class="main-wrapper rounded">
+    {{#if this}}
     <div class="cart-item-container">
-        {{#if this}}
         {{#each this}}
         <div class="cart-item" data-id="{{this.prod.id}}" data-uuid="{{this.uuid}}">
             <div class="image-container">
@@ -25,11 +25,15 @@
             </div>
         </div>
         {{/each}}
-        {{/if}}
     </div>
     <div class="basket-bottom-wrapper">
         <div class="font-bold total">Общо</div>
         <div id="totalPricePreview" class="basket-total font-bold">{{getTotalPrice this}}лв</div>
     </div>
     <div id="finalizeBtn" class="green-button button rounded text-center">Завърши</div>
+    {{else}}
+    <div id="empty-cart" class="flex center">
+        <div>Вашата кошница е празна</div>
+    </div>
+    {{/if}}
 </div>
