@@ -1,5 +1,4 @@
-// const filtersSource = getById("productFilters").innerHTML;
-
+// 
 ingredientManager.addAllIngredients(allIngredientsData);
 chickenManager.addAllChickenProducts(allChickenData);
 dessertManager.addAllDessertProducts(allDessertsData);
