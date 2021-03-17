@@ -1,5 +1,4 @@
-const filtersSource = getById("productFilters").innerHTML;
-const dealsProductSource = getById("dealsProduct").innerHTML;
+// const filtersSource = getById("productFilters").innerHTML;
 
 ingredientManager.addAllIngredients(allIngredientsData);
 chickenManager.addAllChickenProducts(allChickenData);
@@ -54,10 +53,7 @@ function getProductByWholeId(id) {
 }
 
 function displayDeals(products, categoryTab) {
-  const template = Handlebars.compile(dealsProductSource);
-  const html = template(products);
-
-  categoryTab.innerHTML = html;
+  loadTemplate("dealsPage.hbs", categoryTab, products);
 }
 
 function displayCustomizableProduct(products, categoryTab) {
@@ -132,10 +128,9 @@ function quantityButtonClick(event) {
 }
 
 function filterCheckBoxesAndProducts(products, where) {
-  const template = Handlebars.compile(filtersSource);
-  const html = template(products);
 
-  where.innerHTML = html;
+  loadTemplate("filterSection.hbs", where, products)
+     .then(() => {
 
   //pizzas;
   if (products.category === "pizza") {
@@ -181,6 +176,7 @@ function filterCheckBoxesAndProducts(products, where) {
     filterDesserts(desserts, dessertManager.desserts);
     filterDesserts(icecreams, dessertManager.icecreams);
   }
+})
 }
 
 simpleProductController(chickenManager.allChicken, allPages.allChickenPage);

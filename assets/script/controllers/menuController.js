@@ -8,10 +8,10 @@ activePage.forEach(page => page.addEventListener("click", function (ev) {
     }
 }));
 
-function createStepperMenu(toDelivery,restaurant,stepperContainer){
+function createStepperMenu(stepperContainer){
 
    if(localStorage.getItem("loggedInUser")){
-       
+
    let div_delivery=document.createElement("div");
    div_delivery.className="stepper-btn";
    let stepper_icon1= document.createElement("div");
@@ -19,7 +19,7 @@ function createStepperMenu(toDelivery,restaurant,stepperContainer){
    let img_delivery=document.createElement("img");
    img_delivery.src="assets/images/step1.svg";
    let span_delivery=document.createElement("span");
-   span_delivery.innerHTML = toDelivery ? "ДОСТАВКА" : "ВЗИМАНЕ ОТ МЯСТО";
+   span_delivery.innerHTML = userStorage.getDeliveryChoice() ? "ДОСТАВКА" : "ВЗИМАНЕ ОТ МЯСТО";
 
    let div_restourant=document.createElement("div");
    div_restourant.className="stepper-btn";
@@ -28,7 +28,7 @@ function createStepperMenu(toDelivery,restaurant,stepperContainer){
    let img_restaurant=document.createElement("img");
    img_restaurant.src="assets/images/step2.svg";
    let span_restaurant=document.createElement("span");
-   span_restaurant.innerHTML = restaurant;
+   span_restaurant.innerHTML = userStorage.getRestaurant();
 
    let div_menu=document.createElement("div");
    div_menu.className="stepper-btn";
@@ -63,7 +63,7 @@ function createStepperMenu(toDelivery,restaurant,stepperContainer){
    stepperContainer.append(div_delivery,div_restourant,div_menu,div_end);
  }
 }
-createStepperMenu(userStorage.getDeliveryChoice(),userStorage.getRestaurant(),stepper);
+createStepperMenu(stepper);
 
 
 
