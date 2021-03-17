@@ -1,0 +1,126 @@
+.rounded {
+  border-radius: 4px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.end {
+  justify-content: flex-end;
+}
+
+.center {
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+.main-wrapper {
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 10px 0;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.blue-txt {
+  color: #0073aa;
+}
+
+.black-txt {
+  color: #323232;
+}
+
+.text-white {
+  color: white;
+}
+
+.error-txt {
+  color: #e2213d;
+}
+
+.red-btn {
+  background-color: #e2213d;
+}
+
+.blue-btn {
+  background-color: #0d6490;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+/* Might make some text gray or change other properties so text-bold is safer*/
+.font-bold {
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.white-decoration-title {
+  color: #fff;
+  background-image: url(../images/decor_elem_left_white.svg),
+    url(../images/decor_elem_right_white.svg);
+}
+
+.red-decoration-title {
+  background-image: url(../images/decor_elem_left_red.svg),
+    url(../images/decor_elem_right_red.svg);
+}
+
+.decoration-title {
+  letter-spacing: 0.5px;
+  text-align: center;
+  background-position: -0.5% center, 100% center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1250px) {
+  .main-wrapper {
+    max-width: 950px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .main-wrapper {
+    max-width: 96%;
+  }
+}

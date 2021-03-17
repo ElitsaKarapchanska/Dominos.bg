@@ -46,9 +46,9 @@ function filterSauces(productToGet, fromWhere) {
   productToGet.addEventListener("click", function () {
     if (productToGet.checked) {
       sauce.innerHTML = "";
-      displaySimpleProduct(fromWhere, sauce);
+      simpleProductController(fromWhere, sauce);
     } else {
-      displaySimpleProduct(sauceManager.allSauces, sauce);
+      simpleProductController(sauceManager.allSauces, sauce);
     }
   });
 }
@@ -56,9 +56,9 @@ function filterDesserts(productToGet, fromWhere) {
   productToGet.addEventListener("click", function () {
     if (productToGet.checked) {
       dessert.innerHTML = "";
-      displaySimpleProduct(fromWhere, dessert);
+      simpleProductController(fromWhere, dessert);
     } else {
-      displaySimpleProduct(dessertManager.allDesserts, dessert);
+      simpleProductController(dessertManager.allDesserts, dessert);
     }
   });
 }
@@ -66,9 +66,9 @@ function filterStarters(productToGet, fromWhere) {
   productToGet.addEventListener("click", function () {
     if (productToGet.checked) {
       starter.innerHTML = "";
-      displaySimpleProduct(fromWhere, starter);
+      simpleProductController(fromWhere, starter);
     } else {
-      displaySimpleProduct(starterManager.allStarters, starter);
+      simpleProductController(starterManager.allStarters, starter);
     }
   });
 }

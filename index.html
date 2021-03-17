@@ -16,6 +16,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="./assets/styles/utils.css" />
     <link rel="stylesheet" href="./assets/styles/index.css" />
     <link
       rel="stylesheet"
@@ -51,11 +52,11 @@
             </div>
             <div id="cartIconResponsive" class="cart-icon responsive-hidden hidden">
               <img
-                class="cursor-pointer"
+                class="pointer"
                 src="./assets/images/basket.svg"
                 alt="Basket Icon"
               />
-              <span id="orderNumberResponsive" class="order-num">0</span>
+              <span id="orderNumberResponsive" class="order-num text-bold text-white">0</span>
             </div>
           </div>
           <div class="navbar-collapse" id="navigation">
@@ -120,18 +121,18 @@
               <li id="orderNowBtn">
                 <a
                   href="#allDeals"
-                  class="button font-bold cart-btn text-center"
+                  class="button font-bold cart-btn text-white text-center rounded"
                   data-type="order"
                   >ПОРЪЧАЙ СЕГА</a
                 >
               </li>
               <li id="cartIcon" class="cart-icon responsive-hidden hidden">
                 <img
-                  class="cursor-pointer"
+                  class="pointer"
                   src="./assets/images/basket.svg"
                   alt="Basket Icon"
                 />
-                <span id="orderNumber" class="order-num">0</span>
+                <span id="orderNumber" class="order-num text-bold">0</span>
                 <div id="cartPreview" class="cart-preview flex column fade-in">
                   <div class="arrow-container">
                     <div class="arrow"></div>
@@ -142,7 +143,7 @@
               <li id="loggedIn">
                 <div class="login-container">
                   <img src="./assets/images/account_avatar_icon.svg" alt="profile">
-                  <span id="avatar-txt" class="visible-resposnsive text-bold">PROFILE</span>
+                  <span id="avatar-txt" class="visible-resposnsive font-bold">PROFILE</span>
                 </div>
                 <div id="profileDropdown" class="dropdown-container flex column hidden">
                   <div class="arrow-container">
@@ -815,7 +816,7 @@
        </div>
      <div class="filter">
        <input type="checkbox" id="newSauces">
-       <label for="newSauces" >НОВО</label>
+       <label for="newSauces">НОВО</label>
       </div>
     </div>
    {{/ifCond}}
@@ -910,11 +911,16 @@
     <script src="./assets/script/classes/StarterService.js"></script>
 
     <script src="./assets/script/classes/UserService.js"></script>
-    <script src="./assets/script/menuController.js"></script>
-    <script src="./assets/script/modalController.js"></script>
-    <script src="./assets/script/checkoutController.js"></script>
-    <script src="./assets/script/productsController.js"></script>
-    <script src="./assets/script/userController.js"></script>
+
+    <!-- Controllers -->
+    <script src="./assets/script/controllers/checkoutController.js"></script>
+    <script src="./assets/script/controllers/customizableProductPageController.js"></script>
+    <script src="./assets/script/controllers/simpleProductController.js"></script>
+    <script src="./assets/script/controllers/productsController.js"></script>
+    <script src="./assets/script/controllers/menuController.js"></script>
+    <script src="./assets/script/controllers/modalController.js"></script>
+    <script src="./assets/script/controllers/userController.js"></script>
+
     <script src="./assets/script/index.js"></script>
   </body>
 </html>

@@ -87,8 +87,6 @@ function checkoutController() {
       userStorage.resetCart();
       checkoutController();
     })
-
-    // TODO: checkoutBtn - on click -> empty cart
   });
 }
 
@@ -171,6 +169,11 @@ function checkoutPreviewController() {
         totalPriceContainer.innerText = cartTotalPrice.toFixed(2) + "лв";
       });
     });
+
+    finalizeBtn.addEventListener("click", function() {
+      location.hash = "#checkout";
+      location.reload();
+    })
   });
 }
 

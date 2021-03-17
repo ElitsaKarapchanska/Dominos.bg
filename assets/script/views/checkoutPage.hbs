@@ -21,9 +21,9 @@
                 {{{printProductDetails this.prod}}}
             </div>
             <div class="quantity-wrapper">
-                <img class="minus quantity-controller" alt="minus" src="./assets/images/minus.svg">
+                <img class="minus quantity-controller pointer" alt="minus" src="./assets/images/minus.svg">
                 <span class="quantity-number">{{this.quantity}}</span>
-                <img class="plus quantity-controller" alt="plus" src="./assets/images/plus.svg">
+                <img class="plus quantity-controller pointer" alt="plus" src="./assets/images/plus.svg">
             </div>
             <div class="price-container" data-price="{{getPricePerUnit this}}">{{getProductFinalPrice this}}лв</div>
             <div class="x-container">
@@ -41,5 +41,5 @@
 </div>
 
 <div class="order-btn-container">
-    <button id="checkOutBtn" class="button red-btn text-center rounded">ЗАВЪРШЕТЕ ПОРЪЧКАТА СИ</button>
+    <button id="checkOutBtn" class="button red-btn text-center rounded text-white">ЗАВЪРШЕТЕ ПОРЪЧКАТА СИ</button>
 </div>

@@ -13,10 +13,13 @@ class Product {
   static getFinalPrice(cartItem) {
     let priceModifiers = parseFloat(cartItem.priceModifiers);
     if (cartItem.prod.types) {
-      let index = cartItem.prod.types.indexOf(cartItem.prod.selectedType);
-      return cartItem.prod.price[index] + priceModifiers;
+      if (cartItem.prod.types.length === 0) {
+        return cartItem.prod.price[0] + priceModifiers;
+      }
+      let selectedTypeIndex = cartItem.prod.types.indexOf(cartItem.prod.selectedType);
+      return cartItem.prod.price[selectedTypeIndex] + priceModifiers;
     }
-    if (cartItem.prod.category !== 'pizza') {
+    if (cartItem.prod.category !== "pizza") {
       return cartItem.prod.price + priceModifiers;
     }
     switch (cartItem.prod.size) {
