@@ -1,0 +1,29 @@
+{{#if this}}
+      {{#each this}}
+        <article class="card rounded complex-card deals-card">
+          <img class="deals-image" src="./assets/images/{{this.image}}" alt="{{this.title}}" />
+          <div>
+            <img src="assets/images/offer_ribbon_bg.svg" alt="Offer-ribbon" class="offer-ribbon">
+          </div>
+          <div class="title-wrapper-deals">
+              <h2>{{this.title}}</h2>
+          </div>
+            <p class="product-description">
+                {{this.description}}
+            </p>
+            <div class="btn-wrapper" id="deals-button">
+              <button class="green-button button rounded addButton">ИЗБЕРЕТЕ</button>
+            </div>
+            <div class="delivery-carryout">
+              <div>
+                <img src="assets/images/delivery_bike.svg" alt="Delivery icon" class="delivery-carryout_icons">
+                <span class="deal-dc">DELIVERY</span>
+              </div>
+              <div>
+                <img src="assets/images/carry_out_store.svg" alt="Carry out store icon" class="delivery-carryout_icons">
+                <span class="deal-dc">CARRY OUT</span>
+              </div>
+            </div>
+        </article>
+      {{/each}}
+{{/if}}
