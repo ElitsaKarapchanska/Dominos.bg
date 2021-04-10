@@ -39,7 +39,7 @@ function checkoutController() {
           productUUID
         );
         let productInCart =
-          userStorage.loggedInUser.cart.products[productInCartIndex];
+          userStorage.loggedInUser.cart.products[productInCartIndex].prod;
         userStorage.editCartProductQuantity(productInCart, !isMinusBtn);
 
         currentPrice = pricePerUnit * currentQuantity;
@@ -130,7 +130,7 @@ function checkoutPreviewController() {
           productUUID
         );
         let productInCart =
-          userStorage.loggedInUser.cart.products[productInCartIndex];
+          userStorage.loggedInUser.cart.products[productInCartIndex].prod;
         userStorage.editCartProductQuantity(productInCart, !isMinusBtn);
 
         currentPrice = pricePerUnit * currentQuantity;
