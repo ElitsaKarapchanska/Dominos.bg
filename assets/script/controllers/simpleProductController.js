@@ -65,7 +65,8 @@ function simpleProductController(products, categoryTab) {
           "#" + id + " .quantity-number"
         );
         let quantity = parseInt(quantityElement.innerText);
-        addToCartBtn(product, quantity);
+        let productToAdd = JSON.parse(JSON.stringify(product))
+        addToCartBtn(productToAdd, quantity);
       });
     });
 
